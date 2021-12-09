@@ -1,13 +1,15 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Invitation Form </title>
+	<title>Admin Complete Registration|Materials and Manufacturing in Healthcare Network | Register Page</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+	@include("admin.analytics")
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
@@ -15,170 +17,140 @@
 	<link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets/css/animate.min.css" rel="stylesheet" />
 	<link href="/assets/css/style.min.css" rel="stylesheet" />
-	
 	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
-	<!-- ================== END PAGE LEVEL STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
 </head>
-<body>
-@if(Session::has('mailed'))
-			<script type="text/javascript">
-			alert("File shared successfully");
-			</script>
-			@endif
-			@if(Session::has('msg'))
-			<script type="text/javascript">
-			alert("Form Submitted Successfully");
-			</script>
-			@endif
-			
-			@if(Session::has('found'))
-			<script type="text/javascript">
-			alert("Category with the same name exist. Please consider changing the name.");
-			</script>
-			@endif
-			
-			@if(Session::has('urlerror'))
-			<script type="text/javascript">
-			alert("Process encountred non-valid URL, check entry: "+ln);
-			</script>
-			@endif
-			@if(Session::has('msg2'))
-			<script type="text/javascript">
-			alert("URL exist. Please try another one.");
-			</script>
-			@endif
-			@if(Session::has('dfd'))
-			<label > URL </label><br/><br/>
-			@endif
-			
-			@if(Session::has('emp'))
-			
-			<script type="text/javascript">
-			alert(" Error empty field selected...");
-			</script>
-			
-			@endif
+<body class="pace-top bg-white">
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 	
+						@if(Session::has('msg'))
+						<script type="text/javascript">
+						alert('Account created successfully...');
+						</script>
+						@elseif(Session::has('msg_interest'))
+						<script type="text/javascript">
+						alert('Interest form submitted successfully. You will be contacted via email as soon as possible');
+						</script>
+						@elseif(Session::has('mismatch'))
+						<script type="text/javascript">
+						alert('Passwords mismatched');
+						</script>
+						@elseif(Session::has('msg_interest2'))
+						<script type="text/javascript">
+						alert('Partner registered successfully');
+						</script>
+						@elseif(Session::has('msg2'))
+						<script type="text/javascript">
+						alert('User with that email already exist please use a diffrent email address...');
+						</script>
+						@elseif(Session::has('uplerror'))
+						<script type="text/javascript">
+						alert('Invalid passport photograph format, use only png,jpeg,jpg');
+						</script>
+						@elseif(Session::has('err'))
+						<small>Invalid Username or Password...</small>
+						
+						@else(msg == "" or msg==NULL)
+							<small>Your files are with you everywhere you go...</small>
+						@endif
+                        
+	
 	<!-- begin #page-container -->
-	@include('admin.sagir')
-		<!-- end #header -->
-		<!-- begin #sidebar -->
-		@include('partials.sidebar')
-		<div class="sidebar-bg"></div>
-		<!-- end #sidebar -->
-		<style type="text/css">
-	.rq{color:#FF0000}
-	</style>
-		<!-- begin #content -->
-		<div id="content" class="content">
-			<!-- begin breadcrumb -->
-			
-			<!-- begin row -->
-			<div class="row">
-                <!-- begin col-6 -->
-			    <div class="col-md-12">
-			        <!-- begin panel -->
-                    <div class="panel panel-inverse" data-sortable-id="form-validation-1">
-                        <div class="panel-heading">
-                            <div class="panel-heading-btn">
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-                            </div>
-                            <h4 class="panel-title">Network Invitation Form</h4>
-                        </div>
-                        <div class="panel-body panel-form">
-                            <form  action="/add/portal" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="fullname">Name  <span class="rq">*</span> :</label>
-									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text"  name="name" value="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}" data-parsley-required="true" readonly/>
-										<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="fullname">Email  <span class="rq">*</span> :</label>
-									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="email"  name="email" value="{{$u->email}} " data-parsley-required="true" readonly/>
-										
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Affliation</label>
-									<div class="col-md-6 col-sm-6">
-										<input type="text" name="affiliation" class="form-control"  placeholder="e.g., University College London" required/>
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Designation</label>
-									<div class="col-md-6 col-sm-6">
-										<input type="text" name="designation" class="form-control"  placeholder="e.g., Professor" required/>
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Current Research Interst</label>
-									<div class="col-md-6 col-sm-6">
-										<textarea class="form-control"   name="research_interest" placeholder=" Space Seperated">
-										
-										</textarea>
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Previous Research Interest</label>
-									<div class="col-md-6 col-sm-6">
-										<textarea class="form-control"   name="previous_research" placeholder=" Space Seperated">
-										
-										</textarea>
-									</div>
-								</div>
-								
-								
-								
-							
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4"></label>
-									<div class="col-md-6 col-sm-6">
-										<button type="submit" class="btn btn-primary">Submit</button>
-									</div>
-								</div>
-                            </form>
-							
-							 
-								
-								
-                        </div>
-                    </div>
-                    <!-- end panel -->
+	<div id="page-container" class="fade">
+	    <!-- begin register -->
+        <div class="register register-with-news-feed">
+            <!-- begin news-feed -->
+            <div class="news-feed">
+                <div class="news-image">
+                    <img src="/assets/img/login-bg/bg-8.jpg" alt="" />
                 </div>
-                <!-- end col-6 -->
-                <!-- begin col-6 -->
-				
-				
+                <div class="news-caption">
+                    
+                </div>
             </div>
-            <!-- end row -->
-		</div>
-		<!-- end #content -->
-		
+            <!-- end news-feed -->
+            <!-- begin right-content -->
+            <div class="right-content">
+                <!-- begin register-header -->
+                <h3 align="center">
+                   Membership Registration Form
+                   
+                </h3>
+                <!-- end register-header -->
+                <!-- begin register-content -->
+                <div class="register-content">
+                    <form action="/adminregister/new_complete" method="POST"  enctype="multipart/form-data" class="margin-bottom-0">
+					
+					
+					
+					
+						
+						<label class="control-label">Password (minimum of 8 characters) <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="password" class="form-control" name="password" minlength="8"   required />
+								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+								<input type="hidden" name="role" value="user"/>
+								<input type="hidden" name="code" value="{{$cd}}"/>
+                            </div>
+                        </div>
+                       
+					   <label class="control-label">Confirm Password <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="password" class="form-control" name="cpassword" minlength="8"  required />
+								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+			
+                            </div>
+                        </div>
+                       
+						
+						
+                        <div class="checkbox m-b-30">
+                             <label>
+                                <input type="checkbox" required /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ ">Terms</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy">Cookie Use</a>.
+                            </label>
+                        </div>
+						
+						<div class="checkbox m-b-30">
+                            <label>
+                                <input type="checkbox" name="news_email" /> Click to receives notification when new public story is posted.
+                            </label>
+                        </div>
+						
+						<div class="checkbox m-b-30">
+                            <label>
+                                <input type="checkbox" name="matching_email" /> Click to receives notification when you are selected as partner.
+                            </label>
+                        </div>
+						
+						
+                        <div class="register-buttons">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">Complete Registration</button>
+                        </div>
+                        <div class="m-t-20 m-b-40 p-b-40 text-inverse">
+                            Already a member? Click <a href="/login">Login</a> to sign in.
+                        </div>
+                        <hr />
+                        <p class="text-center">
+                            &copy; Materials and Manufacturing in Healthcare Network <?php echo date('Y') ?>
+                        </p>
+                    </form>
+                </div>
+                <!-- end register-content -->
+            </div>
+            <!-- end right-content -->
+        </div>
+        <!-- end register -->
+        
         <!-- begin theme-panel -->
         <div class="theme-panel">
             <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
@@ -255,10 +227,6 @@
             </div>
         </div>
         <!-- end theme-panel -->
-		
-		<!-- begin scroll to top btn -->
-		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
-		<!-- end scroll to top btn -->
 	</div>
 	<!-- end page container -->
 	
@@ -277,36 +245,35 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
 	<script src="/assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	
-	<script>
-	
-	function app(){
-			$('#notapproved').css('display','block');
-			$('#approved').css('display','none');
-		}
-		function notapp(){
-			$('#approved').css('display','block');
-			$('#notapproved').css('display','none');
-		}
+<style type="text/css">
+   	  #oth{display:none;}
+	  
+   </style>
+   
+   <script>
+   function OtherField(){
+			var checkBox = document.getElementById("ck").checked;
+		  // Get the output text
+		  	
+		  // If the checkbox is checked, display the output text
+		  if (checkBox.checked == true){
+		   $('#oth').css('display','block');
+		  } else {
+			$('#oth').css('display','none');
+		  }   
+   			
 		
+		
+		}
+   </script>
+   
+	<script>
 		$(document).ready(function() {
 			App.init();
 		});
 	</script>
-	
-	<style type="text/css">
-	rq{color:#FF0000}
-   	  #ni{display:none;}
-	  #sub{display:none;}
-	  #ac{display:none;}
-	  #bc{display:none;}
-	  #ovrw{display:none;}
-	  #newv{display:none;}
-	  #approved{display:none;}
-	  #notapproved{display:none;}
-   </style>
 </body>
 </html>
+s

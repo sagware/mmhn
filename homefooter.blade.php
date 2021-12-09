@@ -1,3 +1,4 @@
+
 @include("admin.cookiebanner")
 
 
@@ -16,7 +17,6 @@
 							<li><a href="/event">Events</a></li>
 							<li><a href="/grant">Grants</a></li>
 							
-                           
                         </ul>
                     </div>
                     <!-- end section-container -->
@@ -44,7 +44,7 @@
                         <ul class="recent-post">
                             <li>
                                 
-                                    <a href="https://www.ucl.ac.uk/disclaimer/">Terms and Conditions</a>
+                                    <a href="https://www.ucl.ac.uk/disclaimer/">Terms and Condition</a>
                                 
                             </li>
                             <li>
@@ -65,20 +65,20 @@
                 <!-- begin col-3 -->
                 <div class="col-md-3 col-sm-3">
                     <div class="section-container">
-                        <h4 class="footer-title">Contact</h4>
+                        <h4 class="footer-title">Contact Us</h4>
 						
                         <address>
-                           <!-- <strong> University College London</strong><br />
+						<!--
+                            <strong> University College London</strong><br />
 							Gower St,<br />
 							London<br />
 							WC1E 6BT<br />
 							United Kingdom
                             <br />
-                            <strong>Rita</strong><br />
-							-->
+                            <strong>Rita</strong><br />-->
                             <a href="mailto:ana.pinho.14@ucl.ac.uk">ana.pinho.14@ucl.ac.uk</a>
                         </address>
-						-->
+						
                     </div>
                     <!-- end section-container -->
                 </div>
@@ -137,31 +137,7 @@
 			
 	</script>
 	
-	<script type="text/javascript">
-// Key under which name the cookie is saved
-const cookieName = 'cookieconsent';
-// The value could be used to store different levels of consent
-const cookieValue = 'dismissed';
-
-function dismiss() {
-    const date = new Date();
-    // Cookie is valid 1 year: now + (days x hours x minutes x seconds x milliseconds)
-    date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
-    // Set cookie
-    document.cookie = `${cookieName}=${cookieValue};expires=${date.toUTCString()};path=/`;
-
-    // You probably want to remove the banner
-    document.querySelector('.js-cookie-banner').remove();
-}
-
-// Get button element
-const buttonElement = document.querySelector('.js-cookie-dismiss');
-// Maybe cookie consent is not present
-if (buttonElement) {
-    // Listen on button click
-    buttonElement.addEventListener('click', dismiss);
-}
-</script>
+	
 	
 	<script>
 	    $(document).ready(function() {
@@ -171,5 +147,9 @@ if (buttonElement) {
 	
 	
 	
+	
+?>
+
+
 </body>
 </html>

@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>MMHN</title>
+	<title>Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -39,7 +39,7 @@
                 <a href="/" class="navbar-brand">
                     <span class="brand-logo"></span>
                     <span class="brand-text">
-                        MMHN
+                        Materials and Manufacturing in Healthcare Network
                     </span>
                 </a>
             </div>
@@ -53,13 +53,7 @@
     <!-- end #header -->
     
     <!-- begin #page-title -->
-    <div id="page-title" class="page-title has-bg">
-        <div class="bg-cover"><img src="/assets_blog/img/cover5.jpg" /></div>
-        <div class="container">
-            <h1>Linking academia and industry</h1>
-            <!--<p>Organised intelligently</p>-->
-        </div>
-    </div>
+    
     <!-- end #page-title -->
     
     <!-- begin #content -->
@@ -75,14 +69,9 @@
                        
                         <h3 class="text-inverse">Use of Cookies Terms and Condition</h3>
                         <p class="about-me-desc">
-                          To be submitted
+                          To be updated ASAP
                         </p>
-                        <p class="about-me-desc">
-                            To be submited
-                        </p>
-						<p class="about-me-desc">
-                            To be submited
-							</p>
+                       
 							
                     </div>
                     <!-- end section-container -->
@@ -99,4 +88,4 @@
     <!-- end #content -->
     
     <!-- begin #footer -->
-   @include('admin.header')
+   @include('admin.footer')

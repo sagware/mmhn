@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>MMHN</title>
+	<title>Terms and Codition| Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -25,6 +25,7 @@
 	<!-- ================== END BASE JS ================== -->
 </head>
 <body>
+@include("admin.cookiebanner")
     <!-- begin #header -->
     <div id="header" class="header navbar navbar-default navbar-fixed-top">
         <!-- begin container -->
@@ -39,7 +40,7 @@
                 <a href="/" class="navbar-brand">
                     <span class="brand-logo"></span>
                     <span class="brand-text">
-                        MMHN
+                        Materials and Manufacturing in Healthcare Network
                     </span>
                 </a>
             </div>

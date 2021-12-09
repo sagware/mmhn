@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>MMHN Users List <?php echo date('d/M/Y h:m');?></title>
+	<title>Partners|Materials and Manufacturing in Healthcare Network Users List <?php echo date('d/M/Y h:m');?></title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -25,7 +25,7 @@
 	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
+	@include("admin.analytics")
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
 	<link href="/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />

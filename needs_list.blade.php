@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Materials and Manufacturing in Healthcare Network Users List <?php echo date('d/M/Y h:m');?></title>
+	<title>Challenges List| Materials and Manufacturing in Healthcare Network Challenges/Needs List <?php echo date('d/M/Y h:m');?></title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -25,7 +25,7 @@
 	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
+	@include("admin.analytics")
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
 	<link href="/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
@@ -37,20 +37,21 @@
 	<!-- ================== END BASE JS ================== -->
 </head>
 <body>
+@include("admin.cookiebanner")
 
 			@if(Session::has('mailed'))
 			<script type="text/javascript">
 			alert("File shared successfully");
 			</script>
 			@endif
-			@if(Session::has('reject'))
-			<script type="text/javascript">
-			alert("User rejected successfully");
-			</script>
-			@endif
 			@if(Session::has('msg'))
 			<script type="text/javascript">
 			alert("Action Completed");
+			</script>
+			@endif
+			@if(Session::has('ptrequest'))
+			<script type="text/javascript">
+			alert("PartneriInvitation request sas been sent, you will be notified when the user accepted your invitation");
 			</script>
 			@endif
 			@if(Session::has('dl'))
@@ -111,9 +112,9 @@
 						
 						 <div class="email-btn-row hidden-xs">
 					<br/>
-					<!--
-                        <a href="/showSourcePortal" class="btn btn-sm btn-inverse" ><i class="fa fa-plus m-r-5"></i> Add a Source Portal</a> 
--->
+					
+                        <a href="/clinical_need_form" class="btn btn-sm btn-inverse" ><i class="fa fa-plus m-r-5"></i> Add Clinical Need </a> 
+
 						
 						
                         
@@ -125,18 +126,12 @@
                                 <thead>
                                     <tr>
 										<th>S/N</th>
-                                        <th>Name</th>
-                                        <th>Biography/Background</th>
-										<th>Email</th>
-										<th>Research Interest Keywords</th>
-										<th>Institution</th>
-										<th>Reason for Joining</th>
-										<th>Invitation Status</th>
-										<th>Send Network Invitation</th>
-                                        <th>Change Admin Status</th>
-										<th>Role</th>
-                                        <th>Enable/Disable User</th>
-										<th>Date registered</th>
+										<th>Review/Approve</th>
+										<th>Status</th>
+                                        <th>Title</th>
+                                        <th>Category</th>
+										<th>Date Submitted</th>
+										
 										
                                     </tr>
                                 </thead>
@@ -146,57 +141,12 @@
 								@foreach($gra as $g)
                                     <tr >
 										<td>{{$ct}}</td>
-                                        <td>{{$g->first_name}}  {{$g->middle_name}} {{$g->last_name}}</td>
-										<td>{{$g->bio}}</td>
-										<td>{{$g->email}}</td>
-										<td><?php
-										$uks = array();
-										if( !empty(unserialize($g->keywords))){
-										$uks = unserialize($g->keywords);
-										}
+										<td><a href="/review/{{$g->id}}" title="Review and approve">Review/Approve</a></td>
+										<td>{{$g->status}}</td>
+                                        <td>{{$g->title}}</td>
+										<td>{{$g->category}}</td>
+										<td>{{ date('D jS, M Y, h:i:s A', strtotime($g->created_at)) }}</td>
 										
-										foreach($kk as $k ){
-										foreach($uks as $uk ){
-										if($uk  ==  $k->id){echo $k->name.", ";}
-										}
-										
-										}
-										
-										 ?>
-										 custom keyword: {{$g->other_keyword}}
-										 </td>
-                                        <td>{{$g->institution}}</td>
-										<td>{{$g->joining_reason}}</td>
-										 <td>
-								    @if($g->iv_status == "1")
-									<button type="button" class="btn btn-danger m-r-5 m-b-5">Sent</button>
-									@else
-									<button type="button" class="btn btn-primary m-r-5 m-b-5">Not Invited</button>
-									@endif
-									</td>
-									<?php $code = generateRandomString(20);?>
-									<td><a  href="/sendinvitation/{{$code}}/{{$g->id}}">	<button type="button" class="btn btn-primary m-r-5 m-b-5">Send Invitation to Network</button></a> | <a  href="javascript:;" onClick="reject({{$g->id}})">	<button type="button" class="btn btn-primary m-r-5 m-b-5">Send Rejection</button></a></td>
-                                        <td>
-										@if($g->role=="user")
-										<a  href="/makeadmin/{{$g->id}}">	<button type="button" class="btn btn-primary m-r-5 m-b-5">Change to Admin</button></a>
-										@elseif($g->role=="admin")
-										<a  href="/makeuser/{{$g->id}}">	<button type="button" class="btn btn-primary m-r-5 m-b-5">Change to User</button></a>
-										@endif
-										</td>
-										
-										<td>{{$g->role}}</td>
-										 <td>
-										 
-									@if($g->status == "1")
-								<a href="/enableuser/{{$g->id}}">	<button type="button" class="btn btn-primary m-r-5 m-b-5">Enable</button></a>
-									@else
-									<a href="/disableuser/{{$g->id}}">
-									<button type="button" class="btn btn-danger m-r-5 m-b-5">Disable</button></a>
-									@endif</td>
-										
-										<td>
-										
-										{{ date('D jS, M Y, h:i:s A', strtotime($g->created_at)) }}</td>
 										
                                     </tr>
 									<?php $ct++; ?>
@@ -330,15 +280,34 @@
 	
 	<script>
 	
-	function reject(p_id){
-	//alert(y);
+	function createConference(){
+	//alert("Alhamdulillah");
 	
 			$('#yloader').show();
 	
-			frmstring = '<form action="/reject_user" method="POST" enctype="multipart/form-data"><div><input type="hidden" name="_token" value="{{ csrf_token() }}"/></div><div >Message: <textarea class="form-control" name="message" /></textarea><br/><input type="hidden" value='+p_id+' name="pid"/><button class="btn btn-primary"> Submit Rejection</button></div></div></form/>';
+			frmstring = '<form action="/add/agency" method="POST"><div class="col-md-4"><input type="text" class="form-control" placeholder="Candidate/Staff Name" name="name" required/><input type="hidden" name="_token" value="{{ csrf_token() }}"/><br/><label class="control-label">Gender <span class="text-danger">*</span></label><br/><input  value="Male" name="gender" type="radio"/>Male <input type="radio" value="Male" name="gender" />Female<br/><label class="control-label">Staff Category <span class="text-danger">*</span></label><br/><input  value="Academic Staff" name="category" type="radio"/>Academic Staff <input type="radio" value="Non-Academic Staff" name="category" />Non-Academic Staff<br/><label class="control-label">First Appointment Date<span class="text-danger">*</span></label><br/><input type="date" class="form-control" placeholder="Date of First Appointment" name="name" required/><br/><input type="file" class="form-control" name="name" required/><br/><label class="control-label">Conference Details <span class="text-danger">*</span></label><input type="text" class="form-control" placeholder="Venue" name="name" required/><br/><input type="text" class="form-control" placeholder="Date" name="name" required/><br/><input type="text" class="form-control" placeholder="Contact" name="name" required/><br/><input type="text" class="form-control" placeholder="Email/Phone Number" name="name" required/></div><div class="col-md-4"><input type="text" class="form-control" placeholder="No. of Years in Institution" name="name" required/><br/><input type="text" class="form-control" placeholder="Duration of Entire Work Experience" name="name" required/><br/><label class="control-label">Bank Account Details <span class="text-danger">*</span></label><br/><input type="text" class="form-control" placeholder="Bank Name" name="name" required/><br/><input type="text" class="form-control" placeholder="Account Name" name="name" required/><br/><input type="text" class="form-control" placeholder="Account NO." name="name" required/><br/><input type="text" class="form-control" placeholder="Sort Code" name="name" required/><br/><input type="text" class="form-control" placeholder="Conference Cost" name="name" required/><br/><textarea type="text" class="form-control" placeholder="Cost Implication Breakdown" name="name" required></textarea><br/><input onChange="notapp()" value="Approved" name="status" type="radio"/>Approved <br/><input type="radio" value="Not Approved" name="status" onChange="app()"/>Not Approved<br/><input type="hidden" name="_token" value="{{ csrf_token() }}"/><br/></div><div class="col-md-4"><label class="control-label">Qualification Details<span class="text-danger">*</span></label><br/><select class="form-control"><option>Bachelor Degree</option></select><br/><input type="text" class="form-control" placeholder="date obtained MM/YYYY" name="name" /><br/><select class="form-control"><option>Masters Degree</option></select><br/><input type="text" class="form-control" placeholder="date obtained MM/YYYY" name="name" /><br/><input type="text" class="form-control" placeholder="Agency Name" name="name" required/><br/><select class="form-control"><option>Doctoral Degree</option></select><br/><input type="text" class="form-control" placeholder="date obtained MM/YYYY" name="name" /><br/><input type="text" class="form-control" placeholder="Batch No. of Nomination" name="name" required/><br/><input type="text" class="form-control" placeholder="Year of Intervention" name="name" required/><br/><input type="hidden" name="_token" value="{{ csrf_token() }}"/><br/></div><br/><button class="btn btn-info">Add Agency</button></form/>';
 			
 			bootbox.dialog({
-				title: 'Rejection Form',
+				title: 'Tetfund Conference Attendance Nomination Form',
+				size:'medium',
+				message: frmstring
+			 });
+				
+				
+			
+	} //	folder creation ends here...
+	
+	
+	function createResearchGrant(){
+	//alert("Alhamdulillah");
+	
+			$('#yloader').show();
+	
+			frmstring = '<form action="/add/grant" method="POST"><div class="col-md-12"><input type="text" class="form-control" placeholder="Name of Pricipal Researcher" name="name" required/><input type="hidden" name="_token" value="{{ csrf_token() }}"/><br/><br/><textarea name="co" placeholder="Co-researchers" class="form-control"></textarea><br/><label class="control-label">Faculty <span class="text-danger">*</span></label><select name="faculty" class="form-control"><option value="Science">Faculty of Science</option><option value="Arts and Social Sci.">Arts and Social Sciences</option><option value="Education">Faculty of Education</option><option value="Medical Sci.">College of Medical Sciences</option></select><br/><input type="text" name="dept" class="form-control" placeholder="Department" required/><br/><input type="text" class="form-control" name="topic" placeholder="Topic of Research"  required/><br/><input type="text" class="form-control" placeholder="Thematic Area" name="thematic" required/><br/><input type="number" class="form-control" placeholder="Total Budget in Naira" name="budget" required/><br/><input type="text" class="form-control" placeholder="Duration of Project" name="duration" required/><br/><input onChange="notapp()" value="Approved" name="status" type="radio"/>Approved <input type="radio" value="Not Approved" name="status" onChange="app()"/>Not Approved<br/><input id="approved" type="number" class="form-control" placeholder="Amount Approved" name="amount"  /><input id="notapproved"  type="text" class="form-control" placeholder="Reason for not Approval" name="reason"/><br/></div><br/><br/><button class="btn btn-info">Submit</button></form/>';
+
+			
+			bootbox.dialog({
+				title: 'Register New TETFUND Institutional Based Research Grant.',
 				size:'medium',
 				message: frmstring
 			 });
@@ -346,10 +315,19 @@
 				
 			
 	} //
-	$(document).ready(function() {
+		$(document).ready(function() {
 			App.init();
 			TableManageButtons.init();
 		});
+		
+		function app(){
+			$('#notapproved').css('display','block');
+			$('#approved').css('display','none');
+		}
+		function notapp(){
+			$('#approved').css('display','block');
+			$('#notapproved').css('display','none');
+		}
 
 	</script>
 	<style type="text/css">

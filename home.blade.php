@@ -5,43 +5,69 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Home| Academic Data Portals</title>
+	<title>Home Page|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 	<!-- ================== END BASE CSS STYLE ================== -->
-    
+    <style>
+	.overlay{
+	
+	background: url('/assets/plain.png');
+	height:300px;
+	width: 300px;
+	opacity: 1;
+	}
+	.icon{
+	font-size:3em;
+	color: black;
+	}
+	</style>
+	<!-- overlay 2-->
+	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
 </head>
 <body>
+
+@if(Session::has('needsubmit'))
+			<script type="text/javascript">
+			alert("Challenge/Need submitted successfully");
+			</script>
+			@endif
+			
+			@if(Session::has('neededit'))
+			<script type="text/javascript">
+			alert("Challenge/Need edited successfully");
+			</script>
+			@endif
+			
+			@if(Session::has('fileerror'))
+			<script type="text/javascript">
+			alert("Invalid cover photo: jpg, png only");
+			</script>
+			@endif
+			
     <!-- begin #header -->
     <div id="header" class="header navbar navbar-default navbar-fixed-top">
         <!-- begin container -->
         <div class="container">
             <!-- begin navbar-header -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                         Academic Data Portals
-                    </span>
-                </a>
+               
+               
             </div>
             <!-- end navbar-header -->
             <!-- begin navbar-collapse -->
@@ -54,11 +80,11 @@
     
     <!-- begin #page-title -->
     <div id="page-title" class="page-title has-bg">
-        <div class="bg-cover"><img src="/assets_blog/img/cover.jpg" alt="" /></div>
+        <div class="bg-cover"><img src="/assets/homecover.jpeg" alt="Cover photo" /></div>
         <div class="container">
-            <h1>OPEN DATA ACADEMIC PORTAL
+            <h1>Materials and Manufacturing in Healthcare Innovation Network
 </h1>
-            <p>A repository of datasets from various open data portals to simplify finding datasets for your research and/or teaching 
+            <p>Connecting clinicians, researchers, and manufacturers to collaborate, accelerate and drive sector change.
 </p>
         </div>
     </div>
@@ -67,160 +93,229 @@
     <!-- begin #content -->
     <div id="content" class="content">
         <!-- begin container -->
-        <div class="container">
+        <!--
+		<div class="container"> -->
             <!-- begin row -->
-            <div class="row row-space-30">
+			
+			@if(Auth::check())
+            <div class="row row-space-30" >
                 <!-- begin col-9 -->
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <!-- begin post-list -->
-                    <div class="post-list post-grid post-grid-2">
-                        <div class="post-li">
+                    <div class="post-list post-grid post-grid-3">
+                        
+						<div class="post-li">
                             <!-- begin post-content -->
                             <div class="post-content">
-                                <!-- begin post-image -->
-                                <div class="post-image post-image-with-carousel">
-                                    <!-- begin carousel -->
-                                    <div id="carousel-post" class="carousel slide" data-ride="carousel">
-                                        <!-- begin carousel-indicators -->
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#carousel-post" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carousel-post" data-slide-to="1"></li>
-                                            <li data-target="#carousel-post" data-slide-to="2"></li>
-                                        </ol>
-                                        <!-- end carousel-indicators -->
-                                        <!-- begin carousel-inner -->
-                                        <div class="carousel-inner">
-                                            <div class="item active">
-                                                <a href="/category/Sports"><img src="/assets_blog/img/sports.jpg" alt="" /></a>
-                                            </div>
-                                            <div class="item">
-                                                <a href="/category/Health"><img src="/assets_blog/img/health.png" alt="" /></a>
-                                            </div>
-                                            <div class="item">
-                                                <a href="/category/Education"><img src="/assets_blog/img/education.jpg" alt="" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- end carousel-inner -->
-                                        <!-- begin carousel-control -->
-                                        <a class="left carousel-control" href="#carousel-post" role="button" data-slide="prev">
-                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                        </a>
-                                        <a class="right carousel-control" href="#carousel-post" role="button" data-slide="next">
-                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                        </a>
-                                        <!-- end carousel-control -->
-                                    </div>
-                                    <!-- end carousel -->
-                                </div>
-                                <!-- end post-image -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="/datasets">Categorised Datasets</a>
+								<div align="center">
+								<i class="icon">
+								<i class="fas fa-users"></i>
+								</i>
+								</div>
+							<h4 class="post-title" align="center">
+                                        Partners
                                     </h4>
-                                    
-                                    <div class="post-desc">
-                                        Browse data by categories, classifications or customised searches 
-
-                                    </div>
-                                    
+                                   
+                                <!-- begin blockquote -->
+                                <div class="card card-clean">
+								  <div class="card-header text-white p-0 overlay overlay-primary">
+                                    <ul>
+									
+									<a href="/academic/partners" title="Academic Parners"><li> <h4>Academic Parners</h4></li></a>
+									<a href="/industry/partners" title="Industry Partners"><li> <h4>Industry Partners</h4></li></a>
+									<a href="/clinical/partners" title="Clinical Partners"><li> <h4>Clinical Partners</h4></li></a>
+									<a href="/other/partners" title="Other Category of Partners"><li> <h4>Other Partners</h4></li></a>
+									
+									</ul>
                                 </div>
+								</div>
+                                <!-- end blockquote -->
+                                <!-- begin post-info -->
+                               
                                 <!-- end post-info -->
                             </div>
                             <!-- end post-content -->
                         </div>
-                        <div class="post-li">
+						
+						
+						
+						
+						<div class="post-li">
                             <!-- begin post-content -->
                             <div class="post-content">
-                                <!-- begin post-image -->
-                                <div class="post-image">
-                                    <a href="/category/Travel"><img src="/assets_blog/img/geography.jpg" alt="" /></a>
-                                </div>
-                                <!-- end post-image -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="/category/Travel">Geographical Datasets</a>
+							
+							<div align="center">
+							<i class="icon">
+							<i class="fas fa-hammer"></i>
+							</i>
+							</div>
+							
+							
+							 <h4 class="post-title" align="center">
+                                        Challenges
                                     </h4>
-                                    
-                                    <div class="post-desc">
-                                         Datasets aligned for: Geographical analysis with easy way of sharing an manipulation.
-                                    </div>
-                                    <div class="read-btn-container">
-                                       
-                                    </div>
+                                <!-- begin blockquote -->
+                                <div class="card card-clean">
+								  <div class="card-header text-white p-0 overlay overlay-primary">
+                                     <ul>
+									@foreach($ch as $c)
+									<a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}"><li><h4>{{$c->title}}</h4></li></a>
+									@endforeach
+									<a href="/clinicalneeds" class="read-btn" title="Read more"> Read More <i class="fa fa-angle-double-right"></i></a>
+									</ul>
                                 </div>
+								</div>
+                                <!-- end blockquote -->
+                                <!-- begin post-info -->
+                                
                                 <!-- end post-info -->
                             </div>
                             <!-- end post-content -->
-                        </div>
-                        <div class="post-li">
-                            <!-- begin post-content -->
-                            <div class="post-content">
-                                <!-- begin post-image -->
-                                <div class="post-image">
-                                    <a href="/customise/category"><img src="/assets_blog/img/custom.jpg" alt="" /></a>
-                                </div>
-                                <!-- end post-image -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="/customise/category">Create Customs Data Category</a>
-                                    </h4>
-                                    
-                                    <div class="post-desc">
-                                         The platform allows registered users to filter their customs datasets category.
-                                    </div>
-                                    <div class="read-btn-container">
-                                       
-                                    </div>
-                                </div>
-                                <!-- end post-info -->
-                            </div>
-                            <!-- end post-content -->
-                        </div>
-                        <div class="post-li">
-                            <!-- begin post-content -->
-                            <div class="post-content">
-                                <!-- begin post-image -->
-                                <div class="post-image">
-                                    <a href="/category/Real_estate"><img src="/assets_blog/img/realestate.jpg" alt="" /></a>
-                                </div>
-                                <!-- end post-image -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="post_detail.html">Real Estate Datasets</a>
-                                    </h4>
-                                    
-                                    <div class="post-desc">
-                                         Datasets aligned for: Real Estate datasets made easy                                    </div>
-                                    <div class="read-btn-container">
-                                        
-                                    </div>
-                                </div>
-                                <!-- end post-info -->
-                            </div>
-                            <!-- end post-content -->
-                        </div>
+                       
                     </div>
-                    <!-- end post-list -->
+					
+					
+					
+					
+						<div class="post-li" >
+                            <!-- begin post-content -->
+                            <div class="post-content">
+							<div align="center">
+							<i class="icon">
+							<i class="far fa-newspaper" ></i>
+							</i>
+							</div>
+							<h4 class="post-title" align="center">
+                                       Latest Innovation Stories
+                                    </h4>
+                                   
+                                <!-- begin blockquote -->
+                                <div class="card card-clean">
+								  <div class="card-header text-white p-0 overlay overlay-primary">
+                                    <ul>
+									@foreach($r as $n)
+									<a href="/public_post/{{$n->id}}" title="{{$n->title}}"><li><b><h4>{{$n->title}}</b></h4></li></a>
+									@endforeach
+									<a href="/news" class="read-btn" title="Read more"> Read More <i class="fa fa-angle-double-right"></i></a>
+									</ul>
+                                </div>
+								</div>
+                                <!-- end blockquote -->
+                                <!-- begin post-info -->
+                                
+                                <!-- end post-info -->
+                            </div>
+                            <!-- end post-content -->
+                        </div>
+						
+						
+                    <!-- end post-list -->                
                     
-                    
-                </div>
+               
+				
                 <!-- end col-9 -->
                 <!-- begin col-3 -->
-                @include("admin.sidebar")
+               </div>
                 <!-- end col-3 -->
             </div>
             <!-- end row -->
         </div>
+			
+			@else
+			<div class="row row-space-30" >
+                <!-- begin col-9 -->
+                <div class="col-md-12">
+                    <!-- begin post-list -->
+                    <div class="post-list post-grid post-grid-2">
+                        
+						
+						<div class="post-li" >
+                            <!-- begin post-content -->
+                            <div class="post-content">
+							<div align="center">
+							<i class="icon">
+							<i class="far fa-newspaper" ></i>
+							</i>
+							</div>
+							<h4 class="post-title" align="center">
+                                       Latest Innovation Stories
+                                    </h4>
+                                   
+                                <!-- begin blockquote -->
+                                <div class="card card-clean">
+								  <div class="card-header text-white p-0 overlay overlay-primary">
+                                    <ul>
+									@foreach($r as $n)
+									<a href="/public_post/{{$n->id}}" title="{{$n->title}}"><li><b><h4>{{$n->title}}</b></h4></li></a>
+									@endforeach
+								<a href="/news" class="read-btn" title="Read more"> Read More <i class="fa fa-angle-double-right"></i></a>
+									</ul>
+                                </div>
+								</div>
+                                <!-- end blockquote -->
+                                <!-- begin post-info -->
+                                
+                                <!-- end post-info -->
+                            </div>
+                            <!-- end post-content -->
+                        </div>
+						
+						
+					
+					<div class="post-li">
+                            <!-- begin post-content -->
+                            <div class="post-content">
+								<div align="center">
+								<i class="icon">
+								<i class="fas fa-info-circle"></i>
+								</i>
+								</div>
+							<h4 class="post-title" align="center">
+                                        Network Information
+                                    </h4>
+                                   
+                                <!-- begin blockquote -->
+                                <div class="card card-clean">
+								  <div class="card-header text-white p-0 overlay overlay-primary">
+                                    <ul>
+									
+									<a href="/aboutus" title="About us"><li> <h4>About Us</h4></li></a>
+									<a href="/faq" title="FAQ"><li> <h4>FAQ</h4></li></a>
+									<a href="/contactus" title="Contact us"><li> <h4>Contact Us</h4></li></a>
+									
+									</ul>
+                                </div>
+								</div>
+                                <!-- end blockquote -->
+                                <!-- begin post-info -->
+                               
+                                <!-- end post-info -->
+                            </div>
+                            <!-- end post-content -->
+                        </div>
+					
+					
+						
+						
+						
+                    <!-- end post-list -->                
+                    
+               
+				
+                <!-- end col-9 -->
+                <!-- begin col-3 -->
+               </div>
+                <!-- end col-3 -->
+            </div>
+            <!-- end row -->
+        </div>
+			@endif
         <!-- end container -->
     </div>
     <!-- end #content -->
-    
+    <div> <br/>  </div>
     <!-- begin #footer -->
-    @include("admin.footer")
+    @include("admin.homefooter")
     
     <!-- end theme-panel -->
     
@@ -228,11 +323,11 @@
 	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	<script src="/assets_blog/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<!--[if lt IE 9]>
+	
 		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
 		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
 		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
-	<![endif]-->
+
 	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
 	<script src="/assets_blog/js/apps.min.js"></script>

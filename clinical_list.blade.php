@@ -35,6 +35,7 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
 </head>
 <body>
 
@@ -276,56 +277,9 @@
 	<script src="assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
-	<script>
-	
-	function createConference(){
-	//alert("Alhamdulillah");
-	
-			$('#yloader').show();
-	
-			frmstring = '<form action="/add/agency" method="POST"><div class="col-md-4"><input type="text" class="form-control" placeholder="Candidate/Staff Name" name="name" required/><input type="hidden" name="_token" value="{{ csrf_token() }}"/><br/><label class="control-label">Gender <span class="text-danger">*</span></label><br/><input  value="Male" name="gender" type="radio"/>Male <input type="radio" value="Male" name="gender" />Female<br/><label class="control-label">Staff Category <span class="text-danger">*</span></label><br/><input  value="Academic Staff" name="category" type="radio"/>Academic Staff <input type="radio" value="Non-Academic Staff" name="category" />Non-Academic Staff<br/><label class="control-label">First Appointment Date<span class="text-danger">*</span></label><br/><input type="date" class="form-control" placeholder="Date of First Appointment" name="name" required/><br/><input type="file" class="form-control" name="name" required/><br/><label class="control-label">Conference Details <span class="text-danger">*</span></label><input type="text" class="form-control" placeholder="Venue" name="name" required/><br/><input type="text" class="form-control" placeholder="Date" name="name" required/><br/><input type="text" class="form-control" placeholder="Contact" name="name" required/><br/><input type="text" class="form-control" placeholder="Email/Phone Number" name="name" required/></div><div class="col-md-4"><input type="text" class="form-control" placeholder="No. of Years in Institution" name="name" required/><br/><input type="text" class="form-control" placeholder="Duration of Entire Work Experience" name="name" required/><br/><label class="control-label">Bank Account Details <span class="text-danger">*</span></label><br/><input type="text" class="form-control" placeholder="Bank Name" name="name" required/><br/><input type="text" class="form-control" placeholder="Account Name" name="name" required/><br/><input type="text" class="form-control" placeholder="Account NO." name="name" required/><br/><input type="text" class="form-control" placeholder="Sort Code" name="name" required/><br/><input type="text" class="form-control" placeholder="Conference Cost" name="name" required/><br/><textarea type="text" class="form-control" placeholder="Cost Implication Breakdown" name="name" required></textarea><br/><input onChange="notapp()" value="Approved" name="status" type="radio"/>Approved <br/><input type="radio" value="Not Approved" name="status" onChange="app()"/>Not Approved<br/><input type="hidden" name="_token" value="{{ csrf_token() }}"/><br/></div><div class="col-md-4"><label class="control-label">Qualification Details<span class="text-danger">*</span></label><br/><select class="form-control"><option>Bachelor Degree</option></select><br/><input type="text" class="form-control" placeholder="date obtained MM/YYYY" name="name" /><br/><select class="form-control"><option>Masters Degree</option></select><br/><input type="text" class="form-control" placeholder="date obtained MM/YYYY" name="name" /><br/><input type="text" class="form-control" placeholder="Agency Name" name="name" required/><br/><select class="form-control"><option>Doctoral Degree</option></select><br/><input type="text" class="form-control" placeholder="date obtained MM/YYYY" name="name" /><br/><input type="text" class="form-control" placeholder="Batch No. of Nomination" name="name" required/><br/><input type="text" class="form-control" placeholder="Year of Intervention" name="name" required/><br/><input type="hidden" name="_token" value="{{ csrf_token() }}"/><br/></div><br/><button class="btn btn-info">Add Agency</button></form/>';
-			
-			bootbox.dialog({
-				title: 'Tetfund Conference Attendance Nomination Form',
-				size:'medium',
-				message: frmstring
-			 });
-				
-				
-			
-	} //	folder creation ends here...
 	
 	
-	function createResearchGrant(){
-	//alert("Alhamdulillah");
-	
-			$('#yloader').show();
-	
-			frmstring = '<form action="/add/grant" method="POST"><div class="col-md-12"><input type="text" class="form-control" placeholder="Name of Pricipal Researcher" name="name" required/><input type="hidden" name="_token" value="{{ csrf_token() }}"/><br/><br/><textarea name="co" placeholder="Co-researchers" class="form-control"></textarea><br/><label class="control-label">Faculty <span class="text-danger">*</span></label><select name="faculty" class="form-control"><option value="Science">Faculty of Science</option><option value="Arts and Social Sci.">Arts and Social Sciences</option><option value="Education">Faculty of Education</option><option value="Medical Sci.">College of Medical Sciences</option></select><br/><input type="text" name="dept" class="form-control" placeholder="Department" required/><br/><input type="text" class="form-control" name="topic" placeholder="Topic of Research"  required/><br/><input type="text" class="form-control" placeholder="Thematic Area" name="thematic" required/><br/><input type="number" class="form-control" placeholder="Total Budget in Naira" name="budget" required/><br/><input type="text" class="form-control" placeholder="Duration of Project" name="duration" required/><br/><input onChange="notapp()" value="Approved" name="status" type="radio"/>Approved <input type="radio" value="Not Approved" name="status" onChange="app()"/>Not Approved<br/><input id="approved" type="number" class="form-control" placeholder="Amount Approved" name="amount"  /><input id="notapproved"  type="text" class="form-control" placeholder="Reason for not Approval" name="reason"/><br/></div><br/><br/><button class="btn btn-info">Submit</button></form/>';
-
-			
-			bootbox.dialog({
-				title: 'Register New TETFUND Institutional Based Research Grant.',
-				size:'medium',
-				message: frmstring
-			 });
-				
-				
-			
-	} //
-		$(document).ready(function() {
-			App.init();
-			TableManageButtons.init();
-		});
 		
-		function app(){
-			$('#notapproved').css('display','block');
-			$('#approved').css('display','none');
-		}
-		function notapp(){
-			$('#approved').css('display','block');
-			$('#notapproved').css('display','none');
-		}
 
 	</script>
 	<style type="text/css">

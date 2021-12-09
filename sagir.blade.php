@@ -20,7 +20,7 @@
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 							<img src="/assets/img/user-13.jpg" alt="" /> 
-							<span class="hidden-xs">{{Auth::user()->first_name}}</span> <b class="caret"></b>
+							<span class="hidden-xs">{{Auth::user()->last_name}}</span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu animated fadeInLeft">
 							<li class="arrow"></li>

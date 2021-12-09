@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Registration|Materials and Manufacturing in Healthcare Network| Register Page</title>
+	<title>Profile|Materials and Manufacturing in Healthcare Network| Register Page</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -19,17 +19,22 @@
 	<link href="/assets/css/style.min.css" rel="stylesheet" />
 	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<link href="/assets/multiselect.css" rel="stylesheet">
 	<!-- ================== END BASE CSS STYLE ================== -->
+	<!-- multiselect-->
 	
+	@include("admin.analytics")
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	@include("admin.analytics")
+	
+	<!-- multiselect-->
+	
+	
 </head>
 <body class="pace-top bg-white">
-	<!-- begin #page-loader -->
 @include("admin.cookiebanner")
-		
+	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 	
@@ -41,6 +46,14 @@
 						<script type="text/javascript">
 						alert('Interest form submitted successfully. You will be contacted via email as soon as possible');
 						</script>
+						@elseif(Session::has('mismatch'))
+						<script type="text/javascript">
+						alert('Passwords mismatched');
+						</script>
+						@elseif(Session::has('msg_interest2'))
+						<script type="text/javascript">
+						alert('Profile edited successfully');
+						</script>
 						@elseif(Session::has('msg2'))
 						<script type="text/javascript">
 						alert('User with that email already exist please use a diffrent email address...');
@@ -49,11 +62,13 @@
 						<script type="text/javascript">
 						alert('Invalid passport photograph format, use only png,jpeg,jpg');
 						</script>
+						
+						
 						@elseif(Session::has('err'))
 						<small>Invalid Username or Password...</small>
 						
 						@else(msg == "" or msg==NULL)
-							
+							<small>Your files are with you everywhere you go...</small>
 						@endif
                         
 	
@@ -75,92 +90,184 @@
             <div class="right-content">
                 <!-- begin register-header -->
                 <h3 align="center">
-                  Membership Expression of Interest                   
+                   Profile Edit Form
+                   
                 </h3>
-				<div align="right">	
-							<h5 align="justify"> <b>
-                  The Materials and Manufacturing in Healthcare Network aims to bring together clinicians, researchers and industry professionals to form a community equipped to tackle healthcare manufacturing challenges. The network will support responses to real-world challenges, run a series of events, and facilitate connections between members. If you would like to join our network, please submit an expression of interest form below.                
-                </b></h5>
-				</div>
                 <!-- end register-header -->
                 <!-- begin register-content -->
                 <div class="register-content">
-                    <form action="/register/new" method="POST"  enctype="multipart/form-data" class="margin-bottom-0">
-                        
-						<label class="control-label" for="fname">First name <span class="text-danger">*</span> </label></label>
+                    <form action="/edit/profile" method="POST"  enctype="multipart/form-data" class="margin-bottom-0">
+					
+					<label class="control-label">First name <span class="text-danger">*</span> </label></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="fname" class="form-control" placeholder="First Name e.g., Rita" name="first_name"  required />
+                                <input type="text" class="form-control"  value="{{$u->first_name}}" name="first_name"  required  />
+                            </div>
+                        </div>
+						
+						
+						<label class="control-label">Last name <span class="text-danger">*</span> </label></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control"  value="{{$u->last_name}}" name="last_name"  required  />
+                            </div>
+                        </div>
+						
+						
+                      
+						
+						 <label class="control-label">Organisation </label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Organisation e.g., University College London" name="institution"  value="{{$u->institution}}"   />
+                            </div>
+                        </div>
+						
+						<label class="control-label">Role title </label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="e.g., Professor" name="designation" value="{{$u->designation}}" />
                             </div>
                         </div>
 						
 						
 						
-						<label class="control-label" for="sname">Surname Name <span class="text-danger">*</span> </label></label>
+						<label class="control-label">Brief bio/background, this will be visible to other members (maximum number of characters: 200)<span class="text-danger">*</span> </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="sname" class="form-control" placeholder="Surname e.g., Sagir" name="last_name" required  />
+                                <textarea type="text" name="bio" class="form-control"  maxlength="200" required>{{$u->bio}} </textarea>
                             </div>
                         </div>
 						
-						 <label class="control-label" for="org">Organisation </label>
+						<label class="control-label">Why do you want to join the network? (maximum number of characters: 200)<span class="text-danger">*</span> </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="org" class="form-control" placeholder="Organisation e.g., University College London" name="institution"   />
+                                <input type="text" name="reason" class="form-control"  maxlength="200"  value="{{$u->joining_reason}}" required /> 
                             </div>
                         </div>
 						
-						<label class="control-label" for="role">Role title </label>
+						<label class="control-label">LinkedIn (optional)</label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="role" class="form-control" placeholder="e.g., Professor" name="designation"  />
+                                <input type="text" name="linkedin" class="form-control" value="{{$u->linkedin}}"  /> 
                             </div>
                         </div>
 						
-						 <label class="control-label" for="ck2">Sector </label>
+						<label class="control-label">Twitter (optional)</label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="radio"  name="sector" value="Academic" id="ck2" onChange="OtherHide()"/> <label class="control-label">Academia </label>
-								<input type="radio"  name="sector" value="Industry" id="ck3" onChange="OtherHide1()"/> <label class="control-label">Industry </label>
-								<input type="radio"  name="sector" value="Clinical" id="ck4" onChange="OtherHide2()"/> <label class="control-label">Clinical </label>
-								<input  type="radio"  name="sector" id="ck" value="Other" onChange="OtherField()" /><label class="control-label"> Other</label>
+                                <input type="text" name="twitter" class="form-control"  value="{{$u->twitter}}" /> 
                             </div>
                         </div>
 						
-						  <div class="row m-b-15" id="oth">
-						
+						<label class="control-label">Webpage (optional)</label>
+                        <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="email" class="form-control" placeholder="If other is selected, type in the keyword" name="other"   />
+                                <input type="text" name="webpage" class="form-control" value="{{$u->webpage}}" /> 
+                            </div>
+                        </div>
+						
+						
+                        <label class="control-label">Email <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="email" class="form-control" placeholder="Email address" name="email"  value="{{$u->email}}" required/>
 								
                             </div>
                         </div>
 						
-						<label class="control-label" for="reason">How does this network align with your interests? (maximum number of characters: 200)<span class="text-danger">*</span> </label>
-                        <div class="row m-b-15">
+						<div >
+						
+						<div class="bg-cover" id="pic"><img src="/uploads/{{Auth::user()->picture}}" height="200px" width="200px" alt="" /></div>
+						<input  type="checkbox"  name="profile_pic" id="cpp" value="profile_pic" onClick="Pro()" /> Edit Profile Picture
+				<div id="pp">
+						<label id="ed" class="control-label">Profile picture </label>
+                        <div  class="row m-b-15">
+                            <div  class="col-md-12">
+                                <input type="file" class="form-control"  name="pic"   />
+								
+                            </div>
+                        </div>
+						</div>
+						
+				</div>		
+						
+						
+									<label for="key" class="control-label" for="fullname">Select keyword(s) that describe the Challenge/Need :</label>
+									 <div class="row m-b-15">
                             <div class="col-md-12">
-                                <textarea type="text" id="reason" name="reason" class="form-control"  maxlength="200" required> </textarea>
+										<button class="btn btn-primary" type="button" 
+										id="sampleDropdownMenu" data-toggle="dropdown">
+										Click to select keywords 
+										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" <?php if(!empty($u->other_keyword)){echo "checked";} ?>/> Other keywords 
+										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
+										@foreach($kw as $k)
+										
+										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"<?php if(is_array(unserialize($u->keywords))){if(in_array($k->id,unserialize($u->keywords))){echo "checked";} } ?> />&nbsp; {{$k->name}}
+										
+										 <br/>
+										
+										 @endforeach
+	
+										</div>
+										</div>
+							   
+							   
+									</div>
+								
+						
+						
+                        <div class="row m-b-15" id="oth">
+						
+                            <div class="col-md-12">
+                                <input type="text" value="{{$u->other_keyword}}" class="form-control" placeholder="If other is selected, type in the keyword" name="otherfield"   />
+								
                             </div>
                         </div>
 						
-						
-                        <label class="control-label" for="email">Email <span class="text-danger">*</span></label>
+						<!--
+						<label class="control-label">Password (minimum of 8 characters) <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="email" id="email" class="form-control" placeholder="Email address" name="email" required />
+                                <input type="password" class="form-control" name="password" minlength="8"   required />
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 								<input type="hidden" name="role" value="user"/>
                             </div>
                         </div>
                        
+					   <label class="control-label">Confirm password <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="password" class="form-control" name="cpassword" minlength="8"  required />
+								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+			
+                            </div>
+                        </div>
+						-->
+                       
 						
 						
                         <div class="checkbox m-b-30">
-                            <label for="agree">
-                                <input type="checkbox" required id="agree" /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ ">Terms</a> and that you have read our <a href="https://www.ucl.ac.uk/privacy/">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy">Cookie Use</a>.
+                             <label>
+                                <input type="checkbox" required  checked/> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ ">Terms</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy">Cookie Use</a>.
                             </label>
                         </div>
+						
+						<div class="checkbox m-b-30">
+                            <label>
+                                <input type="checkbox" name="news_email" <?php if(!empty($u->public_email)){echo "checked";} ?> /> Click to receives notification when new public story is posted.
+                            </label>
+                        </div>
+						
+						<div class="checkbox m-b-30">
+                            <label>
+                                <input type="checkbox" name="matching_email" <?php if(!empty($u->matching_email)){echo "checked";} ?> /> Click to receives notification when you are selected as partner.
+                            </label>
+                        </div>
+						
+						
                         <div class="register-buttons">
-                            <button type="submit" class="btn btn-primary btn-block btn-lg">Show Interest</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">Update profile</button>
                         </div>
                         <div class="m-t-20 m-b-40 p-b-40 text-inverse">
                             Already a member? Click <a href="/login">Login</a> to sign in.
@@ -256,11 +363,11 @@
 	</div>
 	<!-- end page container -->
 	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
 		<script src="/assets/crossbrowserjs/respond.min.js"></script>
@@ -273,60 +380,70 @@
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
 	<script src="/assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	<!-- selcet-->
+	<script src="/assets/multiselect.js"></script>
+	<script src="/assets/helper.js"></script>
+	
+	
+	
+	
 <style type="text/css">
-   	  #oth{display:none;}
+   	
+	  #pp{display:none;}
 	  
    </style>
    
    <script>
    function OtherField(){
-			var checkBox = document.getElementById("ck").checked;
+			var checkBox = document.getElementById("ck");
 		  // Get the output text
-		  var text = document.getElementById("text");
-		
+		  	
 		  // If the checkbox is checked, display the output text
-		  if (checkBox == true){
+		  if (checkBox.checked == true){
 		   $('#oth').css('display','block');
 		  } else {
 			$('#oth').css('display','none');
-		  }   			
+		  }   
+   			
 		
-}
-
- function OtherHide(){
-			var checkBox = document.getElementById("ck2").checked;
+		
+		}
+		
+		function Pro(){
+			var checkBox = document.getElementById("cpp");
 		  // Get the output text
-		
+		  	
 		  // If the checkbox is checked, display the output text
-		  if (checkBox == true){
-		  $('#oth').css('display','none');
-		  } 			
+		  if (checkBox.checked == true){
+		   $('#pp').css('display','block');
+		    $('#pic').css('display','none');
+		  } else {
+			$('#pp').css('display','none');
+		  }   
+   			
 		
-}
-
-function OtherHide1(){
-			var checkBox = document.getElementById("ck3").checked;
-		  // Get the output text
 		
-		  // If the checkbox is checked, display the output text
-		  if (checkBox == true){
-		  $('#oth').css('display','none');
-		  } 			
+		}
 		
-}
-
-function OtherHide2(){
-			var checkBox = document.getElementById("ck4").checked;
-		  // Get the output text
-		
-		  // If the checkbox is checked, display the output text
-		  if (checkBox == true){
-		  $('#oth').css('display','none');
-		  } 			
-		
-}
+	
    </script>
+  
+	
+	<script type="text/javascript">
+        $(document).ready(function () {
+            $('#keywords').multiselect(
+                {
+                    includeSelectAllOption: true
+                });
+        });
+    </script>
+	
+	
+	</script>	
+		
 	<script>
+	
 		$(document).ready(function() {
 			App.init();
 		});

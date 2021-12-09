@@ -1,4 +1,18 @@
+<style type="text/css">
+.cookie-banner {
+  background-color: lightblue;
+  padding: 20px;
+ 
+}
+</style>
 
+<?php if(!isset($_COOKIE["mycookie"])) { ?>
+<div class="cookie-banner js-cookie-banner">
+    Our website uses cookies. By continuing we assume your permission to deploy cookies, as detailed in our <button  type="submit" class="js-cookie-dismiss" id=".cookie-accept" name="cookie">Accept</button>
+</div>
+
+
+<?php } ?>
 
 <div id="header" class="header navbar navbar-default navbar-fixed-top">
         <!-- begin container -->
@@ -6,7 +20,7 @@
             <!-- begin navbar-header -->
             <div class="navbar-header">
                 <a href="/" class="navbar-brand">
-                   <img src="/assets/icon600.png" alt="icon" width="100" height="42">
+                   <img src="/assets/icon.png" alt="icon" width="100px" height="42px">
                     
                 </a>
             </div>
@@ -71,3 +85,12 @@
         </div>
         <!-- end container -->
     </div>
+	
+	<?php
+	$value = "Hello world!";
+	 // 86400 = 1 day
+		if(!isset($_COOKIE['cookie'])) {
+		setcookie("mycookie", $value, time() + 5);
+		   
+		} 
+?><!-- MMDW:success -->

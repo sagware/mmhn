@@ -1,9 +1,11 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Edit Challenge or Need|Materials and Manufacturing in Healthcare Network</title>
+	<title>Keywords List|Materials and Manufacturing in Healthcare Network Keywords List <?php echo date('d/M/Y h:m');?></title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -15,98 +17,49 @@
 	<link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets/css/animate.min.css" rel="stylesheet" />
 	<link href="/assets/css/style.min.css" rel="stylesheet" />
-	
 	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+	
+	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!-- ================== END BASE CSS STYLE ================== -->
-	@include("admin.analytics")
+	
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+	<link href="/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    
-    <!-- SummerNote Javascript Library -->
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-	
-    <script>
-        $(document).ready(function () {
-            /** Initialize SummerNote Javscript For Textarea */
-            $('#message').summernote({
-               placeholder: 'Enter the post body',
-                height: '300px',
-				styleTags: [
-    'p',
-        { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
-        'pre', 'h1', 'Heading2', 'Heading3', 'Heading4', 'Heading5', 'Heading6'
-	],
-  
-                toolbar: [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough', 'superscript', 'subscript']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']],
-				  ['insert', ['link', 'picture']],
-				  ['view', ['codeview', 'help']],
-				  ['somegroup', ['style.Heading2', 'style.Heading3','style.Heading4','style.Heading5','style.Heading6' ]]
-                ]
-           
-            });
-        });
-    </script>
 </head>
 <body>
-@include("admin.cookiebanner")
-@if(Session::has('mailed'))
+
+			@if(Session::has('mailed'))
 			<script type="text/javascript">
 			alert("File shared successfully");
 			</script>
 			@endif
 			@if(Session::has('msg'))
 			<script type="text/javascript">
-			alert("Form Submitted Successfully");
+			alert("Action Completed");
 			</script>
 			@endif
-			
-			@if(Session::has('ms1'))
+			@if(Session::has('deleted'))
 			<script type="text/javascript">
-			alert("Public story submitted successfully");
+			alert("Keyword deleted successfully");
 			</script>
 			@endif
-			
-			@if(Session::has('found'))
+			@if(Session::has('dl'))
 			<script type="text/javascript">
-			alert("Category with the same name exist. Please consider changing the name.");
+			alert("File Completed");
 			</script>
 			@endif
-			
-			@if(Session::has('urlerror'))
-			<script type="text/javascript">
-			alert("Process encountred non-valid URL, check entry: "+ln);
-			</script>
-			@endif
-			@if(Session::has('msg2'))
-			<script type="text/javascript">
-			alert("URL exist. Please try another one.");
-			</script>
-			@endif
-			@if(Session::has('dfd'))
-			<label > URL </label><br/><br/>
+			@if(Session::has('msg_file'))
+			<label > File created successfully...</label><br/><br/>
 			@endif
 			
 			@if(Session::has('emp'))
@@ -116,30 +69,36 @@
 			</script>
 			
 			@endif
+			
+			
 	<!-- begin #page-loader -->
-	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+	<div id="page-loader" class="fade"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 	
-	<!-- begin #page-container -->
 	@include('admin.sagir')
 		<!-- end #header -->
+		</div></div>
 		<!-- begin #sidebar -->
 		@include('partials.sidebar')
+		
 		<div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
-		<style type="text/css">
-	.rq{color:#FF0000}
-	</style>
+		
 		<!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			
+			<!-- end page-header -->
+			
 			<!-- begin row -->
 			<div class="row">
-                <!-- begin col-6 -->
+			    <!-- begin col-2 -->
+			    
+			    <!-- end col-2 -->
+			    <!-- begin col-10 -->
 			    <div class="col-md-12">
 			        <!-- begin panel -->
-                    <div class="panel panel-inverse" data-sortable-id="form-validation-1">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
                             <div class="panel-heading-btn">
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -147,61 +106,52 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                             </div>
-                            <h4 class="panel-title">Clinical Need Form</h4>
+                            <h4 class="panel-title">All Keywords</h4>
                         </div>
-                        <div class="panel-body panel-form">
-                            <form  action="/edit/need" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="fullname">Title <span class="rq">*</span> :</label>
-									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text" value="{{$s->title}}"  name="name"  data-parsley-required="true" required/>
-										<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-										<input type="hidden" name="id" value="{{ $s->id}}"/>
-									</div>
-								</div>
-								
-								
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Statement of need</label>
-									<div class="col-md-6 col-sm-6">
-										<input class="form-control" value="{{$s->detail}}"  name="statement" placeholder=" Space Seperated"/>
+						
+						 <div class="email-btn-row hidden-xs">
+					<br/>
+					
+                        <a href="/add_keyword" class="btn btn-sm btn-inverse" ><i class="fa fa-plus m-r-5"></i> Add Keyword </a> 
+
+						
+						
+                        
+                    </div>
+					
+                      
+                        <div class="panel-body">
+                            <table id="data-table" class="table table-striped table-bordered display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+										<th>S/N</th>
+                                        <th>Title</th>
+										<th>Date Submitted</th>
+										<th>Actions</th>
 										
 										
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Need picture</label>
-									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control"   name="pic" />
-										
-										
-									</div>
-								</div>
-								
-								
-								
-							
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4"></label>
-									<div class="col-md-6 col-sm-6">
-										<button type="submit" class="btn btn-primary">Submit</button>
-									</div>
-								</div>
-                            </form>
-							
-							 
-								
-								
+                                    </tr>
+                                </thead>
+                                <tbody>
+								  <?php $ct = 1; ?>
+								{{--pr($gra,true)--}}
+								@foreach($k as $g)
+                                    <tr >
+										<td>{{$ct}}</td>
+										<td>{{$g->name}}</td>
+										<td>{{ date('D jS, M Y, h:i:s A', strtotime($g->created_at)) }}</td>
+										<td> <a href="/deletekeyword/{{$g->id}}" title="Delete keyword"><button type="submit" class="btn btn-sm btn-primary m-r-5">Delete</button></a> |  <a href="/editkeyword/{{$g->id}}" title="Edit keyword"><button type="submit" class="btn btn-sm btn-primary m-r-5">Edit</button></a></td>
+                                    </tr>
+									<?php $ct++; ?>
+                                 @endforeach  
+								 <?php $ct++; ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <!-- end panel -->
                 </div>
-                <!-- end col-6 -->
-                <!-- begin col-6 -->
-				
-				
+                <!-- end col-10 -->
             </div>
             <!-- end row -->
 		</div>
@@ -295,6 +245,7 @@
 	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/assets/js/bootbox.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
 		<script src="/assets/crossbrowserjs/respond.min.js"></script>
@@ -305,13 +256,31 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
-	<script src="/assets/js/apps.min.js"></script>
+	<script src="/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+	<script src="/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/jszip.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+	<script src="/assets/js/table-manage-buttons.demo.min.js"></script>
+	<script src="assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script>
 	
-	function app(){
+	
+	
+		$(document).ready(function() {
+			App.init();
+			TableManageButtons.init();
+		});
+		
+		function app(){
 			$('#notapproved').css('display','block');
 			$('#approved').css('display','none');
 		}
@@ -319,14 +288,9 @@
 			$('#approved').css('display','block');
 			$('#notapproved').css('display','none');
 		}
-		
-		$(document).ready(function() {
-			App.init();
-		});
+
 	</script>
-	
 	<style type="text/css">
-	rq{color:#FF0000}
    	  #ni{display:none;}
 	  #sub{display:none;}
 	  #ac{display:none;}
@@ -336,5 +300,6 @@
 	  #approved{display:none;}
 	  #notapproved{display:none;}
    </style>
+   
 </body>
 </html>

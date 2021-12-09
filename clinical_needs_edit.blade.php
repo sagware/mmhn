@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Challeng/Need |Materials and Manufacturing in Healthcare Network</title>
+	<title>Edit Need| Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -29,12 +29,12 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	
+	@include("admin.analytics")
 	
 	
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    @include("admin.analytics")
+    
     <!-- SummerNote Javascript Library -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	
@@ -93,25 +93,10 @@
     help: { title: 'Help', items: 'help' }
   }
       });
-	  
-	  
     </script>
 	
 	
-<!--  
- TINYMCE_DEFAULT_CONFIG = {
-"plugins": "advlist,autolink,lists,link,image,imagetools,charmap,print,preview,anchor,"
-"searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,"
-"code,help,wordcount,spellchecker",
-"toolbar": "undo redo | formatselect | "
-"bold italic backcolor | alignleft aligncenter "
-"alignright alignjustify | bullist numlist outdent indent | "
-"removeformat | help",
-"paste_data_images": "true"
-}
--->	
-<!--Auto complete-->
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -144,30 +129,17 @@
 			}
 		</style>
 		
-			
 </head>
-
 <body>
 @include("admin.cookiebanner")
-@if(Session::has('needsubmitted'))
-						<script type="text/javascript">
-						alert('Challenge created successfully');
-	</script>
-	@endif	
-	
-	@if(Session::has('neededited'))
-						<script type="text/javascript">
-						alert('Challenge edited successfully');
-	</script>
-	@endif		
-			
 	<!-- begin #page-loader -->
 	 <div id="header" class="header navbar navbar-default navbar-fixed-top">
         <!-- begin container -->
         <div class="container">
             <!-- begin navbar-header -->
             <div class="navbar-header">
-               
+                
+                
             </div>
             <!-- end navbar-header -->
             <!-- begin navbar-collapse -->
@@ -201,21 +173,17 @@
 			    <div class="col-md-16">
 			        <!-- begin panel -->
                     <div class="panel panel-inverse">
-                        <div class="panel-heading">
-                            
-                            <h4 class="panel-title">Challenge/Needs Form</h4>
-                        </div>
+                        
                         <div class="panel-body panel-form">
-                            <form  action="/add/need" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+                            <form  action="/editadd/need" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="title">Title <span class="text-danger">*</span> :</label>
+									<label class="control-label col-md-4 col-sm-4" for="fullname">Title <span class="text-danger">*</span> :</label>
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" id="title" type="text"  name="name"  data-parsley-required="true" required/>
+										<input class="form-control" type="text" value="{{$p->title}}"  name="name"  data-parsley-required="true" required/>
 										<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+										<input type="hidden" name="id" value="{{$p->id}}"/>
 									</div>
 								</div>
-								
-								
 								
 								<div class="form-group">
 									<label for="key" class="control-label col-md-4 col-sm-4" for="fullname">Select keyword(s) that describe the challenge/need :</label>
@@ -225,11 +193,11 @@
 										<button class="btn btn-primary" type="button" 
 										id="sampleDropdownMenu" data-toggle="dropdown">
 										Click to select keywords 
-										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" /> other keywords 
+										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" <?php if(!empty($p->other_keyword)){echo "checked";} ?> /> other keywords 
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
-										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox" />&nbsp; {{$k->name}}
+										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox" <?php if(is_array(unserialize($p->keywords))){if(in_array($k->id,unserialize($p->keywords))){echo "checked";} } ?> />&nbsp; {{$k->name}}
 										
 										 <br/>
 										
@@ -242,19 +210,20 @@
 									</div>
 								</div>
 								
-								
-									<div class="form-group" id="oth">
-									<label class="control-label col-md-4 col-sm-4" for="fullname"> Other keywords (Comma sperated for multiple entries) :</label>
+								<div class="form-group" id="oth">
+									<label class="control-label col-md-4 col-sm-4" for="oth"> Other keywords (Comma sperated for multiple entries):</label>
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one"  />
+										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="{{$p->other_keyword}}"  />
 										
 									</div>
 								</div>
 								
+								
+								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="message" for="email"> Challenge/Need detail</label> 
+									<label class="control-label col-md-4 col-sm-4" for="email">Challenge/Need detail</label> 
 									<div class="col-md-6 col-sm-6">
-										  <textarea rows="10" name="message" id="mytextarea" class="form-control" ></textarea>
+										  <textarea rows="10" name="message"  id="mytextarea" class="form-control">{{$p->news_body}}</textarea>
                    
 									</div>
 								</div>
@@ -286,8 +255,134 @@
 		<!-- end #content -->
 		
         <!-- begin theme-panel -->
-     
+        <div class="theme-panel">
+            <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
+            <div class="theme-panel-content">
+                <h5 class="m-t-0">Color Theme</h5>
+                <ul class="theme-list clearfix">
+                    <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-black" data-theme="black" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black">&nbsp;</a></li>
+                </ul>
+                <div class="divider"></div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label double-line">Header Styling</div>
+                    <div class="col-md-7">
+                        <select name="header-styling" class="form-control input-sm">
+                            <option value="1">default</option>
+                            <option value="2">inverse</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label">Header</div>
+                    <div class="col-md-7">
+                        <select name="header-fixed" class="form-control input-sm">
+                            <option value="1">fixed</option>
+                            <option value="2">default</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label double-line">Sidebar Styling</div>
+                    <div class="col-md-7">
+                        <select name="sidebar-styling" class="form-control input-sm">
+                            <option value="1">default</option>
+                            <option value="2">grid</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label">Sidebar</div>
+                    <div class="col-md-7">
+                        <select name="sidebar-fixed" class="form-control input-sm">
+                            <option value="1">fixed</option>
+                            <option value="2">default</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label double-line">Sidebar Gradient</div>
+                    <div class="col-md-7">
+                        <select name="content-gradient" class="form-control input-sm">
+                            <option value="1">disabled</option>
+                            <option value="2">enabled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label double-line">Content Styling</div>
+                    <div class="col-md-7">
+                        <select name="content-styling" class="form-control input-sm">
+                            <option value="1">default</option>
+                            <option value="2">black</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-12">
+                        <a href="#" class="btn btn-inverse btn-block btn-sm" data-click="reset-local-storage"><i class="fa fa-refresh m-r-3"></i> Reset Local Storage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end theme-panel -->
+		
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
 	
+	<!-- end page container -->
+	<style type="text/css">
+.cookie-banner {
+  background-color: white;
+  padding: 20px;
+  width:auto;
+  height:200px;
+  position: absolute;
+  top: 50px;
+  z-index: 99;
+}
+
+</style>
+ 
+	<?php if(!isset($_COOKIE["mycookie"])) { ?>
+<div class="cookie-banner js-cookie-banner" >
+    Our website uses cookies. By continuing we assume your permission to deploy cookies, as detailed in our <button  type="submit" class="js-cookie-dismiss" name="cookie">Accept</button>
+</div>
+
+
+<?php } ?>
+
+<script type="text/javascript">
+// Key under which name the cookie is saved
+const cookieName = 'cookieconsent';
+// The value could be used to store different levels of consent
+const cookieValue = 'dismissed';
+
+function dismiss() {
+    const date = new Date();
+    // Cookie is valid 1 year: now + (days x hours x minutes x seconds x milliseconds)
+    date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+    // Set cookie
+    document.cookie = `${cookieName}=${cookieValue};expires=${date.toUTCString()};path=/`;
+
+    // You probably want to remove the banner
+    document.querySelector('.js-cookie-banner').remove();
+}
+
+// Get button element
+const buttonElement = document.querySelector('.js-cookie-dismiss');
+// Maybe cookie consent is not present
+if (buttonElement) {
+    // Listen on button click
+    buttonElement.addEventListener('click', dismiss);
+}
+</script>
 	
 	<script>
 	    $(document).ready(function() {
@@ -295,10 +390,16 @@
 	    });
 	</script>
 	
-	
-	
-	
-	<!-- ================== BEGIN BASE JS ================== -->
+	<?php
+	$value = "Hello world!";
+	 // 86400 = 1 day
+		if(isset($_COOKIE['cookie'])) {
+		setcookie("mycookie", $value, time() + 60);
+		   
+		} 
+?>
+	</body>
+	</html>
 	
 	
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -365,8 +466,9 @@
 		
 		}
 </script>
-<!-- Autocomplete-->
-<script type="text/javascript">
+	
+	
+	<script type="text/javascript">
 			$(function() {
 				$('#form-tags-1').tagsInput();
 				
@@ -410,7 +512,8 @@
 				});
 			});
 		</script>
-	
+		
+		
 	<script>
 		$(document).ready(function() {
 			App.init();
@@ -418,12 +521,7 @@
 		});
 	</script>
 	
-	<script>
-	function accepted(){
-			$('#cook').css('display','none');
-		}
 	
-	</script>
 	
 </body>
 </html>

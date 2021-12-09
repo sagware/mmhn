@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Challeng/Need |Materials and Manufacturing in Healthcare Network</title>
+	<title>Edit Challenge|Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -30,11 +30,11 @@
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	
-	
+	@include("admin.analytics")
 	
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    @include("admin.analytics")
+    
     <!-- SummerNote Javascript Library -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	
@@ -93,73 +93,19 @@
     help: { title: 'Help', items: 'help' }
   }
       });
-	  
-	  
     </script>
-	
-	
-<!--  
- TINYMCE_DEFAULT_CONFIG = {
-"plugins": "advlist,autolink,lists,link,image,imagetools,charmap,print,preview,anchor,"
-"searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,"
-"code,help,wordcount,spellchecker",
-"toolbar": "undo redo | formatselect | "
-"bold italic backcolor | alignleft aligncenter "
-"alignright alignjustify | bullist numlist outdent indent | "
-"removeformat | help",
-"paste_data_images": "true"
-}
--->	
-<!--Auto complete-->
-<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		
-		<script src="/assets/jquery.tagsinput-revisited.js"></script>
-		<link rel="stylesheet" href="/assets/jquery.tagsinput-revisited.css" />
-		
-		<style>
-			* {
-				box-sizing: border-box;
-			}
-		
-			html {
-				height: 100%;
-				margin: 0;
-			}
-			
-			body {
-				min-height: 100%;
-				font-family: sans-serif;
-				padding: 20px;
-				margin: 0;
-			}
-			
-			label {
-				display: block;
-				padding: 20px 0 5px 0;
-			}
-		</style>
-		
-			
 </head>
 
 <body>
+
 @include("admin.cookiebanner")
-@if(Session::has('needsubmitted'))
-						<script type="text/javascript">
-						alert('Challenge created successfully');
-	</script>
-	@endif	
-	
-	@if(Session::has('neededited'))
-						<script type="text/javascript">
-						alert('Challenge edited successfully');
-	</script>
-	@endif		
+			
+			@if($neededited ="Edited")
+			<script type="text/javascript">
+			alert("Challenge/Need updated successfully, it will be reviewed by the website Admin as soon as possible before appearing on the website");
+			</script>
+			@endif
+			
 			
 	<!-- begin #page-loader -->
 	 <div id="header" class="header navbar navbar-default navbar-fixed-top">
@@ -244,15 +190,15 @@
 								
 								
 									<div class="form-group" id="oth">
-									<label class="control-label col-md-4 col-sm-4" for="fullname"> Other keywords (Comma sperated for multiple entries) :</label>
+									<label class="control-label col-md-4 col-sm-4" for="fullname"> Other keywords  :</label>
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one"  />
+										<input class="form-control" type="text"  name="name"  placeholder="Other keyword, seperated by commas if more than one"  />
 										
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="message" for="email"> Challenge/Need detail</label> 
+									<label class="control-label col-md-4 col-sm-4" for="message" for="email"> Challenge/need detail</label> 
 									<div class="col-md-6 col-sm-6">
 										  <textarea rows="10" name="message" id="mytextarea" class="form-control" ></textarea>
                    
@@ -286,20 +232,15 @@
 		<!-- end #content -->
 		
         <!-- begin theme-panel -->
-     
+        
 	
+	<!-- end page container -->
 	
-	<script>
-	    $(document).ready(function() {
-	        App.init();
-	    });
-	</script>
-	
-	
-	
-	
+	</body>
+	</html>
 	<!-- ================== BEGIN BASE JS ================== -->
-	
+	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!--[if lt IE 9]>
@@ -365,51 +306,6 @@
 		
 		}
 </script>
-<!-- Autocomplete-->
-<script type="text/javascript">
-			$(function() {
-				$('#form-tags-1').tagsInput();
-				
-				$('#form-tags-2').tagsInput({
-					'onAddTag': function(input, value) {
-						console.log('tag added', input, value);
-					},
-					'onRemoveTag': function(input, value) {
-						console.log('tag removed', input, value);
-					},
-					'onChange': function(input, value) {
-						console.log('change triggered', input, value);
-					}
-				});
-				
-				$('#form-tags-3').tagsInput({
-					'unique': true,
-					'minChars': 2,
-					'maxChars': 10,
-					'limit': 5,
-					'validationPattern': new RegExp('^[a-zA-Z]+$')
-				});
-				
-				$('#form-tags-4').tagsInput({
-					'autocomplete': {
-						source: [
-							'apple',
-							'banana',
-							'orange',
-							'pizza'
-						]
-					} 
-				});
-				
-				$('#form-tags-5').tagsInput({
-					'delimiter': ';' 
-				});
-				
-				$('#form-tags-6').tagsInput({
-					'delimiter': [',', ';'] 
-				});
-			});
-		</script>
 	
 	<script>
 		$(document).ready(function() {
@@ -417,13 +313,5 @@
 			FormWizardValidation.init();
 		});
 	</script>
-	
-	<script>
-	function accepted(){
-			$('#cook').css('display','none');
-		}
-	
-	</script>
-	
 </body>
 </html>

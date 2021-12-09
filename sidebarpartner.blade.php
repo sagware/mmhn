@@ -1,13 +1,13 @@
 <div class="col-md-3">
-                    <!-- begin section-container -->
-					<label>Search innovation status</label>
-                    <div class="section-container">
+
+<div class="section-container">
 <form  action="/search" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+<label>Search for partners</label>
                         <div class="input-group sidebar-search">
 						
 						 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                            <input type="text" class="form-control" placeholder="By title, keywords..." />
-							<input type="hidden" name="cat" value="all"/>
+                            <input type="text" class="form-control" placeholder="By role, name, sector..." />
+							<input type="hidden" name="cat" value="partner"/>
                             <span class="input-group-btn">
                                 <button class="btn btn-inverse" type="submit"><i class="fa fa-search"></i></button>
                             </span>
@@ -15,6 +15,11 @@
                         </div>
                     </div>
 					</form>
+                    <!-- begin section-container -->
+                     
+						
+                   
+					
                     <!-- end section-container -->
                     <!-- begin section-container -->
                     <div class="section-container">
@@ -40,7 +45,7 @@
 						
                             <li>
                                 <div class="info">
-                                    <h4 class="title"><a href="/public_post/{{$r->id}}">{{$r->title}}</a></h4>
+                                    <h4 class="title"><a href="/clinical_detail/{{$r->id}}">{{$r->title}}</a></h4>
                                     <div class="date">{{ date('D jS, M Y, h:i:s A', strtotime($r->updated_at)) }}</div>
                                 </div>
                             </li>
