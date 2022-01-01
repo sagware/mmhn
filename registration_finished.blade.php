@@ -8,11 +8,12 @@
 <body>
 Dear {{$name}}, <br/>
 
-Thank you for showing interest to join our network. Your registration is now complete <a href="http://www.uclmmhn.com/login"> Click this link to signin</a>.
+Thank you for showing interest to join our network. Your registration is now complete <a href="http://materialsinhealth.org/login"> Click this link to signin</a>.
 <br/>
 <br/>
-Rita,
-Regards.
+Kind regards, <br/>
+The MMHN Team
+
 <!--
 <b>Message:</h3></b><br/>
 {{$m}}

@@ -49,25 +49,5 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 	
-		public function folder(){
-			return $this->hasMany('App\Folder');
-			}
-			
-			public function files(){
-			return $this->hasMany('App\File');
-			}
-			
-			public function tracks(){
-			return $this->hasMany('App\Tracks');
-			}
-			
-			
-			public function agency(){
-			return $this->belongsTo('App\Agency');
-			}
-			
-			public function dept(){
-			return $this->belongsTo('App\Dept');
-			}
 
 }

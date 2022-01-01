@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Need Detail|Materials and Manufacturing in Healthcare Network</title>
+	<title>Challenge Detail Review|Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -19,52 +19,61 @@
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	
+	
 	<!-- ================== END BASE CSS STYLE ================== -->
-    
+     <script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+       tinymce.init({
+      selector: 'textarea',  // change this value according to your HTML
+	 plugins: [
+      'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      'table emoticons template paste help'
+    ],
+	paste_data_images: true,
+	  a_plugin_option: true,
+	  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+	  a_configuration_option: 400,
+  
+  menu: {
+    file: { title: 'File', items: 'newdocument restoredraft | preview | print ' },
+    edit: { title: 'Edit', items: 'undo redo | cut copy paste | selectall | searchreplace' },
+    view: { title: 'View', items: 'code | visualaid visualchars visualblocks | spellchecker | preview fullscreen' },
+    insert: { title: 'Insert', items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor toc | insertdatetime' },
+    format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript codeformat | formats blockformats fontformats fontsizes align lineheight | forecolor backcolor | removeformat' },
+    tools: { title: 'Tools', items: 'spellchecker spellcheckerlanguage | code wordcount' },
+    table: { title: 'Table', items: 'inserttable | cell row column | tableprops deletetable' },
+    help: { title: 'Help', items: 'help' }
+  }
+      });
+    </script>
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
 	@if(Session::has('approve'))
 			<script type="text/javascript">
-			alert("Challenge/Need approved");
+			alert("Challenge approved");
 			</script>
 	@endif
 	
 	@if(Session::has('reject'))
 			<script type="text/javascript">
-			alert("Challenge/Need rejected");
+			alert("Challenge rejected");
 			</script>
 	@endif
 	
 	@if(Session::has('revise'))
 			<script type="text/javascript">
-			alert("Challenge/Need revision request sent successfully");
+			alert("Challenge revision request sent successfully");
 			</script>
 	@endif
 </head>
 <body>
 @include("admin.cookiebanner")
-    <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                        Materials and Manufacturing in Healthcare Network
-                    </span>
-                </a>
-            </div>
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+   
             @include("admin.header")
             <!-- end navbar-collapse -->
         </div>
@@ -80,19 +89,31 @@
             <div class="row row-space-30">
                 <!-- begin col-9 -->
                 <div class="col-md-9">
+				<?php 
+						
+						if(empty($p->likes) || $p->likes="N;"){
+						$p->likes = serialize(array());
+						}
+						
+						
+						?>
                     <!-- begin post-detail -->
                     <div class="post-detail section-container">
                         <ul class="breadcrumb">
                             <li><a href="/">Home</a></li>
-                            <li><a href="/clinicalneeds">CHALLENGES/NEEDS</a></li>
+                            <li><a href="/clinicalneeds">CHALLENGES</a></li>
                             <li class="active">{{$p->title}}</li>
                         </ul>
-                        <h4 class="post-title">
+                        <h1 class="post-title">
                             <a href="#">{{$p->title}}</a>
-                        </h4>
-						
+                        </h1>
+						@if(Auth::check())
+									@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
+									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn"><button >Edit</button> </a>
+									@endif
+									@endif
                         <div class="post-by">
-                            Posted By <a href="#">{{$p->posted_by_name}}</a> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |</span> 2 Comments
+                            Posted By <a href="/partner/{{$p->posted_by}}">{{$p->posted_by_name}}</a> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |</span> 2 Comments
                         </div>
                         <!-- begin post-image -->
 						<!--
@@ -120,7 +141,21 @@
                         <!-- begin post-image -->
                        
                         
-                       
+                        <h2>Supporting Documents</h2>
+					   
+					   @if($p->pic != 'emptyimage.png' && !empty($p->pic))
+					   <?php $ct=1;
+					   
+					  $doc = unserialize($p->pic);
+					 
+					   ?>
+					   	@foreach($doc as $sp)
+						
+						<a href="/mmhn/public/uploads/{{$sp}}" title="Document{{$ct}}">Document <?php echo " ".$ct."<br/>"; $ct++;?></a>
+						
+						@endforeach
+					   
+					   @endif
                         <!-- end post-desc -->
                     </div>
                     <!-- end post-detail -->

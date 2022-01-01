@@ -8,11 +8,12 @@
 <body>
 Dear {{$name}}, <br/>
 
-This email is to notify about new network interest <a href="{{$m}}">Click here to approve</a>
+A prospective member has submitted an Expression of Interest form to the MMHN site. To review click on <a href="{{$m}}">review and approve link</a>
 <br/>
 <br/>
-Rita,
-Regards.
+Kind regards, <br/>
+The MMHN Team
+
 <!--
 <b>Message:</h3></b><br/>
 {{$m}}

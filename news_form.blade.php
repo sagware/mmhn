@@ -9,11 +9,84 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	<!-- ================== END BASE CSS STYLE ================== -->
 	
-	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-@include("admin.analytics")
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
+	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
+	<!-- multiselect-->
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	
+	
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+    <!-- SummerNote Javascript Library -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+	
     <script>
-       tinymce.init({
+        $(document).ready(function () {
+            /** Initialize SummerNote Javscript For Textarea */
+            $('#message').summernote({
+               placeholder: 'Enter the post body',
+                height: '300px',
+				styleTags: [
+    'p',
+        { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
+        'pre', 'h1', 'H2', 'H3', 'H4', 'Heading5', 'Heading6'
+	],
+  
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+				  ['insert', ['link', 'picture']],
+				  ['view', ['codeview', 'help']],
+				  ['somegroup', ['style.H2', 'style.H3','style.Heading4','style.Heading5','style.Heading6' ]]
+                ]
+           
+            });
+        });
+    </script>
+	
+	
+	 <script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+      tinymce.init({
       selector: 'textarea',  // change this value according to your HTML
 	 plugins: [
       'advlist autolink link image lists charmap print preview hr anchor pagebreak',
@@ -39,117 +112,59 @@
     </script>
 	
 	
-	
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets/css/style.min.css" rel="stylesheet" />
-	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
-	<!-- ================== END BASE CSS STYLE ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
-	
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    
-    <!-- SummerNote Javascript Library -->
-    <link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    
-    <!-- SummerNote Javascript Library -->
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-	
-    <script>
-        $(document).ready(function () {
-            /** Initialize SummerNote Javscript For Textarea */
-            $('#message').summernote({
-               placeholder: 'Enter the post body',
-                height: '300px',
-				styleTags: [
-    'p',
-        { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
-        'pre', 'h1', 'Heading2', 'Heading3', 'Heading4', 'Heading5', 'Heading6'
-	],
-  
-                toolbar: [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough', 'superscript', 'subscript']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']],
-				  ['insert', ['link', 'picture']],
-				  ['view', ['codeview', 'help']],
-				  ['somegroup', ['style.Heading2', 'style.Heading3','style.Heading4','style.Heading5','style.Heading6' ]]
-                ]
-           
-            });
-        });
-    </script>
-	<!-- ================== END PAGE LEVEL STYLE ================== -->
-	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	
-	<style type="text/css">
-	rq{color:#FF0000}
-   	  #ni{display:none;}
-	  #sub{display:none;}
-	  #ac{display:none;}
-	  #bc{display:none;}
-	  #ovrw{display:none;}
-	  #newv{display:none;}
-	  #approved{display:none;}
-	  #notapproved{display:none;}
-   </style>
-	
-	
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		
+		<script src="/assets/jquery.tagsinput-revisited.js"></script>
+		<link rel="stylesheet" href="/assets/jquery.tagsinput-revisited.css" />
+		
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+		
+			html {
+				height: 100%;
+				margin: 0;
+			}
+			
+			body {
+				min-height: 100%;
+				font-family: sans-serif;
+				padding: 20px;
+				margin: 0;
+			}
+			
+			label {
+				display: block;
+				padding: 20px 0 5px 0;
+			}
+		</style>
+	@include("admin.cookiebanner")	
 </head>
 
-<body>
-@include("admin.cookiebanner")
+<body style="padding:0px !important; min-height: 100%;
+    font-family: sans-serif;
+    margin: 0;">
+@include("admin.analytics")
 @if(Session::has('ms1'))
 			<script type="text/javascript">
-			alert("Form Submitted Successfully");
+			alert("Form Submitted Successfully, admin will check this before posting onto site");
 			</script>
 			@endif
 	<!-- begin #page-loader -->
-	 <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-           
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+	
             @include("admin.header")
 			
             <!-- end navbar-collapse -->
         </div>
         <!-- end container -->
     </div>
+	
 	
 		<!-- end #header -->
 		
@@ -177,8 +192,10 @@
 			        <!-- begin panel -->
                     <div>
 						
-						<br/>We are keen to share success stories of collaboration, met challenges, and new innovations from within the Network. Please complete the following fields to submit a News Story for our website, which will be reviewed by the Materials and Manufacturing in Healthcare Network team and subsequently publicly visible.
-						</div>
+						<div style="padding:2em;">
+						<h1>Innovation Stories Form</h1> <br/>
+						 We are keen to share success stories of collaboration, met challenges, and new innovations from within the Network. Please complete the following fields to submit a News Story for our website, which will be reviewed by the Materials and Manufacturing in Healthcare Network team and subsequently publicly visible.
+						</div></div>
                         <div class="panel-body panel-form">
                             <form  action="/add/public_stories" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
 								<div class="form-group">
@@ -190,7 +207,7 @@
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email"> Post Category <span class="text-danger">*</span></label>
+									<label class="control-label col-md-4 col-sm-4" for="email">Post Category <span class="text-danger">*</span></label>
 									<div class="col-md-6 col-sm-6">
 										<select  class="form-control"   name="category" >
 											<option value="news">News</option>
@@ -225,7 +242,7 @@
 									<label class="control-label col-md-4 col-sm-4" for="email">Post in Detail (Heading1 will be changed to Heading 2) <span class="text-danger">*</span></label> 
 									<div class="col-md-6 col-sm-6">
 										  
-<textarea id="image-tools" name="message">
+<textarea id="image-tools" name="message" required>
  
 </textarea>
 
@@ -242,7 +259,7 @@
 								<div class="form-group">
 									<label class="control-label col-md-4 col-sm-4"></label>
 									<div class="col-md-6 col-sm-6">
-										<button type="submit" class="btn btn-primary">Submit Public Story</button>
+										<button type="submit" class="btn btn-primary">Submit Innovation Story</button>
 									</div>
 								</div>
                             </form>
@@ -258,98 +275,85 @@
             </div>
             <!-- end row -->
 		</div>
+		
 		<!-- end #content -->
 		
         <!-- begin theme-panel -->
-        <div class="theme-panel">
-            <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-            <div class="theme-panel-content">
-                <h5 class="m-t-0">Color Theme</h5>
-                <ul class="theme-list clearfix">
-                    <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-black" data-theme="black" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black">&nbsp;</a></li>
-                </ul>
-                <div class="divider"></div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Header Styling</div>
-                    <div class="col-md-7">
-                        <select name="header-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">inverse</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Header</div>
-                    <div class="col-md-7">
-                        <select name="header-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Styling</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">grid</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Sidebar</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Gradient</div>
-                    <div class="col-md-7">
-                        <select name="content-gradient" class="form-control input-sm">
-                            <option value="1">disabled</option>
-                            <option value="2">enabled</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Content Styling</div>
-                    <div class="col-md-7">
-                        <select name="content-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">black</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-12">
-                        <a href="#" class="btn btn-inverse btn-block btn-sm" data-click="reset-local-storage"><i class="fa fa-refresh m-r-3"></i> Reset Local Storage</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- end theme-panel -->
 		
-		<!-- begin scroll to top btn -->
+		 <!-- begin #footer -->
+  <!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 		<!-- end scroll to top btn -->
 	</div>
-	
+	@include("admin.footer")	
 	<!-- end page container -->
+	<style type="text/css">
+.cookie-banner {
+  background-color: white;
+  padding: 20px;
+  width:auto;
+  height:200px;
+  position: absolute;
+  top: 50px;
+  z-index: 99;
+}
+
+</style>
+ 
+	<?php if(!isset($_COOKIE["mycookie"])) { ?>
+<div class="cookie-banner js-cookie-banner" >
+    Our website uses cookies. By continuing we assume your permission to deploy cookies, as detailed in our <button  type="submit" class="js-cookie-dismiss" name="cookie">Accept</button>
+</div>
+
+
+<?php } ?>
+
+<script type="text/javascript">
+// Key under which name the cookie is saved
+const cookieName = 'cookieconsent';
+// The value could be used to store different levels of consent
+const cookieValue = 'dismissed';
+
+function dismiss() {
+    const date = new Date();
+    // Cookie is valid 1 year: now + (days x hours x minutes x seconds x milliseconds)
+    date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+    // Set cookie
+    document.cookie = `${cookieName}=${cookieValue};expires=${date.toUTCString()};path=/`;
+
+    // You probably want to remove the banner
+    document.querySelector('.js-cookie-banner').remove();
+}
+
+// Get button element
+const buttonElement = document.querySelector('.js-cookie-dismiss');
+// Maybe cookie consent is not present
+if (buttonElement) {
+    // Listen on button click
+    buttonElement.addEventListener('click', dismiss);
+}
+</script>
 	
+	<script>
+	    $(document).ready(function() {
+	        App.init();
+	    });
+	</script>
+	
+	<?php
+	$value = "Hello world!";
+	 // 86400 = 1 day
+		if(isset($_COOKIE['cookie'])) {
+		setcookie("mycookie", $value, time() + 60);
+		   
+		} 
+?>
 	</body>
 	</html>
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	
+	
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
@@ -367,9 +371,15 @@
 	<script src="/assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
+	
+	<style type="text/css">
+   	  #oth{display:none;}
+	  #pp{display:none;}
+	  
+   </style>
+   
     <script>
         $(document).ready(function() {
             $('textarea#body').summernote({
@@ -392,32 +402,78 @@
         });
     </script>
 	
+	 <script>
+   function OtherField(){
+			var checkBox = document.getElementById("ck");
+		  // Get the output text
+		  	
+		  // If the checkbox is checked, display the output text
+		  if (checkBox.checked == true){
+		   $('#oth').css('display','block');
+		  } else {
+			$('#oth').css('display','none');
+		  }   
+   			
+		
+		
+		}
+</script>
+	
+	
+	<script type="text/javascript">
+			$(function() {
+				$('#form-tags-1').tagsInput();
+				
+				$('#form-tags-2').tagsInput({
+					'onAddTag': function(input, value) {
+						console.log('tag added', input, value);
+					},
+					'onRemoveTag': function(input, value) {
+						console.log('tag removed', input, value);
+					},
+					'onChange': function(input, value) {
+						console.log('change triggered', input, value);
+					}
+				});
+				
+				$('#form-tags-3').tagsInput({
+					'unique': true,
+					'minChars': 2,
+					'maxChars': 10,
+					'limit': 5,
+					'validationPattern': new RegExp('^[a-zA-Z]+$')
+				});
+				
+				$('#form-tags-4').tagsInput({
+					'autocomplete': {
+						source: [
+							'apple',
+							'banana',
+							'orange',
+							'pizza'
+						]
+					} 
+				});
+				
+				$('#form-tags-5').tagsInput({
+					'delimiter': ';' 
+				});
+				
+				$('#form-tags-6').tagsInput({
+					'delimiter': [',', ';'] 
+				});
+			});
+		</script>
+		
+		
 	<script>
 		$(document).ready(function() {
 			App.init();
 			FormWizardValidation.init();
 		});
-		
-		tinymce.init({
-  selector: 'textarea#image-tools',
-  height: 500,
-  plugins: [
-    'advlist autolink lists link image charmap print preview anchor',
-    'searchreplace visualblocks code fullscreen',
-    'insertdatetime media table paste imagetools wordcount'
-  ],
-  toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-});
-
 	</script>
 	
-	<script>
-	function accepted(){
-			$('#cook').css('display','none');
-		}
 	
-	</script>
 	
 </body>
 </html>

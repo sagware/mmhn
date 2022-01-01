@@ -25,7 +25,7 @@
 	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
 	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
-	
+	<link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
@@ -67,7 +67,7 @@
     </script>
 	
 	
-	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
       tinymce.init({
@@ -94,12 +94,22 @@
   }
       });
     </script>
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="padding:0px !important; min-height: 100%;
+    font-family: sans-serif;
+    margin: 0;">
 
 @include("admin.cookiebanner")
-			
+@include("admin.analytics")			
 			@if($neededited ="Edited")
 			<script type="text/javascript">
 			alert("Challenge/Need updated successfully, it will be reviewed by the website Admin as soon as possible before appearing on the website");
@@ -107,16 +117,7 @@
 			@endif
 			
 			
-	<!-- begin #page-loader -->
-	 <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-               
-            </div>
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+	
             @include("admin.header")
             <!-- end navbar-collapse -->
         </div>
@@ -147,9 +148,10 @@
 			    <div class="col-md-16">
 			        <!-- begin panel -->
                     <div class="panel panel-inverse">
-                        <div class="panel-heading">
+                     <!--   <div class="panel-heading"> -->
+					  <div >
                             
-                            <h4 class="panel-title">Challenge/Needs Form</h4>
+                            <h1 class="panel-title">Challenge Form</h1>
                         </div>
                         <div class="panel-body panel-form">
                             <form  action="/add/need" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
@@ -163,14 +165,14 @@
 								
 								
 								
-								<div class="form-group">
-									<label for="key" class="control-label col-md-4 col-sm-4" for="fullname">Select keyword(s) that describe the challenge/need :</label>
+								<div class="form-group" id="keywordslist" aria-haspopup="true" aria-expanded="false">
+									<label for="key" class="control-label col-md-4 col-sm-4" for="fullname">Select keyword(s) that describe the challenge:</label>
 									<div class="col-md-6 col-sm-6">							
 									
 									<div class="dropdown" scroll>
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown">
-										Click to select keywords 
+										id="sampleDropdownMenu" data-toggle="dropdown" onClick="ariaChange('keywordslist')>
+									<label for="sampleDropdownMenu">	Click to select keywords </label>
 										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" /> other keywords 
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
@@ -198,7 +200,7 @@
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="message" for="email"> Challenge/need detail</label> 
+									<label class="control-label col-md-4 col-sm-4" for="message" for="email"> Challenge detail</label> 
 									<div class="col-md-6 col-sm-6">
 										  <textarea rows="10" name="message" id="mytextarea" class="form-control" ></textarea>
                    
@@ -305,6 +307,11 @@
 		
 		
 		}
+		
+		
+		function changeAria(id){
+					document.getElementById(id1).setAttribute('aria-expanded', 'true');
+					}
 </script>
 	
 	<script>

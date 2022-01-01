@@ -20,16 +20,25 @@
 	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
+	<link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 	@include("admin.analytics")
 </head>
 <body class="pace-top bg-white">
 	<!-- begin #page-loader -->
 @include("admin.cookiebanner")
-		
+@include("admin.header")		
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 	
@@ -78,9 +87,10 @@
                   Membership Expression of Interest                   
                 </h3>
 				<div align="right">	
-							<h5 align="justify"> <b>
-                  The Materials and Manufacturing in Healthcare Network aims to bring together clinicians, researchers and industry professionals to form a community equipped to tackle healthcare manufacturing challenges. The network will support responses to real-world challenges, run a series of events, and facilitate connections between members. If you would like to join our network, please submit an expression of interest form below.                
-                </b></h5>
+							<h5 align="justify" >  <p style="padding:1.5em;">
+                 &nbsp; &nbsp;  The Materials and Manufacturing in Healthcare Network aims to bring together clinicians, researchers and industry professionals to form a community equipped to tackle healthcare manufacturing challenges. The network will support responses to real-world challenges, run a series of events, and facilitate connections between members. If you would like to join our network, please submit an expression of interest form below.    
+				  </p>            
+                </h5>
 				</div>
                 <!-- end register-header -->
                 <!-- begin register-content -->
@@ -117,13 +127,13 @@
                             </div>
                         </div>
 						
-						 <label class="control-label" for="ck2">Sector </label>
+						Sector  <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="radio"  name="sector" value="Academic" id="ck2" onChange="OtherHide()"/> <label class="control-label">Academia </label>
-								<input type="radio"  name="sector" value="Industry" id="ck3" onChange="OtherHide1()"/> <label class="control-label">Industry </label>
-								<input type="radio"  name="sector" value="Clinical" id="ck4" onChange="OtherHide2()"/> <label class="control-label">Clinical </label>
-								<input  type="radio"  name="sector" id="ck" value="Other" onChange="OtherField()" /><label class="control-label"> Other</label>
+                                <input type="radio"  name="sector" value="Academic" id="ck2" onChange="OtherHide()" required/> <label class="control-label" for="ck2">Academia </label>
+								<input type="radio"  name="sector" value="Industry" id="ck3" onChange="OtherHide1()" required/> <label class="control-label" for="ck3">Industry </label>
+								<input type="radio"  name="sector" value="Clinical" id="ck4" onChange="OtherHide2()" required/> <label class="control-label" for="ck4">Clinical </label>
+								<input  type="radio"  name="sector" id="ck" value="Other" onChange="OtherField()" required/><label class="control-label" for="ck"> &nbsp;Other</label>
                             </div>
                         </div>
 						
@@ -156,15 +166,17 @@
 						
                         <div class="checkbox m-b-30">
                             <label for="agree">
-                                <input type="checkbox" required id="agree" /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ ">Terms</a> and that you have read our <a href="https://www.ucl.ac.uk/privacy/">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy">Cookie Use</a>.
+                                <input type="checkbox" required id="agree" /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ " title="Terms and Conditions" target="_blank">Terms</a> and that you have read our <a href="https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy" title="Use of Cookies" target="_blank">Cookie Use</a>.
                             </label>
                         </div>
                         <div class="register-buttons">
                             <button type="submit" class="btn btn-primary btn-block btn-lg">Show Interest</button>
                         </div>
                         <div class="m-t-20 m-b-40 p-b-40 text-inverse">
-                            Already a member? Click <a href="/login">Login</a> to sign in.
+                            Already a member? Click <a href="/login" title="Login"><b>Login</b></a> to sign in. <br/>
+							 Go to <a href="/" title="Home Page"><b>Home Page</b></a> 
                         </div>
+						
                         <hr />
                         <p class="text-center">
                             &copy; Materials and Manufacturing in Healthcare Network <?php echo date('Y') ?>
@@ -178,80 +190,7 @@
         <!-- end register -->
         
         <!-- begin theme-panel -->
-        <div class="theme-panel">
-            <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-            <div class="theme-panel-content">
-                <h5 class="m-t-0">Color Theme</h5>
-                <ul class="theme-list clearfix">
-                    <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-black" data-theme="black" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black">&nbsp;</a></li>
-                </ul>
-                <div class="divider"></div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Header Styling</div>
-                    <div class="col-md-7">
-                        <select name="header-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">inverse</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Header</div>
-                    <div class="col-md-7">
-                        <select name="header-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Styling</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">grid</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Sidebar</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Gradient</div>
-                    <div class="col-md-7">
-                        <select name="content-gradient" class="form-control input-sm">
-                            <option value="1">disabled</option>
-                            <option value="2">enabled</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Content Styling</div>
-                    <div class="col-md-7">
-                        <select name="content-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">black</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-12">
-                        <a href="#" class="btn btn-inverse btn-block btn-sm" data-click="reset-local-storage"><i class="fa fa-refresh m-r-3"></i> Reset Local Storage</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- end theme-panel -->
 	</div>
 	<!-- end page container -->

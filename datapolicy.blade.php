@@ -27,25 +27,7 @@
 </head>
 <body>
     <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                        Materials and Manufacturing in Healthcare Network
-                    </span>
-                </a>
-            </div>
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+   
             @include('admin.header')
             <!-- end navbar-collapse -->
         </div>

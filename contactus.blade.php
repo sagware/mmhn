@@ -28,25 +28,7 @@
 <body>
 @include("admin.cookiebanner")
     <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                       Materials and Manufacturing in Healthcare Innovation Network
-                    </span>
-                </a>
-            </div>
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+   
             @include('admin.header')
             <!-- end navbar-collapse -->
         </div>
@@ -55,15 +37,7 @@
     <!-- end #header -->
     
     <!-- begin #page-title -->
-    <div id="page-title" class="page-title has-bg">
-        <div class="bg-cover"><img src="/assets/homecover.jpeg" alt="Cover photo" /></div>
-        <div class="container">
-            <h1>Materials and Manufacturing in Healthcare Innovation Network
-</h1>
-            <p>Connecting clinicians, researchers, and manufacturers to collaborate, accelerate and drive sector change.
-</p>
-        </div>
-    </div>
+    
     <!-- end #page-title -->
     
     <!-- begin #content -->
@@ -85,18 +59,18 @@
                     <!-- end section-container -->
                     <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="section-title m-b-20"><span>CONTACT US</span></h4>
+                        <h1 class="section-title m-b-20"><span>CONTACT US</span></h1>
                         <p class="m-b-30 f-s-13">
                             <h4 class="footer-title">Materials and Manufacturing in Healthcare Innovation Network</h4>
                        <address>
-                            <strong> University College London</strong><br />
+                           <!-- <strong> University College London</strong><br />
 							Gower St,<br />
 							London<br />
 							WC1E 6BT<br />
 							United Kingdom
                             <br />
-                            <strong>Rita</strong><br />
-                            <a href="mailto:ana.pinho.14@ucl.ac.uk">ana.pinho.14@ucl.ac.uk</a>
+                            <strong>Rita</strong><br /> -->
+                            <a href="mailto:contact@materialsinhealth.org">contact@materialsinhealth.org</a>
                         </address>
                         </p>
                         <!-- begin row -->

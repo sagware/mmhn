@@ -5,20 +5,26 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Challeng/Need |Materials and Manufacturing in Healthcare Network</title>
+	<title>Challenge Form| Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
+	
+	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets/css/style.min.css" rel="stylesheet" />
-	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+    
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
@@ -30,11 +36,24 @@
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
+	<!-- multiselect-->
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
 	
+	<link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
 	
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    @include("admin.analytics")
+    
     <!-- SummerNote Javascript Library -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	
@@ -67,7 +86,7 @@
     </script>
 	
 	
-	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
       tinymce.init({
@@ -93,25 +112,10 @@
     help: { title: 'Help', items: 'help' }
   }
       });
-	  
-	  
     </script>
 	
 	
-<!--  
- TINYMCE_DEFAULT_CONFIG = {
-"plugins": "advlist,autolink,lists,link,image,imagetools,charmap,print,preview,anchor,"
-"searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,"
-"code,help,wordcount,spellchecker",
-"toolbar": "undo redo | formatselect | "
-"bold italic backcolor | alignleft aligncenter "
-"alignright alignjustify | bullist numlist outdent indent | "
-"removeformat | help",
-"paste_data_images": "true"
-}
--->	
-<!--Auto complete-->
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -143,12 +147,12 @@
 				padding: 20px 0 5px 0;
 			}
 		</style>
-		
-			
+	@include("admin.cookiebanner")	
 </head>
-
-<body>
-@include("admin.cookiebanner")
+<body style="padding:0px !important; min-height: 100%;
+    font-family: sans-serif;
+    margin: 0;">
+@include("admin.analytics")
 @if(Session::has('needsubmitted'))
 						<script type="text/javascript">
 						alert('Challenge created successfully');
@@ -160,22 +164,13 @@
 						alert('Challenge edited successfully');
 	</script>
 	@endif		
-			
-	<!-- begin #page-loader -->
-	 <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-               
-            </div>
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+	
             @include("admin.header")
             <!-- end navbar-collapse -->
         </div>
         <!-- end container -->
-    </div>
+    </div>		
+
 	
 		<!-- end #header -->
 		
@@ -185,30 +180,32 @@
 		<!-- end #sidebar -->
 		
 		<!-- begin #content -->
-		<div align="left">
-		<br/>
+		
 			<!-- begin breadcrumb -->
 			
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
 			
 			<!-- end page-header -->
-			<br/>
-			<br/>
+			
 			<!-- begin row -->
+			 <div id="content" class="content">
+        <!-- begin container -->
+        <div class="container">
 			<div class="row">
                 <!-- begin col-12 -->
+				 <h1 >Challenge Form</h1>
 			    <div class="col-md-16">
 			        <!-- begin panel -->
                     <div class="panel panel-inverse">
-                        <div class="panel-heading">
+                        <div >
                             
-                            <h4 class="panel-title">Challenge/Needs Form</h4>
+                           
                         </div>
                         <div class="panel-body panel-form">
                             <form  action="/add/need" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="title">Title <span class="text-danger">*</span> :</label>
+									<label class="control-label col-md-4 col-sm-4" for="title">Title <span class="text-danger">*</span> : </label>
 									<div class="col-md-6 col-sm-6">
 										<input class="form-control" id="title" type="text"  name="name"  data-parsley-required="true" required/>
 										<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
@@ -217,14 +214,14 @@
 								
 								
 								
-								<div class="form-group">
-									<label for="key" class="control-label col-md-4 col-sm-4" for="fullname">Select keyword(s) that describe the challenge/need :</label>
+								<div class="form-group" id="keywordslist" aria-haspopup="true" aria-expanded="false">
+									<label for="key" class="control-label col-md-4 col-sm-4" for="fullname">Select keyword(s) that describe the challenge :<span class="text-danger">*</span></label>
 									<div class="col-md-6 col-sm-6">							
 									
-									<div class="dropdown" scroll>
+									<div class="dropdown" scroll aria-haspopup="true" aria-expanded="false"  >
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown">
-										Click to select keywords 
+										id="sampleDropdownMenu" data-toggle="dropdown" onClick="ariaChange('keywordslist')>
+										<label for="sampleDropdownMenu">Click to select keywords </label>
 										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" /> other keywords 
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
@@ -244,7 +241,7 @@
 								
 								
 									<div class="form-group" id="oth">
-									<label class="control-label col-md-4 col-sm-4" for="fullname"> Other keywords (Comma sperated for multiple entries) :</label>
+									<label class="control-label col-md-4 col-sm-4" for="fullname"> Other keywords (Comma-separated) :</label>
 									<div class="col-md-6 col-sm-6">
 										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one"  />
 										
@@ -252,9 +249,9 @@
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="message" for="email"> Challenge/Need detail</label> 
+									<label class="control-label col-md-4 col-sm-4" for="mytextarea" for="email"> Challenge details:<span class="text-danger">*</span></label>  
 									<div class="col-md-6 col-sm-6">
-										  <textarea rows="10" name="message" id="mytextarea" class="form-control" ></textarea>
+										  <textarea rows="10" name="message" id="mytextarea" class="form-control" required></textarea>
                    
 									</div>
 								</div>
@@ -274,31 +271,38 @@
 							
 							 
 								
-								
+						 	
                         </div>
                     </div>
                     <!-- end panel -->
                 </div>
+				
                 <!-- end col-12 -->
             </div>
+			
             <!-- end row -->
 		</div>
 		<!-- end #content -->
-		
-        <!-- begin theme-panel -->
-     
+	</div>
+	
+    <!-- begin #footer -->
+  <!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	@include("admin.footer")	
+	<!-- end page container -->
 	
 	
 	<script>
+	
+					
 	    $(document).ready(function() {
 	        App.init();
 	    });
 	</script>
 	
 	
-	
-	
-	<!-- ================== BEGIN BASE JS ================== -->
 	
 	
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -347,6 +351,10 @@
                 ]
             });
         });
+		
+		function changeAria(id){
+					document.getElementById(id1).setAttribute('aria-expanded', 'true');
+					}
     </script>
 	
 	 <script>
@@ -365,8 +373,9 @@
 		
 		}
 </script>
-<!-- Autocomplete-->
-<script type="text/javascript">
+	
+	
+	<script type="text/javascript">
 			$(function() {
 				$('#form-tags-1').tagsInput();
 				
@@ -385,8 +394,8 @@
 				$('#form-tags-3').tagsInput({
 					'unique': true,
 					'minChars': 2,
-					'maxChars': 10,
-					'limit': 5,
+					'maxChars': 25,
+					'limit': 50,
 					'validationPattern': new RegExp('^[a-zA-Z]+$')
 				});
 				
@@ -410,7 +419,8 @@
 				});
 			});
 		</script>
-	
+		
+		
 	<script>
 		$(document).ready(function() {
 			App.init();
@@ -418,12 +428,7 @@
 		});
 	</script>
 	
-	<script>
-	function accepted(){
-			$('#cook').css('display','none');
-		}
 	
-	</script>
 	
 </body>
 </html>

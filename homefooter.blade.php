@@ -1,7 +1,7 @@
 
-@include("admin.cookiebanner")
 
 
+<footer>
 <div id="footer" class="footer" >
         <!-- begin container -->
         <div class="container">
@@ -11,11 +11,11 @@
                 <div class="col-md-3 col-sm-3">
                     <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="footer-title">Public Stories</h4>
+                        <h4 class="footer-title">Innovation Stories</h4>
                         <ul class="categories">
                             <li><a href="/news">News</a></li>
-							<li><a href="/event">Events</a></li>
-							<li><a href="/grant">Grants</a></li>
+							<li><a href="/event">Upcoming Events</a></li>
+							<li><a href="/grant">Upcoming Grants</a></li>
 							
                         </ul>
                     </div>
@@ -42,19 +42,19 @@
                     <div class="section-container">
                         <h4 class="footer-title">Policy</h4>
                         <ul class="recent-post">
-                            <li>
+                             <li>
                                 
-                                    <a href="https://www.ucl.ac.uk/disclaimer/">Terms and Condition</a>
+                                    <a href="https://www.ucl.ac.uk/disclaimer/" title="Terms and Condition" target="_blank">Terms and Conditions</a>
                                 
                             </li>
                             <li>
                                 
-                                    <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy">Cookies</a>
+                                    <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy" title="Cookies" target="_blank">Cookies</a>
                                 
                             </li>
                             <li>
                               
-                                    <a href="https://www.ucl.ac.uk/privacy/">Data Policy</a>
+                                    <a href="https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>
                                
                             </li>
                         </ul>
@@ -76,7 +76,7 @@
 							United Kingdom
                             <br />
                             <strong>Rita</strong><br />-->
-                            <a href="mailto:ana.pinho.14@ucl.ac.uk">ana.pinho.14@ucl.ac.uk</a>
+                            <a href="mailto:contact@materialsinhealth.org">contact@materialsinhealth.org</a>
                         </address>
 						
                     </div>
@@ -114,7 +114,7 @@
     
     </div>
     <!-- end theme-panel -->
-    
+    </footer>
 	<!-- ================== END BASE JS ================== -->
 	<script>
 	function share(my_id){
@@ -148,7 +148,6 @@
 	
 	
 	
-?>
 
 
 </body>

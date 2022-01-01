@@ -2,14 +2,14 @@
 
 <div class="section-container">
 <form  action="/search" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
-<label>Search for partners</label>
+<label for="keyword">Search for partners</label>
                         <div class="input-group sidebar-search">
 						
 						 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                            <input type="text" class="form-control" placeholder="By role, name, sector..." />
+                            <input type="text" id="keyword" class="form-control" name="keyword" placeholder="By role, name, sector..." />
 							<input type="hidden" name="cat" value="partner"/>
                             <span class="input-group-btn">
-                                <button class="btn btn-inverse" type="submit"><i class="fa fa-search"></i></button>
+                                <button class="btn btn-inverse" type="submit" aria-label="search"><i class="fa fa-search"></i></button>
                             </span>
 							
                         </div>
@@ -22,6 +22,7 @@
 					
                     <!-- end section-container -->
                     <!-- begin section-container -->
+					<!--
                     <div class="section-container">
                         <h4 class="section-title"><span>Innovation Stories</span></h4>
                         <ul class="sidebar-list">
@@ -34,8 +35,7 @@
 						 
                         </ul>
                     </div>
-                    <!-- end section-container -->
-                    <!-- begin section-container -->
+                    
                     
 					<div class="section-container">
                         <h5 ><span><b>RECENT INNOVATION STORIES</b></span></h5>
@@ -53,6 +53,7 @@
                             @endforeach
                         </ul>
                     </div>
+					-->
                     <!-- end section-container -->
                     <!-- begin section-container -->
                     <div class="section-container">

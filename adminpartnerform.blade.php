@@ -5,28 +5,159 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Admin partner form|Materials and Manufacturing in Healthcare Network | Register Page</title>
+	<title>Register|Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets/css/style.min.css" rel="stylesheet" />
-	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
+    
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
+	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
+	<!-- multiselect-->
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
+	
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+    <!-- SummerNote Javascript Library -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+	
+    <script>
+        $(document).ready(function () {
+            /** Initialize SummerNote Javscript For Textarea */
+            $('#message').summernote({
+               placeholder: 'Enter the post body',
+                height: '300px',
+				styleTags: [
+    'p',
+        { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
+        'pre', 'h1', 'H2', 'H3', 'H4', 'Heading5', 'Heading6'
+	],
+  
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+				  ['insert', ['link', 'picture']],
+				  ['view', ['codeview', 'help']],
+				  ['somegroup', ['style.H2', 'style.H3','style.Heading4','style.Heading5','style.Heading6' ]]
+                ]
+           
+            });
+        });
+    </script>
+	
+	
+	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+      tinymce.init({
+      selector: 'textarea',  // change this value according to your HTML
+	 plugins: [
+      'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      'table emoticons template paste help'
+    ],
+	paste_data_images: true,
+	  a_plugin_option: true,
+	  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+	  a_configuration_option: 400,
+  
+  menu: {
+    file: { title: 'File', items: 'newdocument restoredraft | preview | print ' },
+    edit: { title: 'Edit', items: 'undo redo | cut copy paste | selectall | searchreplace' },
+    view: { title: 'View', items: 'code | visualaid visualchars visualblocks | spellchecker | preview fullscreen' },
+    insert: { title: 'Insert', items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor toc | insertdatetime' },
+    format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript codeformat | formats blockformats fontformats fontsizes align lineheight | forecolor backcolor | removeformat' },
+    tools: { title: 'Tools', items: 'spellchecker spellcheckerlanguage | code wordcount' },
+    table: { title: 'Table', items: 'inserttable | cell row column | tableprops deletetable' },
+    help: { title: 'Help', items: 'help' }
+  }
+      });
+    </script>
+	
+	
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		
+		<script src="/assets/jquery.tagsinput-revisited.js"></script>
+		<link rel="stylesheet" href="/assets/jquery.tagsinput-revisited.css" />
+		
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+		
+			html {
+				height: 100%;
+				margin: 0;
+			}
+			
+			body {
+				min-height: 100%;
+				font-family: sans-serif;
+				padding: 20px;
+				margin: 0;
+			}
+			
+			label {
+				display: block;
+				padding: 20px 0 5px 0;
+			}
+		</style>
+		@include("admin.cookiebanner")
 	@include("admin.analytics")
 </head>
+
+@include("admin.header")
 <body class="pace-top bg-white">
+<!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
+            @include("admin.header")
+            <!-- end navbar-collapse -->
+        </div>
+        <!-- end container -->
+    </div>
+
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
@@ -68,14 +199,7 @@
 	    <!-- begin register -->
         <div class="register register-with-news-feed">
             <!-- begin news-feed -->
-            <div class="news-feed">
-                <div class="news-image">
-                    <img src="/assets/img/login-bg/bg-8.jpg" alt="" />
-                </div>
-                <div class="news-caption">
-                    
-                </div>
-            </div>
+            
             <!-- end news-feed -->
             <!-- begin right-content -->
             <div class="right-content">
@@ -124,17 +248,17 @@
 						
 						
 						
-						<label class="control-label">Brief bio/background, this will be visible to other members (maximum number of characters: 200)<span class="text-danger">*</span> </label>
+						<label class="control-label" for="bio">Brief bio/background, this will be visible to other members (maximum number of characters: 200)<span class="text-danger">*</span> </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <textarea type="text" name="bio" class="form-control"  maxlength="200" required> </textarea>
+                                <textarea type="text" name="bio" id="bio" class="form-control" style="visibility:visible;"  required> </textarea>
                             </div>
                         </div>
 						
-						<label class="control-label">Why do you want to join the network? (maximum number of characters: 200)<span class="text-danger">*</span> </label>
+						<label class="control-label">Why do you want to join the network? (maximum number of characters: 200) </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" name="reason" class="form-control"  maxlength="200"  required /> 
+                                <input type="text" name="reason" class="form-control"  maxlength="200"   /> 
                             </div>
                         </div>
 						
@@ -169,6 +293,17 @@
                             </div>
                         </div>
 						
+						Sector  <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="radio"  name="sector" value="Academic" id="ck2" onChange="OtherHide()" required/> <label class="control-label" for="ck2">Academia </label>
+								<input type="radio"  name="sector" value="Industry" id="ck3" onChange="OtherHide1()" required/> <label class="control-label" for="ck3">Industry </label>
+								<input type="radio"  name="sector" value="Clinical" id="ck4" onChange="OtherHide2()" required/> <label class="control-label" for="ck4">Clinical </label>
+								<input  type="radio"  name="sector" id="ck" value="Other" onChange="OtherField()" required/><label class="control-label" for="ck"> &nbsp;Other</label>
+                            </div>
+                        </div>
+						
+						
 						<label class="control-label">Profile Picture </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
@@ -178,10 +313,10 @@
                         </div>
 						
 						
-						<div class="dropdown" scroll>
+						<div class="dropdown" aria-haspopup="true" aria-expanded="false" id="keywordslist" scroll>
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown">
-										Click to research interest select keywords 
+										id="sampleDropdownMenu" data-toggle="dropdown" onClick="ariaChange('keywordslist')">
+										<label for="sampleDropdownMenu">Click to research interest select keywords </label>
 										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()"  /> other keywords 
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
@@ -191,24 +326,16 @@
 										 <br/>
 										
 										 @endforeach
-	
+	<br/>
 										</div>
 										</div>
 										
-										<div class="row m-b-15" id="oth">
-						
-                            <div class="col-md-12">
-							<br/>
-                                <input type="text"  class="form-control" placeholder="If other is selected, type in the keyword" name="other"   />
-								
-                            </div>
-                        </div>
-						
-						
+										
+						<br/><br/>
                         <div class="row m-b-15" id="oth">
 						
                             <div class="col-md-12">
-                                <input type="email" class="form-control" placeholder="If other is selected, type in the keyword" name="other"   />
+                                <input type="email" id="form-tags-3" class="form-control" placeholder="If other is selected, type in the keyword" name="other"   />
 								
                             </div>
                         </div>
@@ -216,7 +343,7 @@
 					
                         <div class="checkbox m-b-30">
                              <label>
-                                <input type="checkbox" required /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ ">Terms</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy">Cookie Use</a>.
+                                <input type="checkbox" required /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ " title="Terms and Condition" target="_blank">Terms</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy" title="Cokies" target="_blank">Cookie Use</a>.
                             </label>
                         </div>
 						
@@ -252,88 +379,10 @@
         <!-- end register -->
         
         <!-- begin theme-panel -->
-        <div class="theme-panel">
-            <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-            <div class="theme-panel-content">
-                <h5 class="m-t-0">Color Theme</h5>
-                <ul class="theme-list clearfix">
-                    <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-black" data-theme="black" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black">&nbsp;</a></li>
-                </ul>
-                <div class="divider"></div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Header Styling</div>
-                    <div class="col-md-7">
-                        <select name="header-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">inverse</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Header</div>
-                    <div class="col-md-7">
-                        <select name="header-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Styling</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">grid</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Sidebar</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Gradient</div>
-                    <div class="col-md-7">
-                        <select name="content-gradient" class="form-control input-sm">
-                            <option value="1">disabled</option>
-                            <option value="2">enabled</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Content Styling</div>
-                    <div class="col-md-7">
-                        <select name="content-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">black</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-12">
-                        <a href="#" class="btn btn-inverse btn-block btn-sm" data-click="reset-local-storage"><i class="fa fa-refresh m-r-3"></i> Reset Local Storage</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- end theme-panel -->
 	</div>
 	<!-- end page container -->
-	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
@@ -345,7 +394,14 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
+	<script src="/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
+	<script src="/assets/js/form-wizards-validation.demo.min.js"></script>
 	<script src="/assets/js/apps.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	
+	
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 <style type="text/css">
    	  #oth{display:none;}
@@ -369,6 +425,57 @@
 		}
    </script>
    
+   
+   <script type="text/javascript">
+			$(function() {
+				$('#form-tags-1').tagsInput();
+				
+				$('#form-tags-2').tagsInput({
+					'onAddTag': function(input, value) {
+						console.log('tag added', input, value);
+					},
+					'onRemoveTag': function(input, value) {
+						console.log('tag removed', input, value);
+					},
+					'onChange': function(input, value) {
+						console.log('change triggered', input, value);
+					}
+				});
+				
+				$('#form-tags-3').tagsInput({
+					'unique': true,
+					'minChars': 2,
+					'maxChars': 50,
+					'limit': 50,
+					'validationPattern': new RegExp('^[a-zA-Z]+$')
+				});
+				
+				$('#form-tags-4').tagsInput({
+					'autocomplete': {
+						source: [
+							'apple',
+							'banana',
+							'orange',
+							'pizza'
+						]
+					} 
+				});
+				
+				$('#form-tags-5').tagsInput({
+					'delimiter': ';' 
+				});
+				
+				$('#form-tags-6').tagsInput({
+					'delimiter': [',', ';'] 
+				});
+			});
+			
+			
+			function changeAria(id){
+					document.getElementById(id1).setAttribute('aria-expanded', 'true');
+					}
+		</script>
+		
 	<script>
 		$(document).ready(function() {
 			App.init();
@@ -376,4 +483,3 @@
 	</script>
 </body>
 </html>
-s

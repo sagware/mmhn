@@ -9,7 +9,8 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+	@include("admin.cookiebanner")
+	@include("admin.analytics")
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
@@ -113,9 +114,7 @@
 						 <div class="email-btn-row hidden-xs">
 					<br/>
 					
-                        <a href="/clinical_need_form" class="btn btn-sm btn-inverse" ><i class="fa fa-plus m-r-5"></i> Add Clinical Need </a> 
-
-						
+                      
 						
                         
                     </div>
@@ -130,6 +129,7 @@
 										<th>Status</th>
                                         <th>Title</th>
                                         <th>Category</th>
+										<th>Added by (ID)</th>
 										<th>Date Submitted</th>
 										
 										
@@ -145,6 +145,7 @@
 										<td>{{$g->status}}</td>
                                         <td>{{$g->title}}</td>
 										<td>{{$g->category}}</td>
+										<td>{{$g->	posted_by_name}}({{$g->	posted_by}})</td>
 										<td>{{ date('D jS, M Y, h:i:s A', strtotime($g->created_at)) }}</td>
 										
 										

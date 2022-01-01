@@ -27,35 +27,19 @@
 	
 	@if(Session::has('approve'))
 			<script type="text/javascript">
-			alert("Challenge/Need approved");
+			alert("Action completed");
 			</script>
 	@endif
 	
 	@if(Session::has('reject'))
 			<script type="text/javascript">
-			alert("Challenge/Need rejected");
+			alert("Action completed");
 			</script>
 	@endif
 </head>
 <body>
     <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                        Materials and Manufacturing in Healthcare Network
-                    </span>
-                </a>
-            </div>
+   
             <!-- end navbar-header -->
             <!-- begin navbar-collapse -->
             @include("admin.header")
@@ -80,12 +64,18 @@
                             <li><a href="/clinicalneeds">CHALLENGES/NEEDS</a></li>
                             <li class="active">{{$p->title}}</li>
                         </ul>
-                        <h4 class="post-title">
+                        <h1 class="post-title">
                             <a href="#">{{$p->title}}</a>
-                        </h4>
+                        </h1>
+						
+						@if(Auth::check())
+											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
+											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn"><button >Edit</button> </a>
+											@endif
+									@endif
 						
                         <div class="post-by">
-                            Posted By <a href="#">{{$p->posted_by_name}}</a> <span class="divider">Likes 50|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |</span> 2 Comments
+                            Posted By <a href="/partner/{{$p->id}}">{{$p->posted_by_name}}</a> <span class="divider">Likes 50|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                         </div>
                         <!-- begin post-image -->
 						<!--

@@ -31,7 +31,8 @@
 	<link href="/assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
-	
+	@include("admin.cookiebanner")
+	@include("admin.analytics")
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
@@ -147,7 +148,16 @@
                                     <tr >
 										<td>{{$ct}}</td>
                                         <td>{{$g->first_name}}  {{$g->middle_name}} {{$g->last_name}}</td>
-										<td>{{$g->bio}}</td>
+										<td>
+										 <?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br($g->bio);
+							
+							echo $txt;
+							
+							?>
+										</td>
 										<td>{{$g->email}}</td>
 										<td><?php
 										$uks = array();

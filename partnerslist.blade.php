@@ -5,10 +5,11 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Materials and Manufacturing in Healthcare Network</title>
+	<title>Partners|Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
+	@include("admin.cookiebanner")
 	@include("admin.analytics")
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -27,15 +28,7 @@
 <body>
 @include("admin.cookiebanner")
     <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-               
-            </div>
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+   
             @include("admin.header")
             <!-- end navbar-collapse -->
         </div>
@@ -57,16 +50,17 @@
                 <!-- begin col-9 -->
                 <div class="col-md-9">
                     <!-- begin post-list -->
-                   Partners: <button class="read-btn"><a href="/academic/partners" title="Academic Partners">Academic</a></button> |<button class="read-btn"><a href="/industry/partners" title="Industry partners">Industry</a></button> | <button class="read-btn"><a href="/clinical/partners" title="Clinical partners">Clinical</a></button> | <button class="read-btn"><a href="/other/partners" title="Other category partners">Others </a></button>  | <button class="read-btn"><a href="/partnerslist" title="All Partners List">All</a></button>
+                  <h1>Partners:</h1> <button id="bt1" class="read-btn"><a href="/academic/partners"  title="Academic Partners"><label for="bt1">Academic</label></a></button> |<button class="read-btn" id="bt2"><a href="/industry/partners" title="Industry partners"><label for="bt2">Industry</label></a></button> | <button class="read-btn" id="bt3"><a href="/clinical/partners" title="Clinical partners"><label id="bt3">Clinical</label></a></button> | <button class="read-btn" id="bt4"><a href="/other/partners" title="Other category partners"><label id="bt4">Others </label></a></button>  | <button class="read-btn" id="bt5"><a href="/partnerslist" title="All Partners List"><label id="bt5">All</label></a></button>
 					<br/><br/>
 					
 					<div class="section-container">
 					
-                        <h4 class="section-title"><span>Registered Partners ({{number_format($c)}})</span></h4>
+                        <h4 class="section-title"><span>Fetched Partners ({{number_format($c)}})</span></h4>
                         <!-- begin comment-list -->
                         <ul class="comment-list">
                             
 							@foreach($ss as $s)
+							@if($s->status=="0")
                             <li>
                                 <!-- begin comment-avatar -->
 								<!--image-->
@@ -75,15 +69,16 @@
                                 <!-- begin comment-container -->
                                 <div class="comment-container">
                                     <div class="comment-author">
-								@if($s->picture=="empty")	
-                                    <a href="#"><img align="right"src="/uploads/empty.png" alt="" height="200px" width="200px" /></a>
+								@if($s->picture=="empty.png")	
+                                    <a href="/partner/{{$s->id}}"><img align="right"src="/uploads/empty.png" alt="Default Profile Photo"  height="200px" width="200px"  /></a>
 									@else
-									<a href="#"><img align="right"src="/uploads/{{$s->picture}}" alt="" height="200px" width="200px" /></a>
+									<a href="/partner/{{$s->id}}"><img align="right"src="/mmhn/public/uploads/{{$s->picture}}" alt="{{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}" height="200px" width="200px" /></a>
 									@endif
                             
-                                         <a href="#" title="Partner's Name">{{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</a>
+                                         <a href="/partner/{{$s->id}}"  title="Click to view full details">{{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</a>
                                         <span class="comment-date">
-                                            Date joined <span class="underline">{{ date('D jS, M Y, h:i:s A', strtotime($s->created_at)) }}  </span>
+                                          <!--  Date joined <span class="underline">{{ date('D jS, M Y, h:i:s A', strtotime($s->created_at)) }}  -->
+										  </span>
                                         </span>
                                     </div>
 									
@@ -91,14 +86,25 @@
 									 <div >
                                   
                                     </div>
+									
+									@if(!empty($s->bio))
                                     <div >
                                     <b> Biography: </b>
-									
-									 {{$s->bio}} 
-									
+									 <?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br(substr($s->bio,0,200));
+							
+							echo $txt."...";
+							
+							?>
 									 <br/>
                                     </div>
+									@endif
 									
+									
+									
+									@if(!empty($s->email))
 									<div >
                                    <b>  Email: </b>
 									 @if(Auth::check())
@@ -108,7 +114,10 @@
 									 @endif
 									 <br/>
                                     </div>
+									@endif
 									
+									
+									@if(!empty($s->sector))
 									<div >
                                     <b> Sector: </b>
 									 
@@ -116,7 +125,9 @@
 									
 									 <br/>
                                     </div>
+									@endif
 									
+									@if(!empty($s->institution))
 									<div >
                                     <b> Organisation: </b> 
 									 
@@ -124,7 +135,10 @@
 									
 									 <br/>
                                     </div>
+									@endif
 									
+									
+									@if(!empty($s->designation))
 									<div >
                                    <b>  Role title: </b>
 									
@@ -132,7 +146,10 @@
 									 
 									 <br/>
                                     </div>
+									@endif
 									
+									
+									@if(!empty($s->keywords))
 									<div >
                                     <b> Research Interests Keywords: </b>
 									
@@ -142,12 +159,22 @@
 										if( !empty(unserialize($s->keywords))){
 										$uks = unserialize($s->keywords);
 										}
+										$ct = count(unserialize($s->keywords));
 										
+										$e = 0;
 										foreach($kk as $k ){
 										foreach($uks as $uk ){
 										
-										if($uk  ==  $k->id){ echo $k->name.", ";}
+										if($uk  ==  $k->id){ 
+										$e++;
+										if($e <$ct){										
+										echo $k->name."; ";
 										}
+										else {
+										echo $k->name;
+										}
+										}
+									}
 										
 										}
 										
@@ -156,38 +183,47 @@
 									 
 									 <br/>
                                     </div>
+									@endif
 									
+									
+									@if(!empty($s->linkedin))
 									<div >
                                    <b>  LinkedIn: </b>
 									@if(Auth::check())
-									 <a href="{{$s->linkedin}}" title="linkedIn Page" /> {{$s->linkedin}} </a>
+									 <a href="{{$s->linkedin}}" title="linkedIn Page" target="_blank" /> {{$s->linkedin}} </a>
 									 @else
 									 <a href="/login" href="Login/Register to view detail">Login/Register to view Detail</a>
 									 @endif
 									
 									 <br/>
                                     </div>
+									@endif
 									
+									
+									@if(!empty($s->twitter))
 									<div >
                                     <b> Twitter: </b>
 									@if(Auth::check())
-									<a href="{{$s->twitter}}" title="Twitter page"> {{$s->twitter}} </a>
+									<a href="{{$s->twitter}}" title="Twitter page" target="_blank"> {{$s->twitter}} </a>
 									 @else
 									 <a href="/login" href="Login/Register to view detail">Login/Register to view Detail</a>
 									 @endif
 									 <br/>
                                     </div>
+									@endif
 									
+									
+									@if(!empty($s->webpage))
 									<div >
                                     <b> Webpage: </b>
 									@if(Auth::check())
-									<a href="{{$s->webpage}}" title="Web page" >{{$s->webpage}} </a>
+									<a href="{{$s->webpage}}" title="Web page" target="_blank" >{{$s->webpage}} </a>
 									 @else
 									 <a href="/login" href="Login/Register to view detail">Login/Register to view Detail</a>
 									 @endif
 									 <br/>
                                     </div>
-									
+									@endif
 									
 									
 									
@@ -202,6 +238,7 @@
                                 </div>
                                 <!-- end comment-container -->
                             </li>
+							@endif
 							@endforeach
                         </ul>
                         <!-- end comment-list -->

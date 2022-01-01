@@ -4,62 +4,160 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-	<meta charset="utf-8" />
-	<title>Partners Matching|Materials and Manufacturing in Healthcare Network</title>
+<meta charset="utf-8" />
+	<title>Partners Matching Edit|Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets/css/style.min.css" rel="stylesheet" />
-	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
-	<!-- ================== END BASE CSS STYLE ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
-	<!-- ================== END PAGE LEVEL STYLE ================== -->
-	@include("admin.analytics")
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	
-	
+<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+    <link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	<!-- ================== END BASE CSS STYLE ================== -->
 	
-	<link href="/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
+	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
 	
-	<link href="/assets/datatableothercss.css" rel="stylesheet" />
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
+	<!-- multiselect-->
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	
+	
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+    <!-- SummerNote Javascript Library -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+	
+    <script>
+        $(document).ready(function () {
+            /** Initialize SummerNote Javscript For Textarea */
+            $('#message').summernote({
+               placeholder: 'Enter the post body',
+                height: '300px',
+				styleTags: [
+    'p',
+        { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
+        'pre', 'h1', 'H2', 'H3', 'H4', 'Heading5', 'Heading6'
+	],
+  
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+				  ['insert', ['link', 'picture']],
+				  ['view', ['codeview', 'help']],
+				  ['somegroup', ['style.H2', 'style.H3','style.Heading4','style.Heading5','style.Heading6' ]]
+                ]
+           
+            });
+        });
+    </script>
+	
+	
+	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+      tinymce.init({
+      selector: 'textarea',  // change this value according to your HTML
+	 plugins: [
+      'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      'table emoticons template paste help'
+    ],
+	paste_data_images: true,
+	  a_plugin_option: true,
+	  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+	  a_configuration_option: 400,
+  
+  menu: {
+    file: { title: 'File', items: 'newdocument restoredraft | preview | print ' },
+    edit: { title: 'Edit', items: 'undo redo | cut copy paste | selectall | searchreplace' },
+    view: { title: 'View', items: 'code | visualaid visualchars visualblocks | spellchecker | preview fullscreen' },
+    insert: { title: 'Insert', items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor toc | insertdatetime' },
+    format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript codeformat | formats blockformats fontformats fontsizes align lineheight | forecolor backcolor | removeformat' },
+    tools: { title: 'Tools', items: 'spellchecker spellcheckerlanguage | code wordcount' },
+    table: { title: 'Table', items: 'inserttable | cell row column | tableprops deletetable' },
+    help: { title: 'Help', items: 'help' }
+  }
+      });
+    </script>
+	
+	
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		
+		<script src="/assets/jquery.tagsinput-revisited.js"></script>
+		<link rel="stylesheet" href="/assets/jquery.tagsinput-revisited.css" />
+		
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+		
+			html {
+				height: 100%;
+				margin: 0;
+			}
+			
+			body {
+				min-height: 100%;
+				font-family: sans-serif;
+				padding: 20px;
+				margin: 0;
+			}
+			
+			label {
+				display: block;
+				padding: 20px 0 5px 0;
+			}
+		</style>
+@include("admin.analytics")		
 </head>
-<body>
+<body style="padding:0px !important; min-height: 100%;
+    font-family: sans-serif;
+    margin: 0;">
+
 @include("admin.cookiebanner")
 	<!-- begin #page-loader -->
-	 <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-           
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+	 
             @include("admin.header")
             <!-- end navbar-collapse -->
         </div>
         <!-- end container -->
     </div>
-	
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->
@@ -91,7 +189,7 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                             </div>
-                            <h4 class="panel-title">Match Making Form</h4>
+                            <h1 class="panel-title">Match Making and Supporting Documents</h1>
                         </div>
 						
                         <div class="panel-body panel-form">
@@ -106,9 +204,9 @@
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Supporting data/schematics</label>
+									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Document</label>
 									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control"   name="pic" />
+										<input type="file" class="form-control" id="pic"   name="pic[]"  multiple/>
 										
 										
 									</div>
@@ -158,10 +256,23 @@
 										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s>20 && ($s)){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
-										<td>{{$u->bio}}</td>
+										<td><?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br(substr($u->bio,0,200));
+							
+							echo $txt."...";
+							
+							?></td>
 										<td><?php 
 										
-										foreach(unserialize($u->keywords) as $uk){
+										if(is_array(unserialize($u->keywords))){
+											$ki = unserialize($u->keywords);
+											}else{
+												$ki = array();
+											}
+										
+										foreach($ki as $uk){
 											foreach($kd as $k){
 											
 											  if($k->id == $uk){
@@ -233,7 +344,14 @@
 										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s1>20){ echo "checked";} ?> /> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
-										<td>{{$u->bio}}</td>
+										<td><?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br(substr($u->bio,0,200));
+							
+							echo $txt."...";
+							
+							?></td>
 										<td><?php 
 										
 										foreach(unserialize($u->keywords) as $uk){
@@ -309,7 +427,14 @@
 										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s2>20){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
-										<td>{{$u->bio}}</td>
+										<td><?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br(substr($u->bio,0,200));
+							
+							echo $txt."...";
+							
+							?></td>
 										<td><?php 
 										
 										foreach(unserialize($u->keywords) as $uk){
@@ -386,7 +511,14 @@
 										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s3>20){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
-										<td>{{$u->bio}}</td>
+										<td><?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br(substr($u->bio,0,200));
+							
+							echo $txt."...";
+							
+							?></td>
 										<td><?php 
 										
 										foreach(unserialize($u->keywords) as $uk){
@@ -442,82 +574,9 @@
             <!-- end row -->
 		</div>
 		<!-- end #content -->
-		
+		 @include("admin.homefooter")
         <!-- begin theme-panel -->
-        <div class="theme-panel">
-            <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-            <div class="theme-panel-content">
-                <h5 class="m-t-0">Color Theme</h5>
-                <ul class="theme-list clearfix">
-                    <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-black" data-theme="black" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black">&nbsp;</a></li>
-                </ul>
-                <div class="divider"></div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Header Styling</div>
-                    <div class="col-md-7">
-                        <select name="header-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">inverse</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Header</div>
-                    <div class="col-md-7">
-                        <select name="header-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Styling</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">grid</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Sidebar</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Gradient</div>
-                    <div class="col-md-7">
-                        <select name="content-gradient" class="form-control input-sm">
-                            <option value="1">disabled</option>
-                            <option value="2">enabled</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Content Styling</div>
-                    <div class="col-md-7">
-                        <select name="content-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">black</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-12">
-                        <a href="#" class="btn btn-inverse btn-block btn-sm" data-click="reset-local-storage"><i class="fa fa-refresh m-r-3"></i> Reset Local Storage</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- end theme-panel -->
 		
 		<!-- begin scroll to top btn -->

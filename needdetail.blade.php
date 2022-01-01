@@ -22,7 +22,7 @@
 	
 	@include("admin.analytics")
 	<!-- ================== END BASE CSS STYLE ================== -->
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+     <script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
        tinymce.init({
@@ -86,24 +86,7 @@
 <body>
 @include("admin.cookiebanner")
     <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                        Materials and Manufacturing in Healthcare Network
-                    </span>
-                </a>
-            </div>
-            <!-- end navbar-header -->
+   
             <!-- begin navbar-collapse -->
             @include("admin.header")
             <!-- end navbar-collapse -->
@@ -124,15 +107,21 @@
                     <div class="post-detail section-container">
                         <ul class="breadcrumb">
                             <li><a href="/">Home</a></li>
-                            <li><a href="/clinicalneeds">CHALLENGES/NEEDS</a></li>
+                            <li><a href="/clinicalneeds">CHALLENGES</a></li>
                             <li class="active">{{$p->title}}</li>
                         </ul>
-                        <h4 class="post-title">
-                            <a href="#">{{$p->title}}</a>
-                        </h4>
+                        <h1 class="post-title">
+                           {{$p->title}}
+                        </h1>
+						<?php 
+						if(empty($p->likes) || $p->likes=="N;"){
+						$p->likes = serialize(array());
+						}
 						
+						
+						?>
                         <div class="post-by">
-                            Posted By <a href="#">{{$p->posted_by_name}}</a>  {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |</span> {{$comct}} Comments @if(Auth::check())<a href="/likeneed/{{$p->id}}/{{Auth::user()->id}}" title="Click to like it" class="m-l-10 text-inverse"><button> Like:{{count($p->likes)}}  <i class="fa fa-thumbs-up text-success"></i> </button></a> <!--<button> Unlike :{{count($p->dislikes)}} <i class="fa fa-thumbs-down text-danger"></i> </button></a> -->@else
+                            Posted By <a href="/partner/{{$p->posted_by}}">{{$p->posted_by_name}}</a>  {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |</span> {{$comct}} Comments @if(Auth::check())<a href="/likeneed/{{$p->id}}/{{Auth::user()->id}}" title="Click to like it" class="m-l-10 text-inverse"><button> Like:{{count(unserialize($p->likes))}}  <i class="fa fa-thumbs-up text-success"></i> </button></a> <!--<button> Unlike : <i class="fa fa-thumbs-down text-danger"></i> </button></a> -->@else
 							<a href="/login" title="Click to sign in"/> Sign in to Like</a>
 							@endif
                         </div>
@@ -162,14 +151,28 @@
                         <!-- begin post-image -->
                        
                         
-                       
+                       <h2>Supporting Documents</h2>
+					   
+					   @if($p->pic != 'emptyimage.png' && !empty($p->pic))
+					   <?php $ct=1;
+					   
+					  $doc = unserialize($p->pic);
+					 
+					   ?>
+					   	@foreach($doc as $sp)
+						
+						<a href="/mmhn/public/uploads/{{$sp}}" title="Document{{$ct}}">Document <?php echo " ".$ct."<br/>"; $ct++;?></a>
+						
+						@endforeach
+					   
+					   @endif
                         <!-- end post-desc -->
                     </div>
                     <!-- end post-detail -->
                     
                     <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="section-title"><span>Comments: ({{$comct}}) and Replies: ({{$rect}})</span></h4>
+                        <h4 class="section-title"><span>Comments: ({{$comct}}) <!--and Replies: ({{$rect}}) --></span></h4>
                         <!-- begin comment-list -->
 						@foreach($cm as $c)
 						
@@ -180,7 +183,16 @@
                                 <!-- begin comment-avatar -->
                                 <div class="comment-avatar">
 								
-                                    <i class="fa fa-user"></i>
+								@foreach($us as $u)
+								
+								@if($u->email == $c->email)
+							@if($u->picture=="empty")	
+                                    <a href="/partner/{{$u->id}}"><img align="right"src="/uploads/empty.png" alt="Default Profile Photo"  height="100px" width="100px"  /></a>
+									@else
+									<a href="/partner/{{$u->id}}"><img align="right"src="/mmhn/public/uploads/{{$u->picture}}" alt="{{ucfirst($u->first_name )}} {{ucfirst($u->middle_name )}} {{ucfirst($u->last_name) }}" height="100px" width="100px" /></a>
+									@endif									
+								@endif
+								@endforeach
                                 </div>
                                 <!-- end comment-avatar -->
                                 <!-- begin comment-container -->
@@ -209,8 +221,13 @@
                                     </div>
                                     <div class="comment-rating">
 									@if(Auth::check())
+									<?php  
+									if(empty($c->likes) || $c->likes=="N;"){
+									$c->likes = serialize(array());
+									}
+									?>
                                        <a href="/likecomment/{{$c->id}}/{{Auth::user()->id}}" title="Click to like this comment" class="m-l-10 text-inverse"> Like</a> 
-                                        <a href="/likecomment/{{$c->id}}/{{Auth::user()->id}}" title="Click to like this comment" class="m-l-10 text-inverse"><i class="fa fa-thumbs-up text-success"></i> {{count($c->likes)}}</a>
+                                        <a href="/likecomment/{{$c->id}}/{{Auth::user()->id}}" title="Click to like this comment" class="m-l-10 text-inverse"><i class="fa fa-thumbs-up text-success"></i> @if(is_array(unserialize($c->likes))) {{count(unserialize($c->likes))}} @else 0 @endif</a>
                                       
 										@else
 										<a href="/login" title="Click to login">Sign in to like
@@ -224,10 +241,24 @@
                                         <li>
                                             <!-- begin comment-avatar -->
                                             <div class="comment-avatar">
-                                                <i class="fa fa-user"></i>
+                                                @foreach($us as $u)
+								
+								@if($u->email == $rep->replier_email)
+												@if($u->picture=="empty")	
+														<a href="/partner/{{$u->id}}"><img align="right"src="/uploads/empty.png" alt="Default Profile Photo"  height="100px" width="100px"  /></a>
+														@else
+														<a href="/partner/{{$u->id}}"><img align="right"src="/mmhn/public/uploads/{{$u->picture}}" alt="{{ucfirst($u->first_name )}} {{ucfirst($u->middle_name )}} {{ucfirst($u->last_name) }}" height="100px" width="100px" /></a>
+														@endif									
+													@endif
+								@endforeach
                                             </div>
                                             <!-- end comment-avatar -->
                                             <!-- begin comment-container -->
+											<?php  
+									if(empty($rep->likes) || $rep->likes=="N;"){
+									$rep->likes = serialize(array());
+									}
+									?>
                                             <div class="comment-container">
                                                 <div class="comment-author">
                                                     {{$rep->name}}
@@ -246,7 +277,7 @@
                                                 <div class="comment-rating">
 												@if(Auth::check())
                                                    <a href="/likereply/{{$rep->id}}/{{Auth::user()->id}}" title="Like reply" class="m-l-10 text-inverse"> Like</a>  <!--or<a href="/dislikereply/{{$rep->id}}/{{Auth::user()->id}}" title="Dislike reply" class="m-l-10 text-inverse">Dislike</a>: --->
-                                                    <a href="/likereply/{{$rep->id}}/{{Auth::user()->id}}" title="Like reply" class="m-l-10 text-inverse"><i class="fa fa-thumbs-up text-success"></i> {{count($rep->likes)}}</a> 
+                                                    <a href="/likereply/{{$rep->id}}/{{Auth::user()->id}}" title="Like reply" class="m-l-10 text-inverse"><i class="fa fa-thumbs-up text-success"></i> {{count(unserialize($rep->likes))}}</a> 
 													
                                                  
 												 @endif
@@ -367,7 +398,7 @@
 	
 			$('#yloader').show();
 	
-			frmstring = '<form action="/submitreply" method="POST" enctype="multipart/form-data"><div><input type="hidden" name="_token" value="{{ csrf_token() }}"/></div><div id="bc">Name: <input name="name" class="form-control" rquired> <br/>Email: <input name="email"  class="form-control" required/> <br/<input name="email" type="hidden" value="1" class="form-control" required/> <br/>Reply: <textarea class="form-control" id="mytextarea" name="reply" /></textarea  ><br/><input type="hidden" value='+p_id+' name="pid"/><input type="hidden" value='+c_id+' name="c_id"/><br/><input type="checkbox" name="notification" value="1" />Notify me of follow-up comments/replies by email<br/><button class="btn btn-primary"> Reply</button></div></div></form/>';
+			frmstring = '<form action="/submitreply" method="POST" enctype="multipart/form-data"><div><input type="hidden" name="_token" value="{{ csrf_token() }}"/></div><div id="bc">Name: <input name="name" class="form-control" value="{{Auth::user()->first_name}} {{Auth::user()->middle_name}}  {{Auth::user()->last_name}}" rquired readonly> <br/>Email: <input name="email" type="email" value="{{Auth::user()->email}}"  class="form-control" required readonly/> <br/<input  name="email" type="hidden" value="1" class="form-control" required/> <br/>Reply: <textarea class="form-control" id="mytextarea" name="reply" /></textarea  ><br/><input type="hidden" value='+p_id+' name="pid"/><input type="hidden" value='+c_id+' name="c_id"/><br/><input type="checkbox" name="notification" value="1" />Notify me of follow-up comments/replies by email<br/><button class="btn btn-primary"> Reply</button></div></div></form/>';
 			
 			bootbox.dialog({
 				title: 'Reply Form',

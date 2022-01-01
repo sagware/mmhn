@@ -9,6 +9,7 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
+	
 	@include("admin.analytics")
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -19,30 +20,13 @@
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-    
+    <script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
 <body>
-    <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                         Materials and Manufacturing in Healthcare Network
-                    </span>
-                </a>
-            </div>
+   
             <!-- end navbar-header -->
             <!-- begin navbar-collapse -->
             @include("admin.header")
@@ -63,11 +47,11 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <!-- begin post-list -->
                     <div class="post-list post-grid post-grid-2">
                         @if(sizeof($pp)==0)
-						<h4 align="center">No content found</h4>
+						<p align="center" class="text-danger">No content found</p>
 						@else
 						@foreach($pp as $p)
 						
@@ -77,14 +61,14 @@
                             <div class="post-content">
                                 <!-- begin post-image -->
                                 <div class="post-image">								
-                                    <a href="/clinical_detail/{{$p->id}}"><img src="/uploads/{{$p->pic}}" alt="" /></a>
+                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
-                                    <h4 class="post-title">
+                                    <h1 class="post-title">
                                         <a href="/clinical_detail/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
-                                    </h4>
+                                    </h1>
                                     <div class="post-by">
                                         Posted By <a href="/partner/{{$p->posted_by}}" title="{{$p->posted_by_name}}"></a><br/>
 										 Category: {{$p->category}}<br/>
@@ -95,7 +79,15 @@
 										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
                                     <div class="post-desc">
-                                        {{substr($p->summary,0,47)}}...
+                                        <?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br(substr($p->summary,0,47));
+							
+							
+							echo $txt."...";
+							
+							?>
                                     </div>
                                     <div class="read-btn-container">
                                         <a href="/clinical_detail/{{$p->id}}" title="Read more" class="read-btn">Read More <i class="fa fa-angle-double-right"></i></a>
@@ -113,7 +105,7 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/uploads/{{$p->pic}}" alt="" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
@@ -131,7 +123,15 @@
 										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
                                     <div class="post-desc">
-                                        {{substr($p->summary,0,47)}}...
+                                        <?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br(substr($p->summary,0,47));
+							
+							
+							echo $txt."...";
+							
+							?>
                                     </div>
                                     <div class="read-btn-container">
 									
@@ -164,11 +164,8 @@
                 </div>
                 <!-- end col-9 -->
                 <!-- begin col-3 -->
-				@if($p->category =="need")
-                @include("admin.sidebarneed")
-				@else 
-				 @include("admin.sidebar")
-				@endif
+				
+           
                 <!-- end col-3 -->
             </div>
             <!-- end row -->
@@ -179,7 +176,6 @@
     
     <!-- begin #footer -->
     @include("admin.footer")
-    
     <!-- end theme-panel -->
     
 	<!-- ================== BEGIN BASE JS ================== -->

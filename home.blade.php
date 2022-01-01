@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Home Page|Materials and Manufacturing in Healthcare Innovation Network</title>
+	<title>Home|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -40,8 +40,8 @@
 	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
 </head>
-<body>
 
+<body>
 @if(Session::has('needsubmit'))
 			<script type="text/javascript">
 			alert("Challenge/Need submitted successfully");
@@ -60,15 +60,8 @@
 			</script>
 			@endif
 			
-    <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-               
-               
-            </div>
+
+
             <!-- end navbar-header -->
             <!-- begin navbar-collapse -->
             @include("admin.header")
@@ -76,11 +69,16 @@
         </div>
         <!-- end container -->
     </div>
+
+
+			
+    <!-- begin #header -->
+    
     <!-- end #header -->
     
     <!-- begin #page-title -->
     <div id="page-title" class="page-title has-bg">
-        <div class="bg-cover"><img src="/assets/homecover.jpeg" alt="Cover photo" /></div>
+        <div class="bg-cover"><img src="/assets/homecover.jpeg" alt="" /></div>
         <div class="container">
             <h1>Materials and Manufacturing in Healthcare Innovation Network
 </h1>
@@ -100,9 +98,9 @@
 			@if(Auth::check())
             <div class="row row-space-30" >
                 <!-- begin col-9 -->
-                <div class="col-md-12">
+                <div class="col-md-15">
                     <!-- begin post-list -->
-                    <div class="post-list post-grid post-grid-3">
+                    <div class="post-list post-grid post-grid-10">
                         
 						<div class="post-li">
                             <!-- begin post-content -->
@@ -115,23 +113,27 @@
 							<h4 class="post-title" align="center">
                                         Partners
                                     </h4>
-                                   
+                                   <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									
-									<a href="/academic/partners" title="Academic Parners"><li> <h4>Academic Parners</h4></li></a>
-									<a href="/industry/partners" title="Industry Partners"><li> <h4>Industry Partners</h4></li></a>
-									<a href="/clinical/partners" title="Clinical Partners"><li> <h4>Clinical Partners</h4></li></a>
-									<a href="/other/partners" title="Other Category of Partners"><li> <h4>Other Partners</h4></li></a>
+									<li><a href="/academic/partners" title="Academic Partners"> <h4>Academic Partners</h4></a></li>
+									<li><a href="/industry/partners" title="Industry Partners"> <h4>Industry Partners</h4></a></li>
+									<li><a href="/clinical/partners" title="Clinical Partners"> <h4>Clinical Partners</h4></a></li>
+									<li><a href="/other/partners" title="Other Category of Partners"> <h4>Other Partners</h4></a></li>
 									
 									</ul>
                                 </div>
 								</div>
                                 <!-- end blockquote -->
                                 <!-- begin post-info -->
+                               <div align="right">
                                
+								<a href="/partnerslist" class="read-btn" title="Read more"> See all partners <i class="fa fa-angle-double-right" ></i></a>
+								
+								</div>
                                 <!-- end post-info -->
                             </div>
                             <!-- end post-content -->
@@ -154,20 +156,25 @@
 							 <h4 class="post-title" align="center">
                                         Challenges
                                     </h4>
+									<br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                      <ul>
 									@foreach($ch as $c)
-									<a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}"><li><h4>{{$c->title}}</h4></li></a>
+									<li><a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}"><h4>{{$c->title}}</h4></a></li>
 									@endforeach
-									<a href="/clinicalneeds" class="read-btn" title="Read more"> Read More <i class="fa fa-angle-double-right"></i></a>
+									
 									</ul>
                                 </div>
 								</div>
                                 <!-- end blockquote -->
                                 <!-- begin post-info -->
-                                
+								<div align="right">
+                               
+								<a href="/clinicalneeds" class="read-btn" title="Read more"> See all challenges <i class="fa fa-angle-double-right" ></i></a>
+								
+								</div>
                                 <!-- end post-info -->
                             </div>
                             <!-- end post-content -->
@@ -188,21 +195,25 @@
 							<h4 class="post-title" align="center">
                                        Latest Innovation Stories
                                     </h4>
-                                   
+                                  <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									@foreach($r as $n)
-									<a href="/public_post/{{$n->id}}" title="{{$n->title}}"><li><b><h4>{{$n->title}}</b></h4></li></a>
+									<li><a href="/public_post/{{$n->id}}" title="{{$n->title}}"><h4>{{$n->title}}</h4></a></li>
 									@endforeach
-									<a href="/news" class="read-btn" title="Read more"> Read More <i class="fa fa-angle-double-right"></i></a>
+									
 									</ul>
                                 </div>
 								</div>
                                 <!-- end blockquote -->
                                 <!-- begin post-info -->
-                                
+                                <div align="right">
+                               
+								<a href="/news" class="read-btn" title="Read more"> See all innovation stories <i class="fa fa-angle-double-right"></i></a>
+								
+								</div>
                                 <!-- end post-info -->
                             </div>
                             <!-- end post-content -->
@@ -240,7 +251,7 @@
 							<h4 class="post-title" align="center">
                                        Latest Innovation Stories
                                     </h4>
-                                   
+                                   <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
@@ -248,13 +259,16 @@
 									@foreach($r as $n)
 									<a href="/public_post/{{$n->id}}" title="{{$n->title}}"><li><b><h4>{{$n->title}}</b></h4></li></a>
 									@endforeach
-								<a href="/news" class="read-btn" title="Read more"> Read More <i class="fa fa-angle-double-right"></i></a>
+								
 									</ul>
+									
+									 <a href="/news" style="align:right;" class="read-btn"  title="Read more"> Read More <i class="fa fa-angle-double-right"></i></a>
                                 </div>
+								
 								</div>
                                 <!-- end blockquote -->
                                 <!-- begin post-info -->
-                                
+                               
                                 <!-- end post-info -->
                             </div>
                             <!-- end post-content -->
@@ -273,15 +287,15 @@
 							<h4 class="post-title" align="center">
                                         Network Information
                                     </h4>
-                                   
+                                   <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									
-									<a href="/aboutus" title="About us"><li> <h4>About Us</h4></li></a>
-									<a href="/faq" title="FAQ"><li> <h4>FAQ</h4></li></a>
-									<a href="/contactus" title="Contact us"><li> <h4>Contact Us</h4></li></a>
+									<li><a href="/aboutus" title="About us"> <h4>About Us</h4></a></li>
+									<li><a href="/faq" title="FAQ"> <h4>FAQ</h4></a></li>
+									<li><a href="/contactus" title="Contact us"> <h4>Contact Us</h4></a></li>
 									
 									</ul>
                                 </div>
@@ -317,7 +331,7 @@
     <!-- begin #footer -->
     @include("admin.homefooter")
     
-    <!-- end theme-panel -->
+   
     
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>

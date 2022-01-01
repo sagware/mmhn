@@ -26,23 +26,7 @@
 </head>
 <body>
     <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                        Materials and Manufacturing in Healthcare Network
-                    </span>
-                </a>
-            </div>
+    
             <!-- end navbar-header -->
             <!-- begin navbar-collapse -->
             @include("admin.header")
@@ -68,17 +52,33 @@
                             <li><a href="/{{$p->category}}">{{ucfirst($p->category)}}</a></li>
                             <li class="active">{{$p->title}}</li>
                         </ul>
-                        <h4 class="post-title">
-                            <a href="#">{{$p->title}}</a>
-                        </h4>
+                        <h1 class="post-title">
+                           {{$p->title}}
+                        </h1>
+						@if(Auth::check())
+											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
+											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn"><button >Edit</button> </a>
+											@endif
+									@endif
+
 						
                         <div class="post-by">
-                            Posted By <a href="#">{{$p->posted_by_name}}</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |</span> 2 Comments
+                            Posted By <a href="/partner/{{$p->posted_by}}">{{$p->posted_by_name}}</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                         </div>
                         <!-- begin post-image -->
 						
 						 <blockquote>
-                                    {{$p->summary}}
+						 
+						  <?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br($p->summary);
+							
+							
+							echo $txt;
+							
+							?>
+                                    
                                 </blockquote>
 								
 								

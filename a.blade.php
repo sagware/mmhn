@@ -10,11 +10,12 @@ Dear  {{$name}},
 
 <br/>
 
-You are invited to join MMHN Network. Kindly follow  <a href="{{$m}}">this link</a> to complete the registration process.
+We have now reviewed your Expression of Interest form for the Materials and Manufacturing in Healthcare Network and are pleased to invite you to complete a Membership Registration Form. Please follow <a href="{{$m}}" title="complete registration">complete registration link</a> to complete the registration.
 <br/>
 <br/>
-Rita,
-Regards.
+Kind regards, <br/>
+The MMHN Team
+
 <!--
 <b>Message:</h3></b><br/>
 {{$m}}

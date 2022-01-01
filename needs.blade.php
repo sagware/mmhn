@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Needs or Challenges|Materials and Manufacturing in Healthcare Network</title>
+	<title>Challenges|Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -23,29 +23,11 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
 </head>
 <body>
 @include("admin.cookiebanner")
-    <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                         Materials and Manufacturing in Healthcare Network
-                    </span>
-                </a>
-            </div>
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+    
             @include("admin.header")
             <!-- end navbar-collapse -->
         </div>
@@ -64,16 +46,18 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
+				<p> <h1>Challenges</h1></p>
                 <div class="col-md-9">
                     <!-- begin post-list -->
 					<div align="right">
-					<button class="read-btn"><a href="/clinical_need_form"><i class="fas fa-plus"></i>Submit Challenge</a></button>
+					<button class="read-btn"><a href="/clinical_need_form"><i class="fas fa-plus"></i> &nbsp;Submit Challenge</a></button>
 					
 					</div>
 					<br/>
+					
                     <div class="post-list post-grid post-grid-2">
                         @if(sizeof($pp)==0)
-						<h4 align="center">No content found</h4>
+					<p class="text-danger">	No content found</p>
 						@else
 						@foreach($pp as $p)
                         <div class="post-li">
@@ -81,7 +65,7 @@
                             <div class="post-content">
                                 <!-- begin post-image -->
                                 <div class="post-image">
-                                    <a href="/clinical_detail/{{$p->id}}"><img src="/uploads/{{$p->pic}}" alt="" /></a>
+                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
@@ -90,7 +74,7 @@
                                         <a href="/clinical_detail/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
                                     </h4>
                                     <div class="post-by">
-                                        Posted By <a href="#}}">{{$p->posted_by_name}}</a>
+                                        Posted By {{$p->posted_by_name}}
 									
 										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>

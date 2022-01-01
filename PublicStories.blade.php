@@ -26,23 +26,8 @@
 </head>
 <body>
     <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                         Materials and Manufacturing in Healthcare Network
-                    </span>
-                </a>
-            </div>
+   
+            
             <!-- end navbar-header -->
             <!-- begin navbar-collapse -->
             @include("admin.header")
@@ -55,7 +40,7 @@
     <!-- begin #page-title -->
     
     <!-- end #page-title -->
-    
+   
     <!-- begin #content -->
     <div id="content" class="content">
         <!-- begin container -->
@@ -63,14 +48,17 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
+				 <p><h1>Innovation Stories</h1></p> 
                 <div class="col-md-9">
 				<div align="right">
-				<button class="read-btn"><a href="/show_news_form"><i class="fas fa-plus"></i>Submit innovation stories</a></button>
+				<button class="read-btn"><a href="/show_news_form"><i class="fas fa-plus"></i> &nbsp;Submit innovation stories</a></button>
+				<br/>
+				<br/>
 				</div>
                     <!-- begin post-list -->
                     <div class="post-list post-grid post-grid-2">
                         @if(sizeof($pp)==0)
-						<h4 align="center">No content found</h4>
+						<p align="center" class="text-danger">No content found</p>
 						@else
 						@foreach($pp as $p)
                         <div class="post-li">
@@ -79,14 +67,14 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/uploads/{{$p->pic}}" alt="" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
-                                    <h4 class="post-title">
+                                    <h1 class="post-title">
                                         <a href="/public_post/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
-                                    </h4>
+                                    </h1>
                                     <div class="post-by">
                                         Posted By: {{$p->posted_by_name}}<br/>
 										 Category: {{$p->category}}
@@ -94,7 +82,17 @@
 										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
                                     <div class="post-desc">
-                                        {{substr($p->summary,0,47)}}...
+                                        
+										
+										 <?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br(substr($p->summary,0,47));
+							
+							
+							echo $txt."...";
+							
+							?>
                                     </div>
                                     <div class="read-btn-container">
 									@if(Auth::check())
