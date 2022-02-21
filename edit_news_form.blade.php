@@ -5,8 +5,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Edit News| Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Edit Innovation Story| Materials and Manufacturing in Healthcare Innovation Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -195,24 +195,24 @@
 			        <!-- begin panel -->
                    
 						
-						<div style="padding:2em;">
+						<div style="padding:1.5em;">
 						<h1>Innovation Stories Form</h1> <br/>
 						We are keen to share success stories of collaboration, met challenges, and new innovations from within the Network. Please complete the following fields to submit a News Story for our website, which will be reviewed by the Materials and Manufacturing in Healthcare Network team and subsequently publicly visible.</div>
                         <div class="panel-body panel-form">
                             <form  action="/addedit/public_stories" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="fullname">Post title <span class="text-danger">*</span> :</label>
+									<label class="control-label col-md-4 col-sm-4" for="title">Post title <span class="text-danger">*</span> :</label>
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text"  name="title" value="{{$n->title}}" data-parsley-required="true" required/>
+										<input class="form-control" type="text" id="title"  name="title" value="{{$n->title}}" data-parsley-required="true" required/>
 										<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 										<input type="hidden" name="id" value="{{$n->id}}"/>
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email"> Post category <span class="text-danger">*</span></label>
+									<label class="control-label col-md-4 col-sm-4" for="email" for="cat"> Post category <span class="text-danger">*</span></label>
 									<div class="col-md-6 col-sm-6">
-										<select  class="form-control"   name="category" >
+										<select  class="form-control"   name="category" id="cat" >
 											<option value="news" <?php if($n->category == "news"){echo "selected";}?>>News</option>
 											<option value="event" <?php if($n->category == "event"){echo "selected";}?>>Events</option>
 											<option value="grant" <?php if($n->category == "grant"){echo "selected";}?>>Grants</option>
@@ -221,19 +221,33 @@
 										
 										
 									</div>
+									
 								</div>
 								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Cover picture</label> 
-									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control" value="{{$n->pic}}" name="pic"/>
+									<div>									
+									
 									</div>
+								
+								<div class="form-group" >
+									<label class="control-label col-md-4 col-sm-4" for="cpp">Edit Cover Photo</label>
+									<div class="col-md-6 col-sm-6">
+										<input  type="checkbox"  name="coverphoto" value="coverphoto" id="cpp" value="profile_pic" onClick="Pro()" /> 
+									</div>
+									
+								</div>
+								
+								<div class="form-group" id="pp">
+									<label class="control-label col-md-4 col-sm-4" for="email" for="pic">Cover picture</label> 
+									<div class="col-md-6 col-sm-6">
+										<input type="file" class="form-control" value="{{$n->pic}}" id="pic" name="pic"/>
+									</div>
+									
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Post in summary (max. number of characters: 100) <span class="text-danger">*</span></label> 
+									<label class="control-label col-md-4 col-sm-4" for="email" for="summary">Post in summary (text only and max. number of characters: 100) <span class="text-danger">*</span></label> 
 									<div class="col-md-6 col-sm-6">
-										<textarea name="summary" class="textarea form-control" maxlength="100" id="wysihtml5" placeholder="Enter text ..." rows="12" required>{{$n->title}}</textarea>
+										<textarea name="summary" id="summary" class="textarea form-control" maxlength="100" id="wysihtml5" placeholder="Enter text ..." rows="12" required>{{$n->summary}}</textarea>
 									</div>
 								</div>
 								
@@ -242,7 +256,10 @@
 								
 															
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Post in detail <span class="text-danger">*</span></label> 
+									<label class="control-label col-md-4 col-sm-4" for="email" for="image-tools">Post in detail <span class="text-danger">*</span> <p></p>
+<p align=left> To add images from your personal device, you can add by copying (Ctrl+C) and pasting (Ctrl+V) into the textbox. After pasting this you can click on the image and then the three dots to add alt text to this image. This text is a short description of the image which is presented to screen-reader users (such as people with visual disabilities) enabling them to understand this image.  </p>
+<p align=left> To add videos, this must be from a web source (such as YouTube). You can embed this by clicking "Insert" and then "Media" on the navigation ribbon above the textbox. This will open a pop-up. Click on the ‘Embed’ tab in this popup. You can then insert the embed code into this, which you can generate using the service on which the media is hosted (eg: Youtube). Many video providers allow you to create private videos so that your video will not be accessible. </p> 
+<p align=left>To enhance your post further, feel free to explore other features provided in the navigation ribbon of the textbox. </p> </label> 
 									<div class="col-md-6 col-sm-6">
 										  
 <textarea id="image-tools" name="message" required>{{$n->news_body}}
@@ -260,9 +277,9 @@
 								
 							
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4"></label>
+									<label class="control-label col-md-4 col-sm-4" for="submit"></label>
 									<div class="col-md-6 col-sm-6">
-										<button type="submit" class="btn btn-primary">Edit innovation story</button>
+										<button type="submit" class="btn btn-primary" id="submit">Edit innovation story</button>
 									</div>
 								</div>
                             </form>
@@ -285,7 +302,7 @@
         <!-- end theme-panel -->
 		
 		<!-- begin scroll to top btn -->
-		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		
 		<!-- end scroll to top btn -->
 	</div>
 	
@@ -293,6 +310,14 @@
 	
 	</body>
 	</html>
+	
+	<style type="text/css">
+   	
+	  #pp{display:none;}
+	  
+   </style>
+   
+   
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
@@ -358,6 +383,28 @@
 });
 
 	</script>
+	
+	<script>
+  
+		
+		function Pro(){
+			var checkBox = document.getElementById("cpp");
+		  // Get the output text
+		  	
+		  // If the checkbox is checked, display the output text
+		  if (checkBox.checked == true){
+		   $('#pp').css('display','block');
+		    $('#pic').css('display','none');
+		  } else {
+			$('#pp').css('display','none');
+		  }   
+   			
+		
+		
+		}
+		
+	
+   </script>
 	
 	<script>
 	function accepted(){

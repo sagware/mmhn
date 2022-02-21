@@ -1,6 +1,4 @@
 
-
-
 <footer>
 <div id="footer" class="footer" >
         <!-- begin container -->
@@ -11,7 +9,7 @@
                 <div class="col-md-3 col-sm-3">
                     <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="footer-title">Innovation Stories</h4>
+                        <h2 class="footer-title">Innovation Stories</h2>
                         <ul class="categories">
                             <li><a href="/news">News</a></li>
 							<li><a href="/event">Upcoming Events</a></li>
@@ -26,7 +24,7 @@
                 <div class="col-md-3 col-sm-3">
                     <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="footer-title">Materials and Manufacturing in Healthcare Network</h4>
+                        <h2 class="footer-title">Materials and Manufacturing in Healthcare Network</h2>
                         <ul class="archives">
                             <li><a href="/aboutus">About Us </a> </li>
                             <li><a href="/contactus">Contact Us</a> </li>
@@ -40,21 +38,23 @@
                 <div class="col-md-3 col-sm-3">
                     <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="footer-title">Policy</h4>
+                        <h2 class="footer-title">Policy</h2>
                         <ul class="recent-post">
-                             <li>
+                            <li>
                                 
-                                    <a href="https://www.ucl.ac.uk/disclaimer/" title="Terms and Condition" target="_blank">Terms and Conditions</a>
+                                    <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a>
                                 
                             </li>
+							<!--
                             <li>
                                 
                                     <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy" title="Cookies" target="_blank">Cookies</a>
                                 
                             </li>
+							-->
                             <li>
                               
-                                    <a href="https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>
+                                    <a href="/datapolicy" title="Privacy Policy" target="_blank">Privacy Policy</a>
                                
                             </li>
                         </ul>
@@ -65,7 +65,7 @@
                 <!-- begin col-3 -->
                 <div class="col-md-3 col-sm-3">
                     <div class="section-container">
-                        <h4 class="footer-title">Contact Us</h4>
+                        <h2 class="footer-title">Contact Us</h2>
 						
                         <address>
 						<!--
@@ -76,6 +76,9 @@
 							United Kingdom
                             <br />
                             <strong>Rita</strong><br />-->
+
+ <ul class="recent-post">  <li> <a href="https://forms.office.com/r/rTqAiYFk1j" title="Report an Error Form" target="_blank">Report a Website Error</a> </li> </ul>
+
                             <a href="mailto:contact@materialsinhealth.org">contact@materialsinhealth.org</a>
                         </address>
 						
@@ -95,7 +98,7 @@
         <div class="container">
 		<span class="copyright" align="center">The project is supported by UCL Innovation & Enterprise via the UCL EPSRC Impact Acceleration Account.</span> <br/>
 		<br/>
-            <span class="copyright">&copy; <?php echo date('Y'); ?> Materials and Manufacturing in Healthcare Network</span>
+            <span class="copyright">&copy; <?php echo date('Y'); ?> Materials and Manufacturing in Healthcare Innovation Network</span>
 			
 			<!--
             <ul class="social-media-list">

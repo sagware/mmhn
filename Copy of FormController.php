@@ -145,12 +145,12 @@ class FormController extends Controller {
 			 $name = $adm->first_name;
 			 $sender = "admin@materialsinhealth.org";
 			 $mes = $this->url_email."/public_stories_list";
-			 $sag = array('mail'=>$receiver,'sub'=>$sub,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
+			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
 			 $sub = "no-reply: New Innovation Story Submission for your Approval"." ".$s->title;
 			  Mail::send('emails.admin_innovation_not', $data, function ($m) use ($sag) {
-					$m->from('admin@materialsinhealth.org', $sag['sub']);
-					$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+					$m->from('admin@materialsinhealth.org', $sub);
+					$m->to($sag['mail'], $sag['mail'])->subject($sub);
 				 });
 		}
 				
@@ -166,10 +166,6 @@ class FormController extends Controller {
 		
 		public function challengeSubmitted(){
 				return view('admin.challengesubmited');
-		}
-		
-		public function profileupdate(){
-				return view('admin.profileupdated');
 		}
 		
 		
@@ -259,10 +255,6 @@ class FormController extends Controller {
 					$s->title = Input::get("title");
 					$s->news_body = $newMessageBody;
 					$s->summary = Input::get("summary");
-					
-					if(!empty(Input::get("coverphoto"))){
-					$s->pic = $fileFalseName;
-					}
 					$s->category = Input::get("category");
 					$last_edited = Auth::user()->first_name." ".Auth::user()->last_name." ".Auth::user()->id;
 					$s->status = "Under Review";
@@ -275,9 +267,6 @@ class FormController extends Controller {
 					}
 					$s->news_body = $newMessageBody;
 					$s->summary = Input::get("summary");
-					if(!empty(Input::get("coverphoto"))){
-					$s->pic = $fileFalseName;
-					}
 					$s->category = Input::get("category");
 					$s->pic = $fileFalseName;
 					$last_edited = Auth::user()->first_name." ".Auth::user()->last_name." ".Auth::user()->id;
@@ -293,13 +282,12 @@ class FormController extends Controller {
 			 $name = $adm->first_name;
 			 $sender = "admin@materialsinhealth.org";
 			 $mes = $this->url_email."/public_review/".$s->id;
-			 $sub = "no-reply: New Innovation Story Submission for your Approval"." ". $s->title;
-			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
+			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-		     
+			 
 			  Mail::send('emails.admin_innovation_not', $data, function ($m) use ($sag) {
-					$m->from('admin@materialsinhealth.org', $sag['sub']);
-					$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+					$m->from('admin@materialsinhealth.org', 'no-reply: New Innovation Story Submission for your Approval');
+					$m->to($sag['mail'], $sag['mail'])->subject('no-reply: New Innovation Story Submission for your Approval');
 				 });
 		}
 		
@@ -353,7 +341,7 @@ class FormController extends Controller {
 		$newMessageBody = str_replace("<h3","<h4",$newMessageBody);
 		$newMessageBody = str_replace("<h2","<h3",$newMessageBody);
 		$newMessageBody = str_replace("<h1","<h2",$newMessageBody);
-		$newMessageBody = str_replace("materialsinhealth.org/uploads","materialsinhealth.org/mmhn/public/uploads",$newMessageBody);
+		
 		
 		$nid =Input::get("need_id");
 			
@@ -380,23 +368,21 @@ class FormController extends Controller {
 						 
 						  
 						 $name = $uw->first_name;
-						 $sub ="no-reply: Challenge Comment Notification"." ". $own->title;
+						
 						 $sender = "admin@materialsinhealth.org";
 						 $pathToFile = $this->url_email."clinical_detail/".$nid;
-						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
+						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 						 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
 						if($uw->id !=Auth::user()->id){
-						
 						  Mail::send('emails.needowner', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'no-reply: Challenge Comment Notification');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Challenge Comment Notification');
 							 });
 							 
 							 }
 		
-		 		$no = Comment::where("notification","on")->where("public_stories_id",Input::get("need_id"))->where("id","!=",Auth::user()->id)->select("email")->distinct()->get();
+		 		$no = Comment::where("notification","on")->where("public_stories_id",Input::get("need_id"))->select("email")->distinct()->get();
 				
-				//pr($no,true);
 				
 				foreach($no as $nt){
 						if($nt->email != Auth::user()->email){		
@@ -405,12 +391,12 @@ class FormController extends Controller {
 						 $name = $nt->name;
 						 $sender = "admin@materialsinhealth.org";
 						 $pathToFile = $this->url_email."clinical_detail/".$nid;
-						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
+						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 						 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-						 $sub ="no-reply: Challenge Comment Notification"." ". $own->title;
+						
 						  Mail::send('emails.needcomment_not', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'no-reply: Challenge Comment Notification');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Challenge Comment Notification');
 							 });
 							 
 							 }
@@ -444,19 +430,18 @@ class FormController extends Controller {
 						$uw = User::where("id",$own->posted_by)->first();
 						$mes ="";
 						 $receiver =  $uw->email;
-						 $name = $uw->first_name;
+						 $name = $own->first_name." ".$own->last_name ;
 						 $sender = "admin@materialsinhealth.org";
-						 $pathToFile = $this->url_email."clinical_detail/".$own->id;
-						 $sub = "no-reply: Challenge Comment Notification"." ".$own->title;
-						 $sag = array('mail'=>$receiver,'sub'=>$sub,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
+						 $pathToFile = "";
+						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 						 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-						
+						 
 						  Mail::send('emails.needowner', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'no-reply: Challenge Comment Notification');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Challenge Comment Notification');
 							 });
 		
-		 		$no = Replies::where("notification","on")->where("public_stories_id",Input::get("pid"))->where("id","!=",Auth::user()->id)->select("replier_email")->distinct()->get();
+		 		$no = Replies::where("notification","on")->where("public_stories_id",Input::get("pid"))->select("replier_email")->distinct()->get();
 				//pr($no,true);
 				foreach($no as $nt){		
 						$mes ="";
@@ -464,12 +449,12 @@ class FormController extends Controller {
 						 $name = $nt->name;
 						 $sender = "admin@materialsinhealth.org";
 						 $pathToFile = "";
-						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
+						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 						 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-						 $sub = "no-reply: Challenge Reply Notification"." ".$own->title;
+						 
 						  Mail::send('emails.needcomment_not', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'no-reply: Challenge Reply Notification');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Challenge Reply Notification');
 							 });
 			}
 			
@@ -477,6 +462,7 @@ class FormController extends Controller {
 		}
 		
 		public function addNeed(Request $request){ 
+		//function for submitting clinical needs
 		
 			if(Auth::check()){
 				
@@ -484,7 +470,7 @@ class FormController extends Controller {
 					$detail = Input::get("message");
 					$pic = $request->file('pic');
 					$keywords = Input::get("keywords");
-					$keywords = array();
+					
 					$others = Input::get("tags-3");
 					$others = explode (",", $others); 
 					//pr($others,true);
@@ -657,10 +643,10 @@ class FormController extends Controller {
 			
 			
 			
-			$aca = User::where('sector', 'Academic')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
-			$ind = User::where('sector', 'Industry')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
-			$cli = User::where('sector', 'Clinical')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
-			$oth = User::where('sector','Other')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
+			$aca = User::where('sector', 'Academic')->get();
+			$ind = User::where('sector', 'Industry')->get();
+			$cli = User::where('sector', 'Clinical')->get();
+			$oth = User::where('sector','Other')->get();
 			$kd = Keywords::all(); 
 			
 			$others = serialize($others);
@@ -881,10 +867,11 @@ class FormController extends Controller {
 			$id2 = array_unique($id2);
 			
 			
-			$aca = User::where('sector', 'Academic')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
-			$ind = User::where('sector', 'Industry')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
-			$cli = User::where('sector', 'Clinical')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
-			$oth = User::where('sector','Other')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
+			
+			$aca = User::where('sector', 'Academic')->get();
+			$ind = User::where('sector', 'Industry')->get();
+			$cli = User::where('sector', 'Clinical')->get();
+			$oth = User::where('sector','Other')->get();
 			$kd = Keywords::all(); 
 			
 			$others = serialize($others);
@@ -920,12 +907,12 @@ class FormController extends Controller {
 		
 		public function submitNeed(Request $request){ 
 		if(Auth::check()){
-		
+		//pr(Input::all(),true);
 		
 		 $message = request()->get('detail');		
 		 $dom = new \DomDocument();       
-         $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);       
-         $images = $dom->getElementsByTagName('img');
+        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);       
+        $images = $dom->getElementsByTagName('img');
 
         foreach ($images as $image) {
             $imageSrc = $image->getAttribute('src');
@@ -1018,7 +1005,7 @@ class FormController extends Controller {
 				}
 				else{
 				
-				$fileFalseName2 ="emptyimage.png";
+				$fileFalseName ="emptyimage.png";
 				}
 				
 				
@@ -1026,27 +1013,14 @@ class FormController extends Controller {
 					
 					$s = new PublicStories;
 					$s->title = Input::get("name");
-					if(empty(Input::get("keywords"))){
-					$s->keywords = serialize(array());
-					}else{
-					$s->keywords = $s->keywords = serialize(Input::get("keywords"));
-					}
-					
+					$s->keywords = Input::get("keywords");
 					$partners = Input::get("partners");
-					//pr($mids,true);
 					$mids =  unserialize($request->input('keywords', []));
-					if(empty($mids)){
-					$mids = array();
-					}
 					$kw = Keywords::whereIn("id",$mids)->get();
 					$k_text = "";
-					
-					if(count($kw)>0){
 					foreach ($kw as $k){
 					$k_text = $k_text." ".$k->name;
 					}
-					}
-					
 					$s->keywords_text = $k_text;				
 					
 					
@@ -1055,7 +1029,7 @@ class FormController extends Controller {
 					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
 					$s->news_body = $newMessageBody;
 					$s->category = "need";
-					$s->cover = $fileFalseName2;
+					$s->cover = serialize($fileFalseName2);
 					if($m=1){
 					$s->pic = serialize($names);
 					}else{
@@ -1067,20 +1041,20 @@ class FormController extends Controller {
 					
 					
 					$admins = User::where("role", "admin")->get();
-					$si = PublicStories::where("title",Input::get("name"))->where("posted_by",Auth::user()->id)->first();
+			
 			foreach ($admins as $adm){
 			// $mes ="";
-			 $pathToFile =$this->url_email."review".$si->id;
+			 $pathToFile ="";
 			 $receiver =  $adm->email;
 			 $name = $adm->first_name;
 			 $sender = "admin@materialsinhealth.org";
-			 $mes = $this->url_email."clinical_detail/".$si->id;
-			  $sub = "no-reply: New Challenge Submission for your Approval"." ".Input::get("name");
-			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
+			 $mes = $this->url_email."/needs_list";
+			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
+			 
 			  Mail::send('emails.admin_challenge_not', $data, function ($m) use ($sag) {
-					$m->from('admin@materialsinhealth.org',$sag['sub'] );
-					$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+					$m->from('admin@materialsinhealth.org', 'no-reply: New Challenge Submission for your Approval');
+					$m->to($sag['mail'], $sag['mail'])->subject('no-reply: New Challenge  Submission for your Approval');
 				 });
 		}
 		
@@ -1194,25 +1168,16 @@ class FormController extends Controller {
 				}
 				else{
 				
-				$fileFalseName2 ="emptyimage.png";
+				$fileFalseName ="emptyimage.png";
 				}
 				
 				$s = PublicStories::where('id', Input::get("id"))->first();
 				
 					if(Auth::user()->role = "admin" && Auth::user()->id != $s->posted_by){
 						$s->title = Input::get("name");
-						if(empty(Input::get("keywords"))){
-						$s->keywords = serialize(array());
-						}
-						else{
 						$s->keywords = Input::get("keywords");
-						}
-						
 						$partners = Input::get("partners");
 						$mids =  unserialize($request->input('keywords', []));
-							if(empty($mids)){
-							$mids = array();
-							}
 						$kw = Keywords::whereIn("id",$mids)->get();
 						$k_text = "";
 						foreach ($kw as $k){
@@ -1230,11 +1195,7 @@ class FormController extends Controller {
 					
 					}else{
 					$s->title = Input::get("name");
-					if(empty(Input::get("keywords"))){
-					$s->keywords = serialize(array());
-					}else{
 					$s->keywords = Input::get("keywords");
-					}
 					$partners = Input::get("partners");
 					$mids =  unserialize($request->input('keywords', []));
 					$kw = Keywords::whereIn("id",$mids)->get();
@@ -1250,7 +1211,7 @@ class FormController extends Controller {
 					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
 					$s->news_body = $newMessageBody;
 					$s->category = "need";
-					$s->cover = $fileFalseName2;
+					$s->cover = serialize($fileFalseName2);
 					if($m=1){
 					$s->pic = serialize($names);
 					}else{
@@ -1265,22 +1226,20 @@ class FormController extends Controller {
 					
 					
 					$admins = User::where("role", "admin")->get();
-					//$si = PublicStories::where("title",Input::get("name"))->where("posted_by",Auth::user()->id)->first();
-					
+			
 			foreach ($admins as $adm){
 			// $mes ="";
-			 $pathToFile =$this->url_email."review/".$s->id;
+			 $pathToFile ="";
 			 $receiver =  $adm->email;
 			 $name = $adm->first_name;
 			 $sender = "admin@materialsinhealth.org";
-			 $mes = $this->url_email."review/".$s->id;
-			 $sub = "no-reply: Edit Challenge Submission for your Approval"." ".Input::get("name");
-			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
+			 $mes = $this->url_email."/needs_list";
+			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
 			 
 			  Mail::send('emails.admin_challenge_not', $data, function ($m) use ($sag) {
-					$m->from('admin@materialsinhealth.org', $sag['sub']);
-					$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+					$m->from('admin@materialsinhealth.org', 'no-reply: Edit Challenge Submission for your Approval');
+					$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Edit Challenge  Submission for your Approval');
 				 });
 		}
 		
@@ -1393,23 +1352,18 @@ class FormController extends Controller {
 			$value2 = "analytics";
 			setcookie("mycookie", $value, time() +31536000, '/');
 			setcookie("analytics", $value2, time() +31536000, '/');
-			
+			return back();
 		}
 		else if(!empty(Input::get("nec")) && empty(Input::get("google"))){
 			$value = "materials_health";
 			$value2 = "analytics";
 			setcookie("mycookie", $value, time() +31536000, '/');
-			
-			
+			setcookie("analytics", $value2, time() +31536000, '/');
+			return back();
 		}
 		 
-		
-		
-		$r = PublicStories::where("id",">",0)->where("status","approved")->where("category","news")->orderBy("updated_at")->take(3)->get();
-			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->take(3)->get();
-			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
-			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
-			return redirect()->intended('/');
+		 return back();
+		 
 	
 	}
 		
@@ -1494,11 +1448,6 @@ class FormController extends Controller {
 		
 		
 		public function adminCreatePartner(Request $request){ 
-		
-		$cku = User::where("email",Input::get("email"))->count();
-		if($cku>0){
-		echo "A Partner with the same email address exist. Please check through the partners list"; exit;
-		}
 			//pr(Input::all(),true);
 			$upl ="";
 			$newurl = public_path() . DS . 'uploads';
@@ -1524,7 +1473,7 @@ class FormController extends Controller {
 				
 				}
 			
-			if($upl){
+			if($upl && $upl != ""){
 				
 				$s = new User;				
 					$s->first_name = Input::get('first_name');
@@ -1540,21 +1489,17 @@ class FormController extends Controller {
 					$s->bio = Input::get('bio');
 					$s->sector = Input::get('sector');
 					$s->status = 0;
-					
+					if(Input::get('keywords')=="other"){
 					$s->other_keyword = Input::get('other');
-					
-					if(empty(Input::get('keywords'))){
-					$s->keywords = serialize(array());
-					}
-					else{
+					}else{
 					$s->keywords = serialize(Input::get('keywords'));
 					}
 					
-					$s->iv_status = 1;
+					$s->iv_status = 0;
 					$ivcode =generateRandomString(16); 
 					$ck_code = User::where("iv_code",$ivcode)->count();
 					while($ck_code>0){
-					$ivcode = generateRandomString(16);	
+					$ivcode =generateRandomString(16);	
 					}
 					$s->iv_code = $ivcode;	
 					
@@ -1591,7 +1536,7 @@ class FormController extends Controller {
 					$s->previous_interest = Input::get('previous_interest');
 					$s->bio = Input::get('bio');
 					$s->status = 0;
-					$s->iv_status = 1;
+					$s->iv_status = 0;
 					$ivcode =generateRandomString(16); 
 					$s->sector = Input::get('sector');
 					$ck_code = User::where("iv_code",$ivcode)->count();
@@ -1599,14 +1544,7 @@ class FormController extends Controller {
 					$ivcode =generateRandomString(16);	
 					}
 					$s->iv_code = $ivcode;					
-						$s->other_keyword = Input::get('other');
-					
-					if(empty(Input::get('keywords'))){
-					$s->keywords = serialize(array());
-					}
-					else{
 					$s->keywords = serialize(Input::get('keywords'));
-					}
 					$s->picture = "empty.png";
 					$s->password = Hash::make(Input::get('password'));
 					
@@ -1658,7 +1596,7 @@ class FormController extends Controller {
 			//pr(Input::all(),true);
 			
 			if(Input::get('password')!= Input::get('cpassword')){
-			return back()->with("mismatch","mismatchpassword")->withInput();
+			return back()->with("mismatch","mismatchpassword");
 			}
 			$upl ="";
 			$newurl = public_path() . DS . 'uploads';
@@ -1684,7 +1622,7 @@ class FormController extends Controller {
 				
 				}
 			
-			if($upl){
+			if($upl && $upl != ""){
 				
 				$s = User::where("email",Input::get('email'))->first();
 				
@@ -1700,15 +1638,10 @@ class FormController extends Controller {
 					$s->previous_interest = Input::get('previous_interest');
 					$s->bio = Input::get('bio');
 					$s->status = 0;
-					$s->linkedin = Input::get('linkedin');
-					$s->twitter = Input::get('twitter');
-					$s->webpage = Input::get('webpage');
 		
 					$s->other_keyword = Input::get('other');
 					if(!empty(Input::get('keywords'))){
 					$s->keywords = serialize(Input::get('keywords'));
-					}else{
-					$s->keywords = serialize(array());
 					}
 					
 					$kw = Keywords::whereIn("id",Input::get('keywords'))->get();
@@ -1718,7 +1651,7 @@ class FormController extends Controller {
 					}
 					$s->keywords_text = $k_text;
 					
-					
+					$s->iv_status = 0;
 					$s->picture = $fileFalseName;
 					$s->password = Hash::make(Input::get('password'));
 					if(Input::get("news_email")==""){
@@ -1752,16 +1685,10 @@ class FormController extends Controller {
 					$s->previous_interest = Input::get('previous_interest');
 					$s->bio = Input::get('bio');
 					$s->status = 0;
-					
+					$s->iv_status = 0;
 					$s->other_keyword = Input::get('other');
-					$s->linkedin = Input::get('linkedin');
-					$s->twitter = Input::get('twitter');
-					$s->webpage = Input::get('webpage');
-					
 					if(!empty(Input::get('keywords'))){
 					$s->keywords = serialize(Input::get('keywords'));
-					}else{
-					$s->keywords = serialize(array());
 					}
 					
 					$kw = Keywords::whereIn("id",Input::get('keywords'))->get();
@@ -1810,8 +1737,8 @@ class FormController extends Controller {
 			
 			
 		
-		//return redirect()->back()->with("msg_interest2","Account created successfully... you can login now");
-		return redirect()->intended('/login');
+		return redirect()->intended('/login')->with("msg_interest2","Account created successfully... you can login now");
+		
 		
 		}
 		
@@ -1822,13 +1749,7 @@ class FormController extends Controller {
 			if(Input::get('password')!= Input::get('cpassword')){
 			return back()->with("mismatch","mismatchpassword");
 			}
-			$id = Input::get("id");
-			
-			$u = User::where("id",$id)->first();
-				$u->password =  Hash::make(Input::get('password'));
-			$u->save();
-			/*	
-			
+			/*
 			$upl ="";
 			$newurl = public_path() . DS . 'uploads';
 			//registration completion
@@ -1941,11 +1862,11 @@ class FormController extends Controller {
 				 });
 				 
 				 //Email to Admin
+			
 			*/
-			
-			
-		$keywords = Keywords::all();		
-	return view('admin.editprofile')->with("u",$u)->with("kw",$keywords);
+		
+		return back()->with("msg_interest2","Account created successfully... you can login now");
+		
 		
 		}
 		
@@ -1958,6 +1879,7 @@ class FormController extends Controller {
 			$s = User::where("id",Input::get('uid'))->first();				
 					
 					$s->status = 0;
+					$s->iv_status = 0;
 					
 					$s->password = Hash::make(Input::get('password'));
 					
@@ -2004,7 +1926,7 @@ class FormController extends Controller {
 		
 		public function edit_profile(Request $request){ 
 			//pr(Input::all(),true);
-			$s = User::where("email",Input::get('email'))->first();
+			
 			if(Input::get('password')!= Input::get('cpassword')){
 			return back()->with("mismatch","mismatchpassword");
 			}
@@ -2034,12 +1956,13 @@ class FormController extends Controller {
 			
 			if($upl){
 				
-				
+				$s = User::where("email",Input::get('email'))->first();
 				
 					$s->first_name = Input::get('first_name');
 					$s->middle_name = Input::get('middle_name');
 					$s->last_name = Input::get('last_name');
 					$s->email = Input::get('email');
+					$s->joining_reason = Input::get('reason');
 					$s->institution = Input::get('institution');
 					$s->sector = Input::get('sector');
 					$s->designation = Input::get('designation');
@@ -2050,11 +1973,6 @@ class FormController extends Controller {
 					$s->twitter = Input::get('twitter');
 					$s->webpage = Input::get('webpage');
 					$s->status = 0;
-					if(!empty(Input::get('keywords'))){
-					$s->keywords = serialize(Input::get('keywords'));
-					}else{
-					$s->keywords = serialize(array());
-					}
 					$s->picture = $fileFalseName;
 					if(!empty(Input::get('other'))){
 					$s->other_keyword = Input::get('otherfield');
@@ -2063,17 +1981,11 @@ class FormController extends Controller {
 					$s->other_keyword = "";
 					}
 					
+					
+					$kw = Keywords::whereIn("id",Input::get('keywords'))->get();
 					$k_text = "";
-					if(!empty(Input::get("keywords"))){
-					$kkw = $request->input('keywords', []);
-					//pr($kkw,true);
-					$mids =  $kkw;
-					//pr($kkw,true);
-					$kw = Keywords::whereIn("id",$mids)->get();
-						
 					foreach ($kw as $k){
 					$k_text = $k_text." ".$k->name;
-					}
 					}
 					$s->keywords_text = $k_text;
 					
@@ -2102,6 +2014,7 @@ class FormController extends Controller {
 					$s->last_name = Input::get('last_name');
 					$s->email = Input::get('email');
 					$s->sector = Input::get('sector');
+					$s->joining_reason = Input::get('reason');
 					$s->institution = Input::get('institution');
 					$s->designation = Input::get('designation');
 					$s->current_interest = Input::get('current_interest');
@@ -2111,11 +2024,8 @@ class FormController extends Controller {
 					$s->twitter = Input::get('twitter');
 					$s->webpage = Input::get('webpage');
 					$s->status = 0;
-					if(!empty(Input::get('keywords'))){
 					$s->keywords = serialize(Input::get('keywords'));
-					}else{
-					$s->keywords = serialize(array());
-					}
+					$s->picture = "empty.png";
 					if(!empty(Input::get('other'))){
 					$s->other_keyword = Input::get('otherfield');
 					}else{
@@ -2123,17 +2033,10 @@ class FormController extends Controller {
 					}
 					
 					
+					$kw = Keywords::whereIn("id",Input::get('keywords'))->get();
 					$k_text = "";
-					if(!empty(Input::get("keywords"))){
-					$kkw = $request->input('keywords', []);
-					//pr($kkw,true);
-					$mids =  $kkw;
-					//pr($kkw,true);
-					$kw = Keywords::whereIn("id",$mids)->get();
-						
 					foreach ($kw as $k){
 					$k_text = $k_text." ".$k->name;
-					}
 					}
 					$s->keywords_text = $k_text;
 					
@@ -2155,8 +2058,6 @@ class FormController extends Controller {
 				$p = new Partner;
 					$p->user_id = $s->id;
 				$p->save();
-				
-				
 			//email to a User
 			/*	
 			 $mes ="";
@@ -2175,10 +2076,8 @@ class FormController extends Controller {
 				 //Email to Admin
 			
 			*/
-			
-			 return redirect()->intended('/profileupdated');
 		
-		//return back()->with("msg_interest2","Account created successfully... you can login now");
+		return back()->with("msg_interest2","Account created successfully... you can login now");
 		
 		
 		}
@@ -2396,10 +2295,10 @@ class FormController extends Controller {
 			
 			public function datapolicy(){
 			//showing data policy page
-			//$cat = Category::where('role','general')->get();
+			$cat = Category::where('role','general')->get();
 			//pr(Auth::user()->id,true);
 			$r = PublicStories::where("id",">",0)->orderBy("updated_at")->where("status","approved")->take(5)->get();
-			return view('admin.datapolicy');//->with('cat',$cat);
+			return view('admin.datapolicy')->with('cat',$cat);
 			}
 			
 			public function termsandcondition(){
@@ -2496,13 +2395,13 @@ class FormController extends Controller {
 	public function showCompleteAdminInvite($code){
 		//displaying invitation form
 		$u = User::where("iv_code",$code)->first();
-		$uid = $u->id;	
+			
 		$keywords = Keywords::all();
 		if($u->iv_code!= $code){
 		echo "Invalid link, please contact admin"; exit;
 		}
 		
-	return view('admin.admincomplete')->with("id",$uid)->with("kw",$keywords)->with("cd",$code);
+	return view('admin.admincomplete')->with("u",$u)->with("kw",$keywords)->with("cd",$code);
 	}
 			
 	public function showInvitationForm($code,$id){
@@ -2570,7 +2469,7 @@ class FormController extends Controller {
 			public function showPartners(){
 			//ontact us
 			$c = User::where("status", "0")->count();
-			$ss = User::where('id','>',0)->orderBy("first_name")->where("status", "0")->simplePaginate(10);
+			$ss = User::where('id','>',0)->orderBy("first_name")->where("status", "0")->simplePaginate(15);
 			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
 			$kkk = Keywords::where("id",">",0)->get();
 			return view('admin.partnerslist')->with("c",$c)->with("ss",$ss)->with("r",$r)->with("kk",$kkk);
@@ -2626,9 +2525,6 @@ class FormController extends Controller {
 			}
 			
 			public function showNeedDetail($id){
-			
-			if(Auth::check()){
-			
 			$p = PublicStories::where("id",$id)->first();
 			$com = Comment::where("public_stories_id",$id)->get();
 			$comct = Comment::where("public_stories_id",$id)->count();
@@ -2637,10 +2533,6 @@ class FormController extends Controller {
 			$us = User::where("id", ">",0)->get();
 			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
 			return view('admin.needdetail')->with("p",$p)->with("r",$r)->with("us",$us)->with("cm",$com)->with("re",$re)->with("comct",$comct)->with("rect",$rect);
-			
-			}else{
-				return redirect()->intended('/login');
-			}
 			
 			}
 			
@@ -2828,9 +2720,24 @@ class FormController extends Controller {
 					 
 			$u = User::where("id",$p->posted_by)->first();	
 			//email for partners
-			
-			
-			
+			$partners = unserialize($p->partners);
+			$pt = User::where("id",$partners)->where("matching_email","on")->get();
+				foreach($pt as $p){
+				
+						 $mes ="";
+						 $receiver =  $p->email;
+						 $name = $p->first_name;
+						 $sender = "admin@materialsinhealth.org";
+						 $pathToFile =$this->url_email."clinical_detail/".$p->id;
+						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
+						 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
+						 
+						  Mail::send('emails.match_making', $data, function ($m) use ($sag) {
+								$m->from('admin@materialsinhealth.org', 'no-reply: Partner selection from MMHN');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Partner selection from MMHN');
+							 });
+				
+				}
 				
 				
 			if(!empty($u)){	
@@ -2839,57 +2746,23 @@ class FormController extends Controller {
 			 $receiver =  $u->email;
 			 $name = $u->first_name;
 			 $sender = "admin@materialsinhealth.org";
-			 
+			 $pathToFile =  $pathToFile = $this->url_email."clinical_detail/".$p->id;
+			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
+			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
 			 
 			 if($p->category == "need"){
-			 
-			 $partners = unserialize($p->partners);
-			$pt = User::whereIn("id",$partners)->where("matching_email","on")->get();
-			//pr($pt,true);
-			
-				foreach($pt as $p){
-				
-						 $mes ="";
-						 $receiver =  $p->email;
-						 $name = $p->first_name;
-						 $sender = "admin@materialsinhealth.org";
-						 $pathToFile =$this->url_email."clinical_detail/".$id;
-						  $sub = "no-reply: Partner selection from MMHN"." ".$p->title;
-						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
-						 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-						 
-						  Mail::send('emails.match_making', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
-							 });
-				
-				}
-				
-				
-				
-			 $sub = 'no-reply: Challenge Approval'.' '.$p->title;
-			 $pathToFile =  $pathToFile = $this->url_email."review/".$p->id;
-			 $sag = array('mail'=>$receiver,'sub'=>$sub,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
-			 $data = array('name'=>$name,'sub'=>$sub,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-			 
-			
 				 Mail::send('emails.approveneed', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org',$sag['sub'] );
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'no-reply: Challenge Approval');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Challenge Approval');
 							 });
 							 
 							 return redirect()->intended('/challengesubmittedapproved');
 							 
 		}
 		else{
-		$pathToFile =  $pathToFile = $this->url_email."public_review/".$id;
-		$sub = "no-reply: Innovation Story Approval"." ".$p->title;
-			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
-			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-		
 		 Mail::send('emails.approveinnovationstory', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'no-reply: Innovation Story Approval');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Innovation Story Approval');
 							 });
 							 
 							 return redirect()->intended('/newssubmittedapproved');
@@ -2915,28 +2788,22 @@ class FormController extends Controller {
 			 $receiver =  $u->email;
 			 $name = $u->first_name;
 			 $sender = "admin@materialsinhealth.org";
-			 
+			$pathToFile =  $pathToFile = $this->url_email."clinical_detail/".$p->id;
+			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
+			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
 			 
 			  if($p->category == "need"){
-			  $pathToFile =  $pathToFile = $this->url_email."clinical_detail/".$p->id;
-			  $sub = "no-reply: Challenge Rejection:"." ".$p->title;
-			  $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
-			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
 				  Mail::send('emails.rejectneed', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'no-reply: Challenge Rejection');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Challenge Rejection');
 							 });
 							 
 							 return redirect()->intended('/challengesubmittedapproved');
 			}				 
 			else{
-			$pathToFile =  $pathToFile = $this->url_email."public_post/".$p->id;
-			 $sub = "no-reply: Innovation Story Rejection"." ".$p->title;
-			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
-			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
 			 Mail::send('emails.rejectinnovationstory', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'no-reply: Innovation Story Rejection');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Innovation Story Rejection');
 							 });
 							 
 							 return redirect()->intended('/newssubmittedapproved');
@@ -2962,30 +2829,21 @@ class FormController extends Controller {
 			 $receiver =  $u->email;
 			 $name = $u->first_name;
 			 $sender = "admin@materialsinhealth.org";
-			
-			  if($p->category == "need"){
-			   $sub = "Challenge Revision Request"." ".$p->title;
-			  $pathToFile =  $pathToFile = $this->url_email."clinical_detail/".$p->id;
-			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
+			$pathToFile =  $pathToFile = $this->url_email."clinical_detail/".$p->id;
+			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-			 
-			  
+			  if($p->category == "need"){
 				  Mail::send('emails.revisionneed', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'Challenge Revision Request');
+								$m->to($sag['mail'], $sag['mail'])->subject('Challenge Revision Request');
 							 });
 							 
 							 return redirect()->intended('/challengesubmittedapproved');
 							 
 			}else{
-			 $sub = "Innovation Story Revision Request"." ".$p->title;
-			$pathToFile =  $pathToFile = $this->url_email."public_post/".$p->id;
-			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
-			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-			
 			 Mail::send('emails.revisioninnovationstory', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+								$m->from('admin@materialsinhealth.org', 'Challenge Revision Request');
+								$m->to($sag['mail'], $sag['mail'])->subject('Challenge Revision Request');
 							 });
 							 
 							 return redirect()->intended('/newssubmittedapproved');
@@ -3203,24 +3061,8 @@ class FormController extends Controller {
 			
 			public function showPartnerDetails($id){
 				$k = User::where("id",$id)->first();
-				$pk = PublicStories::where("posted_by",$id)->where("status","approved")->get();
-				$ctcc = PublicStories::where("posted_by",$id)->where("status","approved")->where("category","need")->count();
-				$ctnn = PublicStories::where("posted_by",$id)->where("status","approved")->where("category","news")->count();
-				$ctee = PublicStories::where("posted_by",$id)->where("status","approved")->where("category","event")->count();
-				$ctgg = PublicStories::where("posted_by",$id)->where("status","approved")->where("category","grant")->count();
 				$kk = Keywords::all();
-				return view("admin.partnerdetails")->with("s",$k)->with("kk",$kk)->with("p",$pk)->with("ctc",$ctcc)->with("ctn",$ctnn)->with("cte",$ctee)->with("ctg",$ctgg);
-			}
-			
-			
-			public function unMatchPartner($id){
-				$k = PublicStories::where("id",$id)->first();
-				$pts = unserialize($k->partners);
-				
-				foreach (array_keys($pts, Auth::user()->id, true) as $key) {
-						unset($pts[$key]);
-					}
-				return back()->with("unmatch","unmatched");
+				return view("admin.partnerdetails")->with("s",$k)->with("kk",$kk);
 			}
 			
 			public function deleteKeyword($id){

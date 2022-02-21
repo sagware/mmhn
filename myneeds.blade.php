@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Challenges|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -64,18 +64,18 @@
                             <div class="post-content">
                                 <!-- begin post-image -->
                                 <div class="post-image">
-                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" /></a>
+                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
-                                    <h4 class="post-title">
+                                    <h2 class="post-title">
                                         <a href="/clinical_detail/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
-                                    </h4>
+                                    </h2>
                                     <div class="post-by">
                                         Posted By {{$p->posted_by_name}}
 									
-										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
+										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |Status: {{ucfirst($p->status)}}
                                     </div>
                                    
                                     <div class="read-btn-container">

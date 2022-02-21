@@ -5,8 +5,8 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-	<title>Partners Matching Edit|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Edit Partners Matching Edit|Materials and Manufacturing in Healthcare Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 <!-- ================== BEGIN BASE CSS STYLE ================== -->
@@ -202,9 +202,21 @@
 								<input type="hidden" name="oth[]" value="{{$others}}"/>
 								<input type="hidden" name="sbm" value="1"/>
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+	
+<p></p>								
+<p align="left" style="padding:1.5em;" > Part 2 of 2 - Here you can add a cover photo and any supporting documents to your post. You can also choose the Partners who you like us to notify about your Challenge upon approval. </p>							
+								
+<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Photo (optional)</label>
+									<div class="col-md-6 col-sm-6">
+										<input type="file" class="form-control" id="cover"   name="cover"/>
+										
+										
+									</div>
+								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Document</label>
+									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Documents (optional)</label>
 									<div class="col-md-6 col-sm-6">
 										<input type="file" class="form-control" id="pic"   name="pic[]"  multiple/>
 										
@@ -221,12 +233,12 @@
                                 <thead>
                                     <tr>
 										
-										<th>Partner name</th>
-										<th>Institution</th>
-										<th>Designation</th>
-										<th>Biography</th>
-										<th>Current Interest</th>
-										<th>Similarity Weight</th>
+										<th width="150px">Partner name</th>
+										<th width="200px">Institution</th>
+										<th width="200px">Designation</th>
+										<th width="200px">Biography</th>
+										<th width="200px">Current Interest</th>
+										<th width="200px">Similarity Weight</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -253,41 +265,57 @@
                                     <tr >
 									
 										
-										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s>20 && ($s)){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
+										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s>20 ){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
-										<td><?php 
+										<td> <?php 
+						   if(strlen($u->bio) > 200){
 						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
 							$txt = nl2br(substr($u->bio,0,200));
 							
 							echo $txt."...";
+							}else{
+							 $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br($u->bio);
 							
-							?></td>
+							
+							}
+							
+							?>
+									</td>
 										<td><?php 
-										
-										if(is_array(unserialize($u->keywords))){
+										$ski = $u->keywords;
+										if(empty($ski)){
+										$ski = array();
+										}else{
+										$ski = unserialize($ski);
+										}
+										if(is_array($ski)){
 											$ki = unserialize($u->keywords);
 											}else{
 												$ki = array();
 											}
-										
 										foreach($ki as $uk){
 											foreach($kd as $k){
 											
 											  if($k->id == $uk){
-											  echo $k->name.", ";
+											  echo $k->name."; ";
 											  }
 											  
 											}
 										
 										}
-										echo "and custom keyword: "; if(empty($u->other_keyword)){echo "Nil"; } else{echo $u->other_keyword;}
+										echo "<br/>";
+										echo "Custom keyword: "; if(empty($u->other_keyword)){echo "Nil"; } else{
+										echo $u->other_keyword;
+										}
 										?></td>
 										
 										<td><?php 
 										if( (in_array($u->id, $id) && in_array($u->id, $id2))  ||  in_array($u->id, $id)   || in_array($u->id, $id2) ) {
-										echo round($s,2); 
+										echo round($s,2)."%"; 
 									}	
 										?> </td>
                                     </tr>
@@ -310,12 +338,12 @@
                                 <thead>
                                     <tr>
 										
-										<th>Partner name</th>
-										<th>Institution</th>
-										<th>Designation</th>
-										<th>Biography</th>
-										<th>Current Interest</th>
-										<th>Score</th>
+										<th width="150px">Partner name</th>
+										<th width="200px">Institution</th>
+										<th width="200px">Designation</th>
+										<th width="200px">Biography</th>
+										<th width="200px">Current Interest</th>
+										<th width="200px">Similarity Weight</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -345,15 +373,29 @@
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td><?php 
+						   if(strlen($u->bio) > 200){
 						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
 							$txt = nl2br(substr($u->bio,0,200));
 							
 							echo $txt."...";
+							}else{
+							 $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br($u->bio);
+							
+							
+							}
 							
 							?></td>
 										<td><?php 
+										if(!empty($u->keywords) && is_array(unserialize($u->keywords)) && !empty($u->keywords)){
+											$ctk = count(unserialize($u->keywords));
+										}else{
+											$ctk =0;	
+										}
 										
+										if($ctk ==1 && !empty($u->keywords)){
 										foreach(unserialize($u->keywords) as $uk){
 											foreach($kd as $k){
 											
@@ -364,13 +406,33 @@
 											}
 										
 										}
-										echo "and custom keyword: "; if(empty($u->other_keyword)){echo "Nil"; } else{echo $u->other_keyword;}
+										
+										
+								}else{
+								$kct =0;
+								if(!empty($u->keywords) && is_array(unserialize($u->keywords))){
+									foreach(unserialize($u->keywords) as $uk){
+											foreach($kd as $k){
+											  
+											  if($k->id == $uk){
+											  $kct++;
+											  echo $k->name."; ";
+											  
+											  }
+											  
+											}
+										
+										}
+										}
+								}
+										
+										echo "Custom keyword: "; if(empty($u->other_keyword)){echo "Nil"; } else{echo $u->other_keyword;}
 										?></td>
 										
 										<td><?php 
 										
 										if( (in_array($u->id, $id) && in_array($u->id, $id2))  ||  in_array($u->id, $id)   || in_array($u->id, $id2) ) {
-										echo round($s1,2); 
+										echo round($s1,2)."%"; 
 									}	
 										?> </td>
                                     </tr>
@@ -392,11 +454,12 @@
                                 <thead>
                                     <tr>
 										
-										<th>Partner name</th>
-										<th>Institution</th>
-										<th>Designation</th>
-										<th>Biography</th>
-										<th>Current Interest</th>
+										<th width="150px">Partner name</th>
+										<th width="200px">Institution</th>
+										<th width="200px">Designation</th>
+										<th width="200px">Biography</th>
+										<th width="200px">Current Interest</th>
+										<th width="200px">Similarity Weight</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -428,15 +491,23 @@
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td><?php 
+						   if(strlen($u->bio) > 200){
 						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
 							$txt = nl2br(substr($u->bio,0,200));
 							
 							echo $txt."...";
+							}else{
+							 $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br($u->bio);
+							
+							
+							}
 							
 							?></td>
 										<td><?php 
-										
+										if(!empty($u->keywords) && is_array(unserialize($u->keywords))){
 										foreach(unserialize($u->keywords) as $uk){
 											foreach($kd as $k){
 											
@@ -447,12 +518,13 @@
 											}
 										
 										}
+										}
 										echo "and custom keyword: "; if(empty($u->other_keyword)){echo "Nil"; } else{echo $u->other_keyword;}
 										?></td>
 										
 										<td><?php 
 										if( (in_array($u->id, $id) && in_array($u->id, $id2))  ||  in_array($u->id, $id)   || in_array($u->id, $id2) ) {
-										echo round($s2,2); 
+										echo round($s2,2)."%";  
 									}	
 										?> </td>
                                     </tr>
@@ -478,12 +550,12 @@
                                 <thead>
                                     <tr>
 										
-										<th>Partner name</th>
-										<th>Institution</th>
-										<th>Designation</th>
-										<th>Biography</th>
-										<th>Current Interest</th>
-										<th>Score</th>
+										<th width="150px">Partner name</th>
+										<th width="200px">Institution</th>
+										<th width="200px">Designation</th>
+										<th width="200px">Biography</th>
+										<th width="200px">Current Interest</th>
+										<th width="200px">Similarity Weight</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -512,15 +584,23 @@
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td><?php 
+						   if(strlen($u->bio) > 200){
 						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
 							$txt = nl2br(substr($u->bio,0,200));
 							
 							echo $txt."...";
+							}else{
+							 $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br($u->bio);
+							
+							
+							}
 							
 							?></td>
 										<td><?php 
-										
+										if(!empty($u->keywords) && is_array(unserialize($u->keywords))){
 										foreach(unserialize($u->keywords) as $uk){
 											foreach($kd as $k){
 											
@@ -531,12 +611,14 @@
 											}
 										
 										}
+										
+										}
 										echo "and custom keyword: "; if(empty($u->other_keyword)){echo "Nil"; } else{echo $u->other_keyword;}
 										?></td>
 										
 										<td><?php 
 										if( (in_array($u->id, $id) && in_array($u->id, $id2))  ||  in_array($u->id, $id)   || in_array($u->id, $id2) ) {
-										echo round($s3,2); 
+										echo round($s3,2)."%"; 
 									}	
 										?> </td>
                                     </tr>
@@ -549,6 +631,18 @@
 									</div>
 								</div>
 								
+								
+								
+									
+							
+								
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Documents (optional)</label>
+									<div class="col-md-6 col-sm-6">
+										 <input type="checkbox" name="tm"  id="tm" required /> <label for="tm"> I confirm that I have not added any confidential information as per our privacy notice.
+										
+									</div>
+								</div>
 								
 								
 								
@@ -579,9 +673,7 @@
         
         <!-- end theme-panel -->
 		
-		<!-- begin scroll to top btn -->
-		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
-		<!-- end scroll to top btn -->
+		
 	</div>
 	
 	<!-- end page container -->
@@ -725,7 +817,7 @@ if (buttonElement) {
 	
 			$('#yloader').show();
 	
-			frmstring = '<form action="/share/me/" method="POST" enctype="multipart/form-data"><div><input type="hidden" name="_token" value="{{ csrf_token() }}"/></div><div id="bc"><a href="#"><img align="right"src="/uploads/'+picture+'" alt="" height="150px" width="150px" /></a>Full name: '+first_name+' '+ middle_name+' '+ last_name+'<br/>Email: '+email+'<br/>Institution: '+institution+'<br/>Designation: '+designation+'<br/>Biography: '+bio+'<br/></div></div></form/>';
+			frmstring = '<form action="/share/me/" method="POST" enctype="multipart/form-data"><div><input type="hidden" name="_token" value="{{ csrf_token() }}"/></div><div id="bc"><a href="#"><img align="right"src="/mmhn/public/uploads/'+picture+'" alt="" height="150px" width="150px" /></a>Full name: '+first_name+' '+ middle_name+' '+ last_name+'<br/>Email: '+email+'<br/>Institution: '+institution+'<br/>Designation: '+designation+'<br/>Biography: '+bio+'<br/></div></div></form/>';
 			
 			bootbox.dialog({
 				title: 'Partner\'s Information',

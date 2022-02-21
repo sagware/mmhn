@@ -5,8 +5,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Register|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Complete Registration|Materials and Manufacturing in Healthcare Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -168,7 +168,7 @@
 						</script>
 						@elseif(Session::has('msg_interest2'))
 						<script type="text/javascript">
-						alert('Registration completed successfully, click login to access your dashboard');
+						alert('Registration completed successfully, click Login/Register to access your account');
 						</script>
 						@elseif(Session::has('msg2'))
 						<script type="text/javascript">
@@ -176,7 +176,7 @@
 						</script>
 						@elseif(Session::has('uplerror'))
 						<script type="text/javascript">
-						alert('Invalid passport photograph format, use only png,jpeg,jpg');
+						alert('Invalid profile picture format, use only png,jpeg,jpg');
 						</script>
 						@elseif(Session::has('err'))
 						<small>Invalid Username or Password...</small>
@@ -206,8 +206,10 @@
                 <!-- begin register-header -->
 				
                 <h1 align="center">
+				<br/><br/>
+				<p style="padding:1.5em;">
                    Membership Registration Form
-                   
+                  </p> 
                 </h1>
                 <!-- end register-header -->
                 <!-- begin register-content -->
@@ -239,10 +241,27 @@
                             </div>
                         </div>
 						
+						<label class="control-label" for="why">How does this network align with your interests?(maximum number of characters: 200)<span class="text-danger">*</span> </label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="text" id="why" name="reason" class="form-control" value="{{ old('reason') }}"  maxlength="200"  value="{{$u->joining_reason}}"  readonly/> 
+                            </div>
+                        </div>
+						
+						 <label class="control-label" for="email">Email <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="email" id="email" class="form-control" placeholder="Email address" name="email"  value="{{$u->email}}" value="{{ old('email') }}" required readonly/>
+								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+								<input type="hidden" name="role" value="user"/>
+                            </div>
+                        </div>
+						
+						
 						<label class="control-label" for="role">Role title </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="role" class="form-control" placeholder="e.g., Professor" name="designation"  />
+                                <input type="text" id="role" class="form-control" placeholder="e.g., Professor" name="designation" value="{{ old('designation') }}" />
                             </div>
                         </div>
 						
@@ -251,13 +270,13 @@
 						
 						<div class="dropdown" scroll>
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown">
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true'>
 										<label for="key">Click to select research interest keywords </label>
-										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()"  /> other keywords 
+										</button> or add  <input  type="checkbox"  name="other" value="{{ old('other') }}" id="ck" value="other" onClick="OtherField()"  /> <label for="ck">Other keywords</label>
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
-										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"  />&nbsp; {{$k->name}}
+										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"  />&nbsp; <label for="key">{{$k->name}}</label>
 										
 										 <br/>
 										
@@ -272,61 +291,51 @@
                             <div class="col-md-12">
 							<br/>
 							<label for="form-tags-3">Other Keywords (comma-separated)</label>
-                                <input type="text" id="form-tags-3" class="form-control" placeholder="If other is selected, type in the keywords" name="other"   />
+                                <input type="text" id="form-tags-3" class="form-control" placeholder="If other is selected, type in the keywords" name="other" value="{{ old('other') }}"  />
 								
                             </div>
                         </div>
 						
 						<br/>
-						<label class="control-label" for="bio">Brief bio/background (this will be visible to other members) <span class="text-danger">*</span> </label>
+						
+						<label class="control-label" for="biog">Brief bio/background (this will be visible to other members) <span class="text-danger">*</span> </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <textarea type="text" id="bio" name="bio" class="form-control"  required> </textarea>
+                                <textarea type="text" id="biog" name="bio"  class="form-control" required > {{ old('bio') }} </textarea>
                             </div>
                         </div>
 						
-						<label class="control-label" for="why">How does this network align with your interests?(maximum number of characters: 200)<span class="text-danger">*</span> </label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" id="why" name="reason" class="form-control"  maxlength="200"  value="{{$u->joining_reason}}" required readonly/> 
-                            </div>
-                        </div>
+						
+						
 						
 						<label class="control-label" for="link">LinkedIn (optional)</label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="link" name="linkedin" class="form-control"   /> 
+                                <input type="text" id="link" name="linkedin" value="{{ old('linkedin') }}" class="form-control"   /> 
                             </div>
                         </div>
 						
 						<label class="control-label" for="twitter">Twitter (optional)</label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="twitter" name="twitter" class="form-control"  /> 
+                                <input type="text" id="twitter" name="twitter" value="{{ old('twitter') }}" class="form-control"  /> 
                             </div>
                         </div>
 						
 						<label class="control-label" for="webpage">Webpage (optional)</label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="webpage" name="webpage" class="form-control"  /> 
+                                <input type="text" id="webpage" name="webpage" value="{{ old('webpage') }}" class="form-control"  /> 
                             </div>
                         </div>
 						
 						
-                        <label class="control-label" for="email">Email <span class="text-danger">*</span></label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="email" id="email" class="form-control" placeholder="Email address" name="email"  value="{{$u->email}}" required readonly/>
-								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-								<input type="hidden" name="role" value="user"/>
-                            </div>
-                        </div>
+                       
 						
 						<label class="control-label" for="pic">Profile Picture </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="file" id="pic" class="form-control"  name="pic"   />
+                                <input type="file" id="pic" class="form-control" value="{{ old('pic') }}"  name="pic"   />
 								
                             </div>
                         </div>
@@ -335,13 +344,7 @@
 						
 						
 						
-                        <div class="row m-b-15" id="oth">
-						<label for="otherkey">Other Keywords (Comma-separated)</label>
-                            <div class="col-md-12">
-                                <input type="text" id="otherkey" class="form-control" placeholder="If other is selected, type in the keyword" name="other"   />
-								
-                            </div>
-                        </div>
+                      
 						
 						<label class="control-label" for="pass">Password (minimum of 8 characters) <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
@@ -364,20 +367,20 @@
 						
 						
                         <div class="checkbox m-b-30">
-                             <label for="tm">
-                                <input type="checkbox" id="tm" required /> By clicking register button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ " title="Terms and Condition" target="_blank">Terms</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy" title="Use of Cookies" target="_blank">Cookie Use</a>.
+                             
+                                <input type="checkbox" name="tm" value="{{ old('tm') }}" id="tm" required /> <label for="tm"> By clicking register button, you agree to our <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>
                             </label>
                         </div>
 						
 						<div class="checkbox m-b-30">
                             <label for="not">
-                                <input type="checkbox" id="not" name="news_email" /> Click to receive notifications when new public story is posted.
+                                <input type="checkbox" id="not" name="news_email" value="{{ old('news_email') }}" /> Click to receive notifications when new public story is posted.
                             </label>
                         </div>
 						
 						<div class="checkbox m-b-30">
                             <label for="notp">
-                                <input type="checkbox" name="matching_email" id="notp"/> Click to receive a notification when you are selected as partner.
+                                <input type="checkbox" name="matching_email" id="notp"  value="{{ old('matching_email') }}"/> Click to receive a notification when you are selected as partner.
                             </label>
                         </div>
 						

@@ -5,8 +5,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>About Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>About Materials and Manufacturing in Healthcare Innovation Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -27,7 +27,7 @@
 </head>
 
 <body >
-
+@include("admin.cookiebanner")
 @if(Session::has('need'))
 			<script type="text/javascript">
 			alert("Challenge/Need submitted successfully");
@@ -50,9 +50,9 @@
     
     <!-- begin #page-title -->
     <div id="page-title" class="page-title has-bg">
-        <div class="bg-cover"><img src="/assets/homecover.jpeg" alt="" /></div>
+        <div class="bg-cover"><img src="/assets/homecover.jpeg" alt="about us cover page" /></div>
         <div class="container">
-            <h1>Materials and Manufacturing in Healthcare Innovation Network
+            <h1>About Materials and Manufacturing in Healthcare Innovation Network
 </h1>
             <p>Connecting clinicians, researchers, and manufacturers to collaborate, accelerate and drive sector change.
 </p>
@@ -73,22 +73,26 @@
                         
                       
                         <p class="about-me-desc">
-                           The Materials and Manufacturing in Healthcare Network is a joint effort of the UCL Institute of Making and the UCL Institute of Healthcare Engineering, funded by a UCL Innovation Network grant. The MMHN virtual platform connects members and hosts  public and member events. News and Events information is available to anyone who visits the site. Connecting to the Network requires sing-up and approval process. To join this Virtual Network, please <a href="/login">apply here</a>.
+                           The Materials and Manufacturing in Healthcare Innovation Network is a joint effort of the <a href="https://www.instituteofmaking.org.uk/" target="_blank" title="UCL Institute of Making and the UCL Institute of Healthcare Engineering"> UCL Institute of Making</a> and the <a href="https://www.ucl.ac.uk/healthcare-engineering/" target="_blank" title="UCL Institute of Healthcare Engineering"> UCL Institute of Healthcare Engineering</a>, funded by a UCL Innovation Network grant. The MMHN virtual platform connects our Partners, including academics, clinicians, industry, funders and regulatory members, to form collaborations and enable healthcare innovation that can bring true impact to patients. </p>
 
-                        </p>
+ <p class="about-me-desc">MMHN aims to promote innovation as much as possible. For this, we host public and Partners only events. Information can be found under “Upcoming Events” and their outcomes are showcased in “News”, which is available for anyone who visits the site. Our Core UCL Team and Partners will also showcase other innovation stories that can inspire innovation further. </p>
+
+ <p class="about-me-desc">Becoming a Partner will allow full access to our Partner database to begin solving healthcare challenges. To join the MMHN Network, please <a href="/login">apply here</a> to begin the approval process.</p>
+
 						
-						<h2 class="text-inverse" align="center">Advisory Board
+						<h2 class="text-inverse" align="center">Our Core UCL Team
 </h2>
 									   <div class="row">
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/rita.png" alt="Dr Ana Rita Pinho">
+						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/rita.jpg" alt="Dr Ana Rita Pinho">
 					
-					<p ><h2 class="post-title" align="center">Dr Ana Rita Pinho
-					</h2></p>
+					<p ><h3 class="post-title" align="center">Dr Ana Rita Pinho
+					</h3></p>
+					<p align="center">MMHN PI & Network Manager</p>
 					<p align="center">PIU Policy Adviser
-					MMHN PI & Network Manager
+					
 					</p>
 				</div>
 				
@@ -97,12 +101,11 @@
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/mark.png" alt="Prof Mark Miodownik ">
 					
-					<p ><h2 class="post-title" align="center">Prof Mark Miodownik 
+					<p ><h3 class="post-title" align="center">Prof Mark Miodownik 
 
-					</h2></p>
+					</h3></p>
+					<p align="center">MMHN Co-I & IoM Director</p>
 					<p align="center">Professor of Materials & Society 
-MMHN Co-I & IoM Director
-
 					</p>
 				</div>
 				
@@ -111,13 +114,12 @@ MMHN Co-I & IoM Director
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/rabecca.png" alt="Prof Rebecca Shipley">
 					
-					<p ><h2 class="post-title" align="center">Prof Rebecca Shipley
+					<p ><h3 class="post-title" align="center">Prof Rebecca Shipley
 
-					</h2></p>
-					<p align="center">Professor of Healthcare Engineering 
-									MMHN Co-I & IHE Director
-									Vice Dean (Healthcare)
-					</p>
+					</h3></p>
+					<p align="center">MMHN Co-I & IHE Director</p>
+					<p align="center">Professor of Healthcare Engineering</p> 
+					<p align="center">	Vice Dean (Healthcare)</p>
 				</div>
                        
                     </div>
@@ -131,11 +133,12 @@ MMHN Co-I & IoM Director
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/charnett.jpg" alt="Charnett Chau">
 					
-					<p ><h2 class="post-title" align="center">Charnett Chau
+					<p ><h3 class="post-title" align="center">Charnett Chau
 
-					</h2></p>
+					</h3></p>
+					<p align="center">MMHN Network Coordinator </p>
 					<p align="center">Life Cycle Assessment Research Fellow
-MMHN Network Coordinator 
+
 					</p>
 				</div>
 				
@@ -144,28 +147,24 @@ MMHN Network Coordinator
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/will.png" alt="Will Bhot">
 					
-					<p ><h2 class="post-title" align="center">Will Bhot
+					<p ><h3 class="post-title" align="center">Will Bhot
  
 
-					</h2></p>
-					<p align="center">GDI Hub  Research Assistant
-MMHN Web Developer
-
-
-					</p>
+					</h3></p>
+					<p align="center">MMHN Web Developer</p>
+					<p align="center">GDI Hub  Research Assistant</p>
 				</div>
 				
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/sagir.png" alt="Sagir Yusuf">
+						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/sagir.jpg" alt="Sagir Yusuf">
 					
-					<p ><h2 class="post-title" align="center">Sagir Yusuf
+					<p ><h3 class="post-title" align="center">Sagir M. Yusuf
 
-					</h2></p>
-					<p align="center">PhD Student 
-MMHN Web Developer
-
+					</h3></p>
+					<p align="center">MMHN Web Developer</p>
+					<p align="center">PhD Student
 					</p>
 				</div>
                        
@@ -182,10 +181,10 @@ MMHN Web Developer
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/laura.jpg" alt="Dr Laura Bovo">
 					
-					<p ><h2 class="post-title" align="center">Dr Laura Bovo
+					<p ><h3 class="post-title" align="center">Dr Laura Bovo
 
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Innovation Networks Manager, UCL
 
 					</p>
@@ -197,10 +196,10 @@ MMHN Web Developer
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/henry_new.png" alt="Henry Pinchbeck">
 					
-					<p ><h2 class="post-title" align="center">Henry Pinchbeck
+					<p ><h3 class="post-title" align="center">Henry Pinchbeck
 
 
-					</h2></p>
+					</h3></p>
 					<p align="center">CEO, 3D LifePrints
 
 
@@ -212,11 +211,11 @@ MMHN Web Developer
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/Suzanne.jpg" alt="Suzanne Ali-Hassan">
 					
-					<p ><h2 class="post-title" align="center">Suzanne Ali-Hassan
+					<p ><h3 class="post-title" align="center">Suzanne Ali-Hassan
 
  
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Deputy Director - Commercial and Innovation, UCL Partners 
 
 
@@ -238,11 +237,11 @@ MMHN Web Developer
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/afshin.jpg" alt="Prof Afshin Mosahebi">
 					
-					<p ><h2 class="post-title" align="center">Prof Afshin Mosahebi
+					<p ><h3 class="post-title" align="center">Prof Afshin Mosahebi
 
 
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Professor of Plastic Surgery, UCL
 
 
@@ -255,11 +254,11 @@ MMHN Web Developer
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/joseph.jpg" alt="Prof Joseph Hardwicke">
 					
-					<p ><h2 class="post-title" align="center">Prof Joseph Hardwicke
+					<p ><h3 class="post-title" align="center">Prof Joseph Hardwicke
 
 
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Associate Clinical Professor, University of Warwick 
 Consultant, UHCW
 					</p>
@@ -270,12 +269,12 @@ Consultant, UHCW
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/geoff.jpg" alt="Prof Geoff Parker">
 					
-					<p ><h2 class="post-title" align="center">Prof Geoff Parker
+					<p ><h3 class="post-title" align="center">Prof Geoff Parker
 
 
  
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Professor of Healthcare Engineering, Imaging and Enterprise, UCL
 
 
@@ -295,11 +294,11 @@ Consultant, UHCW
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/tim.jpg" alt="Prof Tim Baker">
 					
-					<p ><h2 class="post-title" align="center">Prof Tim Baker
+					<p ><h3 class="post-title" align="center">Prof Tim Baker
 
 
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Professorial Teaching Fellow, UCL
 
 
@@ -313,12 +312,12 @@ Consultant, UHCW
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/anu.jpg" alt="Dr Anu Solanki">
 					
-					<p ><h2 class="post-title" align="center">Dr Anu Solanki
+					<p ><h3 class="post-title" align="center">Dr Anu Solanki
 
 
 
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Technology Consultant, PA Consulting 
 
 					</p>
@@ -329,9 +328,9 @@ Consultant, UHCW
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/mayur.jpg" alt="Mayur Patel">
 					
-					<p ><h2 class="post-title" align="center">Mayur Patel
+					<p ><h3 class="post-title" align="center">Mayur Patel
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Pharma Digital Innovation Expert – Managing Consultant, PA Consulting </p>
 				</div>
                        
@@ -345,7 +344,7 @@ Consultant, UHCW
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/luke.jpg" alt="Luke O’Shea">
 					
-					<p ><h2 class="post-title" align="center">Luke O’Shea</h2></p>
+					<p ><h3 class="post-title" align="center">Luke O’Shea</h3></p>
 					<p align="center">Head of Integrated Personal Commissioning and Person-Centred Care, UCLH</p>	</div>			
 				
 				
@@ -354,13 +353,13 @@ Consultant, UHCW
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/lain.png" alt="Mr Iain Hennessey ">
 					
-					<p ><h2 class="post-title" align="center">Mr Iain Hennessey 
+					<p ><h3 class="post-title" align="center">Mr Iain Hennessey 
 
 
 
 
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Clinical Director of Innovation, and Paediatric and Neonatal Surgeon Consultant, Alder Hey Children’s Hospital</p>
 				</div>
 				
@@ -369,10 +368,10 @@ Consultant, UHCW
 					
 						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/niket.jpg" alt="Dr Niket Patel">
 					
-					<p ><h2 class="post-title" align="center">Dr Niket Patel
+					<p ><h3 class="post-title" align="center">Dr Niket Patel
 
 
-					</h2></p>
+					</h3></p>
 					<p align="center">Honorary Senior Clinical Lecturer, UCL
 Interventional Cardiologist Consultant, RFH
  </p>

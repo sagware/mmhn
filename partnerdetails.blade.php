@@ -5,8 +5,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Partner Detail|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Partner Detail for {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}|Materials and Manufacturing in Healthcare Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	@include("admin.analytics")
@@ -39,7 +39,7 @@
         <!-- begin container -->
         <div class="container">
             <!-- begin row -->
-			<h1>Partner's Detail</h1>
+			<h1>{{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</h1>
             <div class="row row-space-30">
                 <!-- begin col-9 -->
                 <div class="col-md-9">
@@ -71,12 +71,12 @@
                                   
                                     </div>
                                     <div >
-                                    <b> Biography: </b>
+                                    <b> Biography </b>
 									
 									 <?php 
 						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
-							$txt = nl2br($s->bio,0,200);
+							$txt = nl2br($s->bio);
 							
 							echo $txt;
 							
@@ -86,7 +86,7 @@
                                     </div>
 									
 									<div >
-                                   <b>  Email: </b>
+                                   <b>  Email </b>
 									 @if(Auth::check())
 									<a href="mailto:{{$s->email}}"> {{$s->email}} </a>
 									 @else
@@ -96,7 +96,7 @@
                                     </div>
 									
 									<div >
-                                    <b> Sector: </b>
+                                    <b> Sector </b>
 									 
 									 {{ucfirst($s->sector)}} 
 									
@@ -104,7 +104,7 @@
                                     </div>
 									
 									<div >
-                                    <b> Organisation: </b> 
+                                    <b> Organisation </b> 
 									 
 									 {{$s->institution}} 
 									
@@ -112,7 +112,7 @@
                                     </div>
 									
 									<div >
-                                   <b>  Role title: </b>
+                                   <b>  Role title </b>
 									
 									 {{$s->designation}} 
 									 
@@ -120,7 +120,7 @@
                                     </div>
 									
 									<div >
-                                    <b> Research Interests Keywords: </b>
+                                    <b> Research Interests Keywords </b>
 									
 									<?php
 									
@@ -144,7 +144,7 @@
                                     </div>
 									
 									<div >
-                                   <b>  LinkedIn: </b>
+                                   <b>  LinkedIn </b>
 									@if(Auth::check())
 									 <a href="{{$s->linkedin}}" title="linkedIn Page" /> {{$s->linkedin}} </a>
 									 @else
@@ -155,7 +155,7 @@
                                     </div>
 									
 									<div >
-                                    <b> Twitter: </b>
+                                    <b> Twitter </b>
 									@if(Auth::check())
 									<a href="{{$s->twitter}}" title="Twitter page"> {{$s->twitter}} </a>
 									 @else
@@ -165,7 +165,7 @@
                                     </div>
 									
 									<div >
-                                    <b> Webpage: </b>
+                                    <b> Webpage </b>
 									@if(Auth::check())
 									<a href="{{$s->webpage}}" title="Web page" >{{$s->webpage}} </a>
 									 @else
@@ -175,9 +175,81 @@
                                     </div>
 									
 									
+									<br/>
+									<div><h2>Challenges submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</h2></div>
 									
+									@if($ctc >0)
+									@if(Auth::check())
 									
+											@foreach($p as $p)
+											@if($p->category=="need")
+											<h3> <a href="/clinical_detail/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
+											@endif
+											
+											@endforeach
                                     
+									@else
+									Login/Register to view Detail
+									@endif
+									@else
+									No challenge submission
+									@endif
+									
+									
+									
+									<div><h2>News submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</h2></div>
+									
+									@if($ctn >0)
+									
+									
+											@foreach($p as $p)
+											@if($p->category=="news")
+											<h3> <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
+											@endif
+											
+											@endforeach
+                                    
+									
+									@else
+									No news submission
+									@endif
+									
+									
+									<div><h2>Events submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</h2></div>
+									
+									@if($cte >0)
+									
+									
+											@foreach($p as $p)
+											@if($p->category=="event")
+											<h3> <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
+											@endif
+											
+											@endforeach
+                                    
+									
+									@else
+									No events submission
+									@endif
+									
+									<div><h2>Grants submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</h2></div>
+									
+									@if($ctg >0)
+									
+									
+											@foreach($p as $p)
+											@if($p->category=="grant")
+											<h3> <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
+											@endif
+											
+											@endforeach
+                                    
+									
+									@else
+									No grants submission
+									@endif
+									
+									
                                     <div class="comment-rating">
                                        <!--
                                         <a href="#" class="m-l-10 text-inverse"><i class="fa fa-thumbs-up text-success"></i> 2</a> 

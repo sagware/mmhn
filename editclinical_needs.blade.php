@@ -3,8 +3,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Edit Challenge or Need|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Edit Challenge or Need|Materials and Manufacturing in Healthcare Innovation Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	

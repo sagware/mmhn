@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Post Approval| Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	@include("admin.analytics")
@@ -59,13 +59,9 @@
                 <div class="col-md-9">
                     <!-- begin post-detail -->
                     <div class="post-detail section-container">
-                        <ul class="breadcrumb">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/clinicalneeds">CHALLENGES/NEEDS</a></li>
-                            <li class="active">{{$p->title}}</li>
-                        </ul>
+                        
                         <h1 class="post-title">
-                            <a href="#">{{$p->title}}</a>
+                          {{$p->title}}
                         </h1>
 						
 						@if(Auth::check())
@@ -75,14 +71,26 @@
 									@endif
 						
                         <div class="post-by">
-                            Posted By <a href="/partner/{{$p->id}}">{{$p->posted_by_name}}</a> <span class="divider">Likes 50|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
+                            Posted By <a href="/partner/{{$p->id}}">{{$p->posted_by_name}}</a> &nbsp;&nbsp; {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                         </div>
                         <!-- begin post-image -->
-						<!--
+						<img src="/mmhn/public/uploads/{{$p->pic}}" align="post cover photo" height="500px" width="500px"/> <br/>
+						
+						<b>Summary:</b> <br/>
 						 <blockquote>
-                                    {{$p->summary}}
+						 
+						 <?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br($p->summary);
+							
+							echo $txt;
+							
+							?>
+                                    
                                 </blockquote>
-						-->		
+								<br/>
+							
 								
                         
                         <!-- end post-image -->

@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Public Stories|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	@include("admin.analytics")
@@ -72,14 +72,14 @@
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
-                                    <h1 class="post-title">
+                                    <h2 class="post-title">
                                         <a href="/public_post/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
-                                    </h1>
+                                    </h2>
                                     <div class="post-by">
                                         Posted By: {{$p->posted_by_name}}<br/>
 										 Category: {{$p->category}}
 										
-										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
+										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |Status: {{ucfirst($p->status)}}
                                     </div>
                                     <div class="post-desc">
                                         

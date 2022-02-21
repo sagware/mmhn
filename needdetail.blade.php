@@ -6,10 +6,10 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Challenge Detail|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -52,6 +52,11 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	
+	<style type="text/css">
+	.login a p {display:none;}
+.login a:hover p {display:block;}
+	</style>
 	</head>
 	@if(Session::has('mailed'))
 			<script type="text/javascript">
@@ -74,6 +79,12 @@
 			@if(Session::has('liked'))
 			<script type="text/javascript">
 			alert("You liked this already");
+			</script>
+			@endif
+			
+			@if(Session::has('unmatch'))
+			<script type="text/javascript">
+			alert("You successfully unmatched yourself from this challenge");
 			</script>
 			@endif
 			
@@ -110,7 +121,7 @@
                             <li><a href="/clinicalneeds">CHALLENGES</a></li>
                             <li class="active">{{$p->title}}</li>
                         </ul>
-                        <h1 class="post-title">
+                        <h1>
                            {{$p->title}}
                         </h1>
 						<?php 
@@ -121,10 +132,12 @@
 						
 						?>
                         <div class="post-by">
-                            Posted By <a href="/partner/{{$p->posted_by}}">{{$p->posted_by_name}}</a>  {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |</span> {{$comct}} Comments @if(Auth::check())<a href="/likeneed/{{$p->id}}/{{Auth::user()->id}}" title="Click to like it" class="m-l-10 text-inverse"><button> Like:{{count(unserialize($p->likes))}}  <i class="fa fa-thumbs-up text-success"></i> </button></a> <!--<button> Unlike : <i class="fa fa-thumbs-down text-danger"></i> </button></a> -->@else
+                            Posted By <a href="/partner/{{$p->posted_by}}">{{$p->posted_by_name}}</a> &nbsp;&nbsp;  {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |</span> {{$comct}} Comments @if(Auth::check())<a href="/likeneed/{{$p->id}}/{{Auth::user()->id}}" title="Click to like it" class="m-l-10 text-inverse"><button> Like:{{count(unserialize($p->likes))}}  <i class="fa fa-thumbs-up text-success"></i> </button></a> <!--<button> Unlike : <i class="fa fa-thumbs-down text-danger"></i> </button></a> -->@else
 							<a href="/login" title="Click to sign in"/> Sign in to Like</a>
 							@endif
                         </div>
+						<div>
+						<img src="/mmhn/public/uploads/{{$p->cover}}" align="post cover photo" height="150px" width="150px"/></div> <br/>
                         <!-- begin post-image -->
 						<!--
 						 <blockquote>
@@ -161,12 +174,25 @@
 					   ?>
 					   	@foreach($doc as $sp)
 						
-						<a href="/mmhn/public/uploads/{{$sp}}" title="Document{{$ct}}">Document <?php echo " ".$ct."<br/>"; $ct++;?></a>
+						<a href="/mmhn/public/uploads/{{$sp}}" title="Document{{$ct}}" target="_blank">Supporting Document <?php echo " ".$ct."<br/>"; $ct++;?></a>
 						
 						@endforeach
 					   
 					   @endif
                         <!-- end post-desc -->
+						
+						  <h2>Matched Partners</h2>
+						 
+						  @if(!empty($p->partners))
+								  @foreach($us as $u)
+								  @foreach(unserialize($p->partners) as $pu)
+								  
+								  @if($u->id == $pu)
+								  <a href="/partner/{{$pu}}" title="{{$u->first_name}}" target="_blank"><?php echo "@";?>{{$u->first_name}} {{$u->last_name}}</a> <br/> @if($u->id == Auth::user()->id && in_array(Auth::user()->id, unserialize($p->partners)))  <a href="/unmatchedpartner/{{$p->id}}" title="Unmatched yourself from this challenge"> Unmatch yourself</a> @endif
+								  @endif
+						   @endforeach
+						   @endforeach
+						  @endif
                     </div>
                     <!-- end post-detail -->
                     
@@ -226,8 +252,25 @@
 									$c->likes = serialize(array());
 									}
 									?>
-                                       <a href="/likecomment/{{$c->id}}/{{Auth::user()->id}}" title="Click to like this comment" class="m-l-10 text-inverse"> Like</a> 
-                                        <a href="/likecomment/{{$c->id}}/{{Auth::user()->id}}" title="Click to like this comment" class="m-l-10 text-inverse"><i class="fa fa-thumbs-up text-success"></i> @if(is_array(unserialize($c->likes))) {{count(unserialize($c->likes))}} @else 0 @endif</a>
+									<div class="login">
+									
+                                       <a href="/likecomment/{{$c->id}}/{{Auth::user()->id}}" title="Click to like this comment" class="m-l-10 text-inverse"> 
+    Like
+        
+    </a>
+
+                                        <a href="/likecomment/{{$c->id}}/{{Auth::user()->id}}" title="Click to like this comment" class="m-l-10 text-inverse"><i class="fa fa-thumbs-up text-success"></i> @if(is_array(unserialize($c->likes))) {{count(unserialize($c->likes))}} <p> <?php 
+										$uls = unserialize($c->likes);
+										foreach($us as $u){
+										foreach($uls as $ul){
+										
+										if($u->id == $ul){
+										echo $u->first_name." ".$u->last_name."<br/> ";
+										}
+										
+										}
+										}
+										?></p> </a></div>  @else 0 @endif</a>
                                       
 										@else
 										<a href="/login" title="Click to login">Sign in to like
@@ -276,8 +319,21 @@
 												-->
                                                 <div class="comment-rating">
 												@if(Auth::check())
+												<div class="login">
+												
                                                    <a href="/likereply/{{$rep->id}}/{{Auth::user()->id}}" title="Like reply" class="m-l-10 text-inverse"> Like</a>  <!--or<a href="/dislikereply/{{$rep->id}}/{{Auth::user()->id}}" title="Dislike reply" class="m-l-10 text-inverse">Dislike</a>: --->
-                                                    <a href="/likereply/{{$rep->id}}/{{Auth::user()->id}}" title="Like reply" class="m-l-10 text-inverse"><i class="fa fa-thumbs-up text-success"></i> {{count(unserialize($rep->likes))}}</a> 
+                                                    <a href="/likereply/{{$rep->id}}/{{Auth::user()->id}}" title="Like reply" class="m-l-10 text-inverse"><i class="fa fa-thumbs-up text-success"></i> {{count(unserialize($rep->likes))}} <p> <?php 
+										$uls = unserialize($c->likes);
+										foreach($us as $u){
+										foreach($uls as $ul){
+										
+										if($u->id == $ul){
+										echo $u->first_name." ".$u->last_name."<br/> ";
+										}
+										
+										}
+										}
+										?></p> </a></div> </a> 
 													
                                                  
 												 @endif
@@ -334,6 +390,7 @@
                             <div class="form-group">
                                 <label class="control-label f-s-12 col-md-2" for="mytextarea">Comment <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
+								Images can be added by copy and paste(Ctrl+V)
                                     <textarea class="form-control"  name="message" id="mytextarea" rows="10"></textarea>
                                 </div>
                             </div>

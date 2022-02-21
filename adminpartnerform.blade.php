@@ -5,8 +5,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Register|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Add Partner Admin|Materials and Manufacturing in Healthcare Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -144,21 +144,13 @@
 				padding: 20px 0 5px 0;
 			}
 		</style>
-		@include("admin.cookiebanner")
-	@include("admin.analytics")
 </head>
-
+@include("admin.analytics")
+@include("admin.cookiebanner")
 @include("admin.header")
 <body class="pace-top bg-white">
-<!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
-            @include("admin.header")
-            <!-- end navbar-collapse -->
-        </div>
-        <!-- end container -->
-    </div>
-
 	<!-- begin #page-loader -->
+	
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 	
@@ -176,7 +168,7 @@
 						</script>
 						@elseif(Session::has('msg_interest2'))
 						<script type="text/javascript">
-						alert('Registration completed successfully, click login to access your dashboard');
+						alert('Partner registered successfully');
 						</script>
 						@elseif(Session::has('msg2'))
 						<script type="text/javascript">
@@ -190,106 +182,108 @@
 						<small>Invalid Username or Password...</small>
 						
 						@else(msg == "" or msg==NULL)
-							<small>Your files are with you everywhere you go...</small>
+							<!--<small>Your files are with you everywhere you go...</small>-->
 						@endif
                         
-	
+	@include("admin.header")
 	<!-- begin #page-container -->
 	<div id="page-container" class="fade">
 	    <!-- begin register -->
         <div class="register register-with-news-feed">
-            <!-- begin news-feed -->
-            
+            <!-- begin news-feed 
+            <div class="news-feed">
+                <div class="news-image">
+                    <img src="/assets/img/login-bg/bg-8.jpg" alt="" />
+                </div>
+                <div class="news-caption">
+                    
+                </div>
+            </div>
+			-->
             <!-- end news-feed -->
             <!-- begin right-content -->
-            <div class="right-content">
+            <div >
                 <!-- begin register-header -->
-                <h3 align="center">
-                   Admin Partners Registration Form
+				
+                <h1 align="center">
+				<br/><br/>
+                   Membership Registration Form
                    
-                </h3>
+                </h1>
                 <!-- end register-header -->
                 <!-- begin register-content -->
                 <div class="register-content">
                     <form action="/adminregister/new_partner" method="POST"  enctype="multipart/form-data" class="margin-bottom-0">
 					
-					<label class="control-label">First name <span class="text-danger">*</span> </label></label>
+					<label class="control-label" for="fname">First name <span class="text-danger">*</span> </label></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" class="form-control"   name="first_name"  required />
+                                <input type="text" id="fname" class="form-control"   name="first_name"  required  />
                             </div>
                         </div>
 						
 						
-						<label class="control-label">Last name <span class="text-danger">*</span> </label></label>
+						<label class="control-label" for="lname">Last name <span class="text-danger">*</span> </label></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" class="form-control"   name="last_name"  required  />
+                                <input type="text" id="lname" class="form-control"   name="last_name"  required />
                             </div>
                         </div>
 						
 						
                       
 						
-						 <label class="control-label">Organisation </label>
+						 <label class="control-label" for="org">Organisation </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Organisation e.g., University College London" name="institution"     />
+                                <input type="text" id="org" class="form-control" placeholder="Organisation e.g., University College London" name="institution"   />
                             </div>
                         </div>
 						
-						<label class="control-label">Role title </label>
+						<label class="control-label" for="role">Role title </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="e.g., Professor" name="designation"  />
-                            </div>
-                        </div>
-						
-						
-						
-						
-						<label class="control-label" for="bio">Brief bio/background, this will be visible to other members (maximum number of characters: 200)<span class="text-danger">*</span> </label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <textarea type="text" name="bio" id="bio" class="form-control" style="visibility:visible;"  required> </textarea>
-                            </div>
-                        </div>
-						
-						<label class="control-label">Why do you want to join the network? (maximum number of characters: 200) </label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" name="reason" class="form-control"  maxlength="200"   /> 
-                            </div>
-                        </div>
-						
-						<label class="control-label">LinkedIn (optional)</label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" name="linkedin" class="form-control"   /> 
-                            </div>
-                        </div>
-						
-						<label class="control-label">Twitter (optional)</label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" name="twitter" class="form-control"  /> 
-                            </div>
-                        </div>
-						
-						<label class="control-label">Webpage (optional)</label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" name="webpage" class="form-control"  /> 
+                                <input type="text" id="role" class="form-control" placeholder="e.g., Professor" name="designation"  />
                             </div>
                         </div>
 						
 						
-                        <label class="control-label">Email <span class="text-danger">*</span></label>
+						
+						
+						<div class="dropdown" scroll>
+										<button class="btn btn-primary" type="button" 
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true'>
+										<label for="key">Click to select research interest keywords </label>
+										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()"  /> <label for="ck">Other keywords</label>
+										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
+										@foreach($kw as $k)
+										
+										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"  />&nbsp; <label for="key">{{$k->name}}</label>
+										
+										 <br/>
+										
+										 @endforeach
+	
+										</div>
+										</div>
+										
+										
+										<div class="row m-b-15" id="oth">
+						
+                            <div class="col-md-12">
+							<br/>
+							<label for="form-tags-3">Other Keywords (comma-separated)</label>
+                                <input type="text" id="form-tags-3" class="form-control" placeholder="If other is selected, type in the keywords" name="other"   />
+								
+                            </div>
+                        </div>
+						
+						<br/>
+						
+						<label class="control-label" for="biog">Brief bio/background (this will be visible to other members) <span class="text-danger">*</span> </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="email" class="form-control" placeholder="Email address" name="email"  required />
-								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-								<input type="hidden" name="role" value="user"/>
+                                <textarea type="text" id="biog" name="bio" class="form-control" required > </textarea>
                             </div>
                         </div>
 						
@@ -304,58 +298,72 @@
                         </div>
 						
 						
-						<label class="control-label">Profile Picture </label>
+						
+						
+						
+						
+						<label class="control-label" for="link">LinkedIn (optional)</label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="file" class="form-control"  name="pic"   />
-								
+                                <input type="text" id="link" name="linkedin" class="form-control"   /> 
                             </div>
                         </div>
 						
-						
-						<div class="dropdown" aria-haspopup="true" aria-expanded="false" id="keywordslist" scroll>
-										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown" onClick="ariaChange('keywordslist')">
-										<label for="sampleDropdownMenu">Click to research interest select keywords </label>
-										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()"  /> other keywords 
-										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
-										@foreach($kw as $k)
-										
-										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"  />&nbsp; {{$k->name}}
-										
-										 <br/>
-										
-										 @endforeach
-	<br/>
-										</div>
-										</div>
-										
-										
-						<br/><br/>
-                        <div class="row m-b-15" id="oth">
-						
+						<label class="control-label" for="twitter">Twitter (optional)</label>
+                        <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="email" id="form-tags-3" class="form-control" placeholder="If other is selected, type in the keyword" name="other"   />
+                                <input type="text" id="twitter" name="twitter" class="form-control"  /> 
+                            </div>
+                        </div>
+						
+						<label class="control-label" for="webpage">Webpage (optional)</label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="text" id="webpage" name="webpage" class="form-control"  /> 
+                            </div>
+                        </div>
+						
+						
+                        <label class="control-label" for="email">Email <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="email" id="email" class="form-control" placeholder="Email address" name="email"   required />
+								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+								<input type="hidden" name="role" value="user"/>
+                            </div>
+                        </div>
+						
+						<label class="control-label" for="pic">Profile Picture </label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="file" id="pic" class="form-control"  name="pic"   />
 								
                             </div>
                         </div>
 						
-					
+						
+						
+						
+						
+                      
+						
+						
+						
                         <div class="checkbox m-b-30">
-                             <label>
-                                <input type="checkbox" required /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ " title="Terms and Condition" target="_blank">Terms</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy" title="Cokies" target="_blank">Cookie Use</a>.
+                             <label for="tm">
+                                <input type="checkbox" id="tm" required /> By clicking register button, you agree to our <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>
                             </label>
                         </div>
 						
 						<div class="checkbox m-b-30">
-                            <label>
-                                <input type="checkbox" name="news_email" /> Click to receives notification when new public story is posted.
+                            <label for="not">
+                                <input type="checkbox" id="not" name="news_email" /> Click to receive notifications when new public story is posted.
                             </label>
                         </div>
 						
 						<div class="checkbox m-b-30">
-                            <label>
-                                <input type="checkbox" name="matching_email" /> Click to receives notification when you are selected as partner.
+                            <label for="notp">
+                                <input type="checkbox" name="matching_email" id="notp"/> Click to receive a notification when you are selected as partner.
                             </label>
                         </div>
 						
@@ -383,6 +391,7 @@
         <!-- end theme-panel -->
 	</div>
 	<!-- end page container -->
+	
 	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
@@ -446,8 +455,7 @@
 					'unique': true,
 					'minChars': 2,
 					'maxChars': 50,
-					'limit': 50,
-					'validationPattern': new RegExp('^[a-zA-Z]+$')
+					'limit': 50
 				});
 				
 				$('#form-tags-4').tagsInput({
@@ -469,11 +477,6 @@
 					'delimiter': [',', ';'] 
 				});
 			});
-			
-			
-			function changeAria(id){
-					document.getElementById(id1).setAttribute('aria-expanded', 'true');
-					}
 		</script>
 		
 	<script>

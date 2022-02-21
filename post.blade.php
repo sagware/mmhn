@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Posts|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	@include("admin.analytics")
@@ -66,6 +66,8 @@
                             Posted By <a href="/partner/{{$p->posted_by}}">{{$p->posted_by_name}}</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                         </div>
                         <!-- begin post-image -->
+						
+						<img src="/mmhn/public/uploads/{{$p->pic}}" align="post cover photo" height="500px" width="500px"/> <br/>
 						
 						 <blockquote>
 						 

@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Home|Materials and Manufacturing in Healthcare Innovation Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -51,6 +51,12 @@
 			@if(Session::has('neededit'))
 			<script type="text/javascript">
 			alert("Challenge/Need edited successfully");
+			</script>
+			@endif
+			
+			@if(Session::has('cookieset'))
+			<script type="text/javascript">
+			alert("Cookies set successfully");
 			</script>
 			@endif
 			
@@ -102,6 +108,8 @@
                     <!-- begin post-list -->
                     <div class="post-list post-grid post-grid-10">
                         
+						
+						<a href="/partnerslist" title="Partners"> 
 						<div class="post-li">
                             <!-- begin post-content -->
                             <div class="post-content">
@@ -110,19 +118,19 @@
 								<i class="fas fa-users"></i>
 								</i>
 								</div>
-							<h4 class="post-title" align="center">
-                                        Partners
-                                    </h4>
+							<h2 class="post-title" align="center">
+                                    Partners
+                                    </h2>
                                    <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									
-									<li><a href="/academic/partners" title="Academic Partners"> <h4>Academic Partners</h4></a></li>
-									<li><a href="/industry/partners" title="Industry Partners"> <h4>Industry Partners</h4></a></li>
-									<li><a href="/clinical/partners" title="Clinical Partners"> <h4>Clinical Partners</h4></a></li>
-									<li><a href="/other/partners" title="Other Category of Partners"> <h4>Other Partners</h4></a></li>
+									<li style="font-size: 22px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li>
+									<li style="font-size: 22px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li>
+									<li style="font-size: 22px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
+									<li style="font-size: 22px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li>
 									
 									</ul>
                                 </div>
@@ -131,7 +139,7 @@
                                 <!-- begin post-info -->
                                <div align="right">
                                
-								<a href="/partnerslist" class="read-btn" title="Read more"> See all partners <i class="fa fa-angle-double-right" ></i></a>
+								<a href="/partnerslist" class="read-btn" title="Read more"> <b> See all partners</b> <i class="fa fa-angle-double-right" ></i></a>
 								
 								</div>
                                 <!-- end post-info -->
@@ -139,9 +147,10 @@
                             <!-- end post-content -->
                         </div>
 						
+						</a>
 						
 						
-						
+						 <a href="/clinicalneeds" title="Challenges">
 						<div class="post-li">
                             <!-- begin post-content -->
                             <div class="post-content">
@@ -153,16 +162,16 @@
 							</div>
 							
 							
-							 <h4 class="post-title" align="center">
-                                        Challenges
-                                    </h4>
+							 <h2 class="post-title" align="center">
+                                       Challenges
+                                    </h2>
 									<br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                      <ul>
 									@foreach($ch as $c)
-									<li><a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}"><h4>{{$c->title}}</h4></a></li>
+									<li style="font-size: 22px;"><a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}">{{$c->title}}</h2></a></li>
 									@endforeach
 									
 									</ul>
@@ -172,7 +181,7 @@
                                 <!-- begin post-info -->
 								<div align="right">
                                
-								<a href="/clinicalneeds" class="read-btn" title="Read more"> See all challenges <i class="fa fa-angle-double-right" ></i></a>
+								<a href="/clinicalneeds" class="read-btn" title="Read more"> <b>See all challenges</b> <i class="fa fa-angle-double-right" ></i></a>
 								
 								</div>
                                 <!-- end post-info -->
@@ -180,10 +189,10 @@
                             <!-- end post-content -->
                        
                     </div>
+					</a>
 					
 					
-					
-					
+					 <a href="/news" title="Latest Innovation Stories">
 						<div class="post-li" >
                             <!-- begin post-content -->
                             <div class="post-content">
@@ -192,16 +201,16 @@
 							<i class="far fa-newspaper" ></i>
 							</i>
 							</div>
-							<h4 class="post-title" align="center">
-                                       Latest Innovation Stories
-                                    </h4>
+							<h2 class="post-title" align="center">
+                                       Latest Innovation Stories 
+                                    </h2>
                                   <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									@foreach($r as $n)
-									<li><a href="/public_post/{{$n->id}}" title="{{$n->title}}"><h4>{{$n->title}}</h4></a></li>
+									<li style="font-size: 22px;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li>
 									@endforeach
 									
 									</ul>
@@ -211,14 +220,14 @@
                                 <!-- begin post-info -->
                                 <div align="right">
                                
-								<a href="/news" class="read-btn" title="Read more"> See all innovation stories <i class="fa fa-angle-double-right"></i></a>
+								<a href="/news" class="read-btn" title="Read more"><b> See all Innovation Stories </b><i class="fa fa-angle-double-right"></i></a>
 								
 								</div>
                                 <!-- end post-info -->
                             </div>
                             <!-- end post-content -->
                         </div>
-						
+						</a>
 						
                     <!-- end post-list -->                
                     
@@ -239,7 +248,7 @@
                     <!-- begin post-list -->
                     <div class="post-list post-grid post-grid-2">
                         
-						
+						 <a href="/news" title="Latest Innovation Stories">
 						<div class="post-li" >
                             <!-- begin post-content -->
                             <div class="post-content">
@@ -248,32 +257,40 @@
 							<i class="far fa-newspaper" ></i>
 							</i>
 							</div>
-							<h4 class="post-title" align="center">
-                                       Latest Innovation Stories
-                                    </h4>
-                                   <br/> 
+							<h2 class="post-title" align="center">
+                                      Latest Innovation Stories
+                                    </h2>
+                                  <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									@foreach($r as $n)
-									<a href="/public_post/{{$n->id}}" title="{{$n->title}}"><li><b><h4>{{$n->title}}</b></h4></li></a>
+									<li style="font-size: 22px;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li>
 									@endforeach
-								
+									
 									</ul>
 									
-									 <a href="/news" style="align:right;" class="read-btn"  title="Read more"> Read More <i class="fa fa-angle-double-right"></i></a>
+									
                                 </div>
+								
+								
+								
+								<div align="right">
+                               
+								<a href="/news" class="read-btn" title="Read more"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>See all Innovation Stories </b><i class="fa fa-angle-double-right"></i></a>
+								
+								</div>
 								
 								</div>
                                 <!-- end blockquote -->
                                 <!-- begin post-info -->
-                               
+                                
                                 <!-- end post-info -->
                             </div>
                             <!-- end post-content -->
                         </div>
-						
+						</a>
 						
 					
 					<div class="post-li">
@@ -284,21 +301,32 @@
 								<i class="fas fa-info-circle"></i>
 								</i>
 								</div>
-							<h4 class="post-title" align="center">
+							<h2 class="post-title" align="center">
                                         Network Information
-                                    </h4>
+                                    </h2>
                                    <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									
-									<li><a href="/aboutus" title="About us"> <h4>About Us</h4></a></li>
-									<li><a href="/faq" title="FAQ"> <h4>FAQ</h4></a></li>
-									<li><a href="/contactus" title="Contact us"> <h4>Contact Us</h4></a></li>
+									<li style="font-size: 22px;"><a href="/aboutus" title="About us"> About Us</h2></a></li>
+									<li style="font-size: 22px;"><a href="/faq" title="FAQ"> FAQ</h2></a></li>
+									<li style="font-size: 22px;"><a href="/contactus" title="Contact us"> Contact Us</h2></a></li>
 									
 									</ul>
+									
+								
+                               
+								
+								</div>
                                 </div>
+								
+								<div align="right" style="visibility:hidden;">
+                               
+								<a href="/aboutus" class="read-btn" title="Read more"> About Us <i class="fa fa-angle-double-right"></i></a>
+								
+								</div>
 								</div>
                                 <!-- end blockquote -->
                                 <!-- begin post-info -->

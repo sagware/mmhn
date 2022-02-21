@@ -9,7 +9,7 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -104,7 +104,7 @@
                             <li><a href="/clinicalneeds">CHALLENGES</a></li>
                             <li class="active">{{$p->title}}</li>
                         </ul>
-                        <h1 >
+                        <h1 class="post-title">
                             {{$p->title}}
                         </h1>
 						@if(Auth::check())
@@ -113,10 +113,8 @@
 									@endif
 									@endif
                         <div class="post-by">
-                            Posted By <a href="/partner/{{$p->posted_by}}">{{$p->posted_by_name}}</a> &nbsp;&nbsp; {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }}
+                            Posted By <a href="/partner/{{$p->posted_by}}">{{$p->posted_by_name}}</a> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }}
                         </div>
-						
-						<img src="/mmhn/public/uploads/{{$p->cover}}" align="post cover photo" height="250px" width="250px"/> <br/>
                         <!-- begin post-image -->
 						<!--
 						 <blockquote>
@@ -144,21 +142,21 @@
                        
                         
                         <h2>Supporting Documents</h2>
+					   
+					   
 					   @if($p->pic != 'emptyimage.png' && !empty($p->pic))
 					   <?php $ct=1;
 					   
-					  $doc = unserialize($p->pic);
+					  $doc = $p->pic;
 					 
 					   ?>
 					   	@foreach($doc as $sp)
 						
-						<a href="/mmhn/public/uploads/{{$sp}}" title="Document{{$ct}}" target="_blank">Supporting Document<?php echo " ".$ct."<br/>"; $ct++;?></a>
+						<a href="/mmhn/public/uploads/{{$sp}}" title="Document{{$ct}}">Document <?php echo " ".$ct."<br/>"; $ct++;?></a>
 						
 						@endforeach
 					   
 					   @endif
-					   
-					  
                         <!-- end post-desc -->
 						
 						<h2>Matched Partners</h2>
@@ -168,7 +166,7 @@
 								  @foreach(unserialize($p->partners) as $pu)
 								  
 								  @if($u->id == $pu)
-								  <a href="/partner/{{$pu}}" title="{{$u->first_name}}" target="_blank"><?php echo "@";?>{{$u->first_name}} {{$u->last_name}}</a> <br/>
+								  <a href="/partner/{{$pu}}" title="{{$u->first_name}}">#{{$u->first_name}} {{$u->last_name}}</a> <br/>
 								  @endif
 						   @endforeach
 						   @endforeach

@@ -23,7 +23,7 @@
                     <!-- end section-container -->
                     <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="section-title"><span>Innovation Challenges</span></h4>
+                        <h2 class="section-title"><span>Innovation Challenges</span></h4>
                         <ul class="sidebar-list">
 						
                             <li><a href="/news">News</a></li>
@@ -38,14 +38,14 @@
                     <!-- begin section-container -->
                     
 					<div class="section-container">
-                       <h4 class="section-title"><span>Recent Challenges</span></h4>
+                       <h2 class="section-title"><span>Recent Challenges</span></h4>
                         <ul class="sidebar-recent-post">
 						
 						@foreach($r as $r)
 						
                             <li>
                                 <div class="info">
-                                    <h4 class="title"><a href="/clinical_detail/{{$r->id}}">{{$r->title}}</a></h4>
+                                  <a href="/clinical_detail/{{$r->id}}">{{$r->title}}</a>
                                     <div class="date">{{ date('D jS, M Y, h:i:s A', strtotime($r->updated_at)) }}</div>
                                 </div>
                             </li>
@@ -57,7 +57,7 @@
                     <!-- begin section-container -->
                     <div class="section-container">
 					<!--
-                        <h4 class="section-title"><span>Follow Us</span></h4>
+                        <h2 class="section-title"><span>Follow Us</span></h4>
                         <ul class="sidebar-social-list">
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>

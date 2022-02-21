@@ -5,8 +5,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>News Form | Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Add Innovation Story | Materials and Manufacturing in Healthcare Innovation Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
@@ -192,24 +192,24 @@
 			        <!-- begin panel -->
                     <div>
 						
-						<div style="padding:2em;">
+						<div style="padding:1.5em;">
 						<h1>Innovation Stories Form</h1> <br/>
-						 We are keen to share success stories of collaboration, met challenges, and new innovations from within the Network. Please complete the following fields to submit a News Story for our website, which will be reviewed by the Materials and Manufacturing in Healthcare Network team and subsequently publicly visible.
+						 We are keen to share success stories of collaboration, met challenges, and new innovations from within the Network. Please complete the following fields to submit a News Story for our website, which will be reviewed by the Materials and Manufacturing in Healthcare Innovation Network team and subsequently publicly visible.
 						</div></div>
                         <div class="panel-body panel-form">
                             <form  action="/add/public_stories" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="fullname">Post Title <span class="text-danger">*</span> :</label>
+									<label class="control-label col-md-4 col-sm-4" for="title">Post Title <span class="text-danger">*</span> :</label>
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text"  name="title"  data-parsley-required="true" required/>
+										<input class="form-control" id="title" type="text"  name="title" value="{{ old('title') }}"  data-parsley-required="true" required/>
 										<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Post Category <span class="text-danger">*</span></label>
+									<label class="control-label col-md-4 col-sm-4" for="cat">Post Category <span class="text-danger">*</span></label>
 									<div class="col-md-6 col-sm-6">
-										<select  class="form-control"   name="category" >
+										<select  class="form-control" id="cat"  value="{{ old('category') }}"  name="category" >
 											<option value="news">News</option>
 											<option value="event">Events</option>
 											<option value="grant">Grants</option>
@@ -221,16 +221,16 @@
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Cover Picture</label> 
+									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Picture</label> 
 									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control" name="pic"/>
+										<input type="file" id="cover" class="form-control" value="{{ old('pic') }}" name="pic"/>
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Post in Summary (max. number of characters: 100) <span class="text-danger">*</span></label> 
+									<label class="control-label col-md-4 col-sm-4" for="wysihtml5">Post in Summary (text only and max. number of characters: 100) <span class="text-danger">*</span></label> 
 									<div class="col-md-6 col-sm-6">
-										<textarea name="summary" class="textarea form-control" maxlength="100" id="wysihtml5" placeholder="Enter text ..." rows="12" required></textarea>
+										<textarea name="summary" class="textarea form-control" maxlength="100" id="wysihtml5" placeholder="Enter text ..." rows="12" required> {{ old('summary') }}</textarea>
 									</div>
 								</div>
 								
@@ -239,11 +239,17 @@
 								
 															
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email">Post in Detail (Heading1 will be changed to Heading 2) <span class="text-danger">*</span></label> 
+									<label class="control-label col-md-4 col-sm-4" for="image-tools">Post in Detail <span class="text-danger">*</span> <p></p>
+<p align=left> To add images from your personal device, you can add by copying (Ctrl+C) and pasting (Ctrl+V) into the textbox. After pasting this you can click on the image and then the three dots to add alt text to this image. This text is a short description of the image which is presented to screen-reader users (such as people with visual disabilities) enabling them to understand this image.  </p>
+<p align=left> To add videos, this must be from a web source (such as YouTube). You can embed this by clicking "Insert" and then "Media" on the navigation ribbon above the textbox. This will open a pop-up. Click on the ‘Embed’ tab in this popup. You can then insert the embed code into this, which you can generate using the service on which the media is hosted (eg: Youtube). Many video providers allow you to create private videos so that your video will not be accessible. </p> 
+<p align=left>To enhance your post further, feel free to explore other features provided in the navigation ribbon of the textbox. </p> </label> 
+
+
 									<div class="col-md-6 col-sm-6">
 										  
 <textarea id="image-tools" name="message" required>
  
+ {{ old('message') }}
 </textarea>
 
 
@@ -257,9 +263,9 @@
 								
 							
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4"></label>
+									<label class="control-label col-md-4 col-sm-4" for="submit"></label>
 									<div class="col-md-6 col-sm-6">
-										<button type="submit" class="btn btn-primary">Submit Innovation Story</button>
+										<button type="submit" id="submit" class="btn btn-primary">Submit Innovation Story</button>
 									</div>
 								</div>
                             </form>
@@ -284,7 +290,7 @@
 		
 		 <!-- begin #footer -->
   <!-- begin scroll to top btn -->
-		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		
 		<!-- end scroll to top btn -->
 	</div>
 	@include("admin.footer")	

@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Challenge|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
@@ -58,9 +58,9 @@
                             <li><a href="/clinicalneeds">CHALLENGES/NEEDS</a></li>
                             <li class="active">{{$p->title}}</li>
                         </ul>
-                        <h4 class="post-title">
+                        <h2 class="post-title">
                             <a href="#">{{$p->title}}</a>
-                        </h4>
+                        </h2>
 						
                         <div class="post-by">
                             Posted By <a href="#">{{$p->posted_by_name}}</a> <span class="divider">Likes 50|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |</span> 2 Comments <a href="#" title="click to like it" class="m-l-10 text-inverse"><button> Like  <i class="fa fa-thumbs-up text-success"></i> </button></a>

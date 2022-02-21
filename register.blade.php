@@ -5,8 +5,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Registration|Materials and Manufacturing in Healthcare Network| Register Page</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Show Interest|Materials and Manufacturing in Healthcare Network| Register Page</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -48,7 +48,7 @@
 						</script>
 						@elseif(Session::has('msg_interest'))
 						<script type="text/javascript">
-						alert('Interest form submitted successfully. You will be contacted via email as soon as possible');
+						alert('Interest form submitted successfully. Your submission is under review and the outcome of the review process will be communicated to you via email as soon as possible');
 						</script>
 						@elseif(Session::has('msg2'))
 						<script type="text/javascript">
@@ -56,7 +56,7 @@
 						</script>
 						@elseif(Session::has('uplerror'))
 						<script type="text/javascript">
-						alert('Invalid passport photograph format, use only png,jpeg,jpg');
+						alert('Invalid photograph format, use only png,jpeg,jpg');
 						</script>
 						@elseif(Session::has('err'))
 						<small>Invalid Username or Password...</small>
@@ -83,12 +83,13 @@
             <!-- begin right-content -->
             <div class="right-content">
                 <!-- begin register-header -->
-                <h3 align="center">
+                <h1 align="center">
+				<br/><br/>
                   Membership Expression of Interest                   
-                </h3>
+                </h1>
 				<div align="right">	
 							<h5 align="justify" >  <p style="padding:1.5em;">
-                 &nbsp; &nbsp;  The Materials and Manufacturing in Healthcare Network aims to bring together clinicians, researchers and industry professionals to form a community equipped to tackle healthcare manufacturing challenges. The network will support responses to real-world challenges, run a series of events, and facilitate connections between members. If you would like to join our network, please submit an expression of interest form below.    
+                 &nbsp; &nbsp;  The Materials and Manufacturing in Healthcare Innovation Network aims to bring together clinicians, researchers and industry professionals to form a community equipped to tackle healthcare manufacturing challenges. The network will support responses to real-world challenges, run a series of events, and facilitate connections between members. If you would like to join our network, please submit an expression of interest form below.    
 				  </p>            
                 </h5>
 				</div>
@@ -100,7 +101,7 @@
 						<label class="control-label" for="fname">First name <span class="text-danger">*</span> </label></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="fname" class="form-control" placeholder="First Name e.g., Rita" name="first_name"  required />
+                                <input type="text" id="fname" class="form-control" placeholder="First Name e.g., Rita" name="first_name" value="{{ old('first_name') }}"  required />
                             </div>
                         </div>
 						
@@ -109,38 +110,33 @@
 						<label class="control-label" for="sname">Surname Name <span class="text-danger">*</span> </label></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="sname" class="form-control" placeholder="Surname e.g., Sagir" name="last_name" required  />
+                                <input type="text" id="sname" class="form-control" placeholder="Surname e.g., Sagir" name="last_name"  value="{{ old('last_name') }}"  required  />
                             </div>
                         </div>
 						
 						 <label class="control-label" for="org">Organisation </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="org" class="form-control" placeholder="Organisation e.g., University College London" name="institution"   />
+                                <input type="text" id="org" class="form-control" placeholder="Organisation e.g., University College London" name="institution" value="{{ old('institution') }}"   />
                             </div>
                         </div>
 						
-						<label class="control-label" for="role">Role title </label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" id="role" class="form-control" placeholder="e.g., Professor" name="designation"  />
-                            </div>
-                        </div>
 						
-						Sector  <span class="text-danger">*</span></label>
+						
+						Sector  <span class="text-danger">*</span>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="radio"  name="sector" value="Academic" id="ck2" onChange="OtherHide()" required/> <label class="control-label" for="ck2">Academia </label>
-								<input type="radio"  name="sector" value="Industry" id="ck3" onChange="OtherHide1()" required/> <label class="control-label" for="ck3">Industry </label>
-								<input type="radio"  name="sector" value="Clinical" id="ck4" onChange="OtherHide2()" required/> <label class="control-label" for="ck4">Clinical </label>
-								<input  type="radio"  name="sector" id="ck" value="Other" onChange="OtherField()" required/><label class="control-label" for="ck"> &nbsp;Other</label>
+                                <input type="radio"  name="sector" value="Academic" id="ck2" onChange="OtherHide()" value="{{ old('sector') }}" required/> <label class="control-label" for="ck2">Academia </label>
+								<input type="radio"  name="sector" value="Industry" id="ck3" onChange="OtherHide1()" value="{{ old('sector') }}" required/> <label class="control-label" for="ck3">Industry </label>
+								<input type="radio"  name="sector" value="Clinical" id="ck4" onChange="OtherHide2()" value="{{ old('sector') }}" required/> <label class="control-label" for="ck4">Clinical </label>
+								<input  type="radio"  name="sector" id="ck" value="Other" onChange="OtherField()" value="{{ old('sector') }}" required/><label class="control-label" for="ck"> &nbsp;Other</label>
                             </div>
                         </div>
 						
 						  <div class="row m-b-15" id="oth">
 						
                             <div class="col-md-12">
-                                <input type="email" class="form-control" placeholder="If other is selected, type in the keyword" name="other"   />
+                                <input type="text" id="otk" class="form-control" placeholder="If other is selected, type in the keyword" name="other" value="{{ old('other') }}"  />
 								
                             </div>
                         </div>
@@ -148,7 +144,7 @@
 						<label class="control-label" for="reason">How does this network align with your interests? (maximum number of characters: 200)<span class="text-danger">*</span> </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <textarea type="text" id="reason" name="reason" class="form-control"  maxlength="200" required> </textarea>
+                                <textarea type="text" id="reason" name="reason" class="form-control"  value="{{ old('reason') }}"   maxlength="200" required> </textarea>
                             </div>
                         </div>
 						
@@ -156,7 +152,7 @@
                         <label class="control-label" for="email">Email <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="email" id="email" class="form-control" placeholder="Email address" name="email" required />
+                                <input type="email" id="email" class="form-control" placeholder="Email address" name="email"  value="{{ old('email') }}" required />
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 								<input type="hidden" name="role" value="user"/>
                             </div>
@@ -165,8 +161,8 @@
 						
 						
                         <div class="checkbox m-b-30">
-                            <label for="agree">
-                                <input type="checkbox" required id="agree" /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ " title="Terms and Conditions" target="_blank">Terms</a> and that you have read our <a href="https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy" title="Use of Cookies" target="_blank">Cookie Use</a>.
+                            
+                                <input type="checkbox" name="terms" value="{{ old('terms') }}" id="tms" required  checked/>  <label for="tms">By clicking Show Interest Button, you agree to our <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a> and that you have read our <a href="/datapolicy" title="Privacy Policy" target="_blank">Privacy Policy</a>.
                             </label>
                         </div>
                         <div class="register-buttons">

@@ -6,7 +6,7 @@
                         <div class="input-group sidebar-search">
 						
 						 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                            <input type="text" id="keyword" class="form-control" name="keyword" placeholder="By role, name, sector..." />
+                            <input type="text" id="keyword" class="form-control" name="keyword" placeholder="Role, name, sector, interest, topic, etc." />
 							<input type="hidden" name="cat" value="partner"/>
                             <span class="input-group-btn">
                                 <button class="btn btn-inverse" type="submit" aria-label="search"><i class="fa fa-search"></i></button>
@@ -24,7 +24,7 @@
                     <!-- begin section-container -->
 					<!--
                     <div class="section-container">
-                        <h4 class="section-title"><span>Innovation Stories</span></h4>
+                        <h2 class="section-title"><span>Innovation Stories</span></h2>
                         <ul class="sidebar-list">
 						
                             <li><a href="/news"> News</a></li>
@@ -58,7 +58,7 @@
                     <!-- begin section-container -->
                     <div class="section-container">
 					<!--
-                        <h4 class="section-title"><span>Follow Us</span></h4>
+                        <h2 class="section-title"><span>Follow Us</span></h2>
                         <ul class="sidebar-social-list">
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>

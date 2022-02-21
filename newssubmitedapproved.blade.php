@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Innovation Story Submission Materials and Manufacturing in Healthcare Network</title>
+	<title>Innovation Story Approval Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -57,7 +57,7 @@
         <!-- begin container -->
         <div class="container">
             <!-- begin row -->
-			<p><h1>Form Submitted Successfully</h1></p>
+			<p><h1>Action Completed Successfully</h1></p>
             <div class="row row-space-30">
                 <!-- begin col-9 -->
                 <div class="col-md-12">
@@ -65,7 +65,7 @@
                     <div class="section-container">
                         
                       
-              Your submission has been successfully submitted for review. You will receive an email once it is approved.  <button  ><a href="/show_news_form" title="News form">Submit Another Innovation Story</a></button>| <button  ><a href="/news" title="News">Go to News</a></button>|<button  ><a href="/event" title="Event">Go to Events</a></button> |<button  ><a href="/grant" title="Grants">Go to Grants</a></button>
+              Innovation Stroy has been approved successfully. The partner will be notified about this action.  <button  ><a href="/public_stories_list" title="Innovation stories approval">Approve more Innovation Stories</a></button>| <button  ><a href="/news" title="News">Go to News</a></button>|<button  ><a href="/event" title="Event">Go to Events</a></button> |<button  ><a href="/grant" title="Grants">Go to Grants</a></button>
 						
 						
                     </div>

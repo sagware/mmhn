@@ -5,8 +5,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Profile|Materials and Manufacturing in Healthcare Network| Register Page</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Edit Profile|Materials and Manufacturing in Healthcare Innovation Network| Register Page</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -174,7 +174,7 @@
 						</script>
 						@elseif(Session::has('uplerror'))
 						<script type="text/javascript">
-						alert('Invalid passport photograph format, use only png,jpeg,jpg');
+						alert('Invalid profile picture format, use only png,jpeg,jpg');
 						</script>
 						
 						
@@ -196,6 +196,7 @@
             <!-- begin right-content -->
             <div class="right-content">
                 <!-- begin register-header -->
+				<br/>
                 <h1 align="center">
                    Profile Edit Form
                   
@@ -246,12 +247,6 @@
                             </div>
                         </div>
 						
-						<label class="control-label">How does this network align with your interests?(maximum number of characters: 200)<span class="text-danger">*</span> </label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" name="reason" class="form-control"  maxlength="200"  value="{{$u->joining_reason}}" required /> 
-                            </div>
-                        </div>
 						
 						
 						Sector  <span class="text-danger">*</span></label>
@@ -304,13 +299,13 @@
 						
 						<div >
 						
-						<div class="bg-cover" id="pic"><img src="/mmhn/public/uploads/{{Auth::user()->picture}}" height="200px" width="200px" alt="" /></div>
-						<input  type="checkbox"  name="profile_pic" id="cpp" value="profile_pic" onClick="Pro()" /> Edit Profile Picture
+						<div class="bg-cover" id="pic"><img src="/mmhn/public/uploads/{{$u->picture}}" height="200px" width="200px" alt="Profile Picture" /></div>
+						<input  type="checkbox"  name="profile_pic" id="cpp" value="profile_pic" onClick="Pro()" /> <label for="cpp">Edit Profile Picture </label>
 				<div id="pp">
-						<label id="ed" class="control-label">Profile picture </label>
+						<label for="pic" class="control-label">Profile picture </label>
                         <div  class="row m-b-15">
                             <div  class="col-md-12">
-                                <input type="file" class="form-control"  name="pic"   />
+                                <input type="file" id="pic" class="form-control"  name="pic"   />
 								
                             </div>
                         </div>
@@ -319,16 +314,16 @@
 				</div>		
 						
 						
-									 <div class="row m-b-15" id="keywordslist" aria-haspopup="true" aria-expanded="false">
+									 <div class="row m-b-15" id="keywordslist">
                             <div class="col-md-12">
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown" onClick="ariaChange('keywordslist')>
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true' onClick="ariaChange('keywordslist')>
 									<label for="sampleDropdownMenu">	Click to select keywords</label> 
-										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" <?php if(!empty($u->other_keyword)){echo "checked";} ?>/> Other keywords 
+										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" <?php if(!empty($u->other_keyword)){echo "checked";} ?>/> <label for="ck">Other keywords</label> 
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
-										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"<?php if(is_array(unserialize($u->keywords))){if(in_array($k->id,unserialize($u->keywords))){echo "checked";} } ?> />&nbsp; {{$k->name}}
+										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"<?php if(is_array(unserialize($u->keywords))){if(in_array($k->id,unserialize($u->keywords))){echo "checked";} } ?> />&nbsp; <label for="key"> {{$k->name}}</label>
 										
 										 <br/>
 										
@@ -374,20 +369,20 @@
 						
 						
                         <div class="checkbox m-b-30">
-                             <label>
-                                <input type="checkbox" required  checked/> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ " title="Terms and Condition" target="_blank">Terms</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy" title="Use of Cookies" target="_blank">Cookie Use</a>.
+                            
+                                <input type="checkbox" id="tms" required  checked/>  <label id="tms">By clicking Show Interest Button, you agree to our <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a> and that you have read our <a href=" /datapolicy" title="Privacy Policy" target="_blank">Privacy Policy</a>.
                             </label>
                         </div>
 						
 						<div class="checkbox m-b-30">
-                            <label>
-                                <input type="checkbox" name="news_email" <?php if(!empty($u->public_email)){echo "checked";} ?> /> Click to receives notification when new public story is posted.
+                            
+                                <input type="checkbox" name="news_email" id="sem" <?php if(!empty($u->public_email)){echo "checked";} ?> /> <label for="sem"> Click to receives notification when new public story is posted.
                             </label>
                         </div>
 						
 						<div class="checkbox m-b-30">
-                            <label>
-                                <input type="checkbox" name="matching_email" <?php if(!empty($u->matching_email)){echo "checked";} ?> /> Click to receives notification when you are selected as partner.
+                           
+                                <input type="checkbox" id="mem" name="matching_email" <?php if(!empty($u->matching_email)){echo "checked";} ?> />  <label for="mem"> Click to receives notification when you are selected as partner.
                             </label>
                         </div>
 						
@@ -402,7 +397,7 @@
 						-->
                         <hr />
                         <p class="text-center">
-                            &copy; Materials and Manufacturing in Healthcare Network <?php echo date('Y') ?>
+                            &copy; Materials and Manufacturing in Healthcare Innovation Network <?php echo date('Y') ?>
                         </p>
                     </form>
                 </div>
@@ -531,8 +526,7 @@
 					'unique': true,
 					'minChars': 2,
 					'maxChars': 50,
-					'limit': 50,
-					'validationPattern': new RegExp('^[a-zA-Z]+$')
+					'limit': 50
 				});
 				
 				$('#form-tags-4').tagsInput({

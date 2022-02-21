@@ -5,12 +5,11 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Search|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Search Innovation Stories|Materials and Manufacturing in Healthcare Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
-	@include("admin.analytics")
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -26,9 +25,8 @@
 	<!-- ================== END BASE JS ================== -->
 </head>
 <body>
-   
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
+@include("admin.cookiebanner")
+    
             @include("admin.header")
             <!-- end navbar-collapse -->
         </div>
@@ -47,108 +45,56 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
-                <div class="col-md-12">
+				<p> <h1>Challenges</h1></p>
+                <div class="col-md-9">
                     <!-- begin post-list -->
+					<div align="right">
+					<button class="read-btn"><a href="/clinical_need_form"><i class="fas fa-plus"></i>Submit Challenge</a></button>
+					
+					</div>
+					<br/>
+					
                     <div class="post-list post-grid post-grid-2">
                         @if(sizeof($pp)==0)
-						<p align="center" class="text-danger">No content found</p>
+					<p class="text-danger">	No content found</p>
 						@else
 						@foreach($pp as $p)
-						
-						@if($p->category =="need")
                         <div class="post-li">
                             <!-- begin post-content -->
                             <div class="post-content">
                                 <!-- begin post-image -->
-                                <div class="post-image">								
-                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="" /></a>
-                                </div>
-                                <!-- end post-image -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h1 class="post-title">
-                                        <a href="/clinical_detail/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
-                                    </h1>
-                                    <div class="post-by">
-                                        Posted By <a href="/partner/{{$p->posted_by}}" title="{{$p->posted_by_name}}"></a><br/>
-										 Category: {{$p->category}}<br/>
-										
-										{{$p->posted_by_name}}
-										
-										
-										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
-                                    </div>
-                                    <div class="post-desc">
-                                        <?php 
-						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
-							$txt = nl2br(substr($p->summary,0,47));
-							
-							
-							echo $txt."...";
-							
-							?>
-                                    </div>
-                                    <div class="read-btn-container">
-                                        <a href="/clinical_detail/{{$p->id}}" title="Read more" class="read-btn">Read More <i class="fa fa-angle-double-right"></i></a>
-                                    </div>
-                                </div>
-                                <!-- end post-info -->
-                            </div>
-                            <!-- end post-content -->
-                        </div>
-						
-						@else
-						 <div class="post-li">
-                            <!-- begin post-content -->
-                            <div class="post-content">
-                                <!-- begin post-image -->
                                 <div class="post-image">
-								
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="" /></a>
+                                   @if(!empty($p->cover))
+                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" /></a>
+								@else
+								<a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" alt="{{$p->title}}" /></a>
+								@endif
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
                                     <h4 class="post-title">
-                                        <a href="/public_post/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
+                                        <a href="/clinical_detail/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
                                     </h4>
                                     <div class="post-by">
-                                        Posted By <a href="/partner/{{$p->posted_by}}" title="{{$p->posted_by_name}}"></a><br/>
-										 Category: {{$p->category}}<br/>
-										
-										{{$p->posted_by_name}}
-										
-										
+                                        Posted By {{$p->posted_by_name}}
+									
 										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
-                                    <div class="post-desc">
-                                        <?php 
-						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
-							$txt = nl2br(substr($p->summary,0,47));
-							
-							
-							echo $txt."...";
-							
-							?>
-                                    </div>
+                                   
                                     <div class="read-btn-container">
-									
 									@if(Auth::check())
-											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
-											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn"><button >Edit</button> </a>
-											@endif
+									@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
+									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn"><button >Edit</button> </a>
 									@endif
-                                        <a href="/public_post/{{$p->id}}" title="Read more" class="read-btn">Read More <i class="fa fa-angle-double-right"></i></a>
+									@endif
+                                        <a href="/clinical_detail/{{$p->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>
                                     </div>
                                 </div>
                                 <!-- end post-info -->
                             </div>
                             <!-- end post-content -->
                         </div>
-						
-						@endif
                         @endforeach
                         @endif
                     </div>
@@ -164,8 +110,7 @@
                 </div>
                 <!-- end col-9 -->
                 <!-- begin col-3 -->
-				
-           
+                @include("admin.sidebarneed")
                 <!-- end col-3 -->
             </div>
             <!-- end row -->
@@ -176,6 +121,7 @@
     
     <!-- begin #footer -->
     @include("admin.footer")
+    
     <!-- end theme-panel -->
     
 	<!-- ================== BEGIN BASE JS ================== -->

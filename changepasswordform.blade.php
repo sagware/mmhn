@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Change password| Materials and Manufacturing in Healthcare Network | Register Page</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -105,20 +105,20 @@
 					
 					
 						
-						<label class="control-label">Password (minimum of 8 characters) <span class="text-danger">*</span></label>
+						<label class="control-label" for="pass">Password (minimum of 8 characters) <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="password" class="form-control" name="password" minlength="8"   required />
+                                <input type="password" id="pass" class="form-control" name="password" minlength="8"   required />
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 								<input type="hidden" name="uid" value="{{$id}}"/>
 								
                             </div>
                         </div>
                        
-					   <label class="control-label">Confirm Password <span class="text-danger">*</span></label>
+					   <label class="control-label" for="cpass">Confirm Password <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="password" class="form-control" name="cpassword" minlength="8"  required />
+                                <input type="password" id="cpass" class="form-control" name="cpassword" minlength="8"  required />
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 			
                             </div>

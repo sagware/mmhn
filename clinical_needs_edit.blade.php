@@ -5,12 +5,12 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Edit Challenge| Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Edit Challenge| Materials and Manufacturing in Healthcare Innovation Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
-	
+	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -185,31 +185,31 @@
 			    <div class="col-md-16">
 			        <!-- begin panel -->
                     <div class="panel panel-inverse">
-                        
+                      <p align="left" style="padding:1.5em;" >Part 1 of 2 - Here you will provide the overall details and the subject area (keywords) of your challenge. In the next part, you will be able to add a cover photo and any supporting document to your form. We will also show you the partners most relevant to your challenge based on the details and keywords you provide in this section..</p>
                         <div class="panel-body panel-form">
                             <form  action="/editadd/need" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="fullname">Title <span class="text-danger">*</span> :</label>
+									<label class="control-label col-md-4 col-sm-4" for="name">Title <span class="text-danger">*</span> :</label>
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text" value="{{$p->title}}"  name="name"  data-parsley-required="true" required/>
+										<input class="form-control" id="name" type="text" value="{{$p->title}}"  name="name"  data-parsley-required="true" required/>
 										<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 										<input type="hidden" name="id" value="{{$p->id}}"/>
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label for="key" class="control-label col-md-4 col-sm-4" for="fullname">Select keyword(s) that describe the challenge: <span class="text-danger">*</span></label> 
+									<label for="key" class="control-label col-md-4 col-sm-4" >Select keyword(s) that describe the challenge: <span class="text-danger">*</span></label> 
 									<div class="col-md-6 col-sm-6">							
 									
 									<div class="dropdown" scroll>
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown">
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true'>
 										Click to select keywords 
-										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" <?php if(!empty($p->other_keyword)){echo "checked";} ?> /> other keywords 
+										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" <?php if(!empty($p->other_keyword)){echo "checked";} ?> /> <label for="ck">Other keywords</label> 
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
-										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox" <?php if(is_array(unserialize($p->keywords))){if(in_array($k->id,unserialize($p->keywords))){echo "checked";} } ?> />&nbsp; {{$k->name}}
+										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox" <?php if(is_array(unserialize($p->keywords))){if(in_array($k->id,unserialize($p->keywords))){echo "checked";} } ?> />&nbsp; <label for="key"> {{$k->name}} </label>
 										
 										 <br/>
 										
@@ -223,18 +223,10 @@
 								</div>
 								
 								<div class="form-group" id="oth">
-									<label class="control-label col-md-4 col-sm-4" for="oth"> Other keywords (Comma-separated):</label>
+									<label class="control-label col-md-4 col-sm-4" for="form-tags-3"> Other keywords (Comma-separated):</label>
+									
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="<?php 
-										if(!empty($p->other_keyword)){
-										$ok = unserialize($p->other_keyword);
-										
-										foreach($ok as $k){
-										
-										echo $k.",";
-										}
-										
-										}?>"  />
+										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="<?php $kwd =unserialize($p->other_keyword); if(!empty($p->other_keyword) && is_array(unserialize($p->other_keyword))){echo implode(", ", $kwd);} ?>"  />
 										
 									</div>
 								</div>
@@ -242,7 +234,13 @@
 								
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="mytextarea">Challenge details:<span class="text-danger">*</span></label>  
+								
+									<label class="control-label col-md-4 col-sm-4" for="mytextarea">Challenge details:<span class="text-danger">*</span>
+<p></p>
+<p align=left> To add images from your personal device, you can add by copying (Ctrl+C) and pasting (Ctrl+V) into the textbox. After pasting this you can click on the image and then the three dots to add alt text to this image. This text is a short description of the image which is presented to screen-reader users (such as people with visual disabilities) enabling them to understand this image.  </p>
+<p align=left> To add videos, this must be from a web source (such as YouTube). You can embed this by clicking "Insert" and then "Media" on the navigation ribbon above the textbox. This will open a pop-up. Click on the ‘Embed’ tab in this popup. You can then insert the embed code into this, which you can generate using the service on which the media is hosted (eg: Youtube). Many video providers allow you to create private videos so that your video will not be accessible. </p> 
+<p align=left>To enhance your post further, feel free to explore other features provided in the navigation ribbon of the textbox. </p> 
+</label>  
 									<div class="col-md-6 col-sm-6">
 										  <textarea rows="10" name="message"  id="mytextarea" class="form-control" required>{{$p->news_body}}</textarea>
                    
@@ -280,9 +278,7 @@
         <!-- end theme-panel -->
 		
 		<!-- begin scroll to top btn -->
-		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
-		<!-- end scroll to top btn -->
-	</div>
+			</div>
 	@include("admin.footer")	
 	<!-- end page container -->
 	<style type="text/css">
@@ -435,9 +431,8 @@ if (buttonElement) {
 				$('#form-tags-3').tagsInput({
 					'unique': true,
 					'minChars': 2,
-					'maxChars': 10,
-					'limit': 5,
-					'validationPattern': new RegExp('^[a-zA-Z]+$')
+					'maxChars': 50,
+					'limit': 5
 				});
 				
 				$('#form-tags-4').tagsInput({

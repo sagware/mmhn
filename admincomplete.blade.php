@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Admin Complete Registration|Materials and Manufacturing in Healthcare Network | Register Page</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -102,6 +102,7 @@
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 								<input type="hidden" name="role" value="user"/>
 								<input type="hidden" name="code" value="{{$cd}}"/>
+								<input type="hidden" name="id" value="{{$id}}"/>
                             </div>
                         </div>
                        
@@ -118,7 +119,7 @@
 						
                         <div class="checkbox m-b-30">
                              <label>
-                                <input type="checkbox" required /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ ">Terms</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy">Cookie Use</a>.
+                                <input type="checkbox" required /> By clicking Show Interest Button, you agree to our <a href="https://www.ucl.ac.uk/disclaimer/ ">Terms of Use</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/">Data Policy</a>, including our <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy">Cookie Use</a>.
                             </label>
                         </div>
 						
