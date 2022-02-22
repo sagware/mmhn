@@ -6,13 +6,13 @@
 </head>
 
 <body>
-Dear {{$name}}, <br/>
+Dear {{$name}}, <br/><br/>
 
-A prospective member has submitted an Expression of Interest form to the MMHN site. To review click on <a href="{{$m}}">review and approve link</a>
+A prospective member has submitted an Expression of Interest form to the MMHIN site. To review click on <a href="{{$m}}">review and approve link</a>
 <br/>
 <br/>
 Kind regards, <br/>
-The MMHN Team
+The MMHIN Team
 
 <!--
 <b>Message:</h3></b><br/>

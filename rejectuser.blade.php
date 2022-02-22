@@ -6,7 +6,7 @@
 </head>
 
 <body>
-Dear {{$name}}, <br/>
+Dear {{$name}}, <br/><br/>
 
 Thank you for submitting an Expression of Interest to join the Materials and Manufacturing in Healthcare Network. We have reviewed your submission and unfortunately you do not currently meet the criteria for joining. You are still welcome to participate in our public events and we hope that the news posted on the site will be of interest to you. Should our criteria for new members change, we will contact you to invite you to join at a future date. 
 
@@ -15,7 +15,7 @@ Message from administrator (optional)
  
 <br/>
 <br/>
-The MMHN Team <br/>
+The MMHIN Team <br/>
 
 
 <!--

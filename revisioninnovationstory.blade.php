@@ -8,7 +8,7 @@
 <body>
 Dear {{$name}}, <br/><br/>
 
-Thank you for submitting a <a href="{{$pathTo}}" title="Challenge revision">Challenge (you can click this link to edit it)</a> to the Materials and Manufacturing in Healthcare Network. We request that the following revisions be made: <br/>
+Thank you for submitting an <a href="{{$pathTo}}" title="Innovation Story Revision">Innovation Story (you can click this link to edit it) </a>to the Materials and Manufacturing in Healthcare Network. We request that the following revisions be made: <br/>
 
  {{$m}}
 <br/>

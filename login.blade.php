@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Login Page| Materials and Manufacturing in Healthcare Network </title>
+	<title>Log in | Materials and Manufacturing in Healthcare Network </title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -63,7 +63,7 @@
                 <!-- begin login-header -->
                 <div class="login-header">
                     <div class="brand">
-                       <a href="/" title="Home"> <span class="logo"></span></a> Materials and Manufacturing in Healthcare Network
+                       <a href="/" title="Home"> <span class="logo"></span></a> Log in
 						@if(Session::has('msg'))
 						<script type="text/javascript">
 						alert('Account created successfully...');
@@ -72,7 +72,11 @@
 						<small class="text-danger"> <b>User with that email already exist please use a diffrent email address.</b></small>
 						@elseif(Session::has('err'))
 						<small class="text-danger"> <b>Invalid Username or Password...</b></small>
-						@else(msg == "" or msg==NULL)
+						@elseif(Session::has('msg_interest2'))
+						<script type="text/javascript">
+						alert('Action completed successfully...');
+						</script>	
+						@else(msg == "" or msg==NULL)						
 							
 						@endif
                         
@@ -88,21 +92,21 @@
                     <form action="/user_signin" method="post" enctype="multipart/form-data">
                         <div class="form-group m-b-15">
 						<label for="email">Email</label>
-                            <input type="text" class="form-control input-lg" id="email" name="email" placeholder="Email Address" required />
+                            <input type="text" class="form-control input-lg" id="email" name="email" value="{{ old('email') }}" placeholder="Email Address" required />
                         </div>
 						<label for="password">Password</label>
                         <div class="form-group m-b-15">
-                            <input type="password" id="password" class="form-control input-lg" name="password" placeholder="Password" required />
+                            <input type="password" id="password" class="form-control input-lg" name="password"  placeholder="Password" required />
                         </div>
                         
                         <div class="login-buttons">
-                            <button type="submit" class="btn btn-success btn-block btn-lg">Sign in</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign in</button>
                         </div>
 						
                         <div class="m-t-20 m-b-40 p-b-40 text-inverse">
-						 Go to <a href="/" class="text-success"><b>Home Page</b></a> <br/>
-                            Not a member yet? Click <a href="/register" class="text-success"><b>to show interest.</b></a>  <br/>
-							Forgot password? Click <a href="/forgotpassword" class="text-success"><b>to reset your password.</b></a> 
+						
+                            Not a member yet? <a href="/register"  class="btn btn-primary btn-block btn-lg"><b> Click to become a member</b></a>  <br/>
+							Forgot password? <a href="/forgotpassword"  class="btn btn-primary btn-block btn-lg"><b> Click to reset your password.</b></a> 
                         </div>
 						
 						

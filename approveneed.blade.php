@@ -6,13 +6,13 @@
 </head>
 
 <body>
-Dear {{$name}}, <br/>
+Dear {{$name}},<br/><br/>
 
-This is to inform you that your Challenge/Need post with title: {{$pathTo}} has been approved.
+This is to inform you that <a href="{{$pathTo}}" title="Challenge approval">your Challenge </a>  has been approved.
 <br/>
 <br/>
 Kind regards, <br/>
-The MMHN Team
+The MMHIN Team
 
 <!--
 <b>Message:</h3></b><br/>

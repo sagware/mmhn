@@ -6,13 +6,13 @@
 </head>
 
 <body>
-Dear {{$name}}, <br/>
+Dear {{$name}}, <br/><br/>
 
 Thank you for showing interest to join our network. Your registration is now complete <a href="http://materialsinhealth.org/login"> Click this link to signin</a>.
 <br/>
 <br/>
 Kind regards, <br/>
-The MMHN Team
+The MMHIN Team
 
 <!--
 <b>Message:</h3></b><br/>

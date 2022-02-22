@@ -6,15 +6,15 @@
 </head>
 
 <body>
-Dear {{$name}}, <br/>
+Dear {{$name}}, <br/><br/>
 
 Your interests match that of a member of the Materials and Manufacturing in Healthcare Network, who has submitted a Challenge on our virtual platform and requests assistance with solving their problem.  
 <br/>
-A summary of the Challenge can be viewed <a href="{{pathTo}}" title="Link to challenge"> here</a>, along with the contact information of the relevant MMHN Member. We encourage you to get in touch with this Member if you are able to assist and collaborate! 
+A summary of the Challenge can be viewed <a href="{{$pathTo}}" title="Link to challenge"> here</a>, along with the contact information of the relevant MMHIN Member. We encourage you to get in touch with this Member if you are able to assist and collaborate! 
 <br/>
 <br/>
 Kind regards, <br/>
-The MMHN Team
+The MMHIN Team
 
 <!--
 <b>Message:</h3></b><br/>

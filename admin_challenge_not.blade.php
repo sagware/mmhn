@@ -6,13 +6,13 @@
 </head>
 
 <body>
-Dear {{$name}}, <br/>
+Dear {{$name}}, <br/><br/>
 
 A member has submitted a Challenge for your <a href="{{$m}}">review</a>.
 <br/>
 <br/>
 Kind regards, <br/>
-The MMHN Team
+The MMHIN Team
 
 <!--
 <b>Message:</h3></b><br/>

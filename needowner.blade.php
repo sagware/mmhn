@@ -6,13 +6,13 @@
 </head>
 
 <body>
-Dear {{$name}}, <br/>
+Dear {{$name}}, <br/><br/>
 
 A user on the Materials and Manufacturing in Healthcare Network virtual platform has left a comment or reply <a href="{{$pathTo}}" title="Link to challenge">on your post</a>. Sign-in to view the comment, reply or connect with another Member. 
 <br/><br/>
 Kind regards, 
 <br/>
-The MMHN Team 
+The MMHIN Team 
 
 <!--
 <b>Message:</h3></b><br/>

@@ -6,13 +6,13 @@
 </head>
 
 <body>
-Dear {{$name}}, <br/>
+Dear {{$name}}, <br/><br/>
 
 Your password has been successfully updated on the Materials and Manufacturing in Healthcare Network virtual platform. You can now sign in using your new password. 
 <br/><br/>
 Kind regards, 
 <br/>
-The MMHN Team 
+The MMHIN Team 
 
 
 <!--

@@ -6,14 +6,14 @@
 </head>
 
 <body>
-Dear {{$name}}, <br/>
+Dear {{$name}}, <br/><br/>
 
-You have been pre-registered for the Materials and Manufacturing in Healthcare Network virtual platform by a member of the MMHN Admin Team. To complete set-up of your account, please follow <a href="{{$m}}">complete form</a> to choose your login password. You may also edit the information on your proile after you login. 
+You have been pre-registered for the Materials and Manufacturing in Healthcare Network virtual platform by a member of the MMHIN Admin Team. To complete set-up of your account, please follow <a href="{{$m}}">complete form</a> to choose your login password. You may also edit the information on your proile after you login. 
 <br/><br/>
 
 With kind regards. 
 
-The MMHN Team 
+The MMHIN Team 
 
 
 
