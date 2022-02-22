@@ -67,7 +67,7 @@
                         </div>
                         <!-- begin post-image -->
 						
-						<img src="/mmhn/public/uploads/{{$p->pic}}" align="post cover photo" height="500px" width="500px"/> <br/>
+						<img src="/mmhn/public/uploads/{{$p->pic}}" align="post cover photo" height="100%" width="100%"/> <br/>
 						
 						 <blockquote>
 						 

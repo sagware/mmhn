@@ -116,7 +116,7 @@
                             Posted By <a href="/partner/{{$p->posted_by}}">{{$p->posted_by_name}}</a> &nbsp;&nbsp; {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }}
                         </div>
 						
-						<img src="/mmhn/public/uploads/{{$p->cover}}" align="post cover photo" height="250px" width="250px"/> <br/>
+						<img src="/mmhn/public/uploads/{{$p->cover}}" align="post cover photo" height="100%" width="100%"/> <br/>
                         <!-- begin post-image -->
 						<!--
 						 <blockquote>
@@ -163,7 +163,7 @@
 						
 						<h2>Matched Partners</h2>
 						 
-						  @if(!empty($p->partners))
+						  @if(!empty($p->partners) && is_array($p->partners))
 								  @foreach($us as $u)
 								  @foreach(unserialize($p->partners) as $pu)
 								  

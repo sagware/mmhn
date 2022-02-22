@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Challenges|Materials and Manufacturing in Healthcare Network</title>
+	<title>Challenges|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -47,6 +47,7 @@
             <div class="row row-space-30">
                 <!-- begin col-9 -->
 				<p> <h1>Challenges</h1></p>
+<p>Challenges are healthcare-related innovation ideas, problems and projects that can be posted by any Partner. Challenges are open for all Partners to comment and to give suggestions. The Partner posting the Challenge can select and notify Partners that are most relevant in terms expertise and/or interest through the matchmaking feature as part of the Challenge Submission process. The matchmaking process cross references the text of the Challenge with our Partners’ profile and presents them to the posting Partner in order of relevance. Selected Partners are tagged to the Challenge post, but each individual can untag themselves if necessary. </p>  
                 <div class="col-md-9">
                     <!-- begin post-list -->
 					<div align="right">
@@ -66,9 +67,9 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								@if(!empty($p->cover))
-                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" /></a>
+                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
 								@else
-								<a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" alt="{{$p->title}}" /></a>
+								<a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" alt="{{$p->title}}" height="100%" width="100%" /></a>
 								@endif
                                 </div>
                                 <!-- end post-image -->

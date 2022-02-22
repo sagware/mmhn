@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>News|Materials and Manufacturing in Healthcare Network</title>
+	<title>News|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -48,7 +48,8 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
-				 <p><h1>News</h1></p> 
+				 <p><h1>News</h1></p>
+<p> Here you will find healthcare innovation news and updates from both our Network and Partners. They can be about events that have happened, grant successes, innovation successes, milestones achieved or general innovation and collaboration advice.  </p>
                 <div class="col-md-9">
 				<div align="right">
 				<a href="/show_news_form" title="Submit News"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Submit News</a>
@@ -67,7 +68,7 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" height="100%" width="100%" alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->

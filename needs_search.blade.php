@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Search Challenges|Materials and Manufacturing in Healthcare Network</title>
+	<title>Search Challenges|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -23,6 +23,30 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	
+	<style>
+	html {
+
+    height: 100%;
+
+}
+
+body {
+
+    min-height: 100% ;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.content {
+
+    flex-grow: 1;
+
+}
+	</style>
 </head>
 <body>
 @include("admin.cookiebanner")
@@ -49,7 +73,7 @@
                 <div class="col-md-9">
                     <!-- begin post-list -->
 					<div align="right">
-					<button class="read-btn"><a href="/clinical_need_form"><i class="fas fa-plus"></i>Submit Challenge</a></button>
+					<a href="/clinical_need_form"><i class="fas fa-plus"></i>Submit Challenge</a>
 					
 					</div>
 					<br/>
@@ -65,9 +89,9 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
                                    @if(!empty($p->cover))
-                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" /></a>
+                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
 								@else
-								<a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" alt="{{$p->title}}" /></a>
+								<a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" alt="{{$p->title}}" height="100%" width="100%" /></a>
 								@endif
                                 </div>
                                 <!-- end post-image -->

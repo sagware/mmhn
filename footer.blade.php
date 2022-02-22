@@ -78,10 +78,11 @@
 
  <ul class="recent-post">  <li>
                                 
-                                    <a href="https://forms.office.com/r/rTqAiYFk1j" title="Report an Error Form" target="_blank">Report a Website Error</a> 
+                                  <a href="https://forms.office.com/r/rTqAiYFk1j" title="Report an Error Form" target="_blank">Report a Website Error</a> 
                                 
-                            </li> </ul>
-                          <p>  <a href="mailto:contact@materialsinhealth.org">contact@materialsinhealth.org</a></p>
+                            </li> 
+                          <p>  <li>  <a href="mailto:contact@materialsinhealth.org">contact@materialsinhealth.org</a></li></p>
+						  </ul>
                         </address>
 						
                     </div>

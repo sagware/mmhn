@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Add Partners Matching| Materials and Manufacturing in Healthcare Innovation Network</title>
+	<title>Match Making and Supporting Documents | Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -197,7 +197,7 @@
 								<input type="hidden" name="sbm" value="1"/>
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 <p></p>								
-<p align="left" style="padding:1.5em;" > Part 2 of 2 - Here you can add a cover photo and any supporting documents to your post. You can also choose the Partners who you like us to notify about your Challenge upon approval. </p>
+<p align="left" style="padding:1.5em;" > Part 2 of 2 - Here you can add a cover photo and any supporting documents to your post. You can also choose the Partners who you would like us to notify about your Challenge upon approval. Partners that you select will receive an email notification saying they have been “matched” to your Challenge and will be given options whether to accept or decline the match. Matches to Challenges will appear at the end of Challenge posts, if a Partner declines a match, their name will be removed from the given post. If they accept, we hope this matching helps to start the conversation and engagement on the virtual platform. </p>
 								
 								<div class="form-group">
 									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Photo (optional)</label>
@@ -292,8 +292,14 @@
 											}else{
 												$ki = array();
 											}
-										foreach($ki as $uk){
-											foreach($kd as $k){
+									
+									
+									//$ki = is_array($ki) ? $kd : array($ki);
+									//pr($ki,true);
+									//$values = get_values();
+									foreach($kd as $k){		
+										foreach((array)$ki as $uk){
+											
 											
 											  if($k->id == $uk){
 											  echo $k->name."; ";
@@ -628,9 +634,9 @@
 								</div>
 								
 							<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Documents (optional)</label>
+									<label class="control-label col-md-4 col-sm-4" >&nbsp;&nbsp&nbsp&nbsp</label>
 									<div class="col-md-6 col-sm-6">
-										 <input type="checkbox" name="tm"  id="tm" required /> <label for="tm"> I confirm that I have not added any confidential information as per our privacy notice.
+										 <label for="tm"> <input type="checkbox" name="tm"  id="tm" required /> I confirm that I have not added any confidential information as per our privacy notice.<span class="text-danger">*</span></label>
 										
 									</div>
 								</div>

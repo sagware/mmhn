@@ -23,6 +23,29 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	<style>
+	html {
+
+    height: 100%;
+
+}
+
+body {
+
+    min-height: 100% ;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.content {
+
+    flex-grow: 1;
+
+}
+	</style>
 </head>
 <body>
 @include("admin.cookiebanner")
@@ -45,11 +68,17 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
-				<p> <h1>Challenges</h1></p>
+				@if($cat=="news")
+				<p> <h1>News</h1></p>
+				@elseif($cat=="event")
+				<p> <h1>Events</h1></p>
+				@elseif($cat=="grant")
+				<p> <h1>Grants</h1></p>
+				@endif
                 <div class="col-md-9">
                     <!-- begin post-list -->
 					<div align="right">
-					<button class="read-btn"><a href="/clinical_need_form"><i class="fas fa-plus"></i>Submit Challenge</a></button>
+					<a href="/clinical_need_form"><i class="fas fa-plus"></i>Submit Challenge</a>
 					
 					</div>
 					<br/>
@@ -65,9 +94,9 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
                                    @if(!empty($p->cover))
-                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" /></a>
+                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
 								@else
-								<a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" alt="{{$p->title}}" /></a>
+								<a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" height="100%" width="100%" alt="{{$p->title}}" /></a>
 								@endif
                                 </div>
                                 <!-- end post-image -->

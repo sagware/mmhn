@@ -22,3 +22,30 @@
 </style>
 
 <?php } ?>
+
+<!-- CSS for Footer-->
+
+<style  type="text/css">
+html {
+
+    height: 100%;
+
+}
+
+body {
+
+    min-height: 100% ;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.content {
+
+    flex-grow: 1;
+
+}
+</style>

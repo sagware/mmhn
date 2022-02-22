@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Show Interest|Materials and Manufacturing in Healthcare Network| Register Page</title>
+	<title>Membership Expression of Interest |Materials and Manufacturing in Healthcare Network| Register Page</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -83,15 +83,23 @@
             <!-- begin right-content -->
             <div class="right-content">
                 <!-- begin register-header -->
-                <h1 align="center">
+               
 				<br/><br/>
+				 <div class="register-content">
+				 <h1 align="center">
+				
+				 <br/>
                   Membership Expression of Interest                   
                 </h1>
+				 </div>
+				
+				 <div class="register-content">
 				<div align="right">	
-							<h5 align="justify" >  <p style="padding:1.5em;">
+							<h5 align="justify" >  <p>
                  &nbsp; &nbsp;  The Materials and Manufacturing in Healthcare Innovation Network aims to bring together clinicians, researchers and industry professionals to form a community equipped to tackle healthcare manufacturing challenges. The network will support responses to real-world challenges, run a series of events, and facilitate connections between members. If you would like to join our network, please submit an expression of interest form below.    
 				  </p>            
                 </h5>
+				</div>
 				</div>
                 <!-- end register-header -->
                 <!-- begin register-content -->
@@ -101,7 +109,7 @@
 						<label class="control-label" for="fname">First name <span class="text-danger">*</span> </label></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="fname" class="form-control" placeholder="First Name e.g., Rita" name="first_name" value="{{ old('first_name') }}"  required />
+                                <input type="text" id="fname" class="form-control" placeholder="First Name" name="first_name" value="{{ old('first_name') }}"  required />
                             </div>
                         </div>
 						
@@ -110,7 +118,7 @@
 						<label class="control-label" for="sname">Surname Name <span class="text-danger">*</span> </label></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="sname" class="form-control" placeholder="Surname e.g., Sagir" name="last_name"  value="{{ old('last_name') }}"  required  />
+                                <input type="text" id="sname" class="form-control" placeholder="Surname " name="last_name"  value="{{ old('last_name') }}"  required  />
                             </div>
                         </div>
 						
@@ -158,11 +166,19 @@
                             </div>
                         </div>
                        
+					   
+					   <label class="control-label" for="role">Role title </label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="text" id="role" class="form-control" placeholder="e.g., Professor" name="designation" value="{{ old('designation') }}" />
+                            </div>
+                        </div>
+						
 						
 						
                         <div class="checkbox m-b-30">
                             
-                                <input type="checkbox" name="terms" value="{{ old('terms') }}" id="tms" required  checked/>  <label for="tms">By clicking Show Interest Button, you agree to our <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a> and that you have read our <a href="/datapolicy" title="Privacy Policy" target="_blank">Privacy Policy</a>.
+                                <input type="checkbox" name="terms" value="{{ old('terms') }}" id="tms" required  />  <label for="tms">By clicking Show Interest Button, you agree to our <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a> and that you have read our <a href="/datapolicy" title="Privacy Policy" target="_blank">Privacy Policy</a>.
                             </label>
                         </div>
                         <div class="register-buttons">

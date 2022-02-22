@@ -185,6 +185,19 @@
 			    <div class="col-md-16">
 			        <!-- begin panel -->
                     <div class="panel panel-inverse">
+					
+					<!-- begin row -->
+			 <div id="content" class="content">
+        <!-- begin container -->
+        <div class="container">
+			<div class="row">
+                <!-- begin col-12 -->
+				 <h1 >Edit Challenge</h1>
+			    <div class="col-md-16">
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div >
+						</div><p></p><p></p>
                       <p align="left" style="padding:1.5em;" >Part 1 of 2 - Here you will provide the overall details and the subject area (keywords) of your challenge. In the next part, you will be able to add a cover photo and any supporting document to your form. We will also show you the partners most relevant to your challenge based on the details and keywords you provide in this section..</p>
                         <div class="panel-body panel-form">
                             <form  action="/editadd/need" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
@@ -226,7 +239,7 @@
 									<label class="control-label col-md-4 col-sm-4" for="form-tags-3"> Other keywords (Comma-separated):</label>
 									
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="<?php $kwd =unserialize($p->other_keyword); if(!empty($p->other_keyword) && is_array(unserialize($p->other_keyword))){echo implode(", ", $kwd);} ?>"  />
+										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="<?php $kwd =unserialize($p->other_keyword);  if(!empty($p->other_keyword) && is_array(unserialize($p->other_keyword))){echo implode(", ", $kwd);} ?>"  />
 										
 									</div>
 								</div>

@@ -198,7 +198,7 @@
                 <!-- begin register-header -->
 				<br/>
                 <h1 align="center">
-                   Profile Edit Form
+                  Edit Profile
                   
                 </h1>
                 <!-- end register-header -->

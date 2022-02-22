@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Complete Registration|Materials and Manufacturing in Healthcare Network</title>
+	<title>   Membership Registration|Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -208,7 +208,7 @@
                 <h1 align="center">
 				<br/><br/>
 				<p style="padding:1.5em;">
-                   Membership Registration Form
+                   Membership Registration
                   </p> 
                 </h1>
                 <!-- end register-header -->
@@ -216,7 +216,7 @@
                 <div class="register-content">
                     <form action="/register/new_complete" method="POST"  enctype="multipart/form-data" class="margin-bottom-0">
 					
-					<label class="control-label" for="fname">First name <span class="text-danger">*</span> </label></label>
+					<label class="control-label" for="fname">First Name <span class="text-danger">*</span> </label></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
                                 <input type="text" id="fname" class="form-control"  value="{{$u->first_name}}" name="first_name"  required readonly />
@@ -224,7 +224,7 @@
                         </div>
 						
 						
-						<label class="control-label" for="lname">Last name <span class="text-danger">*</span> </label></label>
+						<label class="control-label" for="lname">Last Name <span class="text-danger">*</span> </label></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
                                 <input type="text" id="lname" class="form-control"  value="{{$u->last_name}}" name="last_name"  required readonly />
@@ -244,24 +244,24 @@
 						<label class="control-label" for="why">How does this network align with your interests?(maximum number of characters: 200)<span class="text-danger">*</span> </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="why" name="reason" class="form-control" value="{{ old('reason') }}"  maxlength="200"  value="{{$u->joining_reason}}"  readonly/> 
+                                <input type="text" id="why" name="reason" class="form-control"   maxlength="200"  value="{{$u->joining_reason}}"  readonly/> 
                             </div>
                         </div>
 						
 						 <label class="control-label" for="email">Email <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="email" id="email" class="form-control" placeholder="Email address" name="email"  value="{{$u->email}}" value="{{ old('email') }}" required readonly/>
+                                <input type="email" id="email" class="form-control" placeholder="Email address" name="email"  value="{{$u->email}}"  required readonly/>
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 								<input type="hidden" name="role" value="user"/>
                             </div>
                         </div>
 						
 						
-						<label class="control-label" for="role">Role title </label>
+						<label class="control-label" for="role">Role Title </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" id="role" class="form-control" placeholder="e.g., Professor" name="designation" value="{{ old('designation') }}" />
+                                <input type="text" id="role" class="form-control" placeholder="e.g., Professor" name="designation" value="{{$u->designation}}"  readonly/>
                             </div>
                         </div>
 						
@@ -271,8 +271,8 @@
 						<div class="dropdown" scroll>
 										<button class="btn btn-primary" type="button" 
 										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true'>
-										<label for="key">Click to select research interest keywords </label>
-										</button> or add  <input  type="checkbox"  name="other" value="{{ old('other') }}" id="ck" value="other" onClick="OtherField()"  /> <label for="ck">Other keywords</label>
+										<label for="key">Select Research Interest & Keywords </label>
+										</button> or Add Other Keyworrds  <input  type="checkbox"  name="other" value="{{ old('other') }}" id="ck" value="other" onClick="OtherField()"  /> <label for="ck"></label>
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
@@ -298,7 +298,8 @@
 						
 						<br/>
 						
-						<label class="control-label" for="biog">Brief bio/background (this will be visible to other members) <span class="text-danger">*</span> </label>
+						<label class="control-label" for="biog">Brief Bio/Background<span class="text-danger">*</span> <ul>Your bio will let other Partners know your expertise and interest. 
+When Challenges are being submitted, our matchmaking system cross-references your profile (including your bio and keywords) with the Challenge post. This will let the posting Partner know how relevant you are to their healthcare innovation idea, problem or project.</ul>   </label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
                                 <textarea type="text" id="biog" name="bio"  class="form-control" required > {{ old('bio') }} </textarea>
@@ -367,10 +368,12 @@
 						
 						
                         <div class="checkbox m-b-30">
-                             
-                                <input type="checkbox" name="tm" value="{{ old('tm') }}" id="tm" required /> <label for="tm"> By clicking register button, you agree to our <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a> and that you have read our <a href=" https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>
+                             <label for="tm">
+                                <input type="checkbox" name="tm" value="{{ old('tm') }}" id="tm" required />  By clicking register button, you agree to our <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a> and that you have read our <a href="https://www.ucl.ac.uk/privacy/" title="Data Policy" target="_blank">Data Policy</a>
                             </label>
                         </div>
+						
+						
 						
 						<div class="checkbox m-b-30">
                             <label for="not">

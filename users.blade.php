@@ -37,6 +37,8 @@
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
+
+			
 <body>
 
 			@if(Session::has('mailed'))
@@ -67,6 +69,15 @@
 			
 			<script type="text/javascript">
 			alert(" Error empty field selected...");
+			</script>
+			
+			@endif
+			
+			
+			@if(Session::has('deleted'))
+			
+			<script type="text/javascript">
+			alert("Selected partner records deleted successfully");
 			</script>
 			
 			@endif
@@ -119,7 +130,11 @@
 						
                         
                     </div>
-					
+					<?php
+//if($msg=="deleted"){
+//echo "<p class='text-danger'>Selected partner records were deleted successfully</p>";
+//}
+ ?>
                       
                         <div class="panel-body">
                             <table id="data-table" class="table table-striped table-bordered display" cellspacing="0" width="100%">
@@ -137,6 +152,7 @@
                                         <th>Change Admin Status</th>
 										<th>Role</th>
                                         <th>Enable/Disable User</th>
+										<th>Delete Partner</th>
 										<th>Date registered</th>
 										
                                     </tr>
@@ -204,6 +220,8 @@
 									<button type="button" class="btn btn-danger m-r-5 m-b-5">Disable</button></a>
 									@endif</td>
 										
+										<td><a href="/delete/{{$g->id}}">	<button type="button" class="btn btn-primary m-r-5 m-b-5">Delete Partner</button></a>
+							</td>
 										<td>
 										
 										{{ date('D jS, M Y, h:i:s A', strtotime($g->created_at)) }}</td>

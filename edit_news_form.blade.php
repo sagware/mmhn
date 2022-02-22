@@ -196,7 +196,7 @@
                    
 						
 						<div style="padding:1.5em;">
-						<h1>Innovation Stories Form</h1> <br/>
+						<h1>Edit Innovation Story</h1> <br/>
 						We are keen to share success stories of collaboration, met challenges, and new innovations from within the Network. Please complete the following fields to submit a News Story for our website, which will be reviewed by the Materials and Manufacturing in Healthcare Network team and subsequently publicly visible.</div>
                         <div class="panel-body panel-form">
                             <form  action="/addedit/public_stories" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
@@ -272,6 +272,15 @@
 									</div>
 								</div>
 								
+									
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" >&nbsp;&nbsp&nbsp&nbsp</label>
+									<div class="col-md-6 col-sm-6">
+										 <label for="tm"> <input type="checkbox" name="tm"  id="tm" required /> I confirm that I have not added any confidential information as per our privacy notice.<span class="text-danger">*</span></label>
+										
+									</div>
+								</div>
+								
 								
 								
 								
@@ -307,7 +316,7 @@
 	</div>
 	
 	<!-- end page container -->
-	
+	 @include("admin.homefooter")
 	</body>
 	</html>
 	

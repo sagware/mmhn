@@ -109,7 +109,7 @@
                     <div class="post-list post-grid post-grid-10">
                         
 						
-						<a href="/partnerslist" title="Partners"> 
+						
 						<div class="post-li">
                             <!-- begin post-content -->
                             <div class="post-content">
@@ -127,10 +127,10 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									
-									<li style="font-size: 22px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li>
-									<li style="font-size: 22px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li>
-									<li style="font-size: 22px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
-									<li style="font-size: 22px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li>
+									<li style="font-size: 15px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li>
+									<li style="font-size: 15px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li>
+									<li style="font-size: 15px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
+									<li style="font-size: 15px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li>
 									
 									</ul>
                                 </div>
@@ -147,10 +147,10 @@
                             <!-- end post-content -->
                         </div>
 						
-						</a>
 						
 						
-						 <a href="/clinicalneeds" title="Challenges">
+						
+						
 						<div class="post-li">
                             <!-- begin post-content -->
                             <div class="post-content">
@@ -171,7 +171,7 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                      <ul>
 									@foreach($ch as $c)
-									<li style="font-size: 22px;"><a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}">{{$c->title}}</h2></a></li>
+									<li style="font-size: 15px;"><a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}">{{$c->title}}</h2></a></li>
 									@endforeach
 									
 									</ul>
@@ -189,10 +189,10 @@
                             <!-- end post-content -->
                        
                     </div>
-					</a>
 					
 					
-					 <a href="/news" title="Latest Innovation Stories">
+					
+					
 						<div class="post-li" >
                             <!-- begin post-content -->
                             <div class="post-content">
@@ -210,7 +210,7 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									@foreach($r as $n)
-									<li style="font-size: 22px;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li>
+									<li style="font-size: 15px;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li>
 									@endforeach
 									
 									</ul>
@@ -227,7 +227,7 @@
                             </div>
                             <!-- end post-content -->
                         </div>
-						</a>
+						
 						
                     <!-- end post-list -->                
                     
@@ -248,7 +248,7 @@
                     <!-- begin post-list -->
                     <div class="post-list post-grid post-grid-2">
                         
-						 <a href="/news" title="Latest Innovation Stories">
+						
 						<div class="post-li" >
                             <!-- begin post-content -->
                             <div class="post-content">
@@ -266,7 +266,7 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									@foreach($r as $n)
-									<li style="font-size: 22px;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li>
+									<li style="font-size: 15px;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li>
 									@endforeach
 									
 									</ul>
@@ -290,7 +290,7 @@
                             </div>
                             <!-- end post-content -->
                         </div>
-						</a>
+						
 						
 					
 					<div class="post-li">
@@ -310,9 +310,9 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									
-									<li style="font-size: 22px;"><a href="/aboutus" title="About us"> About Us</h2></a></li>
-									<li style="font-size: 22px;"><a href="/faq" title="FAQ"> FAQ</h2></a></li>
-									<li style="font-size: 22px;"><a href="/contactus" title="Contact us"> Contact Us</h2></a></li>
+									<li style="font-size: 15px;"><a href="/aboutus" title="About us"> About Us</h2></a></li>
+									<li style="font-size: 15px;"><a href="/faq" title="FAQ"> FAQ</h2></a></li>
+									<li style="font-size: 15px;"><a href="/contactus" title="Contact us"> Contact Us</h2></a></li>
 									
 									</ul>
 									

@@ -69,10 +69,14 @@
                                 <!-- begin comment-container -->
                                 <div class="comment-container">
                                     <div class="comment-author">
-								@if($s->picture=="empty.png")	
+								@if($s->picture=="empty.png")
+								<div>	
                                     <a href="/partner/{{$s->id}}"><img align="right"src="/uploads/empty.png" alt="Default Profile Photo"  height="200px" width="200px"  /></a>
+									</div>
 									@else
+									<div>	
 									<a href="/partner/{{$s->id}}"><img align="right"src="/mmhn/public/uploads/{{$s->picture}}" alt="{{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}" height="200px" width="200px" /></a>
+									</div>
 									@endif
                             
                                          <a href="/partner/{{$s->id}}"  title="Click to view full details including submissions">{{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</a>

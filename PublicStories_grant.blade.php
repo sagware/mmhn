@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Grants|Materials and Manufacturing in Healthcare Network</title>
+	<title>Grants|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -49,6 +49,7 @@
             <div class="row row-space-30">
                 <!-- begin col-9 -->
 				 <p><h1>Grants</h1></p> 
+<p>Here you will find healthcare-related grant opportunities. Note that there are eligibility criteria to most grants, for instance, grants requiring a Principal Investigator from a research institute, or requiring a Business Lead. You can find out more about grant opportunities through the funder’s website.</p>   
                 <div class="col-md-9">
 				<div align="right">
 				<a href="/show_news_form" class="read-btn" title="Submit Grant"><i class="fas fa-plus"></i>&nbsp;Submit Grant</a>
@@ -67,7 +68,7 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" height="100%" width="100%" alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->

@@ -61,7 +61,9 @@
                     <div class="section-container">
                         <h1 class="section-title m-b-20"><span>CONTACT US</span></h1>
                         <p class="m-b-30 f-s-13">
-                            <h4 class="footer-title">Materials and Manufacturing in Healthcare Innovation Network</h4>
+                           <p class="footer-title">
+  Materials and Manufacturing in Healthcare Innovation Network
+</p>
                        <address>
                            <!-- <strong> University College London</strong><br />
 							Gower St,<br />

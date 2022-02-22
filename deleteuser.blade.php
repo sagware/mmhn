@@ -4,8 +4,12 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
+	<meta charset="utf-8" />
+	<title>Delete User | Materials and Manufacturing in Healthcare Network</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
 	
-	<title>Challenge Story Approval Materials and Manufacturing in Healthcare Network</title>	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -55,13 +59,64 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
-				<p><h1>Challenged Approved Successfully</h1></p>
+				<p><h1>Delete Partner</h1></p>
                 <div class="col-md-12">
                     <!-- begin section-container -->
                     <div class="section-container">
                         
                       
-              Challenge approved successfully. Partner and other matched partners will be notified about this action.  <button  ><a href="/needs_list" title="Challenges List">Approve Another Challenge</a></button>| <button  ><a href="/clinicalneeds" title="Challenges">Go to Challenges</a></button>
+             Are you sure you want to delete this partner's records? <br/>
+			 
+			  <form action="/deletingpartner" method="POST"  enctype="multipart/form-data" class="margin-bottom-0">
+					
+					
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="checkbox" name="partner" id="pt"  checked/> <label class="control-label" for="pt">Delete from partners list </label></label>
+                            </div>
+                        </div>
+						
+						 <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="checkbox" name="challenges" id="challenges"  checked/> <label class="control-label" for="challenges">Delete all challenges submissions</label></label>
+                            </div>
+                        </div>
+						
+						
+						<div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="checkbox" name="news" id="news"  checked/> <label  for="challenges">Delete all news submissions </label></label>
+                            </div>
+                        </div>
+						<input type="hidden" name="uid" value="{{$uid}}">
+						
+						<div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="checkbox" name="events" id="news" checked/> <label class="control-label" for="challenges">Delete all events submissions </label></label>
+                            </div>
+                        </div>
+						
+						<div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="checkbox" id="news"  checked/> <label  for="challenges" name="grants">Delete all grants submissions </label></label>
+                            </div>
+                        </div>
+						
+						<div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="checkbox" id="comments"  checked/> <label class="control-label" for="comments" name="comments">Delete all comments submissions </label></label>
+                            </div>
+                        </div>
+						<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+						
+						<div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input type="checkbox" id="replies"  checked/> <label class="control-label" for="replies" name="replies">Delete all replies submissions </label></label>
+                            </div>
+                        </div>
+						
+						
+			 <button  type="submit" >Yes</button>| <button  ><a href="/dashboard" title="Challenges">No</a></button>
 						
 						
                     </div>

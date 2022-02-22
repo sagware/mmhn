@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Add Innovation Story | Materials and Manufacturing in Healthcare Innovation Network</title>
+	<title>Submit Innovation Story | Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -193,7 +193,7 @@
                     <div>
 						
 						<div style="padding:1.5em;">
-						<h1>Innovation Stories Form</h1> <br/>
+						<h1>Submit Innovation Story</h1> <br/>
 						 We are keen to share success stories of collaboration, met challenges, and new innovations from within the Network. Please complete the following fields to submit a News Story for our website, which will be reviewed by the Materials and Manufacturing in Healthcare Innovation Network team and subsequently publicly visible.
 						</div></div>
                         <div class="panel-body panel-form">
@@ -260,7 +260,23 @@
 								
 								
 								
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Picture</label> 
+									<div class="col-md-6 col-sm-6">
+										<input type="file" id="cover" class="form-control" value="{{ old('pic') }}" name="pic"/>
+									</div>
+								</div>
 								
+								
+								
+								
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" >&nbsp;&nbsp&nbsp&nbsp</label>
+									<div class="col-md-6 col-sm-6">
+										 <label for="tm"> <input type="checkbox" name="tm"  id="tm" required /> I confirm that I have not added any confidential information as per our privacy notice.<span class="text-danger">*</span></label>
+										
+									</div>
+								</div>
 							
 								<div class="form-group">
 									<label class="control-label col-md-4 col-sm-4" for="submit"></label>
@@ -282,65 +298,13 @@
             <!-- end row -->
 		</div>
 		
-		<!-- end #content -->
 		
-        <!-- begin theme-panel -->
-        
-        <!-- end theme-panel -->
-		
-		 <!-- begin #footer -->
-  <!-- begin scroll to top btn -->
-		
-		<!-- end scroll to top btn -->
 	</div>
 	@include("admin.footer")	
 	<!-- end page container -->
-	<style type="text/css">
-.cookie-banner {
-  background-color: white;
-  padding: 20px;
-  width:auto;
-  height:200px;
-  position: absolute;
-  top: 50px;
-  z-index: 99;
-}
-
-</style>
- 
-	<?php if(!isset($_COOKIE["mycookie"])) { ?>
-<div class="cookie-banner js-cookie-banner" >
-    Our website uses cookies. By continuing we assume your permission to deploy cookies, as detailed in our <button  type="submit" class="js-cookie-dismiss" name="cookie">Accept</button>
-</div>
+	
 
 
-<?php } ?>
-
-<script type="text/javascript">
-// Key under which name the cookie is saved
-const cookieName = 'cookieconsent';
-// The value could be used to store different levels of consent
-const cookieValue = 'dismissed';
-
-function dismiss() {
-    const date = new Date();
-    // Cookie is valid 1 year: now + (days x hours x minutes x seconds x milliseconds)
-    date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
-    // Set cookie
-    document.cookie = `${cookieName}=${cookieValue};expires=${date.toUTCString()};path=/`;
-
-    // You probably want to remove the banner
-    document.querySelector('.js-cookie-banner').remove();
-}
-
-// Get button element
-const buttonElement = document.querySelector('.js-cookie-dismiss');
-// Maybe cookie consent is not present
-if (buttonElement) {
-    // Listen on button click
-    buttonElement.addEventListener('click', dismiss);
-}
-</script>
 	
 	<script>
 	    $(document).ready(function() {

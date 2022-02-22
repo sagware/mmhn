@@ -73,11 +73,11 @@
                         
                       
                         <p class="about-me-desc">
-                           The Materials and Manufacturing in Healthcare Innovation Network is a joint effort of the <a href="https://www.instituteofmaking.org.uk/" target="_blank" title="UCL Institute of Making and the UCL Institute of Healthcare Engineering"> UCL Institute of Making</a> and the <a href="https://www.ucl.ac.uk/healthcare-engineering/" target="_blank" title="UCL Institute of Healthcare Engineering"> UCL Institute of Healthcare Engineering</a>, funded by a UCL Innovation Network grant. The MMHN virtual platform connects our Partners, including academics, clinicians, industry, funders and regulatory members, to form collaborations and enable healthcare innovation that can bring true impact to patients. </p>
+                           The Materials and Manufacturing in Healthcare Innovation Network (MMHIN) is a joint effort of the <a href="https://www.instituteofmaking.org.uk/" target="_blank" title="UCL Institute of Making"> UCL Institute of Making</a> and the <a href="https://www.ucl.ac.uk/healthcare-engineering/" target="_blank" title="UCL Institute of Healthcare Engineering"> UCL Institute of Healthcare Engineering</a>. The Network development was supported by <a href="https://www.ucl.ac.uk/enterprise/" target="_blank" title="UCL Innovation & Enterprise">UCL Innovation & Enterprise</a> via the <a href="https://www.ucl.ac.uk/enterprise/staff/access-funding" target="_blank" title="UCL Impact Acceleration Account">UCL Impact Acceleration Account</a> (<a href="https://www.ucl.ac.uk/enterprise/staff/access-funding/innovation-networks-funding" target="_blank" title="UCL Innovation Network grant">UCL Innovation Network grant</a>). The MMHIN virtual platform connects our Partners, including academics, clinicians, industry, funders and regulatory members, to form collaborations and enable healthcare innovation that can bring true impact to patients. </p>
 
- <p class="about-me-desc">MMHN aims to promote innovation as much as possible. For this, we host public and Partners only events. Information can be found under “Upcoming Events” and their outcomes are showcased in “News”, which is available for anyone who visits the site. Our Core UCL Team and Partners will also showcase other innovation stories that can inspire innovation further. </p>
+ <p class="about-me-desc">MMHIN aims to promote innovation as much as possible. For this, we host public and Partners only events. Information can be found under “Upcoming Events” and their outcomes are showcased in “News”, which is available for anyone who visits the site. Our Core UCL Team and Partners will also showcase other innovation stories that can inspire innovation further. </p>
 
- <p class="about-me-desc">Becoming a Partner will allow full access to our Partner database to begin solving healthcare challenges. To join the MMHN Network, please <a href="/login">apply here</a> to begin the approval process.</p>
+ <p class="about-me-desc">Becoming a Partner will allow full access to our Partner database to begin solving healthcare challenges. To join the MMHIN Network, please <a href="/login">apply here</a> to begin the approval process.</p>
 
 						
 						<h2 class="text-inverse" align="center">Our Core UCL Team
@@ -86,11 +86,11 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/rita.jpg" alt="Dr Ana Rita Pinho">
+						<img class="img-responsive" "height="100%" width="100%"  src="/mmhn/public/uploads/rita.jpg" alt="Dr Ana Rita Pinho">
 					
 					<p ><h3 class="post-title" align="center">Dr Ana Rita Pinho
 					</h3></p>
-					<p align="center">MMHN PI & Network Manager</p>
+					<p align="center">MMHIN PI & Network Manager</p>
 					<p align="center">PIU Policy Adviser
 					
 					</p>
@@ -99,12 +99,12 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/mark.png" alt="Prof Mark Miodownik ">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/mark.png" alt="Prof Mark Miodownik ">
 					
 					<p ><h3 class="post-title" align="center">Prof Mark Miodownik 
 
 					</h3></p>
-					<p align="center">MMHN Co-I & IoM Director</p>
+					<p align="center">MMHIN Co-I & IoM Director</p>
 					<p align="center">Professor of Materials & Society 
 					</p>
 				</div>
@@ -112,12 +112,12 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/rabecca.png" alt="Prof Rebecca Shipley">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/rabecca.png" alt="Prof Rebecca Shipley">
 					
 					<p ><h3 class="post-title" align="center">Prof Rebecca Shipley
 
 					</h3></p>
-					<p align="center">MMHN Co-I & IHE Director</p>
+					<p align="center">MMHIN Co-I & IHE Director</p>
 					<p align="center">Professor of Healthcare Engineering</p> 
 					<p align="center">	Vice Dean (Healthcare)</p>
 				</div>
@@ -131,12 +131,12 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/charnett.jpg" alt="Charnett Chau">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/charnett.jpg" alt="Charnett Chau">
 					
 					<p ><h3 class="post-title" align="center">Charnett Chau
 
 					</h3></p>
-					<p align="center">MMHN Network Coordinator </p>
+					<p align="center">MMHIN Network Coordinator </p>
 					<p align="center">Life Cycle Assessment Research Fellow
 
 					</p>
@@ -145,25 +145,25 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/will.png" alt="Will Bhot">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/will.png" alt="Will Bhot">
 					
 					<p ><h3 class="post-title" align="center">Will Bhot
  
 
 					</h3></p>
-					<p align="center">MMHN Web Developer</p>
+					<p align="center">MMHIN Web Developer</p>
 					<p align="center">GDI Hub  Research Assistant</p>
 				</div>
 				
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/sagir.jpg" alt="Sagir Yusuf">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/sagir.jpg" alt="Sagir Yusuf">
 					
 					<p ><h3 class="post-title" align="center">Sagir M. Yusuf
 
 					</h3></p>
-					<p align="center">MMHN Web Developer</p>
+					<p align="center">MMHIN Web Developer</p>
 					<p align="center">PhD Student
 					</p>
 				</div>
@@ -179,7 +179,7 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/laura.jpg" alt="Dr Laura Bovo">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/laura.jpg" alt="Dr Laura Bovo">
 					
 					<p ><h3 class="post-title" align="center">Dr Laura Bovo
 
@@ -194,7 +194,7 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/henry_new.png" alt="Henry Pinchbeck">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/henry_new.png" alt="Henry Pinchbeck">
 					
 					<p ><h3 class="post-title" align="center">Henry Pinchbeck
 
@@ -209,7 +209,7 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/Suzanne.jpg" alt="Suzanne Ali-Hassan">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/Suzanne.jpg" alt="Suzanne Ali-Hassan">
 					
 					<p ><h3 class="post-title" align="center">Suzanne Ali-Hassan
 
@@ -235,7 +235,7 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/afshin.jpg" alt="Prof Afshin Mosahebi">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/afshin.jpg" alt="Prof Afshin Mosahebi">
 					
 					<p ><h3 class="post-title" align="center">Prof Afshin Mosahebi
 
@@ -252,7 +252,7 @@
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/joseph.jpg" alt="Prof Joseph Hardwicke">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/joseph.jpg" alt="Prof Joseph Hardwicke">
 					
 					<p ><h3 class="post-title" align="center">Prof Joseph Hardwicke
 
@@ -267,7 +267,7 @@ Consultant, UHCW
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/geoff.jpg" alt="Prof Geoff Parker">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/geoff.jpg" alt="Prof Geoff Parker">
 					
 					<p ><h3 class="post-title" align="center">Prof Geoff Parker
 
@@ -292,7 +292,7 @@ Consultant, UHCW
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/tim.jpg" alt="Prof Tim Baker">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/tim.jpg" alt="Prof Tim Baker">
 					
 					<p ><h3 class="post-title" align="center">Prof Tim Baker
 
@@ -310,7 +310,7 @@ Consultant, UHCW
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/anu.jpg" alt="Dr Anu Solanki">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/anu.jpg" alt="Dr Anu Solanki">
 					
 					<p ><h3 class="post-title" align="center">Dr Anu Solanki
 
@@ -326,7 +326,7 @@ Consultant, UHCW
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/mayur.jpg" alt="Mayur Patel">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/mayur.jpg" alt="Mayur Patel">
 					
 					<p ><h3 class="post-title" align="center">Mayur Patel
 
@@ -342,7 +342,7 @@ Consultant, UHCW
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/luke.jpg" alt="Luke O’Shea">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/luke.jpg" alt="Luke O’Shea">
 					
 					<p ><h3 class="post-title" align="center">Luke O’Shea</h3></p>
 					<p align="center">Head of Integrated Personal Commissioning and Person-Centred Care, UCLH</p>	</div>			
@@ -351,7 +351,7 @@ Consultant, UHCW
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/lain.png" alt="Mr Iain Hennessey ">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/lain.png" alt="Mr Iain Hennessey ">
 					
 					<p ><h3 class="post-title" align="center">Mr Iain Hennessey 
 
@@ -366,7 +366,7 @@ Consultant, UHCW
 				
 				<div class="col-lg-4 col-md-4 col-xs-4 thumb">
 					
-						<img class="img-responsive" height="400px" width="300px" src="/mmhn/public/uploads/niket.jpg" alt="Dr Niket Patel">
+						<img class="img-responsive "height="100%" width="100%" src="/mmhn/public/uploads/niket.jpg" alt="Dr Niket Patel">
 					
 					<p ><h3 class="post-title" align="center">Dr Niket Patel
 

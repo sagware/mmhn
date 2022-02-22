@@ -137,7 +137,7 @@
 							@endif
                         </div>
 						<div>
-						<img src="/mmhn/public/uploads/{{$p->cover}}" align="post cover photo" height="150px" width="150px"/></div> <br/>
+						<img src="/mmhn/public/uploads/{{$p->cover}}" align="post cover photo"height="100%" width="100%" /></div> <br/>
                         <!-- begin post-image -->
 						<!--
 						 <blockquote>
@@ -361,9 +361,9 @@
                     <div class="section-container">
                         <h4 class="section-title m-b-20"><span>Add a Comment</span></h4>
                         
-					    <div class="alert alert-warning f-s-12">
+					   <!-- <div class="alert alert-warning f-s-12">
                          Heading1 will be changed to Heading2 automatically
-                        </div> 
+                        </div> -->
                         <form class="form-horizontal" enctype="multipart/form-data" action="/submitcomment" method="POST">
                             <div class="form-group">
                                 <label class="control-label f-s-12 col-md-2" for="name">Your Name <span class="text-danger">*</span></label>

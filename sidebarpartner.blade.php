@@ -1,8 +1,8 @@
 <div class="col-md-3">
 
 <div class="section-container">
-<form  action="/search" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
-<label for="keyword">Search for partners</label>
+<form  action="/search" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+<label for="keyword">Search for Partners</label>
                         <div class="input-group sidebar-search">
 						
 						 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>

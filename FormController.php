@@ -168,6 +168,10 @@ class FormController extends Controller {
 				return view('admin.challengesubmited');
 		}
 		
+		public function showDelete(){
+				return view('admin.deleteuser');
+		}
+		
 		public function profileupdate(){
 				return view('admin.profileupdated');
 		}
@@ -661,7 +665,7 @@ class FormController extends Controller {
 			$ind = User::where('sector', 'Industry')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
 			$cli = User::where('sector', 'Clinical')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
 			$oth = User::where('sector','Other')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
-			$kd = Keywords::all(); 
+			$kd = Keywords::where("id",">",0)->get(); 
 			
 			$others = serialize($others);
 			
@@ -885,7 +889,7 @@ class FormController extends Controller {
 			$ind = User::where('sector', 'Industry')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
 			$cli = User::where('sector', 'Clinical')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
 			$oth = User::where('sector','Other')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
-			$kd = Keywords::all(); 
+			$kd = Keywords::where("id",">",0)->get(); 
 			
 			$others = serialize($others);
 			
@@ -1029,10 +1033,11 @@ class FormController extends Controller {
 					if(empty(Input::get("keywords"))){
 					$s->keywords = serialize(array());
 					}else{
-					$s->keywords = $s->keywords = serialize(Input::get("keywords"));
+					$s->keywords = serialize(Input::get("keywords"));
 					}
 					
-					$partners = Input::get("partners");
+					//$partners = Input::get("partners");
+					$partners =  $request->input('partners', []);
 					//pr($mids,true);
 					$mids =  unserialize($request->input('keywords', []));
 					if(empty($mids)){
@@ -1208,7 +1213,8 @@ class FormController extends Controller {
 						$s->keywords = Input::get("keywords");
 						}
 						
-						$partners = Input::get("partners");
+						$partners =  $request->input('partners', []);
+						
 						$mids =  unserialize($request->input('keywords', []));
 							if(empty($mids)){
 							$mids = array();
@@ -1711,7 +1717,13 @@ class FormController extends Controller {
 					$s->keywords = serialize(array());
 					}
 					
-					$kw = Keywords::whereIn("id",Input::get('keywords'))->get();
+					$mids =  $request->input('keywords', []);
+					if(empty($mids)){
+					$mids = array();
+					}
+					$kw = Keywords::whereIn("id",$mids)->get();
+					
+					
 					$k_text = "";
 					foreach ($kw as $k){
 					$k_text = $k_text." ".$k->name;
@@ -1764,7 +1776,12 @@ class FormController extends Controller {
 					$s->keywords = serialize(array());
 					}
 					
-					$kw = Keywords::whereIn("id",Input::get('keywords'))->get();
+					$mids =  $request->input('keywords', []);
+					if(empty($mids)){
+					$mids = array();
+					}
+					$kw = Keywords::whereIn("id",$mids)->get();
+					
 					$k_text = "";
 					foreach ($kw as $k){
 					$k_text = $k_text." ".$k->name;
@@ -2619,7 +2636,8 @@ class FormController extends Controller {
 			
 			public function showPost($id){
 			$p = PublicStories::where("id",$id)->first();
-			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$cct = $p->category;
+			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category",$cct)->orderBy("updated_at")->take(5)->get();
 			$cat = $p->category;
 			return view('admin.post')->with("p",$p)->with("r",$r)->with("cat",$cat);
 			
@@ -2820,6 +2838,7 @@ class FormController extends Controller {
 			}
 			
 				public function approveNeed($id){
+				
 					$p = PublicStories::where("id",$id)->first();
 					  $p->status="approved";
 					  $p->approved_by =Auth::user()->first_name." ID: ".Auth::user()->id;
@@ -2833,7 +2852,7 @@ class FormController extends Controller {
 			
 				
 				
-			if(!empty($u)){	
+			if(!empty($p->partners) or $p->partners !="N"){	
 			 
 			 $mes = $p->title;
 			 $receiver =  $u->email;
@@ -2843,28 +2862,18 @@ class FormController extends Controller {
 			 
 			 if($p->category == "need"){
 			 
-			 $partners = unserialize($p->partners);
-			$pt = User::whereIn("id",$partners)->where("matching_email","on")->get();
-			//pr($pt,true);
+			 if(empty($p->partners)){
+			 $partners = array();
+			 
+			 }else{
+			  $partners = unserialize($p->partners);
+			 }
 			
-				foreach($pt as $p){
-				
-						 $mes ="";
-						 $receiver =  $p->email;
-						 $name = $p->first_name;
-						 $sender = "admin@materialsinhealth.org";
-						 $pathToFile =$this->url_email."clinical_detail/".$id;
-						  $sub = "no-reply: Partner selection from MMHN"." ".$p->title;
-						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
-						 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-						 
-						  Mail::send('emails.match_making', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
-							 });
-				
-				}
-				
+						
+			$pt = User::where("matching_email","on")->whereIn("id",$partners)->get();
+			
+			
+			
 				
 				
 			 $sub = 'no-reply: Challenge Approval'.' '.$p->title;
@@ -3036,7 +3045,7 @@ class FormController extends Controller {
 			
 			$r = PublicStories::where("id",">",0)->where("category","news")->where("status","approved")->orderBy("updated_at")->take(3)->get();
 			
-			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r);
+			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r)->with("cat",$cat);
 			
 			}
 			
@@ -3049,7 +3058,7 @@ class FormController extends Controller {
 			
 			$r = PublicStories::where("id",">",0)->where("category","event")->where("status","approved")->orderBy("updated_at")->take(3)->get();
 			
-			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r);
+			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r)->with("cat",$cat);
 			
 			}
 			else if($cat =="grant"){
@@ -3062,14 +3071,44 @@ class FormController extends Controller {
 			
 			$r = PublicStories::where("id",">",0)->where("category","grant")->where("status","approved")->orderBy("updated_at")->take(3)->get();
 			
-			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r);
+			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r)->with("cat",$cat);
 			
 			}
 			else if($cat =="partner"){
 			$kkk = Keywords::all();
-			$c = User::orWhere('first_name', 'LIKE', '%'.$keyword.'%')->orWhere('middle_name', 'LIKE', '%'.$keyword.'%')->orWhere('last_name', 'LIKE', '%'.$keyword.'%')->orWhere('bio', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%')->where("status",0)->count();
 			
-			$s = User::orWhere('first_name', 'LIKE', '%'.$keyword.'%')->orWhere('middle_name', 'LIKE', '%'.$keyword.'%')->orWhere('last_name', 'LIKE', '%'.$keyword.'%')->orWhere('bio', 'LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%')->where("status",0)->simplePaginate(10);
+			
+			if(preg_match('/^\S.*\S$/', $keyword)){
+			
+			$keyword = explode(" ", $keyword);
+			$c = User::where("status",0)->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword)->where("status",0)->count();
+			
+			
+			
+		$s = User::where("status",0)->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword)->simplePaginate(10);
+		
+		}else{
+		
+			
+			
+			
+		$s = User::where("status",0)->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%')->simplePaginate(10);
+		
+		
+		
+		$c = User::where("status",0)->where(function($query){
+			$keyword = Input::get('keyword');
+			$query->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%');
+			
+			})->count();		
+		
+		
+		
+		}
+		
+			
+			
+			
 			if(empty($s)){
 			$c =0;
 			}
@@ -3133,10 +3172,10 @@ class FormController extends Controller {
 			$query->orWhere("category", "news")->orWhere("category", "event")->orWhere("category", "grant");
 			})->simplePaginate(10);		
 			
-			$cat ="news";
+			$cat ="sto";
 			
 			
-			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant")->orderBy("updated_at")->take(5)->get();
 			return view('admin.MyPublicStories')->with("pp",$p)->with("r",$r)->with("cat",$cat);
 			
 			}
@@ -3162,7 +3201,7 @@ class FormController extends Controller {
 			public function grant(){
 			//ontact us
 			$p = PublicStories::where("category", "grant")->where("status","approved")->orderBy("updated_at","DESC")->simplePaginate(4);
-			$r = PublicStories::where("id",">",0)->where("category", "event")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category", "grant")->where("status","approved")->orderBy("updated_at")->take(5)->get();
 			$cat = "grant";
 			return view('admin.PublicStories_grant')->with("pp",$p)->with("r",$r)->with("cat",$cat);
 			
@@ -3254,6 +3293,70 @@ class FormController extends Controller {
 			setcookie("analytics", $value2, time() +31536000, '/');
 			return back();
 			
+			}
+			
+			
+			public function deleteUser($id){
+				return view('admin.deleteuser')->with("uid",$id);
+			}
+			
+			public function deletion(){
+			$id = Input::get("uid");
+				$k = User::where("id",$id)->first();
+				
+				if(!empty(Input::get("partner"))){
+				$k->delete();
+				}
+				
+				if(!empty(Input::get("challenges"))){
+				$cu = PublicStories::where("posted_by",$id)->where("category","need")->get();
+				foreach($cu as $c){
+				$c->delete();
+				}
+				}
+				
+				
+				if(!empty(Input::get("news"))){
+				$cu = PublicStories::where("posted_by",$id)->where("category","news")->get();
+				foreach($cu as $c){
+				$c->delete();
+				}
+				}
+				
+				if(!empty(Input::get("events"))){
+				$cu = PublicStories::where("posted_by",$id)->where("category","event")->get();
+				foreach($cu as $c){
+				$c->delete();
+				}
+				}
+				
+				if(!empty(Input::get("grants"))){
+				$cu = PublicStories::where("posted_by",$id)->where("category","grant")->get();
+				foreach($cu as $c){
+				$c->delete();
+				}
+				}
+				
+				if(!empty(Input::get("comments"))){
+				$cu = Comment::where("email",$k->id)->get();
+				foreach($cu as $c){
+				$c->delete();
+				}
+				}
+				
+				if(!empty(Input::get("replies"))){
+				$cu = Comment::where("replier_email",$k->id)->get();
+				foreach($cu as $c){
+				$c->delete();
+				}
+				}	
+				
+				$s = User::all();
+					$kw = Keywords::where("id",">",0)->get();
+			
+
+				return view('admin.users')->with('gra',$s)->with('kk',$kw)->with("msg","deleted");			
+				
 			}
 			
 			

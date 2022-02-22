@@ -197,7 +197,7 @@
         <div class="container">
 			<div class="row">
                 <!-- begin col-12 -->
-				 <h1 >Challenge Form</h1>
+				 <h1 >Submit Challenge</h1>
 			    <div class="col-md-16">
 			        <!-- begin panel -->
                     <div class="panel panel-inverse">

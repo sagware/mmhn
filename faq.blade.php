@@ -138,7 +138,7 @@
         <div class="card mb-0">
             <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                
-                  <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseOne')"> <h2 style="font-size:1.4em;!important;"><b>What is the Materials and Manufacturing in Healthcare Innovation Network (MMHN)?</b></h3></button>
+                  <button id="btnn1" style="background:none; border:none;" onClick="changeAria('btnn1')"> <h2 style="font-size:1.4em;!important;"><b>What is the Materials and Manufacturing in Healthcare Innovation Network (MMHN)?</b></h3></button>
              
             </div>
             <div id="collapseOne" class="card-body collapse"   data-parent="#accordion" >
