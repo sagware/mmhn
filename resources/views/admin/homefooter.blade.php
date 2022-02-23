@@ -1,0 +1,158 @@
+
+<footer>
+<div id="footer" class="footer" >
+        <!-- begin container -->
+        <div class="container">
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-3 -->
+                <div class="col-md-3 col-sm-3">
+                    <!-- begin section-container -->
+                    <div class="section-container">
+                        <h2 class="footer-title">Innovation Stories</h2>
+                        <ul class="categories">
+                            <li><a href="/news">News</a></li>
+							<li><a href="/event">Upcoming Events</a></li>
+							<li><a href="/grant">Upcoming Grants</a></li>
+							
+                        </ul>
+                    </div>
+                    <!-- end section-container -->
+                </div>
+                <!-- end col-3 -->
+                <!-- begin col-3 -->
+                <div class="col-md-3 col-sm-3">
+                    <!-- begin section-container -->
+                    <div class="section-container">
+                        <h2 class="footer-title">Materials and Manufacturing in Healthcare Network</h2>
+                        <ul class="archives">
+                            <li><a href="/aboutus">About Us </a> </li>
+                            <li><a href="/contactus">Contact Us</a> </li>
+                           
+                        </ul>
+                    </div>
+                    <!-- end section-container -->
+                </div>
+                <!-- end col-3 -->
+                <!-- begin col-3 -->
+                <div class="col-md-3 col-sm-3">
+                    <!-- begin section-container -->
+                    <div class="section-container">
+                        <h2 class="footer-title">Policy</h2>
+                        <ul class="recent-post">
+                            <li>
+                                
+                                    <a href="/termsandcondition" title="Terms and Condition" target="_blank">Terms of Use</a>
+                                
+                            </li>
+							<!--
+                            <li>
+                                
+                                    <a href="https://www.ucl.ac.uk/legal-services/privacy/cookie-policy" title="Cookies" target="_blank">Cookies</a>
+                                
+                            </li>
+							-->
+                            <li>
+                              
+                                    <a href="/datapolicy" title="Privacy Policy" target="_blank">Privacy Policy</a>
+                               
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end section-container -->
+                </div>
+                <!-- end col-3 -->
+                <!-- begin col-3 -->
+                <div class="col-md-3 col-sm-3">
+                    <div class="section-container">
+                        <h2 class="footer-title">Contact Us</h2>
+						
+                        <address>
+						<!--
+                            <strong> University College London</strong><br />
+							Gower St,<br />
+							London<br />
+							WC1E 6BT<br />
+							United Kingdom
+                            <br />
+                            <strong>Rita</strong><br />-->
+
+ <ul class="recent-post">  <li> <a href="https://forms.office.com/r/rTqAiYFk1j" title="Report an Error Form" target="_blank">Report a Website Error</a> </li> 
+
+                         <li>    <a href="mailto:contact@materialsinhealth.org">contact@materialsinhealth.org</a></li>
+                        </ul>
+						</address>
+						
+                    </div>
+                    <!-- end section-container -->
+                </div>
+                <!-- end col-3 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+	<!-- end #footer -->
+    <!-- begin #footer-copyright -->
+    <div id="footer-copyright" class="footer-copyright">
+        <!-- begin container -->
+        <div class="container">
+		<span class="copyright" align="center">The project is supported by UCL Innovation & Enterprise via the UCL EPSRC Impact Acceleration Account.</span> <br/>
+		<br/>
+            <span class="copyright">&copy; <?php echo date('Y'); ?> Materials and Manufacturing in Healthcare Innovation Network</span>
+			
+			<!--
+            <ul class="social-media-list">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+            </ul>
+			-->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #footer-copyright -->
+    <!-- begin theme-panel -->
+    
+    </div>
+    <!-- end theme-panel -->
+    </footer>
+	<!-- ================== END BASE JS ================== -->
+	<script>
+	function share(my_id){
+	//alert(y);
+	
+			$('#yloader').show();
+	
+			frmstring = '<form action="/share/me/'+ my_id +'" method="POST" enctype="multipart/form-data"><div><input type="hidden" name="_token" value="{{ csrf_token() }}"/></div><div id="bc">Receiver\'s email Address:<br/><br/><input class="form-control" name="sharemail" type="email" required/><br/></div></div>Attach Message(optional):<br/><br/><textarea class="form-control" name="message" type="text"></textarea><br/><br/><button class="btn btn-info">Share</button></form/>';
+			
+			bootbox.dialog({
+				title: 'Dataset Sharing',
+				size:'medium',
+				message: frmstring
+			 });
+				
+				
+			
+	} //
+	
+			
+	</script>
+	
+	
+	
+	<script>
+	    $(document).ready(function() {
+	        App.init();
+	    });
+	</script>
+	
+	
+	
+	
+
+
+</body>
+</html>
