@@ -55,7 +55,7 @@
     <div id="page-title" class="page-title has-bg">
         <div class="bg-cover"><img src="/assets/homecover.jpeg" alt="about us cover page" /></div>
         <div class="container">
-            <h1>About Materials and Manufacturing in Healthcare Innovation Network
+            <h1>About the Materials and Manufacturing in Healthcare Innovation Network
 </h1>
             <p>Connecting clinicians, researchers, and manufacturers to collaborate, accelerate and drive sector change.
 </p>
