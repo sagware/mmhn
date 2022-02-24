@@ -3043,7 +3043,7 @@ class FormController extends Controller {
 			$keyword = Input::get('keyword');
 			$query->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
 			
-			})->simplePaginate(10);			
+			})->paginate(10)->appends($request->all());		
 			//pr($a,true);
 			
 			$r = PublicStories::where("id",">",0)->where("category","news")->where("status","approved")->orderBy("updated_at")->take(3)->get();
@@ -3057,7 +3057,7 @@ class FormController extends Controller {
 			$keyword = Input::get('keyword');
 			$query->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
 			
-			})->simplePaginate(10);	
+			})->paginate(10)->appends($request->all());
 			
 			$r = PublicStories::where("id",">",0)->where("category","event")->where("status","approved")->orderBy("updated_at")->take(3)->get();
 			
@@ -3069,7 +3069,7 @@ class FormController extends Controller {
 			$keyword = Input::get('keyword');
 			$query->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
 			
-			})->simplePaginate(10);			
+			})->paginate(10)->appends($request->all());		
 			
 			
 			$r = PublicStories::where("id",">",0)->where("category","grant")->where("status","approved")->orderBy("updated_at")->take(3)->get();
@@ -3088,14 +3088,14 @@ class FormController extends Controller {
 			
 			
 			
-		$s = User::where("status",0)->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword)->simplePaginate(10);
+		$s = User::where("status",0)->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword)->paginate(10)->appends($request->all());
 		
 		}else{
 		
 			
 			
 			
-		$s = User::where("status",0)->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%')->simplePaginate(10);
+		$s = User::where("status",0)->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%')->paginate(10)->appends($request->all());
 		
 		
 		
@@ -3126,7 +3126,7 @@ class FormController extends Controller {
 			$keyword = Input::get('keyword');
 			$query->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
 			
-			})->simplePaginate(10);				
+			})->paginate(10)->appends($request->all());			
 			
 			
 			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at")->take(3)->get();
