@@ -141,7 +141,11 @@
                                 <!-- begin post-info -->
                                <div align="right">
                                
+<<<<<<< HEAD
 							<!--	<a href="/partnerslist" class="read-btn" title="Read more"> <b> See all partners</b> <i class="fa fa-angle-double-right" ></i></a> -->
+=======
+								<a href="/partnerslist" class="read-btn" title="Read more"> <b> See all Partners</b> <i class="fa fa-angle-double-right" ></i></a>
+>>>>>>> main
 								
 								</div>
                                 <!-- end post-info -->
@@ -183,7 +187,7 @@
                                 <!-- begin post-info -->
 								<div align="right">
                                
-								<a href="/clinicalneeds" class="read-btn" title="Read more"> <b>See all challenges</b> <i class="fa fa-angle-double-right" ></i></a>
+								<a href="/clinicalneeds" class="read-btn" title="Read more"> <b>See all Challenges</b> <i class="fa fa-angle-double-right" ></i></a>
 								
 								</div>
                                 <!-- end post-info -->
