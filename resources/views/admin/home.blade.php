@@ -121,6 +121,7 @@
 							<h2 class="post-title" align="center">
                                     Partners
                                     </h2>
+<p>Our registered Partners are those who are open to collaborate on solving healthcare challenges.</p>
                                    <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
@@ -132,7 +133,7 @@
 									<li style="font-size: 15px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
 									<li style="font-size: 15px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li>
 									
-									<li style="font-size: 15px;"><a href="/partnerslist" title="Other Category of Partners"> See all partners</a></li>
+									<li style="font-size: 15px;"><a href="/partnerslist" title="Other Category of Partners"> See all Partners</a></li>
 									
 									</ul>
                                 </div>
@@ -141,11 +142,11 @@
                                 <!-- begin post-info -->
                                <div align="right">
                                
-<<<<<<< HEAD
-							<!--	<a href="/partnerslist" class="read-btn" title="Read more"> <b> See all partners</b> <i class="fa fa-angle-double-right" ></i></a> -->
-=======
+
+							<!--	<a href="/partnerslist" class="read-btn" title="Read more"> <b> See all Partners</b> <i class="fa fa-angle-double-right" ></i></a> -->
+
 								<a href="/partnerslist" class="read-btn" title="Read more"> <b> See all Partners</b> <i class="fa fa-angle-double-right" ></i></a>
->>>>>>> main
+
 								
 								</div>
                                 <!-- end post-info -->
@@ -171,6 +172,7 @@
 							 <h2 class="post-title" align="center">
                                        Challenges
                                     </h2>
+<p>Challenges are healthcare-related innovation ideas, problems and projects posted by Partners who are seeking advice and collaboration.</p>
 									<br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
@@ -210,6 +212,7 @@
 							<h2 class="post-title" align="center">
                                        Latest Innovation Stories 
                                     </h2>
+<p>Read about our latest news, grant opportunities and upcoming events related to the Network and healthcare innovation.</p>
                                   <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
