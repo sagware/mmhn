@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>My challenges|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -49,7 +49,7 @@
                 <div class="col-md-9">
                     <!-- begin post-list -->
 					<div align="right">
-					<button class="read-btn"><a href="/clinical_need_form"><i class="fas fa-plus"></i> &nbsp;Submit Challenge</a></button>
+					<a href="/clinical_need_form" style=" background-color: #333333;color: white; padding: 15px 25px;"><i class="fas fa-plus"></i> &nbsp;Submit Challenge</a>
 					
 					</div>
 					<br/>
@@ -81,7 +81,7 @@
                                     <div class="read-btn-container">
 									@if(Auth::check())
 									@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
-									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn"><button >Edit</button> </a>
+									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
 									@endif
 									@endif
                                         <a href="/clinical_detail/{{$p->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>

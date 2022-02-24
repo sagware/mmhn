@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Partner Detail for {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	@include("admin.analytics")
@@ -60,7 +60,7 @@
 									<a href="#"><img align="right"src="/mmhn/public/uploads/{{$s->picture}}" alt="{{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}" height="400px" width="400px" /></a>
 									@endif
                             
-                                         <a href="/partner/{{$s->id}}" title="Click to view full details">{{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</a>
+                                       <!--  <a href="/partner/{{$s->id}}" title="Click to view full details">{{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</a> -->
                                         <span class="comment-date">
                                             Date joined <span class="underline">{{ date('D jS, M Y, h:i:s A', strtotime($s->created_at)) }}  </span>
                                         </span>

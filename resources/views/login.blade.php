@@ -63,7 +63,7 @@
                 <!-- begin login-header -->
                 <div class="login-header">
                     <div class="brand">
-                       <a href="/" title="Home"> <span class="logo"></span></a> Log in
+                       <a href="/" title="Home"> <span class="logo"></span></a> <h1>Log in</h1>
 						@if(Session::has('msg'))
 						<script type="text/javascript">
 						alert('Account created successfully...');
@@ -105,8 +105,8 @@
 						
                         <div class="m-t-20 m-b-40 p-b-40 text-inverse">
 						
-                            Not a member yet? <a href="/register"  class="btn btn-primary btn-block btn-lg"><b> Click to become a member</b></a>  <br/>
-							Forgot password? <a href="/forgotpassword"  class="btn btn-primary btn-block btn-lg"><b> Click to reset your password.</b></a> 
+                            Not a member yet? <a href="/register"  class="btn btn-primary btn-block btn-lg"><b> Become a member</b></a>  <br/>
+							Forgot password? <a href="/forgotpassword"  class="btn btn-primary btn-block btn-lg"><b> Reset your password.</b></a> 
                         </div>
 						
 						

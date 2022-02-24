@@ -494,6 +494,155 @@ class FormController extends Controller {
 					//pr($others,true);
 			$us = User::where("id","!=",Auth::user()->id)->get();
 			
+			//save
+			
+		$message = request()->get('message');		
+		 $dom = new \DomDocument();       
+         $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);       
+         $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $image) {
+            $imageSrc = $image->getAttribute('src');
+            /** if image source is 'data-url' */
+            if (preg_match('/data:image/', $imageSrc)) {
+                /** etch the current image mimetype and stores in $mime */
+                preg_match('/data:image\/(?<mime>.*?)\;/', $imageSrc, $mime);
+                $mimeType = $mime['mime'];
+                /** Create new file name with random string */
+                $filename = uniqid();
+
+                /** Public path. Make sure to create the folder
+                 * public/uploads
+                 */
+                $filePath = "/uploads/$filename.$mimeType";
+
+                /** Using Intervention package to create Image */
+                Image::make($imageSrc)
+                    /** encode file to the specified mimeType */
+                    ->encode($mimeType, 100)
+                    /** public_path - points directly to public path */
+                    ->save(public_path($filePath));
+
+                $newImageSrc = asset($filePath);
+                $image->removeAttribute('src');
+                $image->setAttribute('src', $newImageSrc);
+            }
+        }
+        /** Save this new message body in the database table */
+        $newMessageBody = $dom->saveHTML();
+		$newMessageBody = $dom->saveHTML();
+		$newMessageBody = str_replace("<h5","<h6",$newMessageBody);
+		$newMessageBody = str_replace("<h4","<h5",$newMessageBody);
+		$newMessageBody = str_replace("<h3","<h4",$newMessageBody);
+		$newMessageBody = str_replace("<h2","<h3",$newMessageBody);
+		$newMessageBody = str_replace("<h1","<h2",$newMessageBody);
+		$names = array();
+		$newMessageBody = str_replace("materialsinhealth.org/uploads","materialsinhealth.org/mmhn/public/uploads",$newMessageBody);
+		
+			if(!empty($request->file('pic'))){
+	
+				$fil  = $request->file('pic');
+				$fileFalseName ="";
+				$m =1;
+				
+				foreach($fil as $fil){
+				
+				$ext = $fil->getClientOriginalExtension();
+				
+				
+				
+				$i = $fil->getClientOriginalName();
+				$fileName = $i;								
+				$fileFalseName = date('Ymhis').preg_replace("/[^A-Za-z0-9]/", "", $fil->getClientOriginalName()).'.'.$ext;					
+				$newurl = public_path() . DS . 'uploads';
+				$upl = $fil->move($newurl, $fileFalseName);
+				array_push($names,$fileFalseName);
+				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(1024, 683)->save();
+				
+				}
+	
+				
+				}
+				else{
+				
+				$fileFalseName ="emptyimage.png";
+				}
+				
+				
+				
+				if($request->file('cover')!=""){
+				$fil  = $request->file('cover');
+				//pr($fil,true);
+				$ext = $fil->getClientOriginalExtension();
+				
+				
+				if($ext == "jpeg" || $ext == "jpg" || $ext == "PNG" || $ext == "JPG" || $ext == "JPEG"|| $ext == "png"){
+				$i = $fil->getClientOriginalName();
+				$fileName = $i;								
+				$fileFalseName2 = date('Ymhis').preg_replace("/[^A-Za-z0-9]/", "", $fil->getClientOriginalName()).'.'.$ext;					
+				$newurl = public_path() . DS . 'uploads';
+				$upl = $fil->move($newurl, $fileFalseName2);
+				
+				$fil2 = Image::make($newurl.DS. $fileFalseName2)->resize(1024, 683)->save();
+				
+				}else{
+				return back()->with("uplerror","invalid format");
+				}
+				
+				}
+				else{
+				
+				$fileFalseName2 ="emptyimage.png";
+				}
+				
+				
+				
+					
+					$s = new PublicStories;
+					$s->title = Input::get("name");
+					if(empty(Input::get("keywords"))){
+					$s->keywords = serialize(array());
+					}else{
+					$s->keywords = serialize(Input::get("keywords"));
+					}
+					
+					//$partners = Input::get("partners");
+					//$partners =  $request->input('partners', []);
+					//pr($mids,true);
+					$mids =  unserialize(serialize($request->input('keywords', [])));
+					if(empty($mids)){
+					$mids = array();
+					}
+					$kw = Keywords::whereIn("id",$mids)->get();
+					$k_text = "";
+					
+					if(count($kw)>0){
+					foreach ($kw as $k){
+					$k_text = $k_text." ".$k->name;
+					}
+					}
+					
+					$s->keywords_text = $k_text;				
+					
+					if(!empty(Input::get("tags-3"))){
+					$s->other_keyword = serialize(Input::get("tags-3"));
+					}
+					$s->posted_by = Auth::user()->id;
+					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
+					$s->news_body = $newMessageBody;
+					$s->category = "need";
+					$s->cover = $fileFalseName2;
+					if($m=1){
+					$s->pic = serialize($names);
+					}else{
+					$s->pic = serialize($fileFalseName);
+					}
+					//$s->partners = serialize($partners);
+					$s->status = "under review";
+					$s->save();
+					
+					
+			
 			$id = array();
 			$id2 = array();// for text similarity
 			$sc = array();
@@ -714,6 +863,151 @@ class FormController extends Controller {
 					//pr($others,true);
 			$us = User::where("id","!=",Auth::user()->id)->get();
 			
+			$message = request()->get('message');		
+		 $dom = new \DomDocument();       
+         $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);       
+         $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $image) {
+            $imageSrc = $image->getAttribute('src');
+            /** if image source is 'data-url' */
+            if (preg_match('/data:image/', $imageSrc)) {
+                /** etch the current image mimetype and stores in $mime */
+                preg_match('/data:image\/(?<mime>.*?)\;/', $imageSrc, $mime);
+                $mimeType = $mime['mime'];
+                /** Create new file name with random string */
+                $filename = uniqid();
+
+                /** Public path. Make sure to create the folder
+                 * public/uploads
+                 */
+                $filePath = "/uploads/$filename.$mimeType";
+
+                /** Using Intervention package to create Image */
+                Image::make($imageSrc)
+                    /** encode file to the specified mimeType */
+                    ->encode($mimeType, 100)
+                    /** public_path - points directly to public path */
+                    ->save(public_path($filePath));
+
+                $newImageSrc = asset($filePath);
+                $image->removeAttribute('src');
+                $image->setAttribute('src', $newImageSrc);
+            }
+        }
+        /** Save this new message body in the database table */
+        $newMessageBody = $dom->saveHTML();
+		$newMessageBody = $dom->saveHTML();
+		$newMessageBody = str_replace("<h5","<h6",$newMessageBody);
+		$newMessageBody = str_replace("<h4","<h5",$newMessageBody);
+		$newMessageBody = str_replace("<h3","<h4",$newMessageBody);
+		$newMessageBody = str_replace("<h2","<h3",$newMessageBody);
+		$newMessageBody = str_replace("<h1","<h2",$newMessageBody);
+		$names = array();
+		$newMessageBody = str_replace("materialsinhealth.org/uploads","materialsinhealth.org/mmhn/public/uploads",$newMessageBody);
+		
+			if(!empty($request->file('pic'))){
+	
+				$fil  = $request->file('pic');
+				$fileFalseName ="";
+				$m =1;
+				
+				foreach($fil as $fil){
+				
+				$ext = $fil->getClientOriginalExtension();
+				
+				
+				
+				$i = $fil->getClientOriginalName();
+				$fileName = $i;								
+				$fileFalseName = date('Ymhis').preg_replace("/[^A-Za-z0-9]/", "", $fil->getClientOriginalName()).'.'.$ext;					
+				$newurl = public_path() . DS . 'uploads';
+				$upl = $fil->move($newurl, $fileFalseName);
+				array_push($names,$fileFalseName);
+				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(1024, 683)->save();
+				
+				}
+	
+				
+				}
+				else{
+				
+				$fileFalseName ="emptyimage.png";
+				}
+				
+				
+				
+				if($request->file('cover')!=""){
+				$fil  = $request->file('cover');
+				//pr($fil,true);
+				$ext = $fil->getClientOriginalExtension();
+				
+				
+				if($ext == "jpeg" || $ext == "jpg" || $ext == "PNG" || $ext == "JPG" || $ext == "JPEG"|| $ext == "png"){
+				$i = $fil->getClientOriginalName();
+				$fileName = $i;								
+				$fileFalseName2 = date('Ymhis').preg_replace("/[^A-Za-z0-9]/", "", $fil->getClientOriginalName()).'.'.$ext;					
+				$newurl = public_path() . DS . 'uploads';
+				$upl = $fil->move($newurl, $fileFalseName2);
+				
+				$fil2 = Image::make($newurl.DS. $fileFalseName2)->resize(1024, 683)->save();
+				
+				}else{
+				return back()->with("uplerror","invalid format");
+				}
+				
+				}
+				else{
+				
+				$fileFalseName2 ="emptyimage.png";
+				}
+				
+		
+		$s = PublicStories::where("id",Input::get("id"))->first();
+					$s->title = Input::get("name");
+					if(empty(Input::get("keywords"))){
+					$s->keywords = serialize(array());
+					}else{
+					$s->keywords = serialize(Input::get("keywords"));
+					}
+					
+					//$partners = Input::get("partners");
+					//$partners =  $request->input('partners', []);
+					//pr($mids,true);
+					$mids =  unserialize(serialize($request->input('keywords', [])));
+					if(empty($mids)){
+					$mids = array();
+					}
+					$kw = Keywords::whereIn("id",$mids)->get();
+					$k_text = "";
+					
+					if(count($kw)>0){
+					foreach ($kw as $k){
+					$k_text = $k_text." ".$k->name;
+					}
+					}
+					
+					$s->keywords_text = $k_text;				
+					
+					
+					if(!empty(Input::get("tags-3"))){
+					$s->other_keyword = serialize(Input::get("tags-3"));
+					}
+					$s->posted_by = Auth::user()->id;
+					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
+					$s->news_body = $newMessageBody;
+					$s->category = "need";
+					$s->cover = $fileFalseName2;
+					if($m=1){
+					$s->pic = serialize($names);
+					}else{
+					$s->pic = serialize($fileFalseName);
+					}
+					//$s->partners = serialize($partners);
+					$s->status = "under review";
+					$s->save();
+					
+			
 			$id = array();
 			$id2 = array();// for text similarity
 			$sc = array();
@@ -925,149 +1219,16 @@ class FormController extends Controller {
 		public function submitNeed(Request $request){ 
 		if(Auth::check()){
 		
-		
-		 $message = request()->get('detail');		
-		 $dom = new \DomDocument();       
-         $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);       
-         $images = $dom->getElementsByTagName('img');
-
-        foreach ($images as $image) {
-            $imageSrc = $image->getAttribute('src');
-            /** if image source is 'data-url' */
-            if (preg_match('/data:image/', $imageSrc)) {
-                /** etch the current image mimetype and stores in $mime */
-                preg_match('/data:image\/(?<mime>.*?)\;/', $imageSrc, $mime);
-                $mimeType = $mime['mime'];
-                /** Create new file name with random string */
-                $filename = uniqid();
-
-                /** Public path. Make sure to create the folder
-                 * public/uploads
-                 */
-                $filePath = "/uploads/$filename.$mimeType";
-
-                /** Using Intervention package to create Image */
-                Image::make($imageSrc)
-                    /** encode file to the specified mimeType */
-                    ->encode($mimeType, 100)
-                    /** public_path - points directly to public path */
-                    ->save(public_path($filePath));
-
-                $newImageSrc = asset($filePath);
-                $image->removeAttribute('src');
-                $image->setAttribute('src', $newImageSrc);
-            }
-        }
-        /** Save this new message body in the database table */
-        $newMessageBody = $dom->saveHTML();
-		$newMessageBody = $dom->saveHTML();
-		$newMessageBody = str_replace("<h5","<h6",$newMessageBody);
-		$newMessageBody = str_replace("<h4","<h5",$newMessageBody);
-		$newMessageBody = str_replace("<h3","<h4",$newMessageBody);
-		$newMessageBody = str_replace("<h2","<h3",$newMessageBody);
-		$newMessageBody = str_replace("<h1","<h2",$newMessageBody);
-		$names = array();
-		$newMessageBody = str_replace("materialsinhealth.org/uploads","materialsinhealth.org/mmhn/public/uploads",$newMessageBody);
-		
-			if(!empty($request->file('pic'))){
-	
-				$fil  = $request->file('pic');
-				$fileFalseName ="";
-				$m =1;
-				
-				foreach($fil as $fil){
-				
-				$ext = $fil->getClientOriginalExtension();
-				
-				
-				
-				$i = $fil->getClientOriginalName();
-				$fileName = $i;								
-				$fileFalseName = date('Ymhis').preg_replace("/[^A-Za-z0-9]/", "", $fil->getClientOriginalName()).'.'.$ext;					
-				$newurl = public_path() . DS . 'uploads';
-				$upl = $fil->move($newurl, $fileFalseName);
-				array_push($names,$fileFalseName);
-				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(1024, 683)->save();
-				
-				}
-	
-				
-				}
-				else{
-				
-				$fileFalseName ="emptyimage.png";
-				}
-				
-				
-				
-				if($request->file('cover')!=""){
-				$fil  = $request->file('cover');
-				//pr($fil,true);
-				$ext = $fil->getClientOriginalExtension();
-				
-				
-				if($ext == "jpeg" || $ext == "jpg" || $ext == "PNG" || $ext == "JPG" || $ext == "JPEG"|| $ext == "png"){
-				$i = $fil->getClientOriginalName();
-				$fileName = $i;								
-				$fileFalseName2 = date('Ymhis').preg_replace("/[^A-Za-z0-9]/", "", $fil->getClientOriginalName()).'.'.$ext;					
-				$newurl = public_path() . DS . 'uploads';
-				$upl = $fil->move($newurl, $fileFalseName2);
-				
-				$fil2 = Image::make($newurl.DS. $fileFalseName2)->resize(1024, 683)->save();
-				
-				}else{
-				return back()->with("uplerror","invalid format");
-				}
-				
-				}
-				else{
-				
-				$fileFalseName2 ="emptyimage.png";
-				}
-				
+		//pr(Input::all(),true);
+		 
 				
 				
 					
-					$s = new PublicStories;
-					$s->title = Input::get("name");
-					if(empty(Input::get("keywords"))){
-					$s->keywords = serialize(array());
-					}else{
-					$s->keywords = serialize(Input::get("keywords"));
-					}
+					$s = PublicStories::where("title",Input::get("name"))->where("keywords",Input::get("keywords"))->first();
+					//pr($s,true);
 					
-					//$partners = Input::get("partners");
-					$partners =  $request->input('partners', []);
-					//pr($mids,true);
-					$mids =  unserialize($request->input('keywords', []));
-					if(empty($mids)){
-					$mids = array();
-					}
-					$kw = Keywords::whereIn("id",$mids)->get();
-					$k_text = "";
-					
-					if(count($kw)>0){
-					foreach ($kw as $k){
-					$k_text = $k_text." ".$k->name;
-					}
-					}
-					
-					$s->keywords_text = $k_text;				
-					
-					
-					$s->other_keyword = serialize(Input::get("oth"));
-					$s->posted_by = Auth::user()->id;
-					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
-					$s->news_body = $newMessageBody;
-					$s->category = "need";
-					$s->cover = $fileFalseName2;
-					if($m=1){
-					$s->pic = serialize($names);
-					}else{
-					$s->pic = serialize($fileFalseName);
-					}
-					$s->partners = serialize($partners);
-					$s->status = "under review";
+					$partners =  serialize($request->input('partners', []));
+					$s->partners = $partners;
 					$s->save();
 					
 					
@@ -1103,173 +1264,14 @@ class FormController extends Controller {
 		if(Auth::check()){
 		//pr(Input::all(),true);
 		
-		 $message = request()->get('detail');		
-		 $dom = new \DomDocument();       
-        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);       
-        $images = $dom->getElementsByTagName('img');
-
-        foreach ($images as $image) {
-            $imageSrc = $image->getAttribute('src');
-            /** if image source is 'data-url' */
-            if (preg_match('/data:image/', $imageSrc)) {
-                /** etch the current image mimetype and stores in $mime */
-                preg_match('/data:image\/(?<mime>.*?)\;/', $imageSrc, $mime);
-                $mimeType = $mime['mime'];
-                /** Create new file name with random string */
-                $filename = uniqid();
-
-                /** Public path. Make sure to create the folder
-                 * public/uploads
-                 */
-                $filePath = "/uploads/$filename.$mimeType";
-
-                /** Using Intervention package to create Image */
-                Image::make($imageSrc)
-                    /** encode file to the specified mimeType */
-                    ->encode($mimeType, 100)
-                    /** public_path - points directly to public path */
-                    ->save(public_path($filePath));
-
-                $newImageSrc = asset($filePath);
-                $image->removeAttribute('src');
-                $image->setAttribute('src', $newImageSrc);
-            }
-        }
-        /** Save this new message body in the database table */
-        $newMessageBody = $dom->saveHTML();
-		$newMessageBody = $dom->saveHTML();
-		$newMessageBody = str_replace("<h5","<h6",$newMessageBody);
-		$newMessageBody = str_replace("<h4","<h5",$newMessageBody);
-		$newMessageBody = str_replace("<h3","<h4",$newMessageBody);
-		$newMessageBody = str_replace("<h2","<h3",$newMessageBody);
-		$newMessageBody = str_replace("<h1","<h2",$newMessageBody);
-		$names = array();
-		$newMessageBody = str_replace("materialsinhealth.org/uploads","materialsinhealth.org/mmhn/public/uploads",$newMessageBody);
-		
-			if(!empty($request->file('pic'))){
-	
-				$fil  = $request->file('pic');
-				$fileFalseName ="";
-				$m =1;
-				
-				foreach($fil as $fil){
-				
-				$ext = $fil->getClientOriginalExtension();
-				
-				
-				
-				$i = $fil->getClientOriginalName();
-				$fileName = $i;								
-				$fileFalseName = date('Ymhis').preg_replace("/[^A-Za-z0-9]/", "", $fil->getClientOriginalName()).'.'.$ext;					
-				$newurl = public_path() . DS . 'uploads';
-				$upl = $fil->move($newurl, $fileFalseName);
-				array_push($names,$fileFalseName);
-				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(1024, 683)->save();
-				
-				}
-	
-				
-				}
-				else{
-				
-				$fileFalseName ="emptyimage.png";
-				}
-				
-				
-				
-				if($request->file('cover')!=""){
-				$fil  = $request->file('cover');
-				//pr($fil,true);
-				$ext = $fil->getClientOriginalExtension();
-				
-				
-				if($ext == "jpeg" || $ext == "jpg" || $ext == "PNG" || $ext == "JPG" || $ext == "JPEG"|| $ext == "png"){
-				$i = $fil->getClientOriginalName();
-				$fileName = $i;								
-				$fileFalseName2 = date('Ymhis').preg_replace("/[^A-Za-z0-9]/", "", $fil->getClientOriginalName()).'.'.$ext;					
-				$newurl = public_path() . DS . 'uploads';
-				$upl = $fil->move($newurl, $fileFalseName2);
-				
-				$fil2 = Image::make($newurl.DS. $fileFalseName2)->resize(1024, 683)->save();
-				
-				}else{
-				return back()->with("uplerror","invalid format");
-				}
-				
-				}
-				else{
-				
-				$fileFalseName2 ="emptyimage.png";
-				}
-				
-				$s = PublicStories::where('id', Input::get("id"))->first();
-				
-					if(Auth::user()->role = "admin" && Auth::user()->id != $s->posted_by){
-						$s->title = Input::get("name");
-						if(empty(Input::get("keywords"))){
-						$s->keywords = serialize(array());
-						}
-						else{
-						$s->keywords = Input::get("keywords");
-						}
-						
-						$partners =  $request->input('partners', []);
-						
-						$mids =  unserialize($request->input('keywords', []));
-							if(empty($mids)){
-							$mids = array();
-							}
-						$kw = Keywords::whereIn("id",$mids)->get();
-						$k_text = "";
-						foreach ($kw as $k){
-						$k_text = $k_text." ".$k->name;
-						}
-						$s->keywords_text = $k_text;				
+					$s = PublicStories::where("id",Input::get("id"))->first();
+					//pr($s,true);
 					
-					
-					$s->other_keyword = serialize(Input::get("oth"));
-					$s->news_body = $newMessageBody;
-					$s->category = "need";
-					$s->partners = serialize($partners);
-					$s->status = "under review";
-					
-					
-					}else{
-					$s->title = Input::get("name");
-					if(empty(Input::get("keywords"))){
-					$s->keywords = serialize(array());
-					}else{
-					$s->keywords = Input::get("keywords");
-					}
-					$partners = Input::get("partners");
-					$mids =  unserialize($request->input('keywords', []));
-					$kw = Keywords::whereIn("id",$mids)->get();
-					$k_text = "";
-					foreach ($kw as $k){
-					$k_text = $k_text." ".$k->name;
-					}
-					$s->keywords_text = $k_text;				
-					
-					
-					$s->other_keyword = serialize(Input::get("oth"));
-					$s->posted_by = Auth::user()->id;
-					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
-					$s->news_body = $newMessageBody;
-					$s->category = "need";
-					$s->cover = $fileFalseName2;
-					if($m=1){
-					$s->pic = serialize($names);
-					}else{
-					$s->pic = serialize($fileFalseName);
-					}
-					$s->partners = serialize($partners);
-					$s->status = "under review";
-					
-					}
-					
+					//$partners = Input::get("partners");
+					$partners =  serialize($request->input('partners', []));
+					$s->partners = $partners;
 					$s->save();
-					
-					
+					//pr($s,true);
 					$admins = User::where("role", "admin")->get();
 					//$si = PublicStories::where("title",Input::get("name"))->where("posted_by",Auth::user()->id)->first();
 					
@@ -2634,6 +2636,7 @@ class FormController extends Controller {
 			
 			}
 			
+			
 			public function showPost($id){
 			$p = PublicStories::where("id",$id)->first();
 			$cct = $p->category;
@@ -3255,10 +3258,11 @@ class FormController extends Controller {
 			public function unMatchPartner($id){
 				$k = PublicStories::where("id",$id)->first();
 				$pts = unserialize($k->partners);
-				
-				foreach (array_keys($pts, Auth::user()->id, true) as $key) {
-						unset($pts[$key]);
-					}
+				//pr($pts);
+				$pts = array_diff($pts,array(Auth::user()->id));
+			    $k->partners = serialize($pts);
+				$k->save();
+				//pr($pts,true);
 				return back()->with("unmatch","unmatched");
 			}
 			

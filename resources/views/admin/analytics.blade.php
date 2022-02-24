@@ -1,5 +1,16 @@
 <link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
 
+<?php if(!isset($_COOKIE["analytics"])) { ?>
+		<style  type="text/css">
+		body {
+		overflow:hidden;
+		}
+		</style>
+
+<?php } ?>
+
+
+
 <?php if(isset($_COOKIE["analytics"])) { ?>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -12,14 +23,6 @@
   gtag('config', 'UA-204660462-1');
 </script>
 
-<style type="text/css">
-
-.body {
-    height: 100%;
-    overflow: hidden;
-}
-
-</style>
 
 <?php } ?>
 
@@ -39,6 +42,7 @@ body {
     display: flex;
 
     flex-direction: column;
+	
 
 }
 

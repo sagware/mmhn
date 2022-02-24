@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Grants|Materials and Manufacturing in Healthcare Innovation Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	@include("admin.analytics")
@@ -52,7 +52,7 @@
 <p>Here you will find healthcare-related grant opportunities. Note that there are eligibility criteria to most grants, for instance, grants requiring a Principal Investigator from a research institute, or requiring a Business Lead. You can find out more about grant opportunities through the funder’s website.</p>   
                 <div class="col-md-9">
 				<div align="right">
-				<a href="/show_news_form" class="read-btn" title="Submit Grant"><i class="fas fa-plus"></i>&nbsp;Submit Grant</a>
+				<a href="/show_news_form" style=" background-color: #333333;color: white; padding: 15px 25px;" class="read-btn" title="Submit Grant"><i class="fas fa-plus"></i>&nbsp;Submit Grant</a>
 				<br/>
 				<br/>
 				</div>
@@ -98,7 +98,7 @@
                                     <div class="read-btn-container">
 									@if(Auth::check())
 											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
-											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn"><button >Edit</button> </a>
+											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
 											@endif
 									@endif
                                         <a href="/public_post/{{$p->id}}" title="Read more" class="read-btn">Read More <i class="fa fa-angle-double-right"></i></a>

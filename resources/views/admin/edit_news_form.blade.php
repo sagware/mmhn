@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Edit Innovation Story| Materials and Manufacturing in Healthcare Innovation Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -162,37 +162,32 @@
 	
             @include("admin.header")
             <!-- end navbar-collapse -->
-        </div>
+         </div>
         <!-- end container -->
-    </div>
+    </div>		
+
 	
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->
 		
 		
-
-
-
-
 		<!-- end #sidebar -->
 		
 		<!-- begin #content -->
-		<div align="left">
-		<br/>
+		
 			<!-- begin breadcrumb -->
 			
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
 			
 			<!-- end page-header -->
-			<br/>
-			<br/>
+			
 			<!-- begin row -->
+			 <div id="content" class="content">
+        <!-- begin container -->
+        <div class="container">
 			<div class="row">
-                <!-- begin col-12 -->
-			    <div class="col-md-16">
-			        <!-- begin panel -->
                    
 						
 						<div style="padding:1.5em;">
@@ -245,9 +240,9 @@
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email" for="summary">Post in summary (text only and max. number of characters: 100) <span class="text-danger">*</span></label> 
+									<label class="control-label col-md-4 col-sm-4" for="email" for="summary">Post in summary (text only and max. number of characters: 500) <span class="text-danger">*</span></label> 
 									<div class="col-md-6 col-sm-6">
-										<textarea name="summary" id="summary" class="textarea form-control" maxlength="100" id="wysihtml5" placeholder="Enter text ..." rows="12" required>{{$n->summary}}</textarea>
+										<textarea name="summary" id="summary" class="textarea form-control" maxlength="500" id="wysihtml5" placeholder="Enter text ..." rows="12" required>{{$n->summary}}</textarea>
 									</div>
 								</div>
 								
@@ -293,29 +288,24 @@
 								</div>
                             </form>
 							
-							 
-								
-								
+					 	
                         </div>
                     </div>
                     <!-- end panel -->
                 </div>
+				
                 <!-- end col-12 -->
             </div>
+			
             <!-- end row -->
 		</div>
 		<!-- end #content -->
-		
-        <!-- begin theme-panel -->
-        
-        <!-- end theme-panel -->
-		
-		<!-- begin scroll to top btn -->
-		
-		<!-- end scroll to top btn -->
 	</div>
 	
-	<!-- end page container -->
+    <!-- begin #footer -->
+  <!-- begin scroll to top btn -->
+		
+	</div>
 	 @include("admin.homefooter")
 	</body>
 	</html>

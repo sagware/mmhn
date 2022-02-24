@@ -6,9 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>DMU ODAP Project</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
+	<meta content="width=device-width" name="viewport">
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />

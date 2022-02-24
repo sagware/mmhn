@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Posts|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	@include("admin.analytics")
@@ -23,6 +23,21 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	<style type="text/css">
+	.login a p {display:none;}
+.login a:hover p {display:block;}
+
+img {
+max-width: 80%;
+}
+
+
+.cpt{
+width: 75%;
+height: auto;
+margin: 0 12.5%;
+}
+	</style>
 </head>
 <body>
     <!-- begin #header -->
@@ -57,7 +72,7 @@
                         </h1>
 						@if(Auth::check())
 											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
-											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn"><button >Edit</button> </a>
+											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn">Edit </a>
 											@endif
 									@endif
 
@@ -67,7 +82,7 @@
                         </div>
                         <!-- begin post-image -->
 						
-						<img src="/mmhn/public/uploads/{{$p->pic}}" align="post cover photo" height="100%" width="100%"/> <br/>
+						<img src="/mmhn/public/uploads/{{$p->pic}}" align="post cover photo" class="cpt"/> <br/>
 						
 						 <blockquote>
 						 

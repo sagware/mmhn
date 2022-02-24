@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8" />
 	<title>Match Making and Supporting Documents Edit |Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 <!-- ================== BEGIN BASE CSS STYLE ================== -->
@@ -199,8 +199,8 @@
 								<input type="hidden" name="id" value="{{$pid}}"/>
 								<input type="hidden" name="keywords" value="{{serialize($kw)}}"/>
 								<input type="hidden" name="detail" value="{{$detail}}"/>
-								<input type="hidden" name="oth[]" value="{{$others}}"/>
-								<input type="hidden" name="sbm" value="1"/>
+								<!--<input type="hidden" name="oth[]" value="{{$others}}"/>
+								<input type="hidden" name="sbm" value="1"/>-->
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 	
 <p></p>								

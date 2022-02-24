@@ -5,7 +5,8 @@
 <!--<![endif]-->
 <head>
 	
-	<title>Reset Password | Materials and Manufacturing in Healthcare Network | Register Page</title>	
+	<title>Reset Password | Materials and Manufacturing in Healthcare Network | Register Page</title>
+	<meta content="width=device-width" name="viewport">	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />

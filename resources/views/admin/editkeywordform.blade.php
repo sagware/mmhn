@@ -3,7 +3,7 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
-
+<meta content="width=device-width" name="viewport">
 @include('partials.header')
 <body>
 @include("admin.cookiebanner")

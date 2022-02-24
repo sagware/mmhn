@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Match Making and Supporting Documents | Materials and Manufacturing in Healthcare Innovation Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -185,39 +185,24 @@
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
                             
-                            <h1 class="panel-title">Match Making and Supporting Documents</h1>
+                            <h1 class="panel-title">Match Making (Optional)</h1>
                         </div>
                         <div class="panel-body panel-form">
                             <form  action="/submit/need" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
 								
+								
 								<input type="hidden" name="name" value="{{$name}}"/>
+								
 								<input type="hidden" name="keywords" value="{{serialize($kw)}}"/>
+								
 								<input type="hidden" name="detail" value="{{$detail}}"/>
+								<!--
 								<input type="hidden" name="oth[]" value="{{$others}}"/>
-								<input type="hidden" name="sbm" value="1"/>
+								<input type="hidden" name="sbm" value="1"/> -->
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 <p></p>								
 <p align="left" style="padding:1.5em;" > Part 2 of 2 - Here you can add a cover photo and any supporting documents to your post. You can also choose the Partners who you would like us to notify about your Challenge upon approval. Partners that you select will receive an email notification saying they have been “matched” to your Challenge and will be given options whether to accept or decline the match. Matches to Challenges will appear at the end of Challenge posts, if a Partner declines a match, their name will be removed from the given post. If they accept, we hope this matching helps to start the conversation and engagement on the virtual platform. </p>
 								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Photo (optional)</label>
-									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control" id="cover" value="{{ old('cover') }}"   name="cover"/>
-										
-										
-									</div>
-								</div>
-								
-								
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Documents (optional)</label>
-									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control" id="pic"   name="pic[]" value="{{ old('pic') }}" multiple/>
-										
-										
-									</div>
-								</div>
 								
 								
 								<div class="form-group">

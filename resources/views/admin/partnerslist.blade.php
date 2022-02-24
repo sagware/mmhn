@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Partners|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	@include("admin.cookiebanner")
@@ -24,6 +24,12 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	<style>
+	.img{
+	height:100%;
+	width:auto;
+	}
+	</style>
 </head>
 <body>
 @include("admin.cookiebanner")
@@ -50,7 +56,7 @@
                 <!-- begin col-9 -->
                 <div class="col-md-9">
                     <!-- begin post-list -->
-                  <h1>Partners</h1> <a href="/academic/partners" class="read-btn" title="Academic Partners"><label for="bt1">Academic</label></a> |<a href="/industry/partners" class="read-btn" title="Industry partners"><label for="bt2">Industry</label></a> | <a href="/clinical/partners" title="Clinical partners" class="read-btn"><label id="bt3">Clinical</label></a> |<a href="/other/partners" title="Other category partners" class="read-btn"><label id="bt4">Others </label></a>  | <a href="/partnerslist" title="All Partners List" class="read-btn"><label id="bt5">All</label></a>
+                  <h1>Partners</h1> <a href="/academic/partners" style=" background-color: #333333;color: white; padding: 15px 25px;" title="Academic Partners"><label for="bt1">Academic</label></a> |<a href="/industry/partners" style=" background-color: #333333;color: white; padding: 15px 25px;" title="Industry partners"><label for="bt2">Industry</label></a> | <a href="/clinical/partners" title="Clinical partners" style=" background-color: #333333;color: white; padding: 15px 25px;"><label id="bt3">Clinical</label></a> |<a href="/other/partners" title="Other category partners" style=" background-color: #333333;color: white; padding: 15px 25px;"><label id="bt4">Others </label></a>  | <a href="/partnerslist" title="All Partners List" style=" background-color: #333333;color: white; padding: 15px 25px;"><label id="bt5">All</label></a>
 					<br/><br/>
 					
 					<div class="section-container">

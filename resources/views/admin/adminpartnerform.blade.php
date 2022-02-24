@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Add Partner Admin|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	

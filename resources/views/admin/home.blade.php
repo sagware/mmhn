@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Home|Materials and Manufacturing in Healthcare Innovation Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -41,7 +41,7 @@
 	@include("admin.analytics")
 </head>
 
-<body>
+<body >
 @if(Session::has('needsubmit'))
 			<script type="text/javascript">
 			alert("Challenge/Need submitted successfully");
@@ -132,6 +132,8 @@
 									<li style="font-size: 15px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
 									<li style="font-size: 15px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li>
 									
+									<li style="font-size: 15px;"><a href="/partnerslist" title="Other Category of Partners"> See all partners</a></li>
+									
 									</ul>
                                 </div>
 								</div>
@@ -139,7 +141,7 @@
                                 <!-- begin post-info -->
                                <div align="right">
                                
-								<a href="/partnerslist" class="read-btn" title="Read more"> <b> See all partners</b> <i class="fa fa-angle-double-right" ></i></a>
+							<!--	<a href="/partnerslist" class="read-btn" title="Read more"> <b> See all partners</b> <i class="fa fa-angle-double-right" ></i></a> -->
 								
 								</div>
                                 <!-- end post-info -->

@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Challenge Detail|Materials and Manufacturing in Healthcare Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -56,6 +56,15 @@
 	<style type="text/css">
 	.login a p {display:none;}
 .login a:hover p {display:block;}
+
+img {
+max-width: 80%;
+}
+.cpt{
+width: 75%;
+height: auto;
+margin: 0 12.5%;
+}
 	</style>
 	</head>
 	@if(Session::has('mailed'))
@@ -137,7 +146,7 @@
 							@endif
                         </div>
 						<div>
-						<img src="/mmhn/public/uploads/{{$p->cover}}" align="post cover photo"height="100%" width="100%" /></div> <br/>
+						<img src="/mmhn/public/uploads/{{$p->cover}}" class="cpt" align="post cover photo" /></div> <br/>
                         <!-- begin post-image -->
 						<!--
 						 <blockquote>
@@ -182,13 +191,13 @@
                         <!-- end post-desc -->
 						
 						  <h2>Matched Partners</h2>
-						 
+						
 						  @if(!empty($p->partners))
 								  @foreach($us as $u)
 								  @foreach(unserialize($p->partners) as $pu)
 								  
 								  @if($u->id == $pu)
-								  <a href="/partner/{{$pu}}" title="{{$u->first_name}}" target="_blank"><?php echo "@";?>{{$u->first_name}} {{$u->last_name}}</a> <br/> @if($u->id == Auth::user()->id && in_array(Auth::user()->id, unserialize($p->partners)))  <a href="/unmatchedpartner/{{$p->id}}" title="Unmatched yourself from this challenge"> Unmatch yourself</a> @endif
+								  <a href="/partner/{{$pu}}" title="{{$u->first_name}}" target="_blank"><?php echo "@";?>{{$u->first_name}} {{$u->last_name}}</a> <br/> @if($u->id == Auth::user()->id && in_array(Auth::user()->id, unserialize($p->partners)))  <a href="/unmatchedpartner/{{$p->id}}" title="Unmatch yourself from this challenge"> Unmatch yourself</a> @endif
 								  @endif
 						   @endforeach
 						   @endforeach

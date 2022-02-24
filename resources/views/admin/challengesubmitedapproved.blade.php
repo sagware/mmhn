@@ -5,7 +5,8 @@
 <!--<![endif]-->
 <head>
 	
-	<title>Challenge Story Approval Materials and Manufacturing in Healthcare Network</title>	
+	<title>Challenge Story Approval Materials and Manufacturing in Healthcare Network</title>
+	<meta content="width=device-width" name="viewport">	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />

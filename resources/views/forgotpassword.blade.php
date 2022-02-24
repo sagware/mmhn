@@ -51,7 +51,7 @@
                 <!-- begin login-header -->
                 <div class="login-header">
                     <div class="brand">
-                       <a href="/" title="Home"> <span class="logo"></span></a> Reset Password
+                       <a href="/" title="Home"> <span class="logo"></span></a><h1> Reset Password</h1>
 						@if(Session::has('msg'))
 						<script type="text/javascript">
 						alert('Account created successfully...');

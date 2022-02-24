@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Submit Challenge| Materials and Manufacturing in Healthcare Innovation Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -269,6 +269,36 @@
 								</div>
 								
 								
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Photo (optional)</label>
+									<div class="col-md-6 col-sm-6">
+										<input type="file" class="form-control" id="cover" value="{{ old('cover') }}"   name="cover"/>
+										
+										
+									</div>
+								</div>
+								
+								
+								
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Documents (optional)</label>
+									<div class="col-md-6 col-sm-6">
+										<input type="file" class="form-control" id="pic"   name="pic[]" value="{{ old('pic') }}" multiple/>
+										
+										
+									</div>
+								</div>
+								
+								
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" >&nbsp;&nbsp&nbsp&nbsp</label>
+									<div class="col-md-6 col-sm-6">
+										 <label for="tm"> <input type="checkbox" name="tm"  id="tm" required /> I confirm that I have not added any confidential information as per our privacy notice.<span class="text-danger">*</span></label>
+										
+									</div>
+								</div>
+								
+								
 								
 								
 								
@@ -276,7 +306,7 @@
 								<div class="form-group">
 									<label class="control-label col-md-4 col-sm-4"></label>
 									<div class="col-md-6 col-sm-6">
-										<button type="submit" class="btn btn-primary">Next >></button>
+										<button type="submit" class="btn btn-primary"> Save and Continue >> </button>
 									</div>
 									
 								</div>

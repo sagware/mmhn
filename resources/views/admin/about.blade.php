@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>About Materials and Manufacturing in Healthcare Innovation Network</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -23,6 +23,9 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	<style type="text/css">
+	
+	</style>
 	@include("admin.analytics")
 </head>
 
