@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
@@ -75,15 +75,15 @@
 
                         <p class="about-me-desc"> <b>Background:</b> </p> 
 
-<p align="justify"> The Privacy Policy sets out the way in which we use any personal information that is collected from you whilst using www.materialsinhealth.org, the Materials and Manufacturing Healthcare Innovation Virtual Hub (the “Virtual Hub” or “Site”). You are provided with access to this Privacy Policy when you register with us, and it is always available on our Site. References to “us”/”we”/”our” in this Privacy Policy means the Materials and Manufacturing in Healthcare Network (“MMHN” or the “Network”), established by UCL Department of Mechanical Engineering with funding from the UCL Innovation & Enterprise IAA Innovation Network grant.  </p>
+<p align="justify"> The Privacy Policy sets out the way in which we use any personal information that is collected from you whilst using www.materialsinhealth.org, the Materials and Manufacturing Healthcare Innovation Virtual Hub (the “Virtual Hub” or “Site”). You are provided with access to this Privacy Policy when you register with us, and it is always available on our Site. References to “us”/”we”/”our” in this Privacy Policy means the Materials and Manufacturing in Healthcare Network (“MMHIN” or the “Network”), established by UCL Department of Mechanical Engineering with funding from the UCL Innovation & Enterprise IAA Innovation Network grant.  </p>
                           
-                        <p class="about-me-desc"><b>1. What persondata does MMHN collect?</b></p>
+                        <p class="about-me-desc"><b>1. What persondata does MMHIN collect?</b></p>
 <p align="justify">1.1. Personal information means information that identifies you personally such as name, photo or contact details or data that can indirectly identify you or be linked with such information in order to identify you. </p> 
 <p align="justify">1.2. Your personal information is collected: </p>
 <p> <span style="padding-left: 30px;">1.2.1.When you register as a Partner on the Virtual Hub. We collect first and last name, email, brief biography, and password (hashed) on a minimum requirement. Job title, job organisation, profile photo, research interest and social media account links are optional.</p>  
 <p> <span style="padding-left: 30px;">1.2.2.From time to time through other forms we may ask you to fill in to provide additional information; for example, when the Network organises events. </p> 
                        
-						<p class="about-me-desc"><b>2. What does MMHN use your personal information for?</b></p>
+						<p class="about-me-desc"><b>2. What does MMHIN use your personal information for?</b></p>
                             <p align="justify">2.1. We use the personal information in the following ways:</p>
                  <p> <span style="padding-left: 30px;">2.1.1. To maintain your account and registration that we need to do the provide the service to you. We cannot provide the services without this. </p>
                 <p> <span style="padding-left: 30px;">2.1.2. To allow other Partners to search and contact you to form collaborations. </p
@@ -92,7 +92,7 @@
                 <p> <span style="padding-left: 30px;">2.1.4. To investigate and address queries, questions and complaints and respond to any feedback. This is necessary and for our legitimate interests in providing a responsive service to our Partners.  </p>
                 <p> <span style="padding-left: 30px;">2.1.5. To update you on any changes to our Site and services, this is necessary and for our legitimate interest to ensure you are kept informed about any changes to services we provide you.  </p>
 
-						<p class="about-me-desc"><b>3. How long does MMHN retain personal information? </b></p>
+						<p class="about-me-desc"><b>3. How long does MMHIN retain personal information? </b></p>
                             <p align="justify">3.1. We only retain personal information for as long as is necessary for us to use your information as described above, where it is in our legitimate interest, or to comply with our legal obligations. When determining the relevant retention periods, we will consider the following factors. </p>	
                 <p> <span style="padding-left: 30px;">3.1.1. If you are a Partner of the Virtual Hub.</p> 
                 <p> <span style="padding-left: 30px;">3.1.2. Legal obligation(s) under applicable law to retain data for a certain period. </p>
@@ -108,7 +108,7 @@
                             <p align="justify">4.5. We may pass your personal information to law enforcement agencies, regulators, courts, or other public authorities if we must, or are authorised to by law. </p>
                             <p align="justify">4.6. We don’t sell your personal information to third parties. </p>
 
-						<p class="about-me-desc"><b>5. Does MMHN transfer my personal information outside the EEA?</b></p>
+						<p class="about-me-desc"><b>5. Does MMHIN transfer my personal information outside the EEA?</b></p>
                             <p align="justify">5.1. We store data on servers located in the UK, which is within the EEA. We may also work with a service provider (e.g. email service and Google analytics) provider outside the EEA to provide service to us. In these cases, we have security measures in place, and we provide EU Model Clauses as an adequate safeguard for the transfer of EU data outside the EEA, in line with data protection law. To find out more about how we safeguard your information (including such safeguards) in relation to transfer outside the EEA, please contact us at <a href="mailto:contact@materialsinhealth.org">contact@materialsinhealth.org</a> or visit <a href="https://www.ucl.ac.uk/data-protection">UCL Data Protection.</a>  </p>	
 
 						<p class="about-me-desc"><b>6. What are my rights? </b></p>
@@ -124,7 +124,7 @@
                 <p> <span style="padding-left: 30px;">6.1.9. The right to withdraw consent. If you have given your consent to anything we do with your personal data (i.e. we rely on consent as a legal basis for processing your personal information), you have the right to withdraw your consent at any time (although if you do so, it does not mean that anything we have done with your personal data with your consent up to that point is unlawful). You can withdraw your consent to the processing of your personal information at any time by terminating your account. </p>
                 <p> <span style="padding-left: 30px;">6.1.10. The right to lodge a complaint. You have the right to lodge a complaint about the way we handle or process your personal information with your national data protection regulator. </p>
  
-						<p class="about-me-desc"><b>7. Does MMHN use Cookies? </b></p>
+						<p class="about-me-desc"><b>7. Does MMHIN use Cookies? </b></p>
                             <p align="justify">7.1. The Virtual Hub Platform is set up to use Cookies - we employ both Necessary Cookies and Optional Cookies. They are as follows:  </p>	
                 <p> <span style="padding-left: 30px;">7.1.1. Necessary Cookies: </p> 
                 <p> <span style="padding-left: 60px;">7.1.1.1. Login cookies – to distinguish you from other Partners. The information they use is an alphanumeric session key to help us recognise you when you return to the Virtual Hub. It will typically last for two weeks from the time you log in if you remain logged in, or it will be deleted immediately when you log out. </p>
@@ -149,7 +149,7 @@
 How can I be sure my data is secure? 
  <p align="justify">8.1. We take appropriate technical and operational measures to protect the personal information the Virtual Hub gathers and processes about you. You should always bear in mind that there is no such thing as 100% information security. For example, communications over the internet and mobile phone networks are not completely secure and we cannot accept responsibility for unauthorised access or loss of personal information that is beyond its control. You also need to take steps to protect your log in details, use anti-virus software and to act sensibly when providing personal information. If you have any concerns, then do contact us. </p>
 
-<p class="about-me-desc"><b>9. How do I contact MMHN? </b></p>
+<p class="about-me-desc"><b>9. How do I contact MMHIN? </b></p>
 <p align="justify">8.1. Questions, comments, and requests regarding this privacy policy are welcomed and should be addressed to <a href="mailto:contact@materialsinhealth.org">contact@materialsinhealth.org</a>.
 
 
