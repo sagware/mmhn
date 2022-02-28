@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Interest Acknowledgement</title>
+<title>Complete your profile for the Materials and Manufacturing in Healthcare Innovation Network</title>
 </head>
 
 <body>
 Dear {{$name}}, <br/><br/>
 
-You have been pre-registered for the Materials and Manufacturing in Healthcare Network virtual platform by a member of the MMHIN Admin Team. To complete set-up of your account, please follow <a href="{{$m}}">complete form</a> to choose your login password. You may also edit the information on your proile after you login. 
+You have been pre-registered for the Materials and Manufacturing in Healthcare Innovation Network virtual platform by a member of the MMHIN Admin Team. To complete set-up of your account, please follow <a href="{{$m}}">complete form</a> to choose your login password. You may also edit the information on your proile after you login. 
 <br/><br/>
 
 With kind regards. 

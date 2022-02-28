@@ -4,7 +4,7 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-	<title>Materials and Manufacturing in Healthcare Network | Login Page</title>
+	<title>Materials and Manufacturing in Healthcare Innovation Network | Login Page</title>
 	@include("admin.analytics")
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -104,7 +104,7 @@
 						
                         <hr />
                         <p class="text-center">
-                             &copy;Materials and Manufacturing in Healthcare Network <?php echo date('Y') ?>
+                             &copy;Materials and Manufacturing in Healthcare Innovation Network <?php echo date('Y') ?>
                         </p>
                     </form>
                 </div>
