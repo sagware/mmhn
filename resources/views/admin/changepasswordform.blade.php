@@ -6,7 +6,7 @@
 <head>
 	
 	<title>Reset Password | Materials and Manufacturing in Healthcare Network | Register Page</title>
-	<meta content="width=device-width" name="viewport">	
+	<meta content="width=device-width" name="viewport">
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
@@ -31,6 +31,8 @@
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 	@include("admin.analytics")
+		
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 </head>
 @include("admin.cookiebanner")
 
@@ -102,10 +104,10 @@
 					
 					
 						
-						<label class="control-label" for="pass">Password (minimum of 8 characters) <span class="text-danger">*</span></label>
+						<label class="control-label" for="password">Password (minimum of 8 characters) <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="password" id="pass" class="form-control" name="password" minlength="8"   required />
+                                <input type="password" id="password" class="form-control" name="password" minlength="8"   required />
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 								<input type="hidden" name="uid" value="{{$id}}"/>
 								
@@ -122,6 +124,37 @@
                         </div>
                        
 						
+						<meter max="4" id="password-strength"></meter>
+        <p id="password-strength-text"></p>
+		
+		<script type="text/javascript">
+var strength = {
+    0: "Weakest",
+    1: "Weak",
+    2: "OK",
+    3: "Good",
+    4: "Strong"
+}
+
+var password = document.getElementById('password');
+var meter = document.getElementById('password-strength');
+var text = document.getElementById('password-strength-text');
+ 
+password.addEventListener('input', function() {
+    var val = password.value;
+    var result = zxcvbn(val);
+ 
+    // This updates the password strength meter
+    meter.value = result.score;
+ 
+    // This updates the password meter text
+    if (val !== "") {
+        text.innerHTML = "Password Strength: " + strength[result.score]; 
+    } else {
+        text.innerHTML = "";
+    }
+});
+</script>
 						
                        
 						

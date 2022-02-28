@@ -41,6 +41,8 @@
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
+		
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 	<!-- multiselect-->
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
@@ -166,6 +168,10 @@
 						<script type="text/javascript">
 						alert('Passwords mismatched');
 						</script>
+						@elseif(Session::has('miskey'))
+						<script type="text/javascript">
+						alert('Please select at least one entry from the defined list of keywords  or custom keywords');
+						</script>
 						@elseif(Session::has('msg_interest2'))
 						<script type="text/javascript">
 						alert('Registration completed successfully, click Login/Register to access your account');
@@ -270,15 +276,14 @@
 						
 						<div class="dropdown" scroll>
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true'>
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false' onClick="ariaChange('sampleDropdownMenu')>
 										<label for="key">Select Research Interest & Keywords </label>
 										</button> or Add Other Keyworrds  <input  type="checkbox"  name="other" value="{{ old('other') }}" id="ck" value="other" onClick="OtherField()"  /> <label for="ck"></label>
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
-										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"  />&nbsp; <label for="key">{{$k->name}}</label>
+										<label for="{{$k->id}}"> </span> <input id="{{$k->id}}"  name="keywords[]" value="{{$k->id}}" type="checkbox"  />&nbsp; {{$k->name}}</label>
 										
-										 <br/>
 										
 										 @endforeach
 	
@@ -350,7 +355,7 @@ When Challenges are being submitted, our matchmaking system cross-references you
 						<label class="control-label" for="pass">Password (minimum of 8 characters) <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="password" class="form-control" id="pass" name="password" minlength="8"   required />
+                                <input type="password" class="form-control" id="password" name="password" minlength="8"   required />
 								<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 								<input type="hidden" name="role" value="user"/>
                             </div>
@@ -365,7 +370,37 @@ When Challenges are being submitted, our matchmaking system cross-references you
                             </div>
                         </div>
                        
-						
+						<meter max="4" id="password-strength"></meter>
+        <p id="password-strength-text"></p>
+		
+		<script type="text/javascript">
+var strength = {
+    0: "Weakest",
+    1: "Weak",
+    2: "OK",
+    3: "Good",
+    4: "Strong"
+}
+
+var password = document.getElementById('password');
+var meter = document.getElementById('password-strength');
+var text = document.getElementById('password-strength-text');
+ 
+password.addEventListener('input', function() {
+    var val = password.value;
+    var result = zxcvbn(val);
+ 
+    // This updates the password strength meter
+    meter.value = result.score;
+ 
+    // This updates the password meter text
+    if (val !== "") {
+        text.innerHTML = "Password Strength: " + strength[result.score]; 
+    } else {
+        text.innerHTML = "";
+    }
+});
+</script>
 						
                         <div class="checkbox m-b-30">
                              <label for="tm">
@@ -437,6 +472,8 @@ When Challenges are being submitted, our matchmaking system cross-references you
 	  
    </style>
    
+   
+   
    <script>
    function OtherField(){
 			var checkBox = document.getElementById("ck");
@@ -455,7 +492,7 @@ When Challenges are being submitted, our matchmaking system cross-references you
    </script>
    
    
-   <script type="text/javascript">
+  <script type="text/javascript">
 			$(function() {
 				$('#form-tags-1').tagsInput();
 				
@@ -476,7 +513,7 @@ When Challenges are being submitted, our matchmaking system cross-references you
 					'minChars': 2,
 					'maxChars': 50,
 					'limit': 50,
-					'validationPattern': new RegExp('^[a-zA-Z]+$')
+					
 				});
 				
 				$('#form-tags-4').tagsInput({
@@ -498,6 +535,25 @@ When Challenges are being submitted, our matchmaking system cross-references you
 					'delimiter': [',', ';'] 
 				});
 			});
+			
+			
+			function changeAria(button_id) {
+
+					let button_el = document.getElementById(button_id);
+				
+					let expanded_val = button_el.getAttribute("aria-expanded");
+				
+					if(expanded_val === 'true') {
+				
+						button_el.setAttribute('aria-expanded', 'false');
+				
+					} else {
+				
+						button_el.setAttribute('aria-expanded', 'true');
+				
+					}
+				
+				}
 		</script>
 		
 	<script>

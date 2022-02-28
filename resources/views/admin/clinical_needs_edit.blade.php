@@ -216,13 +216,13 @@
 									
 									<div class="dropdown" scroll>
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true'>
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false' onClick="ariaChange('sampleDropdownMenu')>
 										Click to select keywords 
 										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" <?php if(!empty($p->other_keyword)){echo "checked";} ?> /> <label for="ck">Other keywords</label> 
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
-										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox" <?php if(is_array(unserialize($p->keywords))){if(in_array($k->id,unserialize($p->keywords))){echo "checked";} } ?> />&nbsp; <label for="key"> {{$k->name}} </label>
+										 </span><label for="{{$k->id}}">  <input id="{{$k->id}}"  name="keywords[]" value="{{$k->id}}" type="checkbox" <?php if(is_array(unserialize($p->keywords))){if(in_array($k->id,unserialize($p->keywords))){echo "checked";} } ?> />&nbsp; {{$k->name}} </label>
 										
 										 <br/>
 										
@@ -239,7 +239,7 @@
 									<label class="control-label col-md-4 col-sm-4" for="form-tags-3"> Other keywords (Comma-separated):</label>
 									
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="<?php $kwd =unserialize($p->other_keyword);  if(!empty($p->other_keyword) && is_array(unserialize($p->other_keyword))){echo implode(", ", $kwd);} ?>"  />
+										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="{{$p->other_keyword}}"  />
 										
 									</div>
 								</div>
@@ -497,6 +497,24 @@ if (buttonElement) {
 					'delimiter': [',', ';'] 
 				});
 			});
+			
+			function changeAria(button_id) {
+
+					let button_el = document.getElementById(button_id);
+				
+					let expanded_val = button_el.getAttribute("aria-expanded");
+				
+					if(expanded_val === 'true') {
+				
+						button_el.setAttribute('aria-expanded', 'false');
+				
+					} else {
+				
+						button_el.setAttribute('aria-expanded', 'true');
+				
+					}
+				
+				}
 		</script>
 		
 		

@@ -138,7 +138,7 @@
         <div class="card mb-0">
             <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                
-                  <button id="btnn1" style="background:none; border:none;" onClick="changeAria('btnn1')"> <h2 style="font-size:1.4em;!important;"><b>What is the Materials and Manufacturing in Healthcare Innovation Network (MMHN)?</b></h3></button>
+                  <button id="btnn1" style="background:none; border:none;" onClick="changeAria('btnn1')" aria-expanded="false" aria-haspopup="true"> <h2 style="font-size:1.4em;!important;"><b>What is the Materials and Manufacturing in Healthcare Innovation Network (MMHN)?</b></h3></button>
              
             </div>
             <div id="collapseOne" class="card-body collapse"   data-parent="#accordion" >
@@ -153,7 +153,7 @@
 			
             <div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseTwo">
                
-               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseTwo')">  <h2 style="font-size:1.4em;!important;"><b>Who runs MMHN?</b></h3></button>
+               <button id="btn1" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btn1')">  <h2 style="font-size:1.4em;!important;"><b>Who runs MMHN?</b></h3></button>
                
             </div>
             <div id="collapseTwo" class="card-body collapse"  data-parent="#accordion" >
@@ -166,7 +166,7 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseFour">
                
-                <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseFour')"> <h2 style="font-size:1.4em;!important;"><b>What does the MMHN Virtual Platform (materialsinhealth.org) do?</b></h2></button>
+                <button id="btn2" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btn2')"> <h2 style="font-size:1.4em;!important;"><b>What does the MMHN Virtual Platform (materialsinhealth.org) do?</b></h2></button>
              
             </div>
             <div id="collapseFour" class="card-body collapse"  data-parent="#accordion" >
@@ -178,7 +178,7 @@
 			
             <div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseThree">
                
-               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseThree')">  <h2 style="font-size:1.4em;!important;"><b>Who can join MMHN?</b></h2> </button>
+               <button id="btnx1" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btnx1')">  <h2 style="font-size:1.4em;!important;"><b>Who can join MMHN?</b></h2> </button>
                 
             </div>
             <div id="collapseThree" class="collapse"  data-parent="#accordion" >
@@ -195,7 +195,7 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseFive">
               
-                <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseFive')"> <h2 style="font-size:1.4em;!important;"><b>How will I sign up to be a Partner of MMHN?</b></h2></button>
+                <button id="btn1" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btn1')"> <h2 style="font-size:1.4em;!important;"><b>How will I sign up to be a Partner of MMHN?</b></h2></button>
               
             </div>
             <div id="collapseFive" class="card-body collapse"  data-parent="#accordion" >
@@ -207,7 +207,7 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseSix">
                
-                <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseSix')"><h2 style="font-size:1.4em;!important;"><b>What are Challenges?</b></h2></button>
+                <button id="btnnx1" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btnnx1')"><h2 style="font-size:1.4em;!important;"><b>What are Challenges?</b></h2></button>
                
             </div>
             <div id="collapseSix" class="card-body collapse"  data-parent="#accordion" >
@@ -221,7 +221,7 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseEight">
                 
-               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseEight')"> <h2 style="font-size:1.4em;!important;"><b>How do I present my Challenge to the Network?</b></h2> 
+               <button id="btnnx2" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btnnx2')"> <h2 style="font-size:1.4em;!important;"><b>How do I present my Challenge to the Network?</b></h2> 
                
             </div>
             <div id="collapseEight" class="card-body collapse"  data-parent="#accordion" >
@@ -234,7 +234,7 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseNine">
                
-               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseNine')"><h2 style="font-size:1.4em;!important;"><b>How do I post Innovation Stories or showcase an innovation?</b></h2></button>
+               <button id="btnnc3" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btnnc3')"><h2 style="font-size:1.4em;!important;"><b>How do I post Innovation Stories or showcase an innovation?</b></h2></button>
                
             </div>
             <div id="collapseNine" class="card-body collapse"  data-parent="#accordion" >
@@ -250,24 +250,7 @@
     </div>
 </div>
 
-
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-					
-						
+			
 								
 						
                        
@@ -323,9 +306,23 @@
 					  });
 					}
 					
-					function changeAria(id){
-					document.getElementById(id1).setAttribute('aria-expanded', 'true');
+					function changeAria(button_id) {
+
+					let button_el = document.getElementById(button_id);
+				
+					let expanded_val = button_el.getAttribute("aria-expanded");
+				
+					if(expanded_val === 'true') {
+				
+						button_el.setAttribute('aria-expanded', 'false');
+				
+					} else {
+				
+						button_el.setAttribute('aria-expanded', 'true');
+				
 					}
+				
+				}
 	</script>
 	<script>
 	    $(document).ready(function() {

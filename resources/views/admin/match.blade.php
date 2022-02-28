@@ -167,26 +167,17 @@
 		<!-- end #sidebar -->
 		
 		<!-- begin #content -->
-		<div align="left">
-		<br/>
-			<!-- begin breadcrumb -->
-			
-			<!-- end breadcrumb -->
-			<!-- begin page-header -->
-			
-			<!-- end page-header -->
-			<br/>
-			<br/>
-			<!-- begin row -->
+		<div id="content" class="content">
+        <!-- begin container -->
+        <div class="container">
 			<div class="row">
                 <!-- begin col-12 -->
+				 <h1 >Match Making</h1>
 			    <div class="col-md-16">
 			        <!-- begin panel -->
                     <div class="panel panel-inverse">
-                        <div class="panel-heading">
-                            
-                            <h1 class="panel-title">Match Making (Optional)</h1>
-                        </div>
+                        <div >
+                      
                         <div class="panel-body panel-form">
                             <form  action="/submit/need" enctype="multipart/form-data" method="POST"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
 								

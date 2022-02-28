@@ -223,9 +223,9 @@
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="wysihtml5">Post in Summary (text only and max. number of characters: 500) <span class="text-danger">*</span></label> 
+									<label class="control-label col-md-4 col-sm-4" for="sum">Post in Summary (text only and max. number of characters: 500) <span class="text-danger">*</span></label> 
 									<div class="col-md-6 col-sm-6">
-										<textarea name="summary" class="textarea form-control" maxlength="500" id="wysihtml5" placeholder="Enter text ..." rows="12" required> {{ old('summary') }}</textarea>
+										<input name="summary" class="textarea form-control" maxlength="500" id="sum" placeholder="Enter text ..." rows="12" value="{{ old('summary') }}">
 									</div>
 								</div>
 								
@@ -254,13 +254,6 @@
 								</div>
 								
 								
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Picture</label> 
-									<div class="col-md-6 col-sm-6">
-										<input type="file" id="cover" class="form-control" value="{{ old('pic') }}" name="pic"/>
-									</div>
-								</div>
 								
 								
 								

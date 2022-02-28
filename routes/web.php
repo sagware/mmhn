@@ -87,7 +87,7 @@ Route::get('/deletecustomcat/{id}', 'FormController@deleteCustomCat');
 Route::post('/share/me/{id}', 'FormController@shareme');
 Route::get('/datasets/cat', 'FormController@datasetsCategorisation');
 Route::post('/register/metadata', 'FormController@addMetaData');
-Route::get('/search', 'FormController@search');
+Route::any('/search', 'FormController@search');
 //Route::get('/search', 'FormController@search');
 Route::get('/aboutus', 'FormController@aboutus');
 Route::get('/faq', 'FormController@faq');

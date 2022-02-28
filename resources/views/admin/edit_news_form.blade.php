@@ -232,6 +232,7 @@
 								</div>
 								
 								<div class="form-group" id="pp">
+								
 									<label class="control-label col-md-4 col-sm-4" for="email" for="pic">Cover picture</label> 
 									<div class="col-md-6 col-sm-6">
 										<input type="file" class="form-control" value="{{$n->pic}}" id="pic" name="pic"/>
@@ -240,9 +241,9 @@
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="email" for="summary">Post in summary (text only and max. number of characters: 500) <span class="text-danger">*</span></label> 
+									<label class="control-label col-md-4 col-sm-4" for="sum">Post in Summary (text only and max. number of characters: 500) <span class="text-danger">*</span></label> 
 									<div class="col-md-6 col-sm-6">
-										<textarea name="summary" id="summary" class="textarea form-control" maxlength="500" id="wysihtml5" placeholder="Enter text ..." rows="12" required>{{$n->summary}}</textarea>
+										<input name="summary" class="textarea form-control" maxlength="500" id="sum" placeholder="Enter text ..." rows="12" value="{{ $n->summary}}">
 									</div>
 								</div>
 								
@@ -393,7 +394,6 @@
 		  // If the checkbox is checked, display the output text
 		  if (checkBox.checked == true){
 		   $('#pp').css('display','block');
-		    $('#pic').css('display','none');
 		  } else {
 			$('#pp').css('display','none');
 		  }   

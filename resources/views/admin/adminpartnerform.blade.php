@@ -178,6 +178,10 @@
 						<script type="text/javascript">
 						alert('Invalid passport photograph format, use only png,jpeg,jpg');
 						</script>
+						@elseif(Session::has('miskey'))
+						<script type="text/javascript">
+						alert('Please select at least one entry from the defined list of keywords  or custom keywords');
+						</script>
 						@elseif(Session::has('err'))
 						<small>Invalid Username or Password...</small>
 						
@@ -252,15 +256,14 @@
 						
 						<div class="dropdown" scroll>
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true'>
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-expanded='false' aria-haspopup='true' onClick="ariaChange('sampleDropdownMenu')>
 										<label for="key">Click to select research interest keywords </label>
 										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()"  /> <label for="ck">Other keywords</label>
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
-										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"  />&nbsp; <label for="key">{{$k->name}}</label>
+										<label for="{{$k->id}}"> </span> <input id="{{$k->id}}"  name="keywords[]" value="{{$k->id}}" type="checkbox"  />&nbsp; {{$k->name}}</label>
 										
-										 <br/>
 										
 										 @endforeach
 	
@@ -435,7 +438,7 @@
    </script>
    
    
-   <script type="text/javascript">
+    <script type="text/javascript">
 			$(function() {
 				$('#form-tags-1').tagsInput();
 				
@@ -455,7 +458,8 @@
 					'unique': true,
 					'minChars': 2,
 					'maxChars': 50,
-					'limit': 50
+					'limit': 50,
+					
 				});
 				
 				$('#form-tags-4').tagsInput({
@@ -477,6 +481,25 @@
 					'delimiter': [',', ';'] 
 				});
 			});
+			
+			
+			function changeAria(button_id) {
+
+					let button_el = document.getElementById(button_id);
+				
+					let expanded_val = button_el.getAttribute("aria-expanded");
+				
+					if(expanded_val === 'true') {
+				
+						button_el.setAttribute('aria-expanded', 'false');
+				
+					} else {
+				
+						button_el.setAttribute('aria-expanded', 'true');
+				
+					}
+				
+				}
 		</script>
 		
 	<script>

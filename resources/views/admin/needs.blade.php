@@ -87,7 +87,7 @@
                                     <div class="read-btn-container">
 									@if(Auth::check())
 									@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
-									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn">Edit </a>
+									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
 									@endif
 									@endif
                                         <a href="/clinical_detail/{{$p->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>

@@ -67,7 +67,7 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" height="100%" width="100%" alt="" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" height="100%" width="100%" alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
@@ -97,7 +97,7 @@
                                     <div class="read-btn-container">
 									@if(Auth::check())
 											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
-											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn">Edit </a>
+											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
 											@endif
 									@endif
                                         <a href="/public_post/{{$p->id}}" title="Read more" class="read-btn">Read More <i class="fa fa-angle-double-right"></i></a>

@@ -625,7 +625,7 @@ class FormController extends Controller {
 					$s->keywords_text = $k_text;				
 					
 					if(!empty(Input::get("tags-3"))){
-					$s->other_keyword = serialize(Input::get("tags-3"));
+					$s->other_keyword = Input::get("tags-3");
 					}
 					$s->posted_by = Auth::user()->id;
 					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
@@ -991,7 +991,7 @@ class FormController extends Controller {
 					
 					
 					if(!empty(Input::get("tags-3"))){
-					$s->other_keyword = serialize(Input::get("tags-3"));
+					$s->other_keyword = Input::get("tags-3");
 					}
 					$s->posted_by = Auth::user()->id;
 					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
@@ -1367,7 +1367,9 @@ class FormController extends Controller {
 		
 		 $u = User::where("resetpassword_token",$id)->count();
 		 $uu = User::where("resetpassword_token",$id)->first();
-		 if($u<0){
+		 
+		
+		 if($u<0 or empty($uu) or empty($u)){
 		 echo "Invalid token";
 		 }else{
 		 
@@ -1503,6 +1505,11 @@ class FormController extends Controller {
 		
 		public function adminCreatePartner(Request $request){ 
 		
+		if(empty(Input::get('keywords')) &&  empty(Input::get('other'))){
+			return back()->with("miskey","misskey")->withInput();
+			}
+			
+		
 		$cku = User::where("email",Input::get("email"))->count();
 		if($cku>0){
 		echo "A Partner with the same email address exist. Please check through the partners list"; exit;
@@ -1524,7 +1531,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(200, 300)->save();
+				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize((200, 400))->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");
@@ -1668,6 +1675,10 @@ class FormController extends Controller {
 			if(Input::get('password')!= Input::get('cpassword')){
 			return back()->with("mismatch","mismatchpassword")->withInput();
 			}
+			
+			if(empty(Input::get('keywords')) &&  empty(Input::get('other'))){
+			return back()->with("miskey","misskey")->withInput();
+			}
 			$upl ="";
 			$newurl = public_path() . DS . 'uploads';
 			//registration completion
@@ -1684,7 +1695,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(200, 300)->save();
+				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize((200, 400))->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");
@@ -2027,6 +2038,9 @@ class FormController extends Controller {
 			if(Input::get('password')!= Input::get('cpassword')){
 			return back()->with("mismatch","mismatchpassword");
 			}
+			if(empty(Input::get('keywords')) &&  empty(Input::get('other'))){
+			return back()->with("miskey","misskey")->withInput();
+			}
 			$upl ="";
 			$newurl = public_path() . DS . 'uploads';
 			
@@ -2043,7 +2057,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(200, 300)->save();
+				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize((200, 400))->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");
@@ -3064,6 +3078,19 @@ class FormController extends Controller {
 			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r)->with("cat",$cat);
 			
 			}
+			
+			else if($cat =="sto"){
+			$a = PublicStories::where("id",Auth::user()->id)->orWhere('category', "event")->orWhere('category', "news")->orWhere('category', "grant")->where('status', "approved")->where(function($query){
+			$keyword = Input::get('keyword');
+			$query->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
+			
+			})->paginate(10)->appends($request->all());
+			
+			$r = PublicStories::where("id",">",0)->where("category","event")->where("status","approved")->orderBy("updated_at")->take(3)->get();
+			
+			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r)->with("cat",$cat);
+			
+			}
 			else if($cat =="grant"){
 			$a = PublicStories::where('category', "grant")->where('status', "approved")->where(function($query){
 			$keyword = Input::get('keyword');
@@ -3083,12 +3110,29 @@ class FormController extends Controller {
 			
 			if(preg_match('/^\S.*\S$/', $keyword)){
 			
+			$keyword = Input::get('keyword');
+
 			$keyword = explode(" ", $keyword);
-			$c = User::where("status",0)->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword)->where("status",0)->count();
 			
 			
+			$c = User::where("status",0)->where(function($query){
+			$keyword = Input::get('keyword');
+
+			$keyword = explode(" ", $keyword);
+			$query->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword);
 			
-		$s = User::where("status",0)->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword)->paginate(10)->appends($request->all());
+			})->count();
+			
+			$s = User::where("status",0)->where(function($query){
+			$keyword = Input::get('keyword');
+
+			$keyword = explode(" ", $keyword);
+			$query->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword);
+			
+			})->paginate(10)->appends($request->all());		
+			
+			
+	
 		
 		}else{
 		
@@ -3251,7 +3295,7 @@ class FormController extends Controller {
 				$ctee = PublicStories::where("posted_by",$id)->where("status","approved")->where("category","event")->count();
 				$ctgg = PublicStories::where("posted_by",$id)->where("status","approved")->where("category","grant")->count();
 				$kk = Keywords::all();
-				return view("admin.partnerdetails")->with("s",$k)->with("kk",$kk)->with("p",$pk)->with("ctc",$ctcc)->with("ctn",$ctnn)->with("cte",$ctee)->with("ctg",$ctgg);
+				return view("admin.partnerdetails")->with("s",$k)->with("kk",$kk)->with("pk",$pk)->with("ctc",$ctcc)->with("ctn",$ctnn)->with("cte",$ctee)->with("ctg",$ctgg);
 			}
 			
 			

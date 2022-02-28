@@ -181,7 +181,7 @@
 									@if($ctc >0)
 									@if(Auth::check())
 									
-											@foreach($p as $p)
+											@foreach($pk as $p)
 											@if($p->category=="need")
 											<h3> <a href="/clinical_detail/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
 											@endif
@@ -202,7 +202,7 @@
 									@if($ctn >0)
 									
 									
-											@foreach($p as $p)
+											@foreach($pk as $p)
 											@if($p->category=="news")
 											<h3> <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
 											@endif
@@ -211,7 +211,7 @@
                                     
 									
 									@else
-									No news submission
+									No grants submission
 									@endif
 									
 									
@@ -220,7 +220,7 @@
 									@if($cte >0)
 									
 									
-											@foreach($p as $p)
+											@foreach($pk as $p)
 											@if($p->category=="event")
 											<h3> <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
 											@endif
@@ -237,7 +237,7 @@
 									@if($ctg >0)
 									
 									
-											@foreach($p as $p)
+											@foreach($pk as $p)
 											@if($p->category=="grant")
 											<h3> <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
 											@endif

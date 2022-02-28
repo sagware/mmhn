@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Edit Profile|Materials and Manufacturing in Healthcare Innovation Network| Register Page</title>
+	<title>Edit Profile|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -177,6 +177,10 @@
 						alert('Invalid profile picture format, use only png,jpeg,jpg');
 						</script>
 						
+						@elseif(Session::has('miskey'))
+						<script type="text/javascript">
+						alert('Please select at least one entry from the defined list of keywords  or custom keywords');
+						</script>
 						
 						@elseif(Session::has('err'))
 						<small>Invalid Username or Password...</small>
@@ -302,10 +306,10 @@
 						<div class="bg-cover" id="pic"><img src="/mmhn/public/uploads/{{$u->picture}}" height="200px" width="200px" alt="Profile Picture" /></div>
 						<input  type="checkbox"  name="profile_pic" id="cpp" value="profile_pic" onClick="Pro()" /> <label for="cpp">Edit Profile Picture </label>
 				<div id="pp">
-						<label for="pic" class="control-label">Profile picture </label>
+						<label for="picx" class="control-label">Profile picture </label>
                         <div  class="row m-b-15">
                             <div  class="col-md-12">
-                                <input type="file" id="pic" class="form-control"  name="pic"   />
+                                <input type="file" id="picx" class="form-control"  name="pic"   />
 								
                             </div>
                         </div>
@@ -317,13 +321,13 @@
 									 <div class="row m-b-15" id="keywordslist">
                             <div class="col-md-12">
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true' onClick="ariaChange('keywordslist')>
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-expanded='false' aria-haspopup='true' onClick="ariaChange('sampleDropdownMenu')>
 									<label for="sampleDropdownMenu">	Click to select keywords</label> 
 										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" <?php if(!empty($u->other_keyword)){echo "checked";} ?>/> <label for="ck">Other keywords</label> 
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
-										 </span> <input id="key"  name="keywords[]" value="{{$k->id}}" type="checkbox"<?php if(is_array(unserialize($u->keywords))){if(in_array($k->id,unserialize($u->keywords))){echo "checked";} } ?> />&nbsp; <label for="key"> {{$k->name}}</label>
+										 </span> <label for="{{$k->id}}"> <input id="{{$k->id}}"  name="keywords[]" value="{{$k->id}}" type="checkbox"<?php if(is_array(unserialize($u->keywords))){if(in_array($k->id,unserialize($u->keywords))){echo "checked";} } ?> />&nbsp;  {{$k->name}}</label>
 										
 										 <br/>
 										
@@ -506,7 +510,7 @@
    </script>
    
    
-   <script type="text/javascript">
+  <script type="text/javascript">
 			$(function() {
 				$('#form-tags-1').tagsInput();
 				
@@ -526,7 +530,8 @@
 					'unique': true,
 					'minChars': 2,
 					'maxChars': 50,
-					'limit': 50
+					'limit': 50,
+					
 				});
 				
 				$('#form-tags-4').tagsInput({
@@ -549,9 +554,23 @@
 				});
 			});
 			
-			function changeAria(id){
-					document.getElementById(id1).setAttribute('aria-expanded', 'true');
+			function changeAria(button_id) {
+
+					let button_el = document.getElementById(button_id);
+				
+					let expanded_val = button_el.getAttribute("aria-expanded");
+				
+					if(expanded_val === 'true') {
+				
+						button_el.setAttribute('aria-expanded', 'false');
+				
+					} else {
+				
+						button_el.setAttribute('aria-expanded', 'true');
+				
 					}
+				
+				}
 		</script>
 		
 	<script>

@@ -47,7 +47,7 @@ body.cookie-banner-open {
 <form method="post" action="/setcookie" class="cookie-banner-form" enctype="multipart/form-data">
 <div class="cookie-banner" id="cook">
 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-    Our website uses cookies. By continuing we assume your permission to deploy cookies, as detailed in our <a href="/cookie">cookies policy page</a> <a href="/customise/cookie" title="Customise cookies settings"class="js-cookie-dismiss"> <b>Customise Settings</b></a>   <button  type="submit" class="btn btn-success btn-block btn-lg" name="cookie" >Accept All</button>
+    Our website uses cookies. By continuing we assume your permission to deploy cookies, as detailed in our <a href="/cookie">cookies policy page</a> <a href="/customise/cookie" title="Customise cookies settings"class="js-cookie-dismiss"> <b>Customise Settings</b></a>   <button  type="submit" class="btn btn-primary btn-block btn-lg" name="cookie" >Accept All</button>
 </div>
 </form>
 
