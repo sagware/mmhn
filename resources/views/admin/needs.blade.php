@@ -24,6 +24,13 @@
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
+	
+	<style>
+	.img{
+	height:80%;
+	width:auto;
+	}
+	</style>
 </head>
 <body>
 @include("admin.cookiebanner")

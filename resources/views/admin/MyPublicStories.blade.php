@@ -23,6 +23,12 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	<style>
+	.img{
+	height:80%;
+	width:auto;
+	}
+	</style>
 </head>
 <body>
     <!-- begin #header -->
@@ -67,7 +73,7 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" height="100%" width="100%" alt="{{$p->title}}" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->

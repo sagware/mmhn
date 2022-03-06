@@ -1531,7 +1531,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize((200, 400))->save();
+				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize((200, 400))->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");
@@ -1695,7 +1695,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize((200, 400))->save();
+				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize((200, 400))->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");
@@ -2057,7 +2057,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize((200, 400))->save();
+				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize((200, 400))->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");

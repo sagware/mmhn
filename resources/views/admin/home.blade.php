@@ -32,6 +32,8 @@
 	font-size:3em;
 	color: black;
 	}
+	
+	
 	</style>
 	<!-- overlay 2-->
 	
@@ -128,12 +130,12 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									
-									<li style="font-size: 18px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li>
-									<li style="font-size: 18px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li>
-									<li style="font-size: 18px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
-									<li style="font-size: 18px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li>
+									<li style="font-size: 13px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li>
+									<li style="font-size: 13px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li>
+									<li style="font-size: 13px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
+									<li style="font-size: 13px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li>
 									
-									<li style="font-size: 18px;"><a href="/partnerslist" title="All Partners"> All Partners</a></li>
+									<li style="font-size: 13px;"><a href="/partnerslist" title="All Partners"> All Partners</a></li>
 									
 									</ul>
                                 </div>
@@ -177,11 +179,11 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                      <ul>
 									@foreach($ch as $c)
-									<li style="font-size: 18px;"><a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}">{{$c->title}}</h2></a></li>
+									<li style="font-size: 13px; text-align:justify;"><a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}">{{$c->title}}</h2></a></li> <br/>
 									@endforeach
 									
 									</ul>
-									<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+									<br/><br/><br/><br/><br/>
 									<div align="right" > 
 									
 									<a href="/clinicalneeds" class="read-btn" title="Read more"> <b>See all Challenges</b> <i class="fa fa-angle-double-right" ></i></a>
@@ -223,11 +225,11 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									@foreach($r as $n)
-									<li style="font-size: 18px;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li>
+									<li style="font-size: 13px; text-align:justify;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li> <br/> 
 									@endforeach
 									
 									</ul>
-									<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+									<br/><br/><br/><br/>
 									 
                                <div align="right">
 								<a href="/news" class="read-btn" title="Read more"><b> See all Innovation Stories </b><i class="fa fa-angle-double-right"></i></a>
@@ -282,7 +284,7 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									@foreach($r as $n)
-									<li style="font-size: 18px;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li>
+									<li style="font-size: 13px; text-align:justify;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li> <br/>
 									@endforeach
 									
 									</ul>
@@ -326,9 +328,9 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									
-									<li style="font-size: 18px;"><a href="/aboutus" title="About us"> About Us</h2></a></li>
-									<li style="font-size: 18px;"><a href="/faq" title="FAQ"> FAQ</h2></a></li>
-									<li style="font-size: 18px;"><a href="/contactus" title="Contact us"> Contact Us</h2></a></li>
+									<li style="font-size: 13px;"><a href="/aboutus" title="About us"> About Us</h2></a></li>
+									<li style="font-size: 13px;"><a href="/faq" title="FAQ"> FAQ</h2></a></li>
+									<li style="font-size: 13px;"><a href="/contactus" title="Contact us"> Contact Us</h2></a></li>
 									
 									</ul>
 									

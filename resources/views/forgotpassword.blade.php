@@ -4,10 +4,14 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
+<<<<<<< HEAD
 	<title>Materials and Manufacturing in Healthcare Network | Login Page</title>
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
+=======
+	<title>Materials and Manufacturing in Healthcare Innovation Network | Login Page</title>
+>>>>>>> main
 	@include("admin.analytics")
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
@@ -117,7 +121,7 @@
 						
                         <hr />
                         <p class="text-center">
-                             &copy;Materials and Manufacturing in Healthcare Network <?php echo date('Y') ?>
+                             &copy;Materials and Manufacturing in Healthcare Innovation Network <?php echo date('Y') ?>
                         </p>
                     </form>
                 </div>

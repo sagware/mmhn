@@ -38,6 +38,13 @@ height: auto;
 margin: 0 12.5%;
 }
 	</style>
+	
+	<style>
+	.img{
+	height:80%;
+	width:auto;
+	}
+	</style>
 </head>
 <body>
     <!-- begin #header -->

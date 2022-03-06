@@ -8,7 +8,7 @@
 <body>
 Dear {{$name}}, <br/><br/>
 
-Thank you for your interest in the Materials and Manufacturing in Healthcare Network. We have received your Expression of Interest form and will review this within 3 business days. If approved, we will send an invitation link to register as a member of the network. 
+Thank you for your interest in the Materials and Manufacturing in Healthcare Innovation Network. We have received your Expression of Interest form and will review this within 3 business days. If approved, we will send an invitation link to register as a member of the network. 
 <br/>
 <br/>
 Kind regards, <br/>

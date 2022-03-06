@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
@@ -54,8 +54,8 @@
                        
                         <h1 class="text-inverse">Terms of Use</h1>
 <p></p>
-                        <p class="about-me-desc"><b> 1. MMHN Virtual Platform Terms of Use</b></p>
-                         <p align="justify"> 1.1. The Materials and Manufacturing in Healthcare Network (the “Network”) have set up the Materials and Manufacturing in Healthcare Virtual Innovation Hub (the “Virtual Hub”) managed through LCN (at <a href="https:///www.materialsinhealth.org" title="MMHN website link">https:///www.materialsinhealth.org</a>) to provide a portal to collate and coordinate collaborations and solutions for solving healthcare challenges and bringing positive impact on patients. </p> 
+                        <p class="about-me-desc"><b> 1. MMHIN Virtual Platform Terms of Use</b></p>
+                         <p align="justify"> 1.1. The Materials and Manufacturing in Healthcare Network (the “Network”) have set up the Materials and Manufacturing in Healthcare Virtual Innovation Hub (the “Virtual Hub”) managed through LCN (at <a href="https:///www.materialsinhealth.org" title="MMHIN website link">https:///www.materialsinhealth.org</a>) to provide a portal to collate and coordinate collaborations and solutions for solving healthcare challenges and bringing positive impact on patients. </p> 
                         <p align="justify">1.2. The Virtual Hub has been developed to provide a single route of access for registered users (“Partners”) - academics, clinicians, and industry (designers, suppliers, and manufacturers) to respond to healthcare needs and challenges (“Challenges”) across the UK, particularly in the London region; by way of publishing Challenges and option to provide comments, either open to all Partners or privately to the publisher. The Virtual Hub has been developed to also provide a platform for Partners to showcase innovation news, upcoming events, and upcoming grants, (collectively “Innovation Stories”). </p> 
                        <p align="justify">1.3. The terms and conditions below apply to the use of the Virtual Hub, the submission of Innovation Stories, Challenges, and “open” comments/responses to the two. Use of the Virtual Hub, and submission of Innovation Stories, Challenges and comments shall be deemed to the acceptance of all conditions established in this document. If a participant does not accept the terms of this document, they should not submit either an Innovation Story, a Challenge or a comment.</p>   
                        

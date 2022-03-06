@@ -26,7 +26,7 @@
 	<!-- ================== END BASE JS ================== -->
 	<style>
 	.img{
-	height:100%;
+	height:80%;
 	width:auto;
 	}
 	</style>
@@ -77,7 +77,7 @@
                                     <div class="comment-author">
 								@if($s->picture=="empty.png")
 								<div>	
-                                    <a href="/partner/{{$s->id}}"><img align="right"src="/uploads/empty.png" alt="Default Profile Photo"  height="200px" width="200px"  /></a>
+                                    <a href="/partner/{{$s->id}}"><img align="right"src="/uploads/empty.png" alt="Default Profile Photo"  /></a>
 									</div>
 									@else
 									<div>	

@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Interest Acknowledgement</title>
+<title>MMHIN Password Reset</title>
 </head>
 
 <body>
 Dear {{$name}}, <br/><br/>
 
-You have indicated a forgotten password for the Materials and Manufacturing in Healthcare Network virtual platform. Please click <a href="{{$pathTo}}" title="password reset link" >password reset link to reset your password</a>. 
+You have indicated a forgotten password for the Materials and Manufacturing in Healthcare Innovation Network virtual platform. Please click <a href="{{$pathTo}}" title="password reset link" >password reset link to reset your password</a>. 
 
 If you did not submit this request, please ignore this message and login to the Network with your usual password. - Sagir is this true? Will this still work? 
 

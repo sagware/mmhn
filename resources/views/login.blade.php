@@ -5,8 +5,13 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
+<<<<<<< HEAD
 	<title>Log in | Materials and Manufacturing in Healthcare Network </title>
 	<meta content="width=device-width" name="viewport">
+=======
+	<title>Log in | Materials and Manufacturing in Healthcare Innovation Network </title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+>>>>>>> main
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -115,7 +120,7 @@
 						
                         <hr />
                         <p class="text-center">
-                             &copy;Materials and Manufacturing in Healthcare Network <?php echo date('Y') ?>
+                             &copy;Materials and Manufacturing in Healthcare Innovation Network <?php echo date('Y') ?>
                         </p>
                     </form>
                 </div>

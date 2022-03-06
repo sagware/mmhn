@@ -218,6 +218,26 @@
 								</div>
 								
 								
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Photo (optional)</label>
+									<div class="col-md-6 col-sm-6">
+										<input type="file" class="form-control" id="cover" value="{{ old('cover') }}"   name="cover"/>
+										
+										
+									</div>
+								</div>
+								
+								
+								
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Documents (optional)</label>
+									<div class="col-md-6 col-sm-6">
+										<input type="file" class="form-control" id="pic"   name="pic[]" value="{{ old('pic') }}" multiple/>
+										
+										
+									</div>
+								</div>
+								
 								
 								<div class="form-group" id="keywordslist">
 									<label for="key" class="control-label col-md-4 col-sm-4" for="fullname">Select keyword(s) that describe the challenge :<span class="text-danger">*</span></label>
@@ -269,25 +289,7 @@
 								</div>
 								
 								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Photo (optional)</label>
-									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control" id="cover" value="{{ old('cover') }}"   name="cover"/>
-										
-										
-									</div>
-								</div>
 								
-								
-								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Documents (optional)</label>
-									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control" id="pic"   name="pic[]" value="{{ old('pic') }}" multiple/>
-										
-										
-									</div>
-								</div>
 								
 								
 								<div class="form-group">

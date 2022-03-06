@@ -47,6 +47,13 @@ body {
 
 }
 	</style>
+	
+	<style>
+	.img{
+	height:80%;
+	width:auto;
+	}
+	</style>
 </head>
 <body>
 @include("admin.cookiebanner")
