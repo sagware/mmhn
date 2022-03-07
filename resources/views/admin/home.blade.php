@@ -123,7 +123,7 @@
 							<h2 class="post-title" align="center">
                                     Partners
                                     </h2>
-<p>Our registered Partners are those who are open to collaborate on solving healthcare challenges.</p>
+<p style="padding:2em;"> Our registered Partners are those who are open to collaborate on solving healthcare challenges.</p>
                                    <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
@@ -133,11 +133,14 @@
 									<li style="font-size: 13px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li>
 									<li style="font-size: 13px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li>
 									<li style="font-size: 13px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
-									<li style="font-size: 13px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li>
+									<li style="font-size: 13px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li> 
 									
-									<li style="font-size: 13px;"><a href="/partnerslist" title="All Partners"> All Partners</a></li>
+									
 									
 									</ul>
+									<br/>
+									
+									<a href="/partnerslist" title="All Partners"> <u><b> See all partners >> </b></u></a>
                                 </div>
 								</div>
                                 <!-- end blockquote -->
@@ -218,7 +221,7 @@
 							<h2 class="post-title" align="center">
                                        Latest Innovation Stories 
                                     </h2>
-<p>Read about our latest news, grant opportunities and upcoming events related to the Network and healthcare innovation.</p>
+<p style="padding:2em;">Read about our latest news, grant opportunities and upcoming events related to the Network and healthcare innovation.</p>
                                   <br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
@@ -227,12 +230,12 @@
 									@foreach($r as $n)
 									<li style="font-size: 13px; text-align:justify;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li> <br/> 
 									@endforeach
-									
+									<a href="/news" class="read-btn" title="Read more"><b> <u> See all Innovation Stories</u> </b><i class="fa fa-angle-double-right"></i></a>
 									</ul>
-									<br/><br/><br/><br/>
+									
 									 
                                <div align="right">
-								<a href="/news" class="read-btn" title="Read more"><b> See all Innovation Stories </b><i class="fa fa-angle-double-right"></i></a>
+								
 								</div>
 								
 								
