@@ -78,7 +78,7 @@ body {
                 <div class="col-md-9">
                     <!-- begin post-list -->
 					<div align="right">
-					<a href="/clinical_need_form" style=" background-color: #333333;color: white; padding: 15px 25px;"><i class="fas fa-plus"></i>Submit Challenge</a>
+					<a href="/show_news_form" title="Submit News" style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Submit News</a>
 					
 					</div>
 					<br/>
@@ -93,17 +93,17 @@ body {
                             <div class="post-content">
                                 <!-- begin post-image -->
                                 <div class="post-image">
-                                   @if(!empty($p->cover))
-                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
+                                   @if(!empty($p->pic))
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
 								@else
-								<a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" height="100%" width="100%" alt="{{$p->title}}" /></a>
+								<a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" height="100%" width="100%" alt="{{$p->title}}" /></a>
 								@endif
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
                                     <h4 class="post-title">
-                                        <a href="/clinical_detail/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
+                                        <a href="/public_post/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
                                     </h4>
                                     <div class="post-by">
                                         Posted By {{$p->posted_by_name}}
@@ -117,7 +117,7 @@ body {
 									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
 									@endif
 									@endif
-                                        <a href="/clinical_detail/{{$p->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>
+                                        <a href="/public_post/{{$p->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>
                                     </div>
                                 </div>
                                 <!-- end post-info -->

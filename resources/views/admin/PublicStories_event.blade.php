@@ -49,10 +49,11 @@
             <div class="row row-space-30">
                 <!-- begin col-9 -->
 				 <p><h1>Events</h1></p> 
-<p>Here you find upcoming events relating to healthcare innovation. MMHIN is committed to running events that break down barriers to and encourage collaborative innovation, you’ll find these here. Partners are also welcomed to use this space to disseminate healthcare innovation-related events. </p>   
+<p>Here you find upcoming events relating to healthcare innovation. MMHIN is committed to running events that break down barriers to and encourage collaborative innovation, you’ll find these here. Partners are also welcomed to use this space to disseminate healthcare innovation-related events. </p>  <br/>  
                 <div class="col-md-9">
 				<div align="right">
 				<a href="/show_news_form" class="read-btn" style=" background-color: #333333;color: white; padding: 15px 25px;" title="Submit Event"><i class="fas fa-plus"></i>&nbsp;Submit Event</a>
+				<br/>
 				<br/>
 				<br/>
 				</div>
@@ -68,7 +69,7 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" height="100%" width="100%" alt="{{$p->title}}" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}"  alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
@@ -82,23 +83,37 @@
 										
 										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
+									
+									
+									@if(!empty($p->summary))
                                     <div class="post-desc">
                                         
 										
 										 <?php 
-						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
-							$txt = nl2br(substr($p->summary,0,47));
+									   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+										$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+										
+										if(strlen($p->summary)>47){
+										$txt = nl2br(substr($p->summary,0,47));
+										}else{
+										$txt =$p->summary;
+										}
+										
+										echo $txt."...";
+										
+										?>
 							
-							
-							echo $txt."...";
-							
-							?>
+										
+										
                                     </div>
+									@endif
+										
+										
+										
                                     <div class="read-btn-container">
 									@if(Auth::check())
 											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
-											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn">Edit </a>|
+											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
 											@endif
 									@endif
                                         <a href="/public_post/{{$p->id}}" title="Read more" class="read-btn">Read More <i class="fa fa-angle-double-right"></i></a>
@@ -113,7 +128,7 @@
                     </div>
                     <!-- end post-list -->
                     
-                    <div class="section-container">
+                     <div class="section-container">
                         <!-- begin pagination -->
                         <div class="pagination-container text-center">
                              {{ $pp->links() }}

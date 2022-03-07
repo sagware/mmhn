@@ -49,10 +49,11 @@
             <div class="row row-space-30">
                 <!-- begin col-9 -->
 				 <p><h1>News</h1></p>
-<p> Here you will find healthcare innovation news and updates from both our Network and Partners. They can be about events that have happened, grant successes, innovation successes, milestones achieved or general innovation and collaboration advice.  </p>
+<p> Here you will find healthcare innovation news and updates from both our Network and Partners. They can be about events that have happened, grant successes, innovation successes, milestones achieved or general innovation and collaboration advice.  </p> <br/> 
                 <div class="col-md-9">
 				<div align="right">
 				<a href="/show_news_form" title="Submit News" style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Submit News</a>
+				<br/>
 				<br/>
 				<br/>
 				</div>
@@ -68,7 +69,7 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" height="100%" width="100%" alt="{{$p->title}}" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}"  alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
@@ -82,19 +83,28 @@
 										
 										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
+                                    @if(!empty($p->summary))
                                     <div class="post-desc">
                                         
 										
 										 <?php 
-						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
-							$txt = nl2br(substr($p->summary,0,47));
+									   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+										$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+										
+										if(strlen($p->summary)>47){
+										$txt = nl2br(substr($p->summary,0,47));
+										}else{
+										$txt =$p->summary;
+										}
+										
+										echo $txt."...";
+										
+										?>
 							
-							
-							echo $txt."...";
-							
-							?>
+										
+										
                                     </div>
+									@endif
                                     <div class="read-btn-container">
 									@if(Auth::check())
 											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")

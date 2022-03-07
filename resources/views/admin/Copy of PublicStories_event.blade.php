@@ -5,11 +5,11 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Challenges|Materials and Manufacturing in Healthcare Innovation Network</title>
+	<title>Events|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+	@include("admin.analytics")
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -23,18 +23,13 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	@include("admin.analytics")
-	
-	<style>
-	.img{
-	height:80%;
-	width:auto;
-	}
-	</style>
 </head>
 <body>
-@include("admin.cookiebanner")
-    
+    <!-- begin #header -->
+   
+            
+            <!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
             @include("admin.header")
             <!-- end navbar-collapse -->
         </div>
@@ -45,7 +40,7 @@
     <!-- begin #page-title -->
     
     <!-- end #page-title -->
-    
+   
     <!-- begin #content -->
     <div id="content" class="content">
         <!-- begin container -->
@@ -53,21 +48,19 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
-				<p> <h1>Challenges</h1></p>
-<p>Challenges are healthcare-related innovation ideas, problems and projects that can be posted by any Partner. Challenges are open for all Partners to comment and to give suggestions. The Partner posting the Challenge can select and notify Partners that are most relevant in terms expertise and/or interest through the matchmaking feature as part of the Challenge Submission process. The matchmaking process cross references the text of the Challenge with our Partners’ profile and presents them to the posting Partner in order of relevance. Selected Partners are tagged to the Challenge post, but each individual can untag themselves if necessary. </p>  
+				 <p><h1>Events</h1></p> 
+<p>Here you find upcoming events relating to healthcare innovation. MMHIN is committed to running events that break down barriers to and encourage collaborative innovation, you’ll find these here. Partners are also welcomed to use this space to disseminate healthcare innovation-related events. </p>  <br/>  
                 <div class="col-md-9">
+				<div align="right">
+				<a href="/show_news_form" class="read-btn" style=" background-color: #333333;color: white; padding: 15px 25px;" title="Submit Event"><i class="fas fa-plus"></i>&nbsp;Submit Event</a>
+				<br/>
+				<br/>
+				<br/>
+				</div>
                     <!-- begin post-list -->
-					<div align="right">
-					<a href="/clinical_need_form" style=" background-color: #333333;color: white; padding: 15px 25px;" title="Submit Challenge" class="read-btn"><i class="fas fa-plus"></i> &nbsp;Submit Challenge</a>
-					
-					</div>
-					<br/>
-					<br/>
-					<br/>
-					
                     <div class="post-list post-grid post-grid-2">
                         @if(sizeof($pp)==0)
-					<p class="text-danger">	No content found</p>
+						<p align="center" class="text-danger">No content found</p>
 						@else
 						@foreach($pp as $p)
                         <div class="post-li">
@@ -75,31 +68,41 @@
                             <div class="post-content">
                                 <!-- begin post-image -->
                                 <div class="post-image">
-								@if(!empty($p->cover))
-                                    <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
-								@else
-								<a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" alt="{{$p->title}}" height="100%" width="100%" /></a>
-								@endif
+								
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}"  alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
                                     <h2 class="post-title">
-                                        <a href="/clinical_detail/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
+                                        <a href="/public_post/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
                                     </h2>
                                     <div class="post-by">
-                                        Posted By {{$p->posted_by_name}}
-									
-										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
+                                        Posted By: {{$p->posted_by_name}}<br/>
+										 Category: {{$p->category}}
+										
+										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
-                                   
+                                    <div class="post-desc">
+                                        
+										
+										 <?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br(substr($p->summary,0,47));
+							
+							
+							echo $txt."...";
+							
+							?>
+                                    </div>
                                     <div class="read-btn-container">
 									@if(Auth::check())
-									@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
-									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
+											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
+											<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
+											@endif
 									@endif
-									@endif
-                                        <a href="/clinical_detail/{{$p->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>
+                                        <a href="/public_post/{{$p->id}}" title="Read more" class="read-btn">Read More <i class="fa fa-angle-double-right"></i></a>
                                     </div>
                                 </div>
                                 <!-- end post-info -->
@@ -111,7 +114,7 @@
                     </div>
                     <!-- end post-list -->
                     
-                    <div class="section-container">
+                     <div class="section-container">
                         <!-- begin pagination -->
                         <div class="pagination-container text-center">
                              {{ $pp->links() }}
@@ -121,7 +124,7 @@
                 </div>
                 <!-- end col-9 -->
                 <!-- begin col-3 -->
-                @include("admin.sidebarneed")
+                @include("admin.sidebar")
                 <!-- end col-3 -->
             </div>
             <!-- end row -->

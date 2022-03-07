@@ -4,8 +4,6 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-	<meta charset="utf-8" />
-	<title>My Innovation Stories|Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -22,13 +20,6 @@
     <script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	<style>
-	.img{
-	height:80%;
-	width:auto;
-	}
-	</style>
 </head>
 <body>
     <!-- begin #header -->
@@ -40,8 +31,7 @@
             <!-- end navbar-collapse -->
         </div>
         <!-- end container -->
-    </div>
-    <!-- end #header -->
+    </div>    <!-- end #header -->
     
     <!-- begin #page-title -->
     
@@ -54,10 +44,12 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
-				 <p><h1>My Innovation Stories</h1></p> 
+				 <p><h1>My Stories</h1></p>
+
                 <div class="col-md-9">
 				<div align="right">
-				<a href="/show_news_form" style=" background-color: #333333;color: white; padding: 15px 25px;"><i class="fas fa-plus"></i> &nbsp;Submit innovation stories</a>
+				<a href="/show_news_form" title="Submit News" style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Submit News</a>
+				<br/>
 				<br/>
 				<br/>
 				</div>
@@ -73,7 +65,7 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}"  alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
@@ -85,20 +77,32 @@
                                         Posted By: {{$p->posted_by_name}}<br/>
 										 Category: {{$p->category}}
 										
-										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} |Status: {{ucfirst($p->status)}}
+										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
+                                   @if(!empty($p->summary))
                                     <div class="post-desc">
                                         
 										
 										 <?php 
-						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
-							$txt = nl2br(substr($p->summary,0,47));
+									   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+										$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+										
+										if(strlen($p->summary)>47){
+										$txt = nl2br(substr($p->summary,0,47));
+										}else{
+										$txt =$p->summary;
+										}
+										
+										echo $txt."...";
+										
+										?>
 							
-							
-							echo $txt."...";
-							
-							?>
+										
+										
+                                    </div>
+									@endif
+									
+									
                                     </div>
                                     <div class="read-btn-container">
 									@if(Auth::check())

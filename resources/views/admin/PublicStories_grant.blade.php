@@ -49,10 +49,11 @@
             <div class="row row-space-30">
                 <!-- begin col-9 -->
 				 <p><h1>Grants</h1></p> 
-<p>Here you will find healthcare-related grant opportunities. Note that there are eligibility criteria to most grants, for instance, grants requiring a Principal Investigator from a research institute, or requiring a Business Lead. You can find out more about grant opportunities through the funder’s website.</p>   
+<p>Here you will find healthcare-related grant opportunities. Note that there are eligibility criteria to most grants, for instance, grants requiring a Principal Investigator from a research institute, or requiring a Business Lead. You can find out more about grant opportunities through the funder’s website.</p>   <br/> 
                 <div class="col-md-9">
 				<div align="right">
 				<a href="/show_news_form" style=" background-color: #333333;color: white; padding: 15px 25px;" class="read-btn" title="Submit Grant"><i class="fas fa-plus"></i>&nbsp;Submit Grant</a>
+				<br/>
 				<br/>
 				<br/>
 				</div>
@@ -68,7 +69,7 @@
                                 <!-- begin post-image -->
                                 <div class="post-image">
 								
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" height="100%" width="100%" alt="{{$p->title}}" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}"  alt="{{$p->title}}" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
@@ -83,18 +84,28 @@
 										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
                                     <div class="post-desc">
+                                  @if(!empty($p->summary))
+                                    <div class="post-desc">
                                         
 										
 										 <?php 
-						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
-							$txt = nl2br(substr($p->summary,0,47));
+									   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+										$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+										
+										if(strlen($p->summary)>47){
+										$txt = nl2br(substr($p->summary,0,47));
+										}else{
+										$txt =$p->summary;
+										}
+										
+										echo $txt."...";
+										
+										?>
 							
-							
-							echo $txt."...";
-							
-							?>
+										
+										
                                     </div>
+									@endif
                                     <div class="read-btn-container">
 									@if(Auth::check())
 											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")

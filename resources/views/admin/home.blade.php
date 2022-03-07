@@ -124,7 +124,7 @@
                                     Partners
                                     </h2>
 <p style="padding:2em;"> Our registered Partners are those who are open to collaborate on solving healthcare challenges.</p>
-                                   <br/> 
+                                  
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
@@ -155,7 +155,7 @@
                             <!-- end post-content -->
                         </div>
 						
-						</div>
+						
 						
 						
 						
@@ -174,7 +174,7 @@
                                        Challenges
                                     </h2>
 <p style="padding:2em;">Challenges are healthcare-related innovation ideas, problems and projects posted by Partners who are seeking advice and collaboration.</p>
-									<br/> 
+									
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
@@ -220,7 +220,7 @@
                                        Latest Innovation Stories 
                                     </h2>
 <p style="padding:2em;">Read about our latest news, grant opportunities and upcoming events related to the Network and healthcare innovation.</p>
-                                  <br/> 
+                                  
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
 								  <div class="card-header text-white p-0 overlay overlay-primary">
