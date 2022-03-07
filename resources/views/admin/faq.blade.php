@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>FAQ| Materials and Manufacturing in Healthcare Innovation Network</title>
-	<meta content="width=device-width" name="viewport">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
@@ -138,35 +138,27 @@
         <div class="card mb-0">
             <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                
-<<<<<<< HEAD
-                  <button id="btnn1" style="background:none; border:none;" onClick="changeAria('btnn1')" aria-expanded="false" aria-haspopup="true"> <h2 style="font-size:1.4em;!important;"><b>What is the Materials and Manufacturing in Healthcare Innovation Network (MMHN)?</b></h3></button>
-=======
-                  <button id="btnn1" style="background:none; border:none;" onClick="changeAria('btnn1')"> <h2 style="font-size:1.4em;!important;"><b>What is the Materials and Manufacturing in Healthcare Innovation Network (MMHIN)?</b></h3></button>
->>>>>>> main
+                  <button id="btnn1" style="background:none; border:none;" onClick="changeAria('btnn1')"> <h2 style="font-size:1.4em;!important;"><b>What is the Materials and Manufacturing in Healthcare Innovation Network (MMHN)?</b></h3></button>
              
             </div>
             <div id="collapseOne" class="card-body collapse"   data-parent="#accordion" >
-                <p class="about-me-desc">The Materials and Manufacturing in Healthcare Innovation Network (MMHIN) is a UCL-based initiative to create meaningful connections between clinicians, manufacturers and UCL researchers. Traditionally the translation of research discoveries into real-life devices or materials in the healthcare sector has been slow. So often researchers also find it difficult to connect with manufacturers, launch new discoveries, or respond to clinical needs. At the same time, clinicians often find it difficult to connect with researchers who can address their concerns from the hospital and primary care settings. 
+                <p class="about-me-desc">The Materials and Manufacturing in Healthcare Innovation Network (MMHN) is a UCL-based initiative to create meaningful connections between clinicians, manufacturers and UCL researchers. Traditionally the translation of research discoveries into real-life devices or materials in the healthcare sector has been slow. So often researchers also find it difficult to connect with manufacturers, launch new discoveries, or respond to clinical needs. At the same time, clinicians often find it difficult to connect with researchers who can address their concerns from the hospital and primary care settings. 
                 </p>
 				
 				<p class="about-me-desc">
-                           MMHIN aims to foster relationships and speed up innovation and build a community of connected creators, inventors, researchers and prescribers of medical materials and products. The Network will also host a series of events that explore rapid and connected innovation in the healthcare setting.
+                           MMHN aims to foster relationships and speed up innovation and build a community of connected creators, inventors, researchers and prescribers of medical materials and products. The Network will also host a series of events that explore rapid and connected innovation in the healthcare setting.
                         </p>
             </div>
 			
 			
             <div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseTwo">
                
-<<<<<<< HEAD
-               <button id="btn1" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btn1')">  <h2 style="font-size:1.4em;!important;"><b>Who runs MMHN?</b></h3></button>
-=======
-               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseTwo')">  <h2 style="font-size:1.4em;!important;"><b>Who runs MMHIN?</b></h3></button>
->>>>>>> main
+               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseTwo')">  <h2 style="font-size:1.4em;!important;"><b>Who runs MMHN?</b></h3></button>
                
             </div>
             <div id="collapseTwo" class="card-body collapse"  data-parent="#accordion" >
                  <p class="about-me-desc">
-                           MMHIN is a joint venture between UCL’s Institute of Making and UCL’s Institute of Healthcare Engineering. Lead academics at UCL include Dr Rita de Pinho, Prof Mark Miodownik, and Prof Rebecca Shipley. The MMHIN is also guided by an Advisory Group of senior clinicians, manufacturing directors, and senior academics at UCL. Please visit our <a href="/aboutus">About Us</a> page to view our MHN Core UCL Team and Advisory Group Members. 
+                           MMHN is a joint venture between UCL’s Institute of Making and UCL’s Institute of Healthcare Engineering. Lead academics at UCL include Dr Rita de Pinho, Prof Mark Miodownik, and Prof Rebecca Shipley. The MMHN is also guided by an Advisory Group of senior clinicians, manufacturing directors, and senior academics at UCL. Please visit our <a href="/aboutus">About Us</a> page to view our MHN Core UCL Team and Advisory Group Members. 
                         </p>
             </div>
 			
@@ -174,27 +166,19 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseFour">
                
-<<<<<<< HEAD
-                <button id="btn2" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btn2')"> <h2 style="font-size:1.4em;!important;"><b>What does the MMHN Virtual Platform (materialsinhealth.org) do?</b></h2></button>
-=======
-                <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseFour')"> <h2 style="font-size:1.4em;!important;"><b>What does the MMHIN Virtual Platform (materialsinhealth.org) do?</b></h2></button>
->>>>>>> main
+                <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseFour')"> <h2 style="font-size:1.4em;!important;"><b>What does the MMHN Virtual Platform (materialsinhealth.org) do?</b></h2></button>
              
             </div>
             <div id="collapseFour" class="card-body collapse"  data-parent="#accordion" >
                   <p class="about-me-desc">
-                          This website provides a networking space online. Partners (clinicians, manufacturers, and researchers) can create profiles, share "Challenges" that they have, and get in contact with others doing similar work. It is also a place for both the MMHIN Team and Partners to share innovation news, upcoming events and grant opportunities as "Innovation Stories".
+                          This website provides a networking space online. Partners (clinicians, manufacturers, and researchers) can create profiles, share "Challenges" that they have, and get in contact with others doing similar work. It is also a place for both the MMHN Team and Partners to share innovation news, upcoming events and grant opportunities as "Innovation Stories".
                         </p>
             </div>
 			
 			
             <div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseThree">
                
-<<<<<<< HEAD
-               <button id="btnx1" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btnx1')">  <h2 style="font-size:1.4em;!important;"><b>Who can join MMHN?</b></h2> </button>
-=======
-               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseThree')">  <h2 style="font-size:1.4em;!important;"><b>Who can join MMHIN?</b></h2> </button>
->>>>>>> main
+               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseThree')">  <h2 style="font-size:1.4em;!important;"><b>Who can join MMHN?</b></h2> </button>
                 
             </div>
             <div id="collapseThree" class="collapse"  data-parent="#accordion" >
@@ -211,11 +195,7 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseFive">
               
-<<<<<<< HEAD
-                <button id="btn1" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btn1')"> <h2 style="font-size:1.4em;!important;"><b>How will I sign up to be a Partner of MMHN?</b></h2></button>
-=======
-                <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseFive')"> <h2 style="font-size:1.4em;!important;"><b>How will I sign up to be a Partner of MMHIN?</b></h2></button>
->>>>>>> main
+                <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseFive')"> <h2 style="font-size:1.4em;!important;"><b>How will I sign up to be a Partner of MMHN?</b></h2></button>
               
             </div>
             <div id="collapseFive" class="card-body collapse"  data-parent="#accordion" >
@@ -227,7 +207,7 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseSix">
                
-                <button id="btnnx1" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btnnx1')"><h2 style="font-size:1.4em;!important;"><b>What are Challenges?</b></h2></button>
+                <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseSix')"><h2 style="font-size:1.4em;!important;"><b>What are Challenges?</b></h2></button>
                
             </div>
             <div id="collapseSix" class="card-body collapse"  data-parent="#accordion" >
@@ -241,12 +221,12 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseEight">
                 
-               <button id="btnnx2" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btnnx2')"> <h2 style="font-size:1.4em;!important;"><b>How do I present my Challenge to the Network?</b></h2> 
+               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseEight')"> <h2 style="font-size:1.4em;!important;"><b>How do I present my Challenge to the Network?</b></h2> 
                
             </div>
             <div id="collapseEight" class="card-body collapse"  data-parent="#accordion" >
                 <p class="about-me-desc">
-                         From the horizontal menu at the top of the site, click on “Challenges” and then “Submit Challenge”. If you are not already logged in, you will be directed to do this first. Once logged in, you should complete the form, with a title and description of your Challenge. You may also add a photo if you have one to enhance your description. Once you complete the form, it will be reviewed by an MMHIN Team member, and if approved, it will be posted on our “Challenges” page. Other Partners will be able to like and comment on the Challenge and can contact you directly if they are interested in collaborating. 
+                         From the horizontal menu at the top of the site, click on “Challenges” and then “Submit Challenge”. If you are not already logged in, you will be directed to do this first. Once logged in, you should complete the form, with a title and description of your Challenge. You may also add a photo if you have one to enhance your description. Once you complete the form, it will be reviewed by an MMHN Team member, and if approved, it will be posted on our “Challenges” page. Other Partners will be able to like and comment on the Challenge and can contact you directly if they are interested in collaborating. 
                         </p>
             </div>
 			
@@ -254,12 +234,12 @@
 			
 			<div class="card-header collapsed" data-toggle="collapse"  data-parent="#accordion" href="#collapseNine">
                
-               <button id="btnnc3" style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('btnnc3')"><h2 style="font-size:1.4em;!important;"><b>How do I post Innovation Stories or showcase an innovation?</b></h2></button>
+               <button style="background:none; border:none;" aria-expanded="false" aria-haspopup="true" onClick="changeAria('collapseNine')"><h2 style="font-size:1.4em;!important;"><b>How do I post Innovation Stories or showcase an innovation?</b></h2></button>
                
             </div>
             <div id="collapseNine" class="card-body collapse"  data-parent="#accordion" >
                 <p class="about-me-desc">
-                        From the horizontal menu at the top of the site, click on “Innovation Stories”, and then select “News”, “Upcoming Events” or “Upcoming Grants”. If you are not already logged in, you will be directed to do this first. Once logged in, you should complete the form, with a title and description of your Story. If you have one, please add a photo to enhance your description. Once you complete the form, it will be reviewed by an MMHIN Team member, and if approved, it will be posted on the respective page.
+                        From the horizontal menu at the top of the site, click on “Innovation Stories”, and then select “News”, “Upcoming Events” or “Upcoming Grants”. If you are not already logged in, you will be directed to do this first. Once logged in, you should complete the form, with a title and description of your Story. If you have one, please add a photo to enhance your description. Once you complete the form, it will be reviewed by an MMHN Team member, and if approved, it will be posted on the respective page.
                         </p>
             </div>
 			
@@ -270,7 +250,24 @@
     </div>
 </div>
 
-			
+
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+					
+						
 								
 						
                        
@@ -326,23 +323,9 @@
 					  });
 					}
 					
-					function changeAria(button_id) {
-
-					let button_el = document.getElementById(button_id);
-				
-					let expanded_val = button_el.getAttribute("aria-expanded");
-				
-					if(expanded_val === 'true') {
-				
-						button_el.setAttribute('aria-expanded', 'false');
-				
-					} else {
-				
-						button_el.setAttribute('aria-expanded', 'true');
-				
+					function changeAria(id){
+					document.getElementById(id1).setAttribute('aria-expanded', 'true');
 					}
-				
-				}
 	</script>
 	<script>
 	    $(document).ready(function() {

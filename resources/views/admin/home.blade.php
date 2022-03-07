@@ -130,15 +130,15 @@
 								  <div class="card-header text-white p-0 overlay overlay-primary">
                                     <ul>
 									
-									<li style="font-size: 13px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li>
-									<li style="font-size: 13px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li>
-									<li style="font-size: 13px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
+									<li style="font-size: 13px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li> <br/>
+									<li style="font-size: 13px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li> <br/>
+									<li style="font-size: 13px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li> <br/>
 									<li style="font-size: 13px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li> <br/>						
 									
 									</ul>
 									
 									
-									<a href="/partnerslist" title="All Partners"> <u><b> See all partners >> </b></u></a>
+									<a style="padding:2em;" href="/partnerslist" title="All Partners"> <u><b> See all partners >> </b></u></a>
                                 </div>
 								</div>
                                 <!-- end blockquote -->
@@ -155,7 +155,7 @@
                             <!-- end post-content -->
                         </div>
 						
-						
+						</div>
 						
 						
 						
