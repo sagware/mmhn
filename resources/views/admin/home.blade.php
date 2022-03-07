@@ -172,7 +172,7 @@
 							 <h2 class="post-title" align="center">
                                        Challenges
                                     </h2>
-<p>Challenges are healthcare-related innovation ideas, problems and projects posted by Partners who are seeking advice and collaboration.</p>
+<p style="padding:2em;">Challenges are healthcare-related innovation ideas, problems and projects posted by Partners who are seeking advice and collaboration.</p>
 									<br/> 
                                 <!-- begin blockquote -->
                                 <div class="card card-clean">
@@ -181,12 +181,12 @@
 									@foreach($ch as $c)
 									<li style="font-size: 13px; text-align:justify;"><a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}">{{$c->title}}</h2></a></li> <br/>
 									@endforeach
-									
+									<a href="/clinicalneeds" class="read-btn" title="Read more"> <u><b>See all Challenges</b></u> <i class="fa fa-angle-double-right" ></i></a>
 									</ul>
-									<br/><br/><br/><br/><br/>
+									
 									<div align="right" > 
 									
-									<a href="/clinicalneeds" class="read-btn" title="Read more"> <b>See all Challenges</b> <i class="fa fa-angle-double-right" ></i></a>
+									
 								
 								</div>
                                 </div>
