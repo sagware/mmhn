@@ -133,12 +133,10 @@
 									<li style="font-size: 13px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li>
 									<li style="font-size: 13px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li>
 									<li style="font-size: 13px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li>
-									<li style="font-size: 13px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li> 
-									
-									
+									<li style="font-size: 13px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li> <br/>						
 									
 									</ul>
-									<br/>
+									
 									
 									<a href="/partnerslist" title="All Partners"> <u><b> See all partners >> </b></u></a>
                                 </div>
