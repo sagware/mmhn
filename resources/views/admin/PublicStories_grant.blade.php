@@ -83,8 +83,7 @@
 										
 										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
-                                    <div class="post-desc">
-                                  @if(!empty($p->summary))
+                                   @if(!empty($p->summary))
                                     <div class="post-desc">
                                         
 										

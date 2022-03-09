@@ -54,7 +54,11 @@
 				<br/>
 				</div>
                     <!-- begin post-list -->
-                    <div class="post-list post-grid post-grid-2">
+                    
+					
+					
+                        
+                   <div class="post-list post-grid post-grid-2">
                         @if(sizeof($pp)==0)
 						<p align="center" class="text-danger">No content found</p>
 						@else
@@ -79,7 +83,9 @@
 										
 										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
-                                   @if(!empty($p->summary))
+									
+									
+									@if(!empty($p->summary))
                                     <div class="post-desc">
                                         
 										
@@ -101,9 +107,9 @@
 										
                                     </div>
 									@endif
-									
-									
-                                    </div>
+										
+										
+										
                                     <div class="read-btn-container">
 									@if(Auth::check())
 											@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
@@ -120,7 +126,7 @@
                         @endforeach
                         @endif
                     </div>
-                    <!-- end post-list -->
+					
                     
                     <div class="section-container">
                         <!-- begin pagination -->
