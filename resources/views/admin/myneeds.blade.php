@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>My challenges|Materials and Manufacturing in Healthcare Network</title>
+	<title>My Challenges|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />

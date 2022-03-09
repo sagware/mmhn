@@ -138,7 +138,7 @@
 									</ul>
 									
 									
-									<a style="padding:2em;" href="/partnerslist" title="All Partners"> <u><b> See all partners >> </b></u></a>
+									<a style="padding:2em;" href="/partnerslist" title="All Partners"> <u><b> See all Partners >> </b></u></a>
                                 </div>
 								</div>
                                 <!-- end blockquote -->

@@ -33,7 +33,7 @@
                     <!-- begin section-container -->
                     
 					<div class="section-container">
-                        <h2 class="section-title"><span>RECENT @if($cat=="news")NEWS @elseif($cat=="grant") GRANTS @elseif($cat=="event") EVENTS @elseif($cat=="all") ALL INNOVATION STORIES @elseif($cat=="sto")INNOVATION STORIES FROM ME @endif </span></h2>
+                        <h2 class="section-title"><span>RECENT @if($cat=="news")NEWS @elseif($cat=="grant") GRANTS @elseif($cat=="event") EVENTS @elseif($cat=="all") ALL INNOVATION STORIES @elseif($cat=="sto")INNOVATION STORIES @endif </span></h2>
                         <ul class="sidebar-recent-post">
 						
 						@foreach($r as $r)
