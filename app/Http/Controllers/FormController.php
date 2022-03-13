@@ -113,7 +113,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(1024, 683)->save();
+				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(1024, 683)->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");
@@ -244,7 +244,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(1024, 683)->save();
+				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(1024, 683)->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");
@@ -583,7 +583,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName2);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName2)->resize(1024, 683)->save();
+				//$fil2 = Image::make($newurl.DS. $fileFalseName2)->resize(1024, 683)->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");
@@ -950,7 +950,7 @@ class FormController extends Controller {
 				$newurl = public_path() . DS . 'uploads';
 				$upl = $fil->move($newurl, $fileFalseName2);
 				
-				$fil2 = Image::make($newurl.DS. $fileFalseName2)->resize(1024, 683)->save();
+				//$fil2 = Image::make($newurl.DS. $fileFalseName2)->resize(1024, 683)->save();
 				
 				}else{
 				return back()->with("uplerror","invalid format");
@@ -2235,11 +2235,22 @@ class FormController extends Controller {
 			}
 			
 			public function homeadmin(){
+			$ctss= "sto";
+			
+			if(Auth::check()){
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at")->take(5)->get();
+			return view('admin.home')->with("r",$r);
+			}else{
+			
+			
 			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category","news")->orderBy("updated_at")->take(3)->get();
 			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->take(3)->get();
 			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
 			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
-			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ev",$ev)->with("op",$op);
+			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ev",$ev)->with("op",$op)->with("cat",$ctss);
+			}
+			
+			
 			}
 			
 			public function showNewsForm(){
@@ -3201,6 +3212,15 @@ class FormController extends Controller {
 			$p = PublicStories::where("id", ">","0")->where("category","need")->where("posted_by",$id)->orderBy("updated_at","DESC")->simplePaginate(4);
 			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
 			return view('admin.myneeds')->with("pp",$p)->with("r",$r);
+			
+			}
+			
+			public function allinv(){
+			//ontact us
+			$p = PublicStories::where("status","approved")->orWhere("category", "news")->orWhere("category", "event")->orWhere("category", "grant")->orderBy("updated_at","DESC")->simplePaginate(4);
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category", "news")->orWhere("category", "event")->orWhere("category", "grant")->orderBy("updated_at")->take(5)->get();
+			$cat = "news";
+			return view('admin.allinnovationstories')->with("pp",$p)->with("r",$r)->with("cat",$cat);
 			
 			}
 			

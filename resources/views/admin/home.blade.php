@@ -99,278 +99,77 @@
     <!-- begin #content -->
     <div id="content" class="content">
         <!-- begin container -->
-        <!--
-		<div class="container"> -->
+        <div class="container">
             <!-- begin row -->
-			
-			@if(Auth::check())
-            <div class="row row-space-30" >
+            <div class="row row-space-30">
                 <!-- begin col-9 -->
-                <div class="col-md-15">
+                <div class="col-md-9">
                     <!-- begin post-list -->
-                    <div class="post-list post-grid post-grid-10">
+                    <ul class="post-list">
                         
-						
-						
-						<div class="post-li">
-                            <!-- begin post-content -->
+                    <p align="center">  <h2>Our Featured Innovation Story</h2> </p> 
+                        <li>
+                           
                             <div class="post-content">
-								<div align="center">
-								<i class="icon">
-								<i class="fas fa-users"></i>
-								</i>
-								</div>
-							<h2 class="post-title" align="center">
-                                    Partners
-                                    </h2>
-<p style="padding:2em;"> Our registered Partners are those who are open to collaborate on solving healthcare challenges.</p>
-                                  
-                                <!-- begin blockquote -->
-                                <div class="card card-clean">
-								  <div class="card-header text-white p-0 overlay overlay-primary">
-                                    <ul>
-									
-									<li style="font-size: 13px;"><a href="/academic/partners" title="Academic Partners"> Academic Partners</a></li> <br/>
-									<li style="font-size: 13px;"><a href="/industry/partners" title="Industry Partners">Industry Partners</a></li> <br/>
-									<li style="font-size: 13px;"><a href="/clinical/partners" title="Clinical Partners"> Clinical Partners</a></li> <br/>
-									<li style="font-size: 13px;"><a href="/other/partners" title="Other Category of Partners">Other Partners</a></li> <br/>						
-									
-									</ul>
-									
-									
-									<a style="padding:2em;" href="/partnerslist" title="All Partners"> <u><b> See all Partners >> </b></u></a>
+                                <!-- begin post-video -->
+                                <div class="post-video">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_5aKcpAhTOk" allowfullscreen></iframe>
+                                    </div>
                                 </div>
-								</div>
-                                <!-- end blockquote -->
-                                <!-- begin post-info 
-                               <div align="right">
-                               
-
-								<a href="/partnerslist" class="read-btn" title="Read more"> <b> See all Partners</b> <i class="fa fa-angle-double-right" ></i></a>
-
-								
-								</div>-->
-                                <!-- end post-info -->
-                            </div>
-                            <!-- end post-content -->
-                        </div>
-						
-						
-						
-						
-						
-						<div class="post-li">
-                            <!-- begin post-content -->
-                            <div class="post-content">
-							
-							<div align="center">
-							<i class="icon">
-							<i class="fas fa-hammer"></i>
-							</i>
-							</div>
-							
-							
-							 <h2 class="post-title" align="center">
-                                       Challenges
-                                    </h2>
-<p style="padding:2em;">Challenges are healthcare-related innovation ideas, problems and projects posted by Partners who are seeking advice and collaboration.</p>
-									
-                                <!-- begin blockquote -->
-                                <div class="card card-clean">
-								  <div class="card-header text-white p-0 overlay overlay-primary">
-                                     <ul>
-									@foreach($ch as $c)
-									<li style="font-size: 13px; text-align:justify;"><a href="/clinical_detail/{{$c->id}}" title="{{$c->title}}">{{$c->title}}</h2></a></li> <br/>
-									@endforeach
-									<a href="/clinicalneeds" class="read-btn" title="Read more"> <u><b>See all Challenges</b></u> <i class="fa fa-angle-double-right" ></i></a>
-									</ul>
-									
-									<div align="right" > 
-									
-									
-								
-								</div>
-                                </div>
-								
-								
-								
-								
-								</div>
-                                <!-- end blockquote -->
+                                <!-- end post-video -->
                                 <!-- begin post-info -->
-								
-                                <!-- end post-info -->
-                            </div>
-                            <!-- end post-content -->
-                       
-                    </div>
-					
-					
-					
-					
-						<div class="post-li" >
-                            <!-- begin post-content -->
-                            <div class="post-content">
-							<div align="center">
-							<i class="icon">
-							<i class="far fa-newspaper" ></i>
-							</i>
-							</div>
-							<h2 class="post-title" align="center">
-                                       Latest Innovation Stories 
-                                    </h2>
-<p style="padding:2em;">Read about our latest news, grant opportunities and upcoming events related to the Network and healthcare innovation.</p>
-                                  
-                                <!-- begin blockquote -->
-                                <div class="card card-clean">
-								  <div class="card-header text-white p-0 overlay overlay-primary">
-                                    <ul>
-									@foreach($r as $n)
-									<li style="font-size: 13px; text-align:justify;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li> <br/> 
-									@endforeach
-									<a href="/news" class="read-btn" title="Read more"><b> <u> See all Innovation Stories</u> </b><i class="fa fa-angle-double-right"></i></a>
-									</ul>
-									
-									 
-                               <div align="right">
-								
-								</div>
-								
-								
+                                <div class="post-info">
+                                    <h4 class="post-title">
+                                        <a href="post_detail.html">Blog Post Video</a>
+                                    </h4>
+                                    <div class="post-by">
+                                        Posted By <a href="#">admin</a> <span class="divider">|</span> <a href="#">Movies</a>, <a href="#">Minions</a>, <a href="#">Trailer</a> <span class="divider">|</span> 1,292 Comments
+                                    </div>
+                                    <div class="post-desc">
+                                        Praesent maximus malesuada purus, sit amet auctor velit scelerisque nec. Suspendisse eget pellentesque dui, ut egestas orci. 
+                                        Proin eget massa et magna faucibus pulvinar. Quisque tortor orci, volutpat vel auctor non, varius a augue. Cras non ante arcu. 
+                                        Phasellus sit amet dolor non est dictum convallis vel eu lectus. 
+                                        Etiam consectetur non leo at auctor. Proin porttitor tellus arcu, in accumsan eros tincidunt eget[...]
+                                    </div>
                                 </div>
-								</div>
-                                <!-- end blockquote -->
-                                <!-- begin post-info -->
-                               
                                 <!-- end post-info -->
+                                <!-- begin read-btn-container -->
+                                <div class="read-btn-container">
+                                    <a href="post_detail.html">Read More <i class="fa fa-angle-double-right"></i></a>
+                                </div>
+                                <!-- end read-btn-container -->
                             </div>
                             <!-- end post-content -->
-                        </div>
-						
-						
-                    <!-- end post-list -->                
+                        </li>
+                        
+                    </ul>
+                    <!-- end post-list -->
+                    <div align="center"><h2><a href="/login" title="login/register"><b>Log in/join to view and participate in solving healthcare challenges</b></a></h2></div>
                     
-               
-				
+                </div>
                 <!-- end col-9 -->
                 <!-- begin col-3 -->
-               </div>
+                @include("admin.sidebarhome")
                 <!-- end col-3 -->
             </div>
             <!-- end row -->
         </div>
-			
-			@else
-			<div class="row row-space-30" >
-                <!-- begin col-9 -->
-                <div class="col-md-12">
-                    <!-- begin post-list -->
-                    <div class="post-list post-grid post-grid-2">
-                        
-						
-						<div class="post-li" >
-                            <!-- begin post-content -->
-                            <div class="post-content">
-							<div align="center">
-							<i class="icon">
-							<i class="far fa-newspaper" ></i>
-							</i>
-							</div>
-							<h2 class="post-title" align="center">
-                                      Latest Innovation Stories
-                                    </h2>
-                                  <br/> 
-                                <!-- begin blockquote -->
-                                <div class="card card-clean">
-								  <div class="card-header text-white p-0 overlay overlay-primary">
-                                    <ul>
-									@foreach($r as $n)
-									<li style="font-size: 13px; text-align:justify;"><a href="/public_post/{{$n->id}}" title="{{$n->title}}">{{$n->title}}</h2></a></li> <br/>
-									@endforeach
-									
-									</ul>
-									
-									
-                                </div>
-								
-								
-								
-								<div align="right">
-                               
-								<a href="/news" class="read-btn" title="Read more"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>See all Innovation Stories </b><i class="fa fa-angle-double-right"></i></a>
-								
-								</div>
-								
-								</div>
-                                <!-- end blockquote -->
-                                <!-- begin post-info -->
-                                
-                                <!-- end post-info -->
-                            </div>
-                            <!-- end post-content -->
-                        </div>
-						
-						
-					
-					<div class="post-li">
-                            <!-- begin post-content -->
-                            <div class="post-content">
-								<div align="center">
-								<i class="icon">
-								<i class="fas fa-info-circle"></i>
-								</i>
-								</div>
-							<h2 class="post-title" align="center">
-                                        Network Information
-                                    </h2>
-                                   <br/> 
-                                <!-- begin blockquote -->
-                                <div class="card card-clean">
-								  <div class="card-header text-white p-0 overlay overlay-primary">
-                                    <ul>
-									
-									<li style="font-size: 13px;"><a href="/aboutus" title="About us"> About Us</h2></a></li>
-									<li style="font-size: 13px;"><a href="/faq" title="FAQ"> FAQ</h2></a></li>
-									<li style="font-size: 13px;"><a href="/contactus" title="Contact us"> Contact Us</h2></a></li>
-									
-									</ul>
-									
-								
-                               
-								
-								</div>
-                                </div>
-								
-								<div align="right" style="visibility:hidden;">
-                               
-								<a href="/aboutus" class="read-btn" title="Read more"> About Us <i class="fa fa-angle-double-right"></i></a>
-								
-								</div>
-								</div>
-                                <!-- end blockquote -->
-                                <!-- begin post-info -->
-                               
-                                <!-- end post-info -->
-                            </div>
-                            <!-- end post-content -->
-                        </div>
-					
-					
-						
-						
-						
-                    <!-- end post-list -->                
-                    
-               
-				
-                <!-- end col-9 -->
-                <!-- begin col-3 -->
-               </div>
-                <!-- end col-3 -->
-            </div>
-            <!-- end row -->
-        </div>
-			@endif
+        <!-- end container -->
+    </div>
+		
+	<style type="text/css">
+	.adimg{ height:auto; width:300px;}
+	</style>	
+		<!-- advisory group-->
+		<div class="row row-space-30">
+		<div class="col-md-12">
+		
+		<div> <img src="/mmhn/public/uploads/ucllogo.png" class="adimg" alt="UCL logo"/> <img src="/mmhn/public/uploads/RFHlogo.png" class="adimg" alt="NHS Royar Foundation Logo"/>  <img src="/mmhn/public/uploads/3dlogo.png" class="adimg" alt="3D print logo"/><img src="/mmhn/public/uploads/palogo.png" class="adimg" alt="PA logo"/><img src="/mmhn/public/uploads/uclpartnerlogo.png" class="adimg" alt="UCL Partner Logo"/><img src="/mmhn/public/uploads/nhslogo.jpg" class="adimg" alt="NHS Foundation Trust Logo"/><img src="/mmhn/public/uploads/Warwicklogo.jpg" class="adimg" alt="RQM Logo"/><img src="/mmhn/public/uploads/nhslondonlogo.png" class="adimg" alt="NHS UCL logo"/></div>
+		
+		
+		</div>		
+		</div>	
         <!-- end container -->
     </div>
     <!-- end #content -->

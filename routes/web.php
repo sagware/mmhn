@@ -35,6 +35,7 @@ Route::post('/add/public_stories', 'FormController@addPublicStories');
 Route::post('/addedit/public_stories', 'FormController@addEditPublicStories');
 Route::post('/submit/custom_cookies', 'FormController@customCookiesSubmission');
 Route::get('/news', 'FormController@news');
+Route::get('/allinnovation', 'FormController@allinv');
 Route::get('/event', 'FormController@event');
 Route::get('/newssubmitted', 'FormController@newsSubmitted');
 Route::get('/challengesubmitted', 'FormController@challengeSubmitted');
