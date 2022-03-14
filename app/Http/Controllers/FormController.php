@@ -2237,17 +2237,28 @@ class FormController extends Controller {
 			public function homeadmin(){
 			$ctss= "sto";
 			
-			if(Auth::check()){
+			if(!(Auth::check())){
 			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at")->take(5)->get();
-			return view('admin.home')->with("r",$r);
+			
+			$inv = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at")->first();
+			
+			
+			return view('admin.home')->with("r",$r)->with("inv",$p);
+			
 			}else{
 			
+			$inv = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at")->first();
+			$chl = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->first();
 			
-			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category","news")->orderBy("updated_at")->take(3)->get();
-			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("posted_by",Auth::user()->id)->where("category","need")->orderBy("updated_at")->take(3)->get();
+			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->get();
+			$ckk = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->first();
 			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
 			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
-			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ev",$ev)->with("op",$op)->with("cat",$ctss);
+			
+			$myinv = PublicStories::where("id",">",0)->where("status","approved")->where("posted_by",Auth::user()->id)->where("category","event")->where("category","news")->where("category","grant")->orderBy("updated_at")->get();
+			
+			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ck",$ckk)->with("ev",$ev)->with("op",$op)->with("cat",$ctss)->with("p",$inv)->with("c",$chl)->with("pm",$myinv);
 			}
 			
 			
