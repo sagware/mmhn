@@ -15,8 +15,9 @@
                             </span>
 							
                         </div>
-                    </div>
+                    
 					</form>
+					</div>
                     <!-- end section-container -->
                     <!-- begin section-container -->
                     <div class="section-container">
@@ -86,3 +87,5 @@
                     </div>
                     <!-- end section-container -->
                 </div>
+				</div>
+				

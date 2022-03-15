@@ -6,12 +6,10 @@
                             <li><a href="/aboutus">About Us</a></li>
 							 <li><a href="/faq">Frequently Asked Questions</a></li>
 							  <li><a href="/contactus">Contact Us</a></li>
-							  
-                       
-						 
                         </ul>
+						<a href="/register"  class="btn btn-primary btn-block btn-lg"><b> JOIN THE NETWORK </b></a>  
                     </div>
-					<a href="/register"  class="btn btn-primary btn-block btn-lg"><b> JOIN THE NETWORK </b></a>  <br/>
+					
                     <!-- begin section-container -->
 					<label for="keyword">Search @if($cat=="news") News @elseif($cat=="grant") Grants @elseif($cat=="event") Events @elseif($cat=="all")Innovation Stories @endif </label>
                     <div class="section-container">

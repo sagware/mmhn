@@ -103,13 +103,11 @@
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
+				  <p align="center">  <h2>Our Featured Innovation Story</h2> </p>
                 <div class="col-md-9">
                     <!-- begin post-list -->
                     <ul class="post-list">
-                        
-                    <p align="center">  <h2>Our Featured Innovation Story</h2> </p> 
-					
-					
+                   
 					<li>
                             <!-- begin post-left-info -->
                             
@@ -156,38 +154,60 @@
                             <!-- end post-content -->
                         </li>
 					
-                        <li>
-                           
-                            <div class="post-content">
-                                <!-- begin post-video -->
-                                <div class="post-video">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_5aKcpAhTOk" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <!-- end post-video -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        About the Website
-                                    </h4>
-									
-                                    
-                                    
-                                </div>
-                                <!-- end post-info -->
-                                <!-- begin read-btn-container -->
-                                
-                                <!-- end read-btn-container -->
-                            </div>
-                            <!-- end post-content -->
-                        </li>
+                        
                         
                     </ul>
                     <!-- end post-list -->
 					@if(Auth::check())
+					<br/>
 					 <div align="center"><h2><a href="/show_news_form" title="Post an Innovation Story" style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post an Innovation Story</a>				<br/></h2></div>
+				
+				<br/>
+				  <p align="center">  <h2>Newest Challenges</h2> </p>	 
+				  
+				  <div class="post-li">
+                            <!-- begin post-content -->
+                            <div class="post-content">
+                                <!-- begin post-image -->
+                                <div class="post-image">
+								@if(!empty($c->cover))
+                                    <a href="/clinical_detail/{{$c->id}}"><img src="/mmhn/public/uploads/{{$c->cover}}" alt="{{$c->title}}" height="100%" width="100%" /></a>
+								@else
+								<a href="/clinical_detail/{{$c->id}}"><img src="/mmhn/public/uploads/empty.png" alt="{{$c->title}}" height="100%" width="100%" /></a>
+								@endif
+                                </div>
+                                <!-- end post-image -->
+                                <!-- begin post-info -->
+                                <div class="post-info">
+                                    <h2 class="post-title">
+                                        <a href="/clinical_detail/{{$c->id}}" title="Click to view post">{{$c->title}}</a>
+                                    </h2>
+                                    <div class="post-by">
+                                        Posted By {{$c->posted_by_name}}
+									
+										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($c->updated_at)) }} 
+                                    </div>
+                                   
+                                    <div class="read-btn-container">
+									@if(Auth::check())
+									@if(Auth::user()->id == $c->posted_by || Auth::user()->role=="admin")
+									<a href="/showeditneed/{{$c->id}}" title="Edit" class="read-btn">Edit </a> |
+									@endif
+									@endif
+                                        <a href="/clinical_detail/{{$c->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- end post-info -->
+                            </div>
+                            <!-- end post-content -->
+                        </div>
+				  
+				  
+				  
+				  <div align="center"><h2><a href="/clinical_need_form" title="Post a Challenge" style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post a Challenge</a>				<br/></h2></div>
+					 
                   @else
+				  <br/>
 				 <div align="center"><h2><a href="/login" title="login/register"><b>Log in/join to view and participate in solving healthcare challenges</b></a></h2></div>
 				  @endif 
                 </div>
@@ -207,14 +227,20 @@
     </div>
 		
 	<style type="text/css">
-	.adimg{ height:auto; width:300px;}
+	.adimg{ height:80px; width:auto;}
 	</style>	
 		<!-- advisory group-->
 		<div  align="center" style="padding:em;">
 		<div >
 		
+		@if(Auth::check())
+		
+		@else
+		
+		<p align="center">  <h2>Advisory Group</h2> </p>	
 		<div> <img src="/mmhn/public/uploads/ucllogo.png" class="adimg" alt="UCL logo"/> <img src="/mmhn/public/uploads/RFHlogo.png" class="adimg" alt="NHS Royar Foundation Logo"/>  <img src="/mmhn/public/uploads/3dlogo.png" class="adimg" alt="3D print logo"/><img src="/mmhn/public/uploads/palogo.png" class="adimg" alt="PA logo"/><img src="/mmhn/public/uploads/uclpartnerlogo.png" class="adimg" alt="UCL Partner Logo"/><img src="/mmhn/public/uploads/nhslogo.jpg" class="adimg" alt="NHS Foundation Trust Logo"/><img src="/mmhn/public/uploads/Warwicklogo.jpg" class="adimg" alt="RQM Logo"/><img src="/mmhn/public/uploads/nhslondonlogo.png" class="adimg" alt="NHS UCL logo"/></div>
 		
+		@endif
 		
 		</div>		
 		</div>	

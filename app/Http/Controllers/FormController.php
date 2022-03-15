@@ -2243,7 +2243,7 @@ class FormController extends Controller {
 			$inv = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at")->first();
 			
 			
-			return view('admin.home')->with("r",$r)->with("inv",$p);
+			return view('admin.home')->with("r",$r)->with("p",$inv)->with("cat",$ctss);
 			
 			}else{
 			
@@ -2258,7 +2258,7 @@ class FormController extends Controller {
 			
 			$myinv = PublicStories::where("id",">",0)->where("status","approved")->where("posted_by",Auth::user()->id)->where("category","event")->where("category","news")->where("category","grant")->orderBy("updated_at")->get();
 			
-			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ck",$ckk)->with("ev",$ev)->with("op",$op)->with("cat",$ctss)->with("p",$inv)->with("c",$chl)->with("pm",$myinv);
+			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ck",$ckk)->with("ev",$ev)->with("op",$op)->with("cat",$ctss)->with("p",$inv)->with("c",$chl)->with("pm",$myinv)->with("cat",$ctss);
 			}
 			
 			
