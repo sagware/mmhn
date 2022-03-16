@@ -85,7 +85,7 @@
     <!-- end #header -->
     
     <!-- begin #page-title -->
-    <div id="page-title" class="page-title has-bg">
+    <div id="page-title" class="page-title has-bg" style="margin-bottom:0 !important;">
         <div class="bg-cover"><img src="/assets/homecover.jpeg" alt="" /></div>
         <div class="container">
             <h1>Materials and Manufacturing in Healthcare Innovation Network
@@ -95,15 +95,28 @@
         </div>
     </div>
     <!-- end #page-title -->
-    
+    <style type="text/css">
+	h2,h1{
+	margin-bottom:0 !important;
+	margin-top:0 !important;
+	}
+	
+	p{
+	margin-bottom:0 !important;
+	margin-top:0 !important;
+	}
+	
+	</style>
     <!-- begin #content -->
-    <div id="content" class="content">
+    <div id="content" class="content" style="margin-bottom:0 !important; margin-top:0;">
         <!-- begin container -->
         <div class="container">
-            <!-- begin row -->
+            <!-- begin row --> 
+			<br/>
+			<p align="center">  <h2>Our Featured Innovation Story</h2> </p>
             <div class="row row-space-30">
                 <!-- begin col-9 -->
-				  <p align="center">  <h2>Our Featured Innovation Story</h2> </p>
+				 
                 <div class="col-md-9">
                     <!-- begin post-list -->
                     <ul class="post-list">
@@ -115,9 +128,18 @@
                             <!-- begin post-content -->
                             <div class="post-content">
                                 <!-- begin post-image -->
-                                <div class="post-image">
-                                    <a href="/public_post/{{$p->id}}" title="Latest Innovation Story"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="Latest Innovation Story" /></a>
+                                <div class="post-video">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                    <?php 
+						   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+							$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+							$txt = nl2br($p->featured);
+							
+							echo $txt;
+							
+							?>
                                 </div>
+								</div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
@@ -159,48 +181,65 @@
                     </ul>
                     <!-- end post-list -->
 					@if(Auth::check())
-					<br/>
+					
 					 <div align="center"><h2><a href="/show_news_form" title="Post an Innovation Story" style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post an Innovation Story</a>				<br/></h2></div>
 				
 				<br/>
+				<br/>
 				  <p align="center">  <h2>Newest Challenges</h2> </p>	 
 				  
-				  <div class="post-li">
-                            <!-- begin post-content -->
+				  
+				  
+				  <ul class="post-list">
+                   
+				   @foreach($cll as $cl)
+					<li>
                             <div class="post-content">
                                 <!-- begin post-image -->
                                 <div class="post-image">
-								@if(!empty($c->cover))
-                                    <a href="/clinical_detail/{{$c->id}}"><img src="/mmhn/public/uploads/{{$c->cover}}" alt="{{$c->title}}" height="100%" width="100%" /></a>
-								@else
-								<a href="/clinical_detail/{{$c->id}}"><img src="/mmhn/public/uploads/empty.png" alt="{{$c->title}}" height="100%" width="100%" /></a>
-								@endif
+                                    <a href="/clinical_detail/{{$cl->id}}" title="{{$cl->title}}"><img src="/mmhn/public/uploads/{{$cl->cover}}" class="cpt" align="post cover photo" /></a>
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
-                                    <h2 class="post-title">
-                                        <a href="/clinical_detail/{{$c->id}}" title="Click to view post">{{$c->title}}</a>
-                                    </h2>
+                                    <h4 class="post-title">
+                                        <a href="/clinical_detail/{{$cl->id}}" title="{{$cl->title}}">{{$cl->title}}</a>
+                                    </h4>
                                     <div class="post-by">
-                                        Posted By {{$c->posted_by_name}}
-									
-										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($c->updated_at)) }} 
+                                        Posted By: {{$cl->posted_by_name}}
+										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($cl->updated_at)) }} 
                                     </div>
-                                   
-                                    <div class="read-btn-container">
-									@if(Auth::check())
-									@if(Auth::user()->id == $c->posted_by || Auth::user()->role=="admin")
-									<a href="/showeditneed/{{$c->id}}" title="Edit" class="read-btn">Edit </a> |
-									@endif
-									@endif
-                                        <a href="/clinical_detail/{{$c->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>
+                                    <div class="post-desc">
+                                         <?php 
+									   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+										$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
+										
+										if(strlen($cl->summary)>200){
+										$txt = nl2br(substr($cl->summary,0,200));
+										}else{
+										$txt =$cl->summary;
+										}
+										
+										echo $txt."...";
+										
+										?> 
                                     </div>
                                 </div>
                                 <!-- end post-info -->
+                                <!-- begin read-btn-container -->
+                                <div class="read-btn-container">
+                                   <a href="/clinical_detail/{{$cl->id}}" title="Latest Innovation Story">Read More <i class="fa fa-angle-double-right"></i></a>
+                                </div>
+                                <!-- end read-btn-container -->
                             </div>
                             <!-- end post-content -->
-                        </div>
+                        </li>
+					@endforeach
+                        
+                        
+                    </ul>
+					
+					
 				  
 				  
 				  
@@ -208,7 +247,7 @@
 					 
                   @else
 				  <br/>
-				 <div align="center"><h2><a href="/login" title="login/register"><b>Log in/join to view and participate in solving healthcare challenges</b></a></h2></div>
+				 <div align="center"><h2><a href="/login" title="login/register"><b>Log in/join to view and participate in solving healthcare challenges</b></a></h2></div> 
 				  @endif 
                 </div>
                 <!-- end col-9 -->
@@ -227,7 +266,7 @@
     </div>
 		
 	<style type="text/css">
-	.adimg{ height:80px; width:auto;}
+	.adimg{ height:60px; width:auto;}
 	</style>	
 		<!-- advisory group-->
 		<div  align="center" style="padding:em;">
@@ -237,8 +276,17 @@
 		
 		@else
 		
-		<p align="center">  <h2>Advisory Group</h2> </p>	
-		<div> <img src="/mmhn/public/uploads/ucllogo.png" class="adimg" alt="UCL logo"/> <img src="/mmhn/public/uploads/RFHlogo.png" class="adimg" alt="NHS Royar Foundation Logo"/>  <img src="/mmhn/public/uploads/3dlogo.png" class="adimg" alt="3D print logo"/><img src="/mmhn/public/uploads/palogo.png" class="adimg" alt="PA logo"/><img src="/mmhn/public/uploads/uclpartnerlogo.png" class="adimg" alt="UCL Partner Logo"/><img src="/mmhn/public/uploads/nhslogo.jpg" class="adimg" alt="NHS Foundation Trust Logo"/><img src="/mmhn/public/uploads/Warwicklogo.jpg" class="adimg" alt="RQM Logo"/><img src="/mmhn/public/uploads/nhslondonlogo.png" class="adimg" alt="NHS UCL logo"/></div>
+		<p align="center" style="margin-top:30px !important; margin:10px;">  <h2>Advisory Group</h2> </p>	
+		<div> 
+	<a href="https://www.ucl.ac.uk/" title="UCL home page"><img src="/mmhn/public/uploads/ucllogo.png" class="adimg" alt="UCL logo"/></a>
+	<a href="https://www.royalfree.nhs.uk/the-royal-free-hospital/" title="Royal free home page"> <img src="/mmhn/public/uploads/RFHlogo.png" class="adimg" alt="NHS Royar Foundation Logo"/> </a> 
+	<a href="https://www.3dlifeprints.com/" title="3D print home page"> <img src="/mmhn/public/uploads/3dlogo.png" class="adimg" alt="3D print logo"/></a>
+	<a href="https://www.paconsulting.com/" title="PA logo"> <img src="/mmhn/public/uploads/palogo.png" class="adimg" alt="PA logo"/></a>
+	<a href="https://uclpartners.com/" title="UCL partners"> <img src="/mmhn/public/uploads/uclpartnerlogo.png" class="adimg" alt="UCL Partner Logo"/></a>
+	<a href="https://www.alderheyinnovation.com/" title="Aderly Hey Children's"> <img src="/mmhn/public/uploads/nhslogo.jpg" class="adimg" alt="NHS Foundation Trust Logo"/></a>
+	<a href="https://warwick.ac.uk/" title=" Warwick University home page"> <img src="/mmhn/public/uploads/Warwicklogo.jpg" class="adimg" alt="RQM Logo"/> </a>
+	<a href="https://www.uclh.nhs.uk/" title="NNHS UCL"> <img src="/mmhn/public/uploads/nhslondonlogo.png" class="adimg" alt="NHS UCL logo"/> </a>
+		 </div>
 		
 		@endif
 		

@@ -3,7 +3,7 @@
 					
                     <!-- begin section-container -->
 					<label for="keyword">Search @if($cat=="news") News @elseif($cat=="grant") Grants @elseif($cat=="event") Events @elseif($cat=="all")Innovation Stories @endif </label>
-                    <div class="section-container">
+                   
 <form  action="/search" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
                         <div class="input-group sidebar-search">
 						
@@ -14,10 +14,10 @@
                                 <button class="btn btn-inverse" type="submit" aria-label="Search"><i class="fa fa-search"></i></button>
                             </span>
 							
-                        </div>
-                    
+                      
+                    </div>
 					</form>
-					</div>
+					<br/>
                     <!-- end section-container -->
                     <!-- begin section-container -->
                     <div class="section-container">
@@ -34,6 +34,7 @@
 						<div align="right"><a href="/editchallenges/{{Auth::user()->id}}" title="All my needs"><b>See all</b></a></div>
                     </div>
 					@endif
+					<br/>
                     <!-- end section-container -->
 					<div class="section-container">
                         <h2 class="section-title"><span>My Tagged Challenges</span></h2>
@@ -44,8 +45,11 @@
 						}
 						?>
 						@foreach($ch as $cht)
-						
-						
+						@if(!empty($cht->partners))
+							@if(in_array($id,unserialize($cht->partners)))
+							 <li><a href="/clinical_detail/{{$cht->id}}">{{$cht->title}}</a></li>
+							 @endif
+						@endif
                        @endforeach
 						 
                         </ul>
@@ -56,7 +60,7 @@
 					@endif
                     <!-- begin section-container -->
                     
-					
+					<br/>
 					<div class="section-container">
                         <h2 class="section-title"><span>My Innovation Stories</span></h2>
                         <ul class="sidebar-list">

@@ -160,6 +160,10 @@ class FormController extends Controller {
 			}
 		}
 		
+		public function featuredSubmitted(){
+				return view('admin.featuredsubmited');
+		}
+		
 		public function newsSubmitted(){
 				return view('admin.newssubmited');
 		}
@@ -314,6 +318,168 @@ class FormController extends Controller {
 					return redirect()->intended('/login');
 			}
 		}
+		
+		
+		
+		
+		public function addEditFeaturedPublicStories(Request $request){ 
+		
+			if(Auth::check()){
+		 	
+		 $message = request()->get('message');		
+		 $dom = new \DomDocument();       
+        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);       
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $image) {
+            $imageSrc = $image->getAttribute('src');
+            /** if image source is 'data-url' */
+            if (preg_match('/data:image/', $imageSrc)) {
+                /** etch the current image mimetype and stores in $mime */
+                preg_match('/data:image\/(?<mime>.*?)\;/', $imageSrc, $mime);
+                $mimeType = $mime['mime'];
+                /** Create new file name with random string */
+                $filename = uniqid();
+
+                /** Public path. Make sure to create the folder
+                 * public/uploads
+                 */
+                $filePath = "/uploads/$filename.$mimeType";
+
+                /** Using Intervention package to create Image */
+                Image::make($imageSrc)
+                    /** encode file to the specified mimeType */
+                    ->encode($mimeType, 100)
+                    /** public_path - points directly to public path */
+                    ->save(public_path($filePath));
+
+                $newImageSrc = asset($filePath);
+                $image->removeAttribute('src');
+                $image->setAttribute('src', $newImageSrc);
+            }
+        }
+        /** Save this new message body in the database table */
+		$newMessageBody = $dom->saveHTML();
+		$newMessageBody = str_replace("<h5","<h6",$newMessageBody);
+		$newMessageBody = str_replace("<h4","<h5",$newMessageBody);
+		$newMessageBody = str_replace("<h3","<h4",$newMessageBody);
+		$newMessageBody = str_replace("<h2","<h3",$newMessageBody);
+		$newMessageBody = str_replace("<h1","<h2",$newMessageBody);
+		$newMessageBody = str_replace("materialsinhealth.org/uploads","materialsinhealth.org/mmhn/public/uploads",$newMessageBody);
+		
+		
+		//featured
+		$featured = request()->get('featured');		
+		 $dom = new \DomDocument();       
+        $dom->loadHtml($featured, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);       
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $image) {
+            $imageSrc = $image->getAttribute('src');
+            /** if image source is 'data-url' */
+            if (preg_match('/data:image/', $imageSrc)) {
+                /** etch the current image mimetype and stores in $mime */
+                preg_match('/data:image\/(?<mime>.*?)\;/', $imageSrc, $mime);
+                $mimeType = $mime['mime'];
+                /** Create new file name with random string */
+                $filename = uniqid();
+
+                /** Public path. Make sure to create the folder
+                 * public/uploads
+                 */
+                $filePath = "/uploads/$filename.$mimeType";
+
+                /** Using Intervention package to create Image */
+                Image::make($imageSrc)
+                    /** encode file to the specified mimeType */
+                    ->encode($mimeType, 100)
+                    /** public_path - points directly to public path */
+                    ->save(public_path($filePath));
+
+                $newImageSrc = asset($filePath);
+                $image->removeAttribute('src');
+                $image->setAttribute('src', $newImageSrc);
+            }
+        }
+        /** Save this new message body in the database table */
+		$featuredbody = $dom->saveHTML();
+		
+		
+		if($request->file('pic')!=""){
+				$fil  = $request->file('pic');
+				//pr($fil,true);
+				$ext = $fil->getClientOriginalExtension();
+				
+				
+				if($ext == "jpeg" || $ext == "jpg" || $ext == "PNG" || $ext == "JPG" || $ext == "JPEG" || $ext == "png"){
+				$i = $fil->getClientOriginalName();
+				$fileName = $i;								
+				$fileFalseName = date('Ymhis').preg_replace("/[^A-Za-z0-9]/", "", $fil->getClientOriginalName()).'.'.$ext;					
+				$newurl = public_path() . DS . 'uploads';
+				$upl = $fil->move($newurl, $fileFalseName);
+				
+				//$fil2 = Image::make($newurl.DS. $fileFalseName)->resize(1024, 683)->save();
+				
+				}else{
+				return back()->with("uplerror","invalid format");
+				}
+				
+				}
+				else{
+				
+				$fileFalseName ="emptyimage.png";
+				}
+				
+				
+				$kk = PublicStories::where("featured",1)->get();
+				foreach($kk as $k){
+				$k->featured ="0";
+				$k->save();
+				}
+				
+			
+				$s = PublicStories::where("id",Input::get("id"))->first();
+				
+				if(Auth::user()->role = "admin" && Auth::user()->id != $s->posted_by){
+					$s->title = Input::get("title");
+					$s->news_body = $newMessageBody;
+					$s->featured = $featuredbody;
+					$s->summary = Input::get("summary");
+					
+					if(!empty(Input::get("coverphoto"))){
+					$s->pic = $fileFalseName;
+					}
+					$s->category = Input::get("category");
+					$last_edited = Auth::user()->first_name." ".Auth::user()->last_name." ".Auth::user()->id;
+					//$s->status = "Under Review";
+					}
+					else{
+					$s->title = Input::get("title");
+					if(Auth::user()->role !="admin"){
+					$s->posted_by = Auth::user()->id;
+					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
+					}
+					$s->news_body = $newMessageBody;
+					$s->summary = Input::get("summary");
+					if(!empty(Input::get("coverphoto"))){
+					$s->pic = $fileFalseName;
+					}
+					$s->category = Input::get("category");
+					$s->pic = $fileFalseName;
+					$last_edited = Auth::user()->first_name." ".Auth::user()->last_name." ".Auth::user()->id;
+					$s->status = "Under Review";
+					}
+				$s->save();
+				
+			
+				return redirect()->intended('/featuredsubmitted');
+			}
+			else{
+					return redirect()->intended('/login');
+			}
+		}
+		
+		
 		
 		public function submitComment(Request $request){ 
 		
@@ -2238,29 +2404,60 @@ class FormController extends Controller {
 			$ctss= "sto";
 			
 			if(!(Auth::check())){
-			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at")->take(5)->get();
 			
-			$inv = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at")->first();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->where(function($query){
+			$query->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
+			})->take(3)->get();	
+			
+			$inv = PublicStories::where("id",">",0)->where("status","approved")->where("featured","!=","")->where(function($query){
+			$query->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
+			})->first();	
 			
 			
 			return view('admin.home')->with("r",$r)->with("p",$inv)->with("cat",$ctss);
 			
 			}else{
 			
-			$inv = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at")->first();
+			$inv = PublicStories::where("id",">",0)->where("status","approved")->where("featured","!=","")->where(function($query){
+			$query->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
+			})->first();	
+			
 			$chl = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->first();
 			
-			$r = PublicStories::where("id",">",0)->where("posted_by",Auth::user()->id)->where("category","need")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->where(function($query){
+			$query->where("category","need")->orderBy("updated_at");
+			})->take(3)->get();	
+			
+			
 			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->get();
+			
+			$clsh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->take(3)->get();
+			
+			
 			$ckk = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->first();
 			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
 			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
 			
-			$myinv = PublicStories::where("id",">",0)->where("status","approved")->where("posted_by",Auth::user()->id)->where("category","event")->where("category","news")->where("category","grant")->orderBy("updated_at")->get();
-			
-			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ck",$ckk)->with("ev",$ev)->with("op",$op)->with("cat",$ctss)->with("p",$inv)->with("c",$chl)->with("pm",$myinv)->with("cat",$ctss);
+			$myinv = PublicStories::where("id",">",0)->where("status","approved")->where("posted_by",Auth::user()->id)->where(function($query){
+			$query->where("category","event")->where("category","news")->where("category","grant")->orderBy("updated_at");
+			})->get();
+				
+			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ck",$ckk)->with("ev",$ev)->with("op",$op)->with("cat",$ctss)->with("p",$inv)->with("c",$chl)->with("pm",$myinv)->with("cat",$ctss)->with("cll",$clsh);
 			}
 			
+			
+			}
+			
+			public function showMakeFeatured($id){
+			
+				if(Auth::check()){
+				$nn = PublicStories::where("id",$id)->first();
+			
+				return view('admin.makefeatured')->with("idn",$id)->with("n",$nn);
+			
+						}else{
+				return redirect()->intended('/login');
+						}
 			
 			}
 			

@@ -1,5 +1,5 @@
 <div class="col-md-3">
-<div class="section-container">
+
                         <h2 class="section-title"><span>Network Info</span></h2>
                         <ul class="sidebar-list">
 						
@@ -8,11 +8,13 @@
 							  <li><a href="/contactus">Contact Us</a></li>
                         </ul>
 						<a href="/register"  class="btn btn-primary btn-block btn-lg"><b> JOIN THE NETWORK </b></a>  
-                    </div>
-					
+                   <br/>
                     <!-- begin section-container -->
 					<label for="keyword">Search @if($cat=="news") News @elseif($cat=="grant") Grants @elseif($cat=="event") Events @elseif($cat=="all")Innovation Stories @endif </label>
-                    <div class="section-container">
+                   
+				   
+				   
+				   
 <form  action="/search" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
                         <div class="input-group sidebar-search">
 						
@@ -24,11 +26,13 @@
                             </span>
 							
                         </div>
-                    </div>
+                   
 					</form>
                     <!-- end section-container -->
                     <!-- begin section-container -->
-                    <div class="section-container">
+                    
+					<br/>
+					
                         <h2 class="section-title"><span>Innovation Stories</span></h2>
                         <ul class="sidebar-list">
 						@foreach($r as $rr)
@@ -38,7 +42,7 @@
                         </ul>
 						
 						<div align="right"><a href="/allinnovation" title="All innovation stories"><b>See all</b></a></div>
-                    </div>
+                   
                     <!-- end section-container -->
                     <!-- begin section-container -->
                     

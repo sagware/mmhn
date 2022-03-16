@@ -129,6 +129,7 @@
                                         <th>Title</th>
                                         <th>Category</th>
 										<th>Added by (ID)</th>
+										<th>Featured Story</th>
 										<th>Date Submitted</th>
 										
 										
@@ -145,6 +146,13 @@
                                         <td>{{$g->title}}</td>
 										<td>{{$g->category}}</td>
 										<td>{{$g->	posted_by_name}}({{$g->	posted_by}})</td>
+										<td>
+										@if($g->featured==0)
+										<a  href="/makefeatured/{{$g->id}}">	<button type="button" class="btn btn-primary m-r-5 m-b-5">Make Featured Story</button></a>
+										@elseif($g->role==1)
+										<a  href="/makefeatured/{{$g->id}}">	<button type="button" class="btn btn-primary m-r-5 m-b-5">Edit Featured Story</button></a>
+										@endif
+										</td>
 										<td>{{ date('D jS, M Y, h:i:s A', strtotime($g->created_at)) }}</td>
 										
 										
