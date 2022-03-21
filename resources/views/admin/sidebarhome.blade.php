@@ -20,7 +20,7 @@
 						
 						 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                             <input type="text" id="keyword" name="keyword" class="form-control" placeholder="By title, keywords..." />
-							<input type="hidden" name="cat" value="{{$cat}}"/>
+							<input type="hidden" name="cat" value="sto"/>
                             <span class="input-group-btn">
                                 <button class="btn btn-inverse" type="submit" aria-label="Search"><i class="fa fa-search"></i></button>
                             </span>

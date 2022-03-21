@@ -192,23 +192,9 @@
 <p></p>								
 <p align="left" style="padding:1.5em;" > Part 2 of 2 - Here you can add a cover photo and any supporting documents to your post. You can also choose the Partners who you would like us to notify about your Challenge upon approval. Partners that you select will receive an email notification saying they have been “matched” to your Challenge and will be given options whether to accept or decline the match. Matches to Challenges will appear at the end of Challenge posts, if a Partner declines a match, their name will be removed from the given post. If they accept, we hope this matching helps to start the conversation and engagement on the virtual platform. </p>							
 								
-<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="cover">Cover Photo (optional)</label>
-									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control" id="cover"   name="cover"/>
-										
-										
-									</div>
-								</div>
+
 								
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="pic">Supporting Documents (optional)</label>
-									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control" id="pic"   name="pic[]"  multiple/>
-										
-										
-									</div>
-								</div>
+								
 								
 								
 								<div class="form-group">

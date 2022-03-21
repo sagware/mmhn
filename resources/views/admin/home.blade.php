@@ -267,7 +267,7 @@
     </div>
 		
 	<style type="text/css">
-	.adimg{ height:60px; width:auto;}
+	.adimg{ width:120px; height:auto;}
 	</style>	
 		<!-- advisory group-->
 		<div  align="center" style="padding:em;">
@@ -283,7 +283,7 @@
 	<a href="https://www.royalfree.nhs.uk/the-royal-free-hospital/" title="Royal free home page"> <img src="/mmhn/public/uploads/RFHlogo.png" class="adimg" alt="NHS Royar Foundation Logo"/> </a> 
 	<a href="https://www.3dlifeprints.com/" title="3D print home page"> <img src="/mmhn/public/uploads/3dlogo.png" class="adimg" alt="3D print logo"/></a>
 	<a href="https://www.paconsulting.com/" title="PA logo"> <img src="/mmhn/public/uploads/palogo.png" class="adimg" alt="PA logo"/></a>
-	<a href="https://uclpartners.com/" title="UCL partners"> <img src="/mmhn/public/uploads/uclpartnerlogo.png" class="adimg" alt="UCL Partner Logo"/></a>
+	<a href="https://uclpartners.com/" title="UCL partners"> <img src="/mmhn/public/uploads/uclpartnerlogo.jpg" class="adimg" alt="UCL Partner Logo"/></a>
 	<a href="https://www.alderheyinnovation.com/" title="Aderly Hey Children's"> <img src="/mmhn/public/uploads/nhslogo.jpg" class="adimg" alt="NHS Foundation Trust Logo"/></a>
 	<a href="https://warwick.ac.uk/" title=" Warwick University home page"> <img src="/mmhn/public/uploads/Warwicklogo.jpg" class="adimg" alt="RQM Logo"/> </a>
 	<a href="https://www.uclh.nhs.uk/" title="NNHS UCL"> <img src="/mmhn/public/uploads/nhslondonlogo.png" class="adimg" alt="NHS UCL logo"/> </a>

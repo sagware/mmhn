@@ -3299,15 +3299,68 @@ class FormController extends Controller {
 			}
 			
 			else if($cat =="sto"){
-			$a = PublicStories::where("id",Auth::user()->id)->orWhere('category', "event")->orWhere('category', "news")->orWhere('category', "grant")->where('status', "approved")->where(function($query){
+			//echo "Alhamdulillah"; exit;
+			$a = PublicStories::where('status', "approved")->orWhere('category', "event")->orWhere('category', "need")->orWhere('category', "news")->orWhere('category', "grant")->where(function($query){
 			$keyword = Input::get('keyword');
-			$query->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
+			$query->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->		orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
 			
 			})->paginate(10)->appends($request->all());
 			
 			$r = PublicStories::where("id",">",0)->where("category","event")->where("status","approved")->orderBy("updated_at")->take(3)->get();
 			
-			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r)->with("cat",$cat);
+			
+			
+			//partner
+			$kkk = Keywords::all();
+			
+			
+			if(preg_match('/^\S.*\S$/', $keyword)){
+			
+			$keyword = Input::get('keyword');
+
+			$keyword = explode(" ", $keyword);
+			
+			
+			$c = User::where("status",0)->where(function($query){
+			$keyword = Input::get('keyword');
+
+			$keyword = explode(" ", $keyword);
+			$query->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword);
+			
+			})->count();
+			
+			$s = User::where("status",0)->where(function($query){
+			$keyword = Input::get('keyword');
+
+			$keyword = explode(" ", $keyword);
+			$query->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword);
+			
+			})->paginate(10)->appends($request->all());		
+			
+			
+	
+		
+		}else{
+		
+			
+			
+			
+		$s = User::where("status",0)->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%')->paginate(10)->appends($request->all());
+		
+		
+		
+		$c = User::where("status",0)->where(function($query){
+			$keyword = Input::get('keyword');
+			$query->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%');
+			
+			})->count();		
+		
+		
+		
+		}
+			
+			
+			return view('admin.PublicStories_all')->with("pp",$a)->with("r",$r)->with("cat",$cat)->with("ss",$s)->with("kyd",$keyword)->with("kk",$kkk);
 			
 			}
 			else if($cat =="grant"){
@@ -3353,9 +3406,7 @@ class FormController extends Controller {
 			
 	
 		
-		}else{
-		
-			
+		}else{			
 			
 			
 		$s = User::where("status",0)->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%')->paginate(10)->appends($request->all());

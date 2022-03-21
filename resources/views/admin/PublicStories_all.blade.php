@@ -5,12 +5,11 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Partners|Materials and Manufacturing in Healthcare Network</title>
+	<title>Search | Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	@include("admin.cookiebanner")
-	@include("admin.analytics")
+	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -20,21 +19,37 @@
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-    
+    <script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	<style>
-	.img{
-	height:80%;
-	width:auto;
-	}
+	html {
+
+    height: 100%;
+
+}
+
+body {
+
+    min-height: 100% ;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.content {
+
+    flex-grow: 1;
+
+}
 	</style>
 </head>
 <body>
 @include("admin.cookiebanner")
-    <!-- begin #header -->
-   
+    
             @include("admin.header")
             <!-- end navbar-collapse -->
         </div>
@@ -48,24 +63,114 @@
     
     <!-- begin #content -->
     <div id="content" class="content">
-	
         <!-- begin container -->
         <div class="container">
             <!-- begin row -->
             <div class="row row-space-30">
                 <!-- begin col-9 -->
+				@if($cat=="news")
+				<p> <h1>News</h1></p>
+				@elseif($cat=="event")
+				<p> <h1>Events</h1></p>
+				@elseif($cat=="grant")
+				<p> <h1>Grants</h1></p>
+				@endif
+				
                 <div class="col-md-9">
                     <!-- begin post-list -->
-                  <h1>Partners</h1> <br/> <a href="/academic/partners" style=" background-color: #333333;color: white; padding: 15px 25px;" title="Academic Partners"><label for="bt1">Academic</label></a> |<a href="/industry/partners" style=" background-color: #333333;color: white; padding: 15px 25px;" title="Industry partners"><label for="bt2">Industry</label></a> | <a href="/clinical/partners" title="Clinical partners" style=" background-color: #333333;color: white; padding: 15px 25px;"><label id="bt3">Clinical</label></a> |<a href="/other/partners" title="Other category partners" style=" background-color: #333333;color: white; padding: 15px 25px;"><label id="bt4">Others </label></a>  | <a href="/partnerslist" title="All Partners List" style=" background-color: #333333;color: white; padding: 15px 25px;"><label id="bt5">All</label></a>
-					<br/><br/>
 					
-					<div class="section-container">
 					
-                        <h2 class="section-title"><span>Fetched Partners ({{number_format($c)}})</span></h2>
-                        <!-- begin comment-list -->
-                        <ul class="comment-list">
-                            
-							@foreach($ss as $s)
+					<div align="right">
+					 <form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
+							<input type="hidden" name="cat" value="partner"/>
+					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">Partners</button>
+					</form>
+					<br/>
+					
+					<form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
+							<input type="hidden" name="cat" value="need"/>
+					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">Challenges</button>
+					</form>
+					
+					<br/>
+					<form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
+							<input type="hidden" name="cat" value="news"/>
+					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">News</button>
+					</form>
+					
+					
+					
+					<br/>
+					<form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
+							<input type="hidden" name="cat" value="grant"/>
+					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">Grant</button>
+					</form>
+					
+					
+					<br/>
+					<form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
+							<input type="hidden" name="cat" value="event"/>
+					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">Event</button>
+					</form>
+					</div>
+					<br/>
+					
+                    <div class="post-list post-grid post-grid-2">
+                        @if(sizeof($pp)==0)
+					<p class="text-danger">	No content found</p>
+						@else
+						@foreach($pp as $p)
+                        <div class="post-li">
+                            <!-- begin post-content -->
+                            <div class="post-content">
+                                <!-- begin post-image -->
+                                <div class="post-image">
+                                   @if(!empty($p->pic))
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
+								@else
+								<a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" height="100%" width="100%" alt="{{$p->title}}" /></a>
+								@endif
+                                </div>
+                                <!-- end post-image -->
+                                <!-- begin post-info -->
+                                <div class="post-info">
+                                    <h4 class="post-title">
+                                        <a href="/public_post/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
+                                    </h4>
+                                    <div class="post-by">
+                                        Posted By {{$p->posted_by_name}}
+									
+										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
+                                    </div>
+                                   
+                                    <div class="read-btn-container">
+									@if(Auth::check())
+									@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
+									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
+									@endif
+									@endif
+                                        <a href="/public_post/{{$p->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- end post-info -->
+                            </div>
+                            <!-- end post-content -->
+                        </div>
+                        @endforeach
+                        @endif
+						
+						
+									@foreach($ss as $s)
 							@if($s->status=="0")
                             <li>
                                 <!-- begin comment-avatar -->
@@ -260,27 +365,28 @@
                             </li>
 							@endif
 							@endforeach
-                        </ul>
-                        <!-- end comment-list -->
+							
+							
                     </div>
                     <!-- end post-list -->
-                   
+                    
                     <div class="section-container">
                         <!-- begin pagination -->
                         <div class="pagination-container text-center">
-                            {{ $ss->links() }}
+                             {{ $pp->links() }}
                         </div>
                         <!-- end pagination -->
                     </div>
                 </div>
                 <!-- end col-9 -->
                 <!-- begin col-3 -->
-                @include('admin.sidebarpartner')
+                @include("admin.sidebarhome")
                 <!-- end col-3 -->
             </div>
             <!-- end row -->
         </div>
-		</div>
+        <!-- end container -->
+    </div>
     <!-- end #content -->
     
     <!-- begin #footer -->
