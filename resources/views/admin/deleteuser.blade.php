@@ -11,7 +11,7 @@
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
@@ -22,6 +22,12 @@
     
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
 	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
 </head>

@@ -17,10 +17,17 @@
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
-	
+	<!-- ================== END BASE CSS STYLE ================== -->
+    
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
 	<!-- ================== END BASE CSS STYLE ================== -->
      <script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 

@@ -11,18 +11,22 @@
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets/css/style.min.css" rel="stylesheet" />
-	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
+    
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/pace/pace.min.js"></script>
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	@include("admin.cookiebanner")
 	@include("admin.analytics")
@@ -161,21 +165,18 @@
 	<!-- end page container -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
-	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<!--[if lt IE 9]>
-		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
-		<script src="/assets/crossbrowserjs/respond.min.js"></script>
-		<script src="/assets/crossbrowserjs/excanvas.min.js"></script>
-	<![endif]-->
-	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<!-- ================== END BASE JS ================== -->
+	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	
-	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="/assets/js/apps.min.js"></script>
+	
+		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
+
+	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
+	<script src="/assets_blog/js/apps.min.js"></script>
+	
 	<!-- ================== END PAGE LEVEL JS ================== -->
 <style type="text/css">
    	  #oth{display:none;}

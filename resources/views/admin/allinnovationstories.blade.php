@@ -9,9 +9,7 @@
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	@include("admin.analytics")
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
@@ -19,9 +17,14 @@
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-    <script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
+    
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
 <body>
@@ -146,10 +149,9 @@
     
     <!-- end theme-panel -->
     
-	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-	<script src="/assets_blog/plugins/bootstrap/js/bootstrap.min.js"></script>
+	
 	
 		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
 		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>

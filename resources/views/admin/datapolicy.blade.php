@@ -3,18 +3,7 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
-<head>
-	<meta charset="utf-8" />
-	<title>Privacy Policy | Materials and Manufacturing in Healthcare Innovation Network</title>
-	<meta content="width=device-width" name="viewport">
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-	
-	<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
+
 <head>
 	<meta charset="utf-8" />
 	<title>Privacy Policy|Materials and Manufacturing in Healthcare Innovation Network</title>

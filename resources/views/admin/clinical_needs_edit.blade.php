@@ -13,7 +13,7 @@
 	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
@@ -24,6 +24,12 @@
     
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
 	<!-- ================== END BASE JS ================== -->
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
@@ -237,15 +243,17 @@
 									<label for="key" class="control-label col-md-4 col-sm-4" >Select keyword(s) that describe the challenge: <span class="text-danger">*</span></label> 
 									<div class="col-md-6 col-sm-6">							
 									
-									<div class="dropdown" scroll>
+									
+							   
+							   <div class="dropdown" scroll>
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false' onClick="ariaChange('sampleDropdownMenu')>
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true'>
 										Click to select keywords 
 										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" <?php if(!empty($p->other_keyword)){echo "checked";} ?> /> <label for="ck">Other keywords</label> 
-										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
+										<div class="dropdown-menu" sstyle="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
 										
-										 </span><label for="{{$k->id}}">  <input id="{{$k->id}}"  name="keywords[]" value="{{$k->id}}" type="checkbox" <?php if(is_array(unserialize($p->keywords))){if(in_array($k->id,unserialize($p->keywords))){echo "checked";} } ?> />&nbsp; {{$k->name}} </label>
+										<label for="{{$k->id}}"> </span> <input id="{{$k->id}}"  name="keywords[]" value="{{$k->id}}" type="checkbox" <?php if(is_array(unserialize($p->keywords))){if(in_array($k->id,unserialize($p->keywords))){echo "checked";} } ?> />&nbsp;  {{$k->name}} </label>
 										
 										 <br/>
 										
@@ -253,16 +261,17 @@
 	
 										</div>
 										</div>
-							   
-							   
-									</div>
+										
+										
+										
+										</div>
 								</div>
 								
 								<div class="form-group" id="oth">
 									<label class="control-label col-md-4 col-sm-4" for="form-tags-3"> Other keywords (Comma-separated):</label>
 									
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="{{$p->other_keyword}}"  />
+									<label>	<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="<?php $kwd =unserialize($p->other_keyword);  if(!empty($p->other_keyword) && is_array(unserialize($p->other_keyword))){echo implode(", ", $kwd);} ?>"  /></label>
 										
 									</div>
 								</div>
@@ -394,21 +403,17 @@ if (buttonElement) {
 	</html>
 	
 	
-	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<!--[if lt IE 9]>
-		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
-		<script src="/assets/crossbrowserjs/respond.min.js"></script>
-		<script src="/assets/crossbrowserjs/excanvas.min.js"></script>
-	<![endif]-->
-	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<!-- ================== END BASE JS ================== -->
+	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	
-	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
-	<script src="/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
-	<script src="/assets/js/form-wizards-validation.demo.min.js"></script>
-	<script src="/assets/js/apps.min.js"></script>
+	
+		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
+
+	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
+	<script src="/assets_blog/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	

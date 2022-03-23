@@ -5,16 +5,11 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-<<<<<<< HEAD
-	<title>Log in | Materials and Manufacturing in Healthcare Network </title>
-	<meta content="width=device-width" name="viewport">
-=======
 	<title>Log in | Materials and Manufacturing in Healthcare Innovation Network </title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
->>>>>>> main
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+	@include("admin.analytics")
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
@@ -110,8 +105,8 @@
 						
                         <div class="m-t-20 m-b-40 p-b-40 text-inverse">
 						
-                            Not a member yet? <a href="/register"  class="btn btn-primary btn-block btn-lg"><b> Become a member</b></a>  <br/>
-							Forgot password? <a href="/forgotpassword"  class="btn btn-primary btn-block btn-lg"><b> Reset your password.</b></a> 
+                            Not a member yet? <a href="/register"  class="btn btn-primary btn-block btn-lg"> Become a member</a>  <br/>
+							Forgot password? <a href="/forgotpassword"  class="btn btn-primary btn-block btn-lg"> Reset your password.</a> 
                         </div>
 						
 						

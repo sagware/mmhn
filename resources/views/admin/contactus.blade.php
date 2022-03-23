@@ -24,6 +24,11 @@
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
 </head>
 <body>
 @include("admin.cookiebanner")
@@ -94,3 +99,15 @@
     
     <!-- begin #footer -->
     @include('admin.footer')
+	
+	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	
+	
+		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
+
+	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
+	<script src="/assets_blog/js/apps.min.js"></script>

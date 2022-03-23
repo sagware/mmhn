@@ -10,6 +10,7 @@
 </style>
 @include("admin.cookiebanner")
 <header>
+<div id="header" class="header navbar navbar-default navbar-fixed-top" style="height:75px;!important;">
         <!-- begin container -->
         <div class="container">
             <!-- begin navbar-header -->
@@ -19,7 +20,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-				 <div class="navbar-header" style="position:absolute;  top: 0">
+				 <div class="navbar-header" >
                 <a href="/" title="Home" class="navbar-brand">
                       <img src="/assets/icon600.png" alt="Materials and Manufacturing in Healthcare Innovation Network" width="150px" height="52px">
                 </a>
@@ -41,11 +42,11 @@
                         </ul>
                     </li>
 					-->
-					 <li><a href="/" title="Home"><b>HOME</a></b></li>
-					  <li><a href="/aboutus" title="About Us"><b>ABOUT US</b></a></li>
-					  <li><a href="/partnerslist" title="Partners"><b>PARTNERS</b></a></li>
+					 <li><a href="/" title="Home">HOME</a></li>
+					  <li><a href="/aboutus" title="About Us">ABOUT US</a></li>
+					  <li><a href="/partnerslist" title="Partners">PARTNERS</a></li>
 					 <li>
-                        <a href="javascript:;" data-toggle="dropdown" title="View public posts"><b>INNOVATION STORIES</b><b class="caret"></b></a>
+                        <a href="javascript:;" data-toggle="dropdown" title="View public posts">INNOVATION STORIES<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li class="submenusagir"><a href="/news" title="Upcoming News">News</a></li>
                             <li class="submenusagir"><a href="/event" title="Upcoming Events">Upcoming Events</a></li>
@@ -55,13 +56,13 @@
 					 
 					 @if(Auth::check())
 					 
-					 <li><a href="/clinicalneeds" title="Challenges"><b>CHALLENGES</b></a></li>
+					 <li><a href="/clinicalneeds" title="Challenges">CHALLENGES</a></li>
 					
 					@endif
-					<li><a href="/faq" title="FAQ"><b>FAQ</b></a></li>
+					<li><a href="/faq" title="FAQ">FAQ</a></li>
 				@if(Auth::check())					
 				 <li>
-                        <a href="javascript:;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="My Profile"><b>{{strtoupper(Auth::user()->last_name)}}</b><b class="caret"></b></a>
+                        <a href="javascript:;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="My Profile">{{strtoupper(Auth::user()->last_name)}}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li class="submenusagir"><a href="/editprofile/{{Auth::user()->id}}" title="My Profile">My Profile</a></li>
 							<li class="submenusagir"><a href="/editchallenges/{{Auth::user()->id}}" title="My Challenges">My Challenges</a></li>
@@ -75,7 +76,7 @@
                     </li>
 				@endif
 				@if(Auth::check()==false)
-					<li><a href="/login" title="Login/Register"><b>LOGIN/REGISTER</b></a></li>
+					<li><a href="/login" title="Login/Register">LOGIN/REGISTER</a></li>
 				@endif
 				
 				 

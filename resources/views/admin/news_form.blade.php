@@ -317,21 +317,17 @@
 	</html>
 	
 	
-	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<!--[if lt IE 9]>
-		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
-		<script src="/assets/crossbrowserjs/respond.min.js"></script>
-		<script src="/assets/crossbrowserjs/excanvas.min.js"></script>
-	<![endif]-->
-	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<!-- ================== END BASE JS ================== -->
+	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	
-	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
-	<script src="/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
-	<script src="/assets/js/form-wizards-validation.demo.min.js"></script>
-	<script src="/assets/js/apps.min.js"></script>
+	
+		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
+
+	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
+	<script src="/assets_blog/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	

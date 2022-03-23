@@ -11,7 +11,7 @@
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
@@ -22,6 +22,11 @@
     
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
@@ -338,6 +343,19 @@
 	<script src="/assets/js/form-wizards-validation.demo.min.js"></script>
 	<script src="/assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
+	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	
+	
+		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
+
+	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
+	<script src="/assets_blog/js/apps.min.js"></script>
+	
+	
 	
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
