@@ -641,76 +641,18 @@
             <!-- end row -->
 		</div>
 		<!-- end #content -->
-		 @include("admin.homefooter")
+		
         <!-- begin theme-panel -->
         
         <!-- end theme-panel -->
 		
+		<!-- begin scroll to top btn -->
 		
+		<!-- end scroll to top btn -->
 	</div>
-	
+	 @include("admin.homefooter")
 	<!-- end page container -->
-	<style type="text/css">
-.cookie-banner {
-  background-color: white;
-  padding: 20px;
-  width:auto;
-  height:200px;
-  position: absolute;
-  top: 50px;
-  z-index: 99;
-}
-
-</style>
-  
-	<?php if(!isset($_COOKIE["mycookie"])) { ?>
-<div class="cookie-banner js-cookie-banner" >
-    Our website uses cookies. By continuing we assume your permission to deploy cookies, as detailed in our <button  type="submit" class="js-cookie-dismiss" name="cookie">Accept</button>
-</div>
-
-
-<?php } ?>
-
-<script type="text/javascript">
-// Key under which name the cookie is saved
-const cookieName = 'cookieconsent';
-// The value could be used to store different levels of consent
-const cookieValue = 'dismissed';
-
-function dismiss() {
-    const date = new Date();
-    // Cookie is valid 1 year: now + (days x hours x minutes x seconds x milliseconds)
-    date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
-    // Set cookie
-    document.cookie = `${cookieName}=${cookieValue};expires=${date.toUTCString()};path=/`;
-
-    // You probably want to remove the banner
-    document.querySelector('.js-cookie-banner').remove();
-}
-
-// Get button element
-const buttonElement = document.querySelector('.js-cookie-dismiss');
-// Maybe cookie consent is not present
-if (buttonElement) {
-    // Listen on button click
-    buttonElement.addEventListener('click', dismiss);
-}
-</script>
 	
-	<script>
-	    $(document).ready(function() {
-	        App.init();
-	    });
-	</script>
-	
-	<?php
-	$value = "Hello world!";
-	 // 86400 = 1 day
-		if(isset($_COOKIE['cookie'])) {
-		setcookie("mycookie", $value, time() + 60);
-		   
-		} 
-?>
 	</body>
 	</html>
 	<!-- ================== BEGIN BASE JS ================== -->
@@ -818,16 +760,14 @@ if (buttonElement) {
 	   $('#example4').DataTable({
         "order": [[ 5, "desc" ]]
     } );
+	$('#example5').DataTable({
+        "order": [[ 5, "desc" ]]
+    } );
 	
 	
 } );
 	</script>
-	<script>
-	function accepted(){
-			$('#cook').css('display','none');
-		}
 	
-	</script>
 	
 </body>
 </html>

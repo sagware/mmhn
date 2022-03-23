@@ -51,7 +51,7 @@
 				 <p><h1>Innovation Stories</h1></p> 
                 <div class="col-md-9">
 				<div align="right">
-				<a href="/show_news_form" title="Submit News" style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Submit News</a>				<br/>
+				<a href="/show_news_form" title="Submit News" style=" background-color: #1C1C1C;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Submit News</a>				<br/>
 				<br/>
 				</div>
                     <!-- begin post-list -->

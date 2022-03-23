@@ -52,7 +52,7 @@
 <p>Here you will find healthcare-related grant opportunities. Note that there are eligibility criteria to most grants, for instance, grants requiring a Principal Investigator from a research institute, or requiring a Business Lead. You can find out more about grant opportunities through the funder’s website.</p>   <br/> 
                 <div class="col-md-9">
 				<div align="right">
-				<a href="/show_news_form" style=" background-color: #333333;color: white; padding: 15px 25px;" class="read-btn" title="Submit Grant"><i class="fas fa-plus"></i>&nbsp;Submit Grant</a>
+				<a href="/show_news_form" style=" background-color: #1C1C1C;color: white; padding: 15px 25px;" class="read-btn" title="Submit Grant"><i class="fas fa-plus"></i>&nbsp;Submit Grant</a>
 				<br/>
 				<br/>
 				<br/>

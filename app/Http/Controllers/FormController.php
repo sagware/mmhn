@@ -100,7 +100,7 @@ class FormController extends Controller {
 		
 		
 		
-		if($request->file('pic')!=""){
+		if(!empty($request->file('pic'))){
 				$fil  = $request->file('pic');
 				//pr($fil,true);
 				$ext = $fil->getClientOriginalExtension();
@@ -235,7 +235,7 @@ class FormController extends Controller {
 		$newMessageBody = str_replace("materialsinhealth.org/uploads","materialsinhealth.org/mmhn/public/uploads",$newMessageBody);
 		
 		
-		if($request->file('pic')!=""){
+		if(!empty($request->file('pic'))){
 				$fil  = $request->file('pic');
 				//pr($fil,true);
 				$ext = $fil->getClientOriginalExtension();
@@ -1159,8 +1159,8 @@ class FormController extends Controller {
 					if(!empty(Input::get("tags-3"))){
 					$s->other_keyword = Input::get("tags-3");
 					}
-					$s->posted_by = Auth::user()->id;
-					$s->posted_by_name = Auth::user()->first_name." ". Auth::user()->middle_name." ".Auth::user()->last_name;
+					
+					
 					$s->news_body = $newMessageBody;
 					$s->category = "need";
 					$s->cover = $fileFalseName2;
@@ -2424,7 +2424,7 @@ class FormController extends Controller {
 			
 			$chl = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->first();
 			
-			$r = PublicStories::where("id",">",0)->where("status","approved")->where(function($query){
+			$r = PublicStories::where("id",">",0)->where("posted_by",Auth::user()->id)->where(function($query){
 			$query->where("category","need")->orderBy("updated_at");
 			})->take(3)->get();	
 			
@@ -2438,8 +2438,8 @@ class FormController extends Controller {
 			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
 			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
 			
-			$myinv = PublicStories::where("id",">",0)->where("status","approved")->where("posted_by",Auth::user()->id)->where(function($query){
-			$query->where("category","event")->where("category","news")->where("category","grant")->orderBy("updated_at");
+			$myinv = PublicStories::where("id",">",0)->where("posted_by",Auth::user()->id)->where(function($query){
+			$query->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
 			})->get();
 				
 			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ck",$ckk)->with("ev",$ev)->with("op",$op)->with("cat",$ctss)->with("p",$inv)->with("c",$chl)->with("pm",$myinv)->with("cat",$ctss)->with("cll",$clsh);
@@ -3109,9 +3109,6 @@ class FormController extends Controller {
 			$pt = User::where("matching_email","on")->whereIn("id",$partners)->get();
 			
 			
-			
-				
-				
 			 $sub = 'no-reply: Challenge Approval'.' '.$p->title;
 			 $pathToFile =  $pathToFile = $this->url_email."review/".$p->id;
 			 $sag = array('mail'=>$receiver,'sub'=>$sub,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
@@ -3300,9 +3297,15 @@ class FormController extends Controller {
 			
 			else if($cat =="sto"){
 			//echo "Alhamdulillah"; exit;
-			$a = PublicStories::where('status', "approved")->orWhere('category', "event")->orWhere('category', "need")->orWhere('category', "news")->orWhere('category', "grant")->where(function($query){
+			if(preg_match('/^\S.*\S$/', $keyword)){
+			
 			$keyword = Input::get('keyword');
-			$query->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->		orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
+
+			$keyword = explode(" ", $keyword);
+			}
+			$a = PublicStories::where('status', "approved")->where(function($query){
+			$keyword = Input::get('keyword');
+			$query->orWhere('category', "event")->orWhere('category', "need")->orWhere('category', "news")->orWhere('category', "grant")->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->		orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
 			
 			})->paginate(10)->appends($request->all());
 			
@@ -3313,7 +3316,7 @@ class FormController extends Controller {
 			//partner
 			$kkk = Keywords::all();
 			
-			
+			$keyword = Input::get('keyword');
 			if(preg_match('/^\S.*\S$/', $keyword)){
 			
 			$keyword = Input::get('keyword');

@@ -52,7 +52,7 @@
 <p>Here you find upcoming events relating to healthcare innovation. MMHIN is committed to running events that break down barriers to and encourage collaborative innovation, you’ll find these here. Partners are also welcomed to use this space to disseminate healthcare innovation-related events. </p>  <br/>  
                 <div class="col-md-9">
 				<div align="right">
-				<a href="/show_news_form" class="read-btn" style=" background-color: #333333;color: white; padding: 15px 25px;" title="Submit Event"><i class="fas fa-plus"></i>&nbsp;Submit Event</a>
+				<a href="/show_news_form" class="read-btn" style=" background-color: #1C1C1C;color: white; padding: 15px 25px;" title="Submit Event"><i class="fas fa-plus"></i>&nbsp;Submit Event</a>
 				<br/>
 				<br/>
 				<br/>

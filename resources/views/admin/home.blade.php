@@ -183,68 +183,88 @@
                     <!-- end post-list -->
 					@if(Auth::check())
 					
-					 <div align="center"><h2><a href="/show_news_form" title="Post an Innovation Story" style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post an Innovation Story</a>				<br/></h2></div>
+					 <div align="center"><h2><a href="/show_news_form" title="Post an Innovation Story" style=" background-color: #00ACAC;color: white; padding: 7px 12px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post an Innovation Story</a>				<br/></h2></div>
 				
 				<br/>
 				<br/>
 				  <p align="center">  <h2>Newest Challenges</h2> </p>	 
 				  
 				  
-				  
+				  <div class="section-container">
 				  <ul class="post-list">
                    
 				   @foreach($cll as $cl)
-					<li>
-                            <div class="post-content">
-                                <!-- begin post-image -->
-                                <div class="post-image">
-                                    <a href="/clinical_detail/{{$cl->id}}" title="{{$cl->title}}"><img src="/mmhn/public/uploads/{{$cl->cover}}" class="cpt" align="post cover photo" /></a>
-                                </div>
-                                <!-- end post-image -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="/clinical_detail/{{$cl->id}}" title="{{$cl->title}}">{{$cl->title}}</a>
-                                    </h4>
-                                    <div class="post-by">
-                                        Posted By: {{$cl->posted_by_name}}
-										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($cl->updated_at)) }} 
+				   
+				   <li>
+                                <!-- begin comment-avatar -->
+								<!--image-->
+                                  
+                                <!-- end comment-avatar -->
+                                <!-- begin comment-container -->
+                                <div class="comment-container">
+                                    <div class="comment-author">
+				
+									<div>	
+									<a href="/clinical_detail/{{$cl->id}}"><img align="left" src="/mmhn/public/uploads/{{$cl->cover}}" alt="{{$cl->title}}" height="200px" width="200px" /></a>
+									</div>
+								
+                            
+                                       <h3 class="post-title">  <a href="/clinical_detail/{{$cl->id}}"  title="Click to view full details including submissions">{{$cl->title}}</a></h3>
+										 
+										 
+                                       <div class="post-by">
+                                        Posted By {{$cl->posted_by_name}}
+									
+										</a> <span class="divider">|</span> {{ date('D jS, M Y, h:i:s A', strtotime($cl->updated_at)) }} 
                                     </div>
-                                    <div class="post-desc">
-                                         <?php 
+                                    </div>
+									
+									
+									 <div >
+                                  
+                                    </div>
+									
+									
+                                    <div >
+                                    <b> Summary</b>
+									   <?php 
 									   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 										$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
 										
-										if(strlen($cl->summary)>200){
-										$txt = nl2br(substr($cl->summary,0,200));
+										if(strlen($cl->summary)>80){
+										$txt = nl2br(substr($cl->summary,0,80));
 										}else{
-										$txt =$cl->summary;
+										$txt =nl2br($cl->summary);
 										}
 										
 										echo $txt."...";
 										
 										?> 
+									 <br/>
                                     </div>
-                                </div>
-                                <!-- end post-info -->
-                                <!-- begin read-btn-container -->
-                                <div class="read-btn-container">
-                                   <a href="/clinical_detail/{{$cl->id}}" title="Latest Innovation Story">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>
-                                <!-- end read-btn-container -->
-                            </div>
-                            <!-- end post-content -->
-                        </li>
+									
+									
+									
+									
+								
+                                    </div>
+                                                                <!-- end comment-container -->
+                            </li>
+							
+							
+							<!--- end of partner view)-->
+				   
+					
 					@endforeach
                         
                         
                     </ul>
 					
-					
+					</div>
 				  
 				  
 				  
-				  <div align="center"><h2><a href="/clinical_need_form" title="Post a Challenge" style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post a Challenge</a>				<br/></h2></div>
+				  <div align="center"><h2><a href="/clinical_need_form" title="Post a Challenge" style=" background-color: #00ACAC;color: white; padding: 7px 12px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post a Challenge</a>				<br/></h2></div>
 					 
                   @else
 				  <br/>
@@ -267,7 +287,7 @@
     </div>
 		
 	<style type="text/css">
-	.adimg{ width:120px; height:auto;}
+	.adimg{ width:150px; height:auto;}
 	</style>	
 		<!-- advisory group-->
 		<div  align="center" style="padding:em;">

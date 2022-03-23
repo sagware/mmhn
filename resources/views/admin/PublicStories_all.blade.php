@@ -9,7 +9,7 @@
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -23,6 +23,7 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
 	<style>
 	html {
 
@@ -44,6 +45,12 @@ body {
 
     flex-grow: 1;
 
+}
+.formwrapper
+{    
+	height:100%;
+    float:left;
+   
 }
 	</style>
 </head>
@@ -80,51 +87,54 @@ body {
                     <!-- begin post-list -->
 					
 					
-					<div align="right">
-					 <form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					<div class="formwrapper">
+					 <form  action="/search" enctype="multipart/form-data" method="GET"  data-parsley-validate="true" name="demo-form">
 					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
 							<input type="hidden" name="cat" value="partner"/>
 					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">Partners</button>
+					<button style=" background-color: #1C1C1C;color: white; "  class="read-btn">Partners</button>
 					</form>
-					<br/>
+					</div>
 					
-					<form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					
+					<div class="formwrapper">
+					<form  action="/search" enctype="multipart/form-data"  data-parsley-validate="true" name="demo-form">
 					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
 							<input type="hidden" name="cat" value="need"/>
 					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">Challenges</button>
+					<button style=" background-color: #1C1C1C;color: white; "  class="read-btn">Challenges</button>
 					</form>
+					</div>
 					
-					<br/>
-					<form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					<div class="formwrapper">
+					<form  action="/search" enctype="multipart/form-data" method="GET"  data-parsley-validate="true" name="demo-form">
 					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
 							<input type="hidden" name="cat" value="news"/>
 					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">News</button>
+					<button style=" background-color: #1C1C1C;color: white; "  class="read-btn">News</button>
 					</form>
+					</div>
 					
 					
-					
-					<br/>
-					<form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					<div class="formwrapper">
+					<form  action="/search" enctype="multipart/form-data" method="GET"  data-parsley-validate="true" name="demo-form">
 					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
 							<input type="hidden" name="cat" value="grant"/>
 					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">Grant</button>
+					<button style=" background-color: #1C1C1C;color: white;"  class="read-btn">Grant</button>
 					</form>
+					</div>
 					
-					
-					<br/>
-					<form  action="/search" enctype="multipart/form-data" method="GET"class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+					<div class="formwrapper">
+					<form  action="/search" enctype="multipart/form-data" method="GET"  data-parsley-validate="true" name="demo-form">
 					 <input type="hidden" value="{{implode($kyd)}}" id="keyword" class="form-control" name="keyword" />
 							<input type="hidden" name="cat" value="event"/>
 					  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-					<button style=" background-color: #333333;color: white; padding: 15px 25px;"  class="read-btn">Event</button>
+					<button style=" background-color: #1C1C1C;color: white; "  class="read-btn">Event</button>
 					</form>
 					</div>
-					<br/>
 					
+					<br/><br/>
                     <div class="post-list post-grid post-grid-2">
                         @if(sizeof($pp)==0)
 					<p class="text-danger">	No content found</p>
