@@ -10,6 +10,12 @@
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
+	<meta charset="utf-8" />
+	<title>Edit Profile|Materials and Manufacturing in Healthcare Innovation Network| Register Page</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
 	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -419,9 +425,7 @@
 	
 
 	
-	
-	
-<style type="text/css">
+	<style type="text/css">
    	
 	  #pp{display:none;}
 	  
@@ -467,17 +471,21 @@
 	
    </script>
   
-<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<!-- ================== END BASE JS ================== -->
 	
-	
-		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
-		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
-		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
-
-	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
-	<script src="/assets_blog/js/apps.min.js"></script>
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
+	<script src="/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
+	<script src="/assets/js/form-wizards-validation.demo.min.js"></script>
+	<script src="/assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	
@@ -506,7 +514,7 @@
    </script>
    
    
-  <script type="text/javascript">
+   <script type="text/javascript">
 			$(function() {
 				$('#form-tags-1').tagsInput();
 				
@@ -526,8 +534,7 @@
 					'unique': true,
 					'minChars': 2,
 					'maxChars': 50,
-					'limit': 50,
-					
+					'limit': 50
 				});
 				
 				$('#form-tags-4').tagsInput({
@@ -550,23 +557,9 @@
 				});
 			});
 			
-			function changeAria(button_id) {
-
-					let button_el = document.getElementById(button_id);
-				
-					let expanded_val = button_el.getAttribute("aria-expanded");
-				
-					if(expanded_val === 'true') {
-				
-						button_el.setAttribute('aria-expanded', 'false');
-				
-					} else {
-				
-						button_el.setAttribute('aria-expanded', 'true');
-				
+			function changeAria(id){
+					document.getElementById(id1).setAttribute('aria-expanded', 'true');
 					}
-				
-				}
 		</script>
 		
 	<script>

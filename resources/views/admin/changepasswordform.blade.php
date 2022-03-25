@@ -8,29 +8,53 @@
 	<title>Reset Password | Materials and Manufacturing in Healthcare Network | Register Page</title>
 	<meta content="width=device-width" name="viewport">
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	
 	<link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets/css/animate.min.css" rel="stylesheet" />
 	<link href="/assets/css/style.min.css" rel="stylesheet" />
 	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-	<link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
+	>
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
+	
+	   <style>
+	.overlay{
+	
+	background: url('/assets/plain.png');
+	height:300px;
+	width: 300px;
+	opacity: 1;
+	}
+	.icon{
+	font-size:3em;
+	color: black;
+	}
+	
+	
+	</style>
+	<!-- overlay 2-->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	
+	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
+	
+	
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+
 		
 <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 </head>
@@ -184,17 +208,22 @@ password.addEventListener('input', function() {
 	<!-- end page container -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 	
+	<!--[if lt IE 9]>
+		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<!-- ================== END BASE JS ================== -->
 	
-		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
-		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
-		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
-
-	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
-	<script src="/assets_blog/js/apps.min.js"></script>
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="/assets/js/apps.min.js"></script>
 	
 <style type="text/css">
    	  #oth{display:none;}

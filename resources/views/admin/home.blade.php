@@ -2,33 +2,24 @@
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-<!--<![endif]-->
-<head>
+<!--<![endif]--><head>
 	<meta charset="utf-8" />
 	<title>Home|Materials and Manufacturing in Healthcare Innovation Network</title>
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+		
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
-	<!-- ================== END BASE CSS STYLE ================== -->
-    
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	@include("admin.analytics")
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
+	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 	
+
 	<!-- ================== END BASE CSS STYLE ================== -->
     <style>
 	.overlay{
@@ -49,8 +40,13 @@
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	
 	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body >
@@ -130,7 +126,7 @@
 				 
                 <div class="col-md-9">
                     <!-- begin post-list -->
-                    <ul class="post-list">
+                   <ul class="comment-list">
                    
 					<li>
                             <!-- begin post-left-info -->
@@ -168,20 +164,20 @@
 										
 										if(strlen($p->summary)>200){
 										$txt = nl2br(substr($p->summary,0,200));
+										echo $txt."..."."<a href='/public_post/{{$p->id}}' title='Latest Innovation Story'>Read More <i class='fa fa-angle-double-right'></i></a>";
 										}else{
-										$txt =$p->summary;
+										$txt = $p->summary;
+										echo $txt;
 										}
 										
-										echo $txt."...";
+										
 										
 										?> 
                                     </div>
                                 </div>
                                 <!-- end post-info -->
                                 <!-- begin read-btn-container -->
-                                <div class="read-btn-container">
-                                   <a href="/public_post/{{$p->id}}" title="Latest Innovation Story">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>
+                                
                                 <!-- end read-btn-container -->
                             </div>
                             <!-- end post-content -->
@@ -201,7 +197,7 @@
 				  
 				  <br/>
 				  <div class="section-container">
-				  <ul class="post-list">
+				 <ul class="comment-list">
                    
 				   @foreach($cll as $cl)
 				   
@@ -236,6 +232,8 @@
 									
 									
                                     <div >
+									
+									@if(!empty($cl->summary))
                                     <b> Summary</b>
 									   <?php 
 									   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
@@ -243,14 +241,16 @@
 										
 										if(strlen($cl->summary)>80){
 										$txt = nl2br(substr($cl->summary,0,80));
+										echo $txt."..."."<a href='/public_post/{{$p->id}}' title='Latest Innovation Story'>Read More <i class='fa fa-angle-double-right'></i></a>";
 										}else{
 										$txt =nl2br($cl->summary);
+										echo $txt;
 										}
 										
-										echo $txt."...";
-										
 										?> 
-									 <br/>
+										
+										@endif
+									
                                     </div>
 									
 									
@@ -344,8 +344,31 @@
 	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
 	<script src="/assets_blog/js/apps.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	
-	
+		<script type="text/javascript">
+						var acc = document.getElementsByClassName("accordion");
+					var i;
+					
+					for (i = 0; i < acc.length; i++) {
+					  acc[i].addEventListener("click", function() {
+						/* Toggle between adding and removing the "active" class,
+						to highlight the button that controls the panel */
+						this.classList.toggle("active");
+					
+						/* Toggle between hiding and showing the active panel */
+						var panel = this.nextElementSibling;
+						if (panel.style.display === "block") {
+						  panel.style.display = "none";
+						} else {
+						  panel.style.display = "block";
+						}
+					  });
+					}
+					
+					function changeAria(id){
+					document.getElementById(id1).setAttribute('aria-expanded', 'true');
+					}
+	</script>
+
 	
 	<script>
 	    $(document).ready(function() {

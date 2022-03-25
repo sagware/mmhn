@@ -2,8 +2,7 @@
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-<!--<![endif]-->
-<head>
+<!--<![endif]--><head>
 	<meta charset="utf-8" />
 	<title>   Membership Registration|Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width" name="viewport">

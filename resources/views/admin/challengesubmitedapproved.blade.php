@@ -8,19 +8,41 @@
 	<title>Challenge Story Approval Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width" name="viewport">	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
+	
+
 	<!-- ================== END BASE CSS STYLE ================== -->
-    
+    <style>
+	.overlay{
+	
+	background: url('/assets/plain.png');
+	height:300px;
+	width: 300px;
+	opacity: 1;
+	}
+	.icon{
+	font-size:3em;
+	color: black;
+	}
+	
+	
+	</style>
+	<!-- overlay 2-->
+	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	
 	<!-- ================== END BASE JS ================== -->
 	@include("admin.analytics")
+	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
