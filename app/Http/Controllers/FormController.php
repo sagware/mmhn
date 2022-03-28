@@ -1163,7 +1163,9 @@ class FormController extends Controller {
 					
 					$s->news_body = $newMessageBody;
 					$s->category = "need";
+					if(!empty(Input::get("coverphoto"))){
 					$s->cover = $fileFalseName2;
+					}
 					if($m=1){
 					$s->pic = serialize($names);
 					}else{

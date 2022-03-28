@@ -13,48 +13,6 @@
 	
 	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
-	<!-- ================== END BASE CSS STYLE ================== -->
-    
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	@include("admin.analytics")
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	<!-- ================== END BASE CSS STYLE ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
-	<!-- ================== END PAGE LEVEL STYLE ================== -->
-	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
-	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
-	<!-- multiselect-->
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -92,8 +50,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	
-	<link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
 	
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -193,12 +149,12 @@
 				padding: 20px 0 5px 0;
 			}
 		</style>
-	@include("admin.cookiebanner")	
+	
 </head>
+@include("admin.cookiebanner")	
 <body style="padding:0px !important; min-height: 100%;
     font-family: sans-serif;
     margin: 0;">
-@include("admin.analytics")
 @if(Session::has('needsubmitted'))
 						<script type="text/javascript">
 						alert('Challenge created successfully');

@@ -126,7 +126,7 @@
 				 
                 <div class="col-md-9">
                     <!-- begin post-list -->
-                   <ul class="comment-list">
+                   <ul class="comment-list" style="margin-bottom:0px !important;">
                    
 					<li>
                             <!-- begin post-left-info -->
@@ -149,7 +149,7 @@
 								</div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
-                                <div class="post-info">
+                                <div class="post-info" style="margin-bottom:0px !important;">
                                     <h4 class="post-title">
                                         <a href="/public_post/{{$p->id}}" title="Latest Innovation Story">{{$p->title}}</a>
                                     </h4>
@@ -157,7 +157,7 @@
                                         Posted By: {{$p->posted_by_name}}
 										</a> <span class="divider">|</span> Time Posted {{ date('D jS, M Y, h:i:s A', strtotime($p->updated_at)) }} 
                                     </div>
-                                    <div class="post-desc">
+                                    <div class="post-desc" style="margin-bottom:0px !important;">
                                          <?php 
 									   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 										$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
@@ -189,15 +189,15 @@
                     <!-- end post-list -->
 					@if(Auth::check())
 					
-					 <div align="center"><h2><a href="/show_news_form" title="Post an Innovation Story" style=" background-color: #00ACAC;color: white; padding: 7px 12px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post an Innovation Story</a>				<br/></h2></div>
+					 <div style="margin-top:0px !important;" ><h2 align="center"><a href="/show_news_form" title="Post an Innovation Story" style=" background-color: #00ACAC;color: white; padding: 7px 12px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post an Innovation Story</a>				</h2></div>
 				
 				<br/>
 				<br/>
 				  <p align="center">  <h2>Newest Challenges</h2> </p>	 
 				  
 				  <br/>
-				  <div class="section-container">
-				 <ul class="comment-list">
+				  <div class="section-container" style="margin-bottom:0px !important;">
+				 <ul class="comment-list" style="margin-bottom:0px !important;">
                    
 				   @foreach($cll as $cl)
 				   
@@ -207,15 +207,15 @@
                                   
                                 <!-- end comment-avatar -->
                                 <!-- begin comment-container -->
-                                <div class="comment-container">
+                                <div class="comment-container" style="margin-bottom:0px !important;">
                                     <div class="comment-author">
 				
 									<div>	
-									<a href="/clinical_detail/{{$cl->id}}"><img align="left" src="/mmhn/public/uploads/{{$cl->cover}}" alt="{{$cl->title}}" height="200px" width="200px" /></a>
+									<a href="/clinical_detail/{{$cl->id}}"><img align="left" src="/mmhn/public/uploads/{{$cl->cover}}" alt="{{$cl->title}}" height="15%" width="30%" /></a>
 									</div>
 								
                             
-                                       <h3 class="post-title">  <a href="/clinical_detail/{{$cl->id}}"  title="Click to view full details including submissions">{{$cl->title}}</a></h3>
+                                       <h4 class="post-title">  <a href="/clinical_detail/{{$cl->id}}"  title="Click to view full details including submissions">{{$cl->title}}</a></h4>
 										 
 										 
                                        <div class="post-by">
@@ -274,11 +274,11 @@
 				  
 				  
 				  
-				  <div align="center"><h2><a href="/clinical_need_form" title="Post a Challenge" style=" background-color: #00ACAC;color: white; padding: 7px 12px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post a Challenge</a>				<br/></h2></div>
+				  <div align="center" style="margin-top:0px !important;"><h2><a href="/clinical_need_form" title="Post a Challenge" style=" background-color: #00ACAC;color: white; padding: 7px 12px;"  class="read-btn"><i class="fas fa-plus"></i>&nbsp;Post a Challenge</a>				<br/></h2></div>
 					 
                   @else
-				  <br/>
-				 <div align="center"><h2><a href="/login" title="login/register"><b>Log in/join to view and participate in solving healthcare challenges</b></a></h2></div> 
+				 
+				 <div align="center" style="margin-top:0px !important;" ><h2><a href="/login" title="login/register"><b>Log in/join to view and participate in solving healthcare challenges</b></a></h2></div> 
 				  @endif 
                 </div>
                 <!-- end col-9 -->
@@ -316,7 +316,7 @@
 	<a href="https://uclpartners.com/" title="UCL partners"> <img src="/mmhn/public/uploads/uclpartnerlogo.jpg" class="adimg" alt="UCL Partner Logo"/></a>
 	<a href="https://www.alderheyinnovation.com/" title="Aderly Hey Children's"> <img src="/mmhn/public/uploads/nhslogo.jpg" class="adimg" alt="NHS Foundation Trust Logo"/></a>
 	<a href="https://warwick.ac.uk/" title=" Warwick University home page"> <img src="/mmhn/public/uploads/Warwicklogo.jpg" class="adimg" alt="RQM Logo"/> </a>
-	<a href="https://www.uclh.nhs.uk/" title="NNHS UCL"> <img src="/mmhn/public/uploads/nhslondonlogo.png" class="adimg" alt="NHS UCL logo"/> </a>
+	<a href="https://www.uclh.nhs.uk/" title="NNHS UCL"> <img src="/mmhn/public/uploads/nhslondonlogo.png" style="height:50px !important; width:auto !important;"  alt="NHS UCL logo"/> </a>
 		 </div>
 		
 		@endif
