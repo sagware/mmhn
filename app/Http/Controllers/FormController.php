@@ -176,6 +176,11 @@ class FormController extends Controller {
 				return view('admin.deleteuser');
 		}
 		
+		public function showDeleteNeed($id){
+		$ids = $id;
+				return view('admin.deleteneed')->with("id",$ids);
+		}
+		
 		public function profileupdate(){
 				return view('admin.profileupdated');
 		}
@@ -1485,13 +1490,14 @@ class FormController extends Controller {
 			}
 		}
 		
-		public function deleteNeed($id){ 
+		public function deleteNeed(){ 
+		$id = Input::get("id");
 		//function for deleting clinical needs
 			if(Auth::check()){
 				$s = PublicStories::find($id);
 				$s->delete();
 					
-			return back()->with("del","Account created successfully... you can login now");
+			return view('admin.deleteneed')->with("del","Account created successfully... you can login now");
 			}else{
 					return redirect()->intended('/login');
 			}

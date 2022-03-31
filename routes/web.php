@@ -86,6 +86,7 @@ Route::get('/makefeatured/{id}', 'FormController@showMakeFeatured');
 
 Route::get('/delete/{id}', 'FormController@deleteUser');
 Route::get('/deleteuserpage', 'FormController@showDelete');
+Route::get('/showdeleteneed', 'FormController@showDeleteNeed');
 Route::post('/deletingpartner', 'FormController@deletion');
 Route::get('/deletecustomcat/{id}', 'FormController@deleteCustomCat');
 Route::post('/share/me/{id}', 'FormController@shareme');
@@ -113,7 +114,7 @@ Route::get('/clinical_need_form', 'FormController@showClinicalForm');
 Route::get('/clinical_need_formsubmitted', 'FormController@showClinicalFormSubmitted');
 Route::get('/clinical_need_formedited', 'FormController@showClinicalFormEdited');
 Route::get('/editclinical/{id}', 'FormController@editClinicalForm');
-Route::get('/deleteclinical/{id}', 'FormController@deleteNeed');
+Route::post('/deleteclinical', 'FormController@deleteNeed');
 Route::get('/clinicallist', 'FormController@clinicalList');
 Route::get('/create_partner', 'FormController@showCreatePartner');
 Route::get('/resetpassword/{id}', 'FormController@showChangePassword');

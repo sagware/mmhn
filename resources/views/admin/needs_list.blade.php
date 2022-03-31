@@ -149,7 +149,7 @@
 										<td>{{$g->	posted_by_name}}({{$g->	posted_by}})</td>
 										<td>
 										<a href="/showeditneed/{{$g->id}}" title="Edit">&nbsp;<i class="fa fa-2x fa-edit"></a></i><br/>
-										<a href="/deleteclinical/{{$g->id}}" title="Delete">&nbsp;<i class="fa fa-2x fa-trash-o"></i></a>
+										<a href="/showdeleteneed/{{$g->id}}" title="Delete">&nbsp;<i class="fa fa-2x fa-trash-o"></i></a>
 										</td>
 										<td>{{ date('D jS, M Y, h:i:s A', strtotime($g->created_at)) }}</td>
 										
