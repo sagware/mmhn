@@ -200,14 +200,14 @@
 									
 									
 									
-									<div><h2>News submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</h2></div>
+									<div>News submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</div>
 									
 									@if($ctn >0)
 									
 									
 											@foreach($pk as $p)
 											@if($p->category=="news")
-											<h3> <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
+											 <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> 
 											@endif
 											
 											@endforeach
@@ -218,14 +218,14 @@
 									@endif
 									
 									
-									<div><h2>Events submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</h2></div>
+									<div>Events submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</div>
 									
 									@if($cte >0)
 									
 									
 											@foreach($pk as $p)
 											@if($p->category=="event")
-											<h3> <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
+											 <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> 
 											@endif
 											
 											@endforeach
@@ -235,14 +235,14 @@
 									No events submission
 									@endif
 									
-									<div><h2>Grants submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</h2></div>
+									<div>Grants submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name)}} </div>
 									
 									@if($ctg >0)
 									
 									
 											@foreach($pk as $p)
 											@if($p->category=="grant")
-											<h3> <a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
+											<a href="/public_post/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> 
 											@endif
 											
 											@endforeach

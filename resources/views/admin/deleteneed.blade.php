@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Delete Need | Materials and Manufacturing in Healthcare Network</title>
+	<title>Delete Record | Materials and Manufacturing in Healthcare Network</title>
 	<meta content="width=device-width" name="viewport">
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -65,6 +65,12 @@
 			alert("Invalid cover photo: jpg, png only");
 			</script>
 			@endif
+			
+			@if(Session::has('del'))
+			<script type="text/javascript">
+			alert("Recorded Deleted");
+			</script>
+			@endif
 
   <!-- end navbar-header -->
             <!-- begin navbar-collapse -->
@@ -95,7 +101,7 @@
 			 
 			  <form action="/deleteclinical" method="POST"  enctype="multipart/form-data" class="margin-bottom-0">
 					
-					
+					<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                        
 						
 						
@@ -105,7 +111,7 @@
 						
 						
 						
-			 <button  type="submit" >Yes</button>| <button  ><a href="/dashboard" title="Challenges">No</a></button>
+			 <button  type="submit" >Yes</button>| <button  ><a href="/dashboard" title="Challenges">No, go back to dashboard </a> </button> | <button  ><a href="/needs_list" title="Challenges">Goto Challenges</a> </button> | <button  ><a href="/public_stories_list" title="Innovation Stories">Goto Innovation Stories</a></button>
 						
 						
                     </div>

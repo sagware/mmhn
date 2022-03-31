@@ -130,6 +130,7 @@
                                         <th>Category</th>
 										<th>Added by (ID)</th>
 										<th>Featured Story</th>
+										<th>Action</th>
 										<th>Date Submitted</th>
 										
 										
@@ -152,6 +153,10 @@
 										@elseif($g->role==1)
 										<a  href="/makefeatured/{{$g->id}}">	<button type="button" class="btn btn-primary m-r-5 m-b-5">Edit Featured Story</button></a>
 										@endif
+										</td>
+										<td>
+										<a href="/showeditneed/{{$g->id}}" title="Edit">&nbsp;<i class="fa fa-2x fa-edit"></a></i><br/>
+										<a href="/showdeleteneed/{{$g->id}}" title="Delete">&nbsp;<i class="fa fa-2x fa-trash-o"></i></a>
 										</td>
 										<td>{{ date('D jS, M Y, h:i:s A', strtotime($g->created_at)) }}</td>
 										

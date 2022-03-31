@@ -86,7 +86,7 @@ Route::get('/makefeatured/{id}', 'FormController@showMakeFeatured');
 
 Route::get('/delete/{id}', 'FormController@deleteUser');
 Route::get('/deleteuserpage', 'FormController@showDelete');
-Route::get('/showdeleteneed', 'FormController@showDeleteNeed');
+Route::get('/showdeleteneed/{id}', 'FormController@showDeleteNeed');
 Route::post('/deletingpartner', 'FormController@deletion');
 Route::get('/deletecustomcat/{id}', 'FormController@deleteCustomCat');
 Route::post('/share/me/{id}', 'FormController@shareme');
