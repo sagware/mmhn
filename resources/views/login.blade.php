@@ -11,7 +11,7 @@
 	<meta content="" name="author" />
 	
 	
-
+	@include("admin.analytics")
   
  
 	
@@ -23,7 +23,7 @@
 	<link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets/css/animate.min.css" rel="stylesheet" />
 	<link href="/assets/css/style.min.css" rel="stylesheet" />
-	<link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets/css/theme/default.css" rel="stylesheet" id="theme" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 	>
@@ -57,7 +57,7 @@
 	
 	
 	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	

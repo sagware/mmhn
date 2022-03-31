@@ -10,10 +10,33 @@
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
-		
 	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+    
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
+	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
@@ -21,35 +44,12 @@
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
-	
-
-	<!-- ================== END BASE CSS STYLE ================== -->
-    <style>
-	.overlay{
-	
-	background: url('/assets/plain.png');
-	height:300px;
-	width: 300px;
-	opacity: 1;
-	}
-	.icon{
-	font-size:3em;
-	color: black;
-	}
-	
-	
-	</style>
-	<!-- overlay 2-->
-	
+	<!-- multiselect-->
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
-	
+	<script src="/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	@include("admin.analytics")
 	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
 	
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -149,7 +149,7 @@
 				padding: 20px 0 5px 0;
 			}
 		</style>
-	
+	@include("admin.cookiebanner")	
 </head>
 
 <body style="padding:0px !important; min-height: 100%;
@@ -224,9 +224,9 @@
 								
 								<div class="form-group" id="pp">
 								
-									<label class="control-label col-md-4 col-sm-4" for="email" for="pic">Cover picture</label> 
+									<label class="control-label col-md-4 col-sm-4" for="email" for="pici">Cover picture</label> 
 									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control"  id="pic" name="cover"/>
+										<input type="file" class="form-control"  id="pici" name="cover"/>
 									</div>
 									
 								</div>
@@ -276,7 +276,7 @@
 									<label class="control-label col-md-4 col-sm-4" for="form-tags-3"> Other keywords (Comma-separated):</label>
 									
 									<div class="col-md-6 col-sm-6">
-									<label>	<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value="<?php $kwd =unserialize($p->other_keyword);  if(!empty($p->other_keyword) && is_array(unserialize($p->other_keyword))){echo implode(", ", $kwd);} ?>"  /></label>
+									<label>	<input class="form-control" type="text"  id="form-tags-3" name="tags-3"  placeholder="Other keyword, seperated by commas if more than one" value=" <?php $kwd = $p->other_keyword;  if(!empty($p->other_keyword)){echo $kwd; }?>"  /></label>
 										
 									</div>
 								</div>
@@ -356,17 +356,21 @@
 	
 	
 	
-	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<!-- ================== END BASE JS ================== -->
 	
-	
-		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
-		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
-		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
-
-	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
-	<script src="/assets_blog/js/apps.min.js"></script>
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
+	<script src="/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
+	<script src="/assets/js/form-wizards-validation.demo.min.js"></script>
+	<script src="/assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	
@@ -399,9 +403,23 @@
             });
         });
 		
-		function changeAria(id){
-					document.getElementById(id1).setAttribute('aria-expanded', 'true');
+		function changeAria(button_id) {
+
+					let button_el = document.getElementById(button_id);
+				
+					let expanded_val = button_el.getAttribute("aria-expanded");
+				
+					if(expanded_val === 'true') {
+				
+						button_el.setAttribute('aria-expanded', 'false');
+				
+					} else {
+				
+						button_el.setAttribute('aria-expanded', 'true');
+				
 					}
+				
+				}
     </script>
 	
 	 <script>
@@ -419,10 +437,7 @@
 		
 		
 		}
-</script>
-
-<script>
-  
+		
 		
 		function Pro(){
 			var checkBox = document.getElementById("cpp");
@@ -431,6 +446,7 @@
 		  // If the checkbox is checked, display the output text
 		  if (checkBox.checked == true){
 		   $('#pp').css('display','block');
+		    $('#pic').css('display','none');
 		  } else {
 			$('#pp').css('display','none');
 		  }   
@@ -440,7 +456,7 @@
 		}
 		
 	
-   </script>
+</script>
 	
 	
 	<script type="text/javascript">
@@ -486,24 +502,6 @@
 					'delimiter': [',', ';'] 
 				});
 			});
-			
-			function changeAria(button_id) {
-
-					let button_el = document.getElementById(button_id);
-				
-					let expanded_val = button_el.getAttribute("aria-expanded");
-				
-					if(expanded_val === 'true') {
-				
-						button_el.setAttribute('aria-expanded', 'false');
-				
-					} else {
-				
-						button_el.setAttribute('aria-expanded', 'true');
-				
-					}
-				
-				}
 		</script>
 		
 		

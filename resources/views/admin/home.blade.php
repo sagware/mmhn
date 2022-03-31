@@ -164,7 +164,7 @@
 										
 										if(strlen($p->summary)>200){
 										$txt = nl2br(substr($p->summary,0,200));
-										echo $txt."..."."<a href='/public_post/{{$p->id}}' title='Latest Innovation Story'>Read More <i class='fa fa-angle-double-right'></i></a>";
+										echo $txt."..."."<a href='/public_post/".$p->id ."'"."title='Latest Innovation Story'>Read More <i class='fa fa-angle-double-right'></i></a>";
 										}else{
 										$txt = $p->summary;
 										echo $txt;

@@ -1392,7 +1392,7 @@ class FormController extends Controller {
 				
 				
 					
-					$s = PublicStories::where("title",Input::get("name"))->where("keywords",Input::get("keywords"))->first();
+					$s = PublicStories::where("title",Input::get("name"))->first();
 					//pr($s,true);
 					
 					$partners =  serialize($request->input('partners', []));
@@ -3481,8 +3481,14 @@ class FormController extends Controller {
 			
 			public function allinv(){
 			//ontact us
-			$p = PublicStories::where("status","approved")->orWhere("category", "news")->orWhere("category", "event")->orWhere("category", "grant")->orderBy("updated_at","DESC")->simplePaginate(4);
-			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category", "news")->orWhere("category", "event")->orWhere("category", "grant")->orderBy("updated_at")->take(5)->get();
+			$p = PublicStories::where("posted_by",Auth::user()->id)->where(function($query){
+			$query->orWhere("category", "news")->orWhere("category", "event")->orWhere("category", "grant");
+			})->simplePaginate(10);		
+			
+			$r = PublicStories::where("id",">",0)->where("status","approved")->where(function($query){
+			$query->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant")->orderBy("updated_at");
+			})->take(5)->get();
+			
 			$cat = "news";
 			return view('admin.allinnovationstories')->with("pp",$p)->with("r",$r)->with("cat",$cat);
 			
@@ -3505,8 +3511,11 @@ class FormController extends Controller {
 			
 			$cat ="sto";
 			
+			$r = PublicStories::where("id",">",0)->where("status","approved")->where(function($query){
+			$query->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant")->orderBy("updated_at");
+			})->take(5)->get();
 			
-			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant")->orderBy("updated_at")->take(5)->get();
+			
 			return view('admin.MyPublicStories')->with("pp",$p)->with("r",$r)->with("cat",$cat);
 			
 			}
