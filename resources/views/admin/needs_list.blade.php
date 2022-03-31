@@ -130,6 +130,7 @@
                                         <th>Title</th>
                                         <th>Category</th>
 										<th>Added by (ID)</th>
+										<th>Action</th>
 										<th>Date Submitted</th>
 										
 										
@@ -146,6 +147,10 @@
                                         <td>{{$g->title}}</td>
 										<td>Challenge</td>
 										<td>{{$g->	posted_by_name}}({{$g->	posted_by}})</td>
+										<td>
+										<a href="/showeditneed/{{$g->id}}" title="Edit">&nbsp;<i class="fa fa-2x fa-edit"></a></i><br/>
+										<a href="/deleteclinical/{{$g->id}}" title="Delete">&nbsp;<i class="fa fa-2x fa-trash-o"></i></a>
+										</td>
 										<td>{{ date('D jS, M Y, h:i:s A', strtotime($g->created_at)) }}</td>
 										
 										

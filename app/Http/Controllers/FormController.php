@@ -287,7 +287,6 @@ class FormController extends Controller {
 					$s->pic = $fileFalseName;
 					}
 					$s->category = Input::get("category");
-					$s->pic = $fileFalseName;
 					$last_edited = Auth::user()->first_name." ".Auth::user()->last_name." ".Auth::user()->id;
 					$s->status = "Under Review";
 					}
@@ -1489,7 +1488,7 @@ class FormController extends Controller {
 		public function deleteNeed($id){ 
 		//function for deleting clinical needs
 			if(Auth::check()){
-				$s = Clinical::find($id);
+				$s = PublicStories::find($id);
 				$s->delete();
 					
 			return back()->with("del","Account created successfully... you can login now");

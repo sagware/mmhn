@@ -20,7 +20,12 @@
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 	
-
+	
+	
+	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="/assets_blog/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bootbox.min.js"></script>
 	<!-- ================== END BASE CSS STYLE ================== -->
     <style>
 	.overlay{
@@ -215,6 +220,7 @@ max-width: 80%;
     <!-- end #footer -->
     <!-- begin #footer-copyright -->
   <!-- ================== BEGIN BASE JS ================== -->
+	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	
@@ -226,8 +232,17 @@ max-width: 80%;
 	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
 	<script src="/assets_blog/js/apps.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+		
+	
+
 	
 	
+	<!--[if lt IE 9]>
+		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
 	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<script src="/assets_blog/js/apps.min.js"></script>
 	<script src="/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
@@ -235,6 +250,11 @@ max-width: 80%;
 	<script src="/assets/plugins/DataTables/extensions/KeyTable/js/dataTables.keyTable.min.js"></script>
 	<script src="/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 	<script src="/assets/js/table-manage-keytable.demo.min.js"></script>
+	
+	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="/assets_blog/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bootbox.min.js"></script>
 	
 	<script>
 	function reject(p_id){
