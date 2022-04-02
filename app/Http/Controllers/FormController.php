@@ -52,6 +52,7 @@ class FormController extends Controller {
 		return view('admin.register');
 		}
 		
+		
 		public function addPublicStories(Request $request){ 
 		//pr(Input::all(),true);
 			if(Auth::check()){
@@ -135,7 +136,7 @@ class FormController extends Controller {
 					$s->pic = $fileFalseName;
 					$s->status = "Under Review";
 				$s->save();
-				return redirect()->intended('/newssubmitted');
+				
 				
 			$admins = User::where("role", "admin")->get();			
 			foreach ($admins as $adm){
@@ -145,16 +146,19 @@ class FormController extends Controller {
 			 $name = $adm->first_name;
 			 $sender = "admin@materialsinhealth.org";
 			 $mes = $this->url_email."/public_stories_list";
+			 $sub = "no-reply: New Innovation Story Submission for your Approval"." ".$s->title;
 			 $sag = array('mail'=>$receiver,'sub'=>$sub,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
 			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
-			 $sub = "no-reply: New Innovation Story Submission for your Approval"." ".$s->title;
+			 
 			  Mail::send('emails.admin_innovation_not', $data, function ($m) use ($sag) {
 					$m->from('admin@materialsinhealth.org', $sag['sub']);
 					$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
 				 });
 		}
+		return redirect()->intended('/newssubmitted');
 				
 			}
+			
 			else{
 					return redirect()->intended('/login');
 			}
@@ -1412,7 +1416,7 @@ class FormController extends Controller {
 			 $receiver =  $adm->email;
 			 $name = $adm->first_name;
 			 $sender = "admin@materialsinhealth.org";
-			 $mes = $this->url_email."clinical_detail/".$si->id;
+			 $mes = $this->url_email."review/".$si->id;
 			  $sub = "no-reply: New Challenge Submission for your Approval"." ".Input::get("name");
 			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
 			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
@@ -2880,6 +2884,10 @@ class FormController extends Controller {
 			
 			public function showPost($id){
 			$p = PublicStories::where("id",$id)->first();
+			
+			if(empty($p)){
+			echo "This record has been deleted"; exit;
+			}
 			$cct = $p->category;
 			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category",$cct)->orderBy("updated_at")->take(5)->get();
 			$cat = $p->category;
@@ -2892,6 +2900,11 @@ class FormController extends Controller {
 			if(Auth::check()){
 			
 			$p = PublicStories::where("id",$id)->first();
+			
+			if(empty($p)){
+			echo "This record has been deleted"; exit;
+			}
+			
 			$com = Comment::where("public_stories_id",$id)->get();
 			$comct = Comment::where("public_stories_id",$id)->count();
 			$re = Replies::where("public_stories_id",$id)->get();
@@ -3096,7 +3109,7 @@ class FormController extends Controller {
 			
 				
 				
-			if(!empty($p->partners) or $p->partners !="N"){	
+			if(!empty($p->partners) && $p->partners !="N" && !empty(unserialize($p->partners)) ){	
 			 
 			 $mes = $p->title;
 			 $receiver =  $u->email;
@@ -3106,15 +3119,37 @@ class FormController extends Controller {
 			 
 			 if($p->category == "need"){
 			 
-			 if(empty($p->partners)){
+			 if(empty(unserialize($p->partners))){
 			 $partners = array();
 			 
 			 }else{
 			  $partners = unserialize($p->partners);
 			 }
 			
-						
-			$pt = User::where("matching_email","on")->whereIn("id",$partners)->get();
+			
+			
+			
+			foreach($partners as $pk){
+			$pt = User::where("matching_email","on")->where("id",$pk)->first();	
+			//pr($pt->email,true);
+			if(!empty($pt)){
+						 $mes ="";
+						 $receiver =  $pt->email;
+						 $name = $pt->first_name;
+						 $sender = "admin@materialsinhealth.org";
+						 $pathToFile =$this->url_email."clinical_detail/".$p->id;
+						 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','name'=>$name,'pathTo'=>$pathToFile);				
+						 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
+						 
+						  Mail::send('emails.match_making', $data, function ($m) use ($sag) {
+								$m->from('admin@materialsinhealth.org', 'no-reply: Partner selection from MMHN');
+								$m->to($sag['mail'], $sag['mail'])->subject('no-reply: Partner selection from MMHN');
+							 });
+							 
+							 
+							 }
+				
+				}
 			
 			
 			 $sub = 'no-reply: Challenge Approval'.' '.$p->title;
@@ -3313,7 +3348,7 @@ class FormController extends Controller {
 			}
 			$a = PublicStories::where('status', "approved")->where(function($query){
 			$keyword = Input::get('keyword');
-			$query->orWhere('category', "event")->orWhere('category', "need")->orWhere('category', "news")->orWhere('category', "grant")->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->		orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
+			$query->orWhere('title', 'LIKE', '%'.$keyword.'%')->orWhere('news_body', 'LIKE', '%'.$keyword.'%')->		orWhere('summary', 'LIKE', '%'.$keyword.'%')->orWhere('posted_by_name', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%');
 			
 			})->paginate(10)->appends($request->all());
 			
@@ -3487,7 +3522,7 @@ class FormController extends Controller {
 			
 			public function allinv(){
 			//ontact us
-			$p = PublicStories::where("posted_by",Auth::user()->id)->where(function($query){
+			$p = PublicStories::where("status","approved")->where(function($query){
 			$query->orWhere("category", "news")->orWhere("category", "event")->orWhere("category", "grant");
 			})->simplePaginate(10);		
 			

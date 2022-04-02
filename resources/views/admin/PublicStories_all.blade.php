@@ -163,7 +163,7 @@ body {
 					<br/><br/>
                     <div class="post-list post-grid post-grid-2">
                         @if(sizeof($pp)==0)
-					<p class="text-danger">	No content found</p>
+					<p class="text-danger">	No content found from innovation stories or challenges</p>
 						@else
 						@foreach($pp as $p)
                         <div class="post-li">

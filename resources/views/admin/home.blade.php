@@ -241,7 +241,7 @@
 										
 										if(strlen($cl->summary)>80){
 										$txt = nl2br(substr($cl->summary,0,80));
-										echo $txt."..."."<a href='/public_post/{{$p->id}}' title='Latest Innovation Story'>Read More <i class='fa fa-angle-double-right'></i></a>";
+										echo $txt."..."."<a href='/public_post/".$p->id ."'"."title='Latest Innovation Story'>Read More <i class='fa fa-angle-double-right'></i></a>";
 										}else{
 										$txt =nl2br($cl->summary);
 										echo $txt;
@@ -278,7 +278,7 @@
 					 
                   @else
 				 
-				 <div align="center" style="margin-top:0px !important;" ><h2><a href="/login" title="login/register"><b>Log in/join to view and participate in solving healthcare challenges</b></a></h2></div> 
+				 <a href="/login" title="login/register" class="btn btn-primary btn-block btn-lg" ><b>Log in/join to view and participate in solving healthcare challenges</b></a>
 				  @endif 
                 </div>
                 <!-- end col-9 -->
@@ -311,8 +311,8 @@
 		<div> 
 	<a href="https://www.ucl.ac.uk/" title="UCL home page"><img src="/mmhn/public/uploads/ucllogo.png" class="adimg" alt="UCL logo"/></a>
 	<a href="https://www.royalfree.nhs.uk/the-royal-free-hospital/" title="Royal free home page"> <img src="/mmhn/public/uploads/RFHlogo.png" class="adimg" alt="NHS Royar Foundation Logo"/> </a> 
-	<a href="https://www.3dlifeprints.com/" title="3D print home page"> <img src="/mmhn/public/uploads/3dlogo.png" class="adimg" alt="3D print logo"/></a>
-	<a href="https://www.paconsulting.com/" title="PA logo"> <img src="/mmhn/public/uploads/palogo.png" class="adimg" alt="PA logo"/></a>
+	<a href="https://www.3dlifeprints.com/" title="3D print home page"> <img src="/mmhn/public/uploads/3dlogo.png"  alt="3D print logo" style=" width:10% !important; height:auto !important;"/></a>
+	<a href="https://www.paconsulting.com/" title="PA logo"> <img src="/mmhn/public/uploads/palogo.png" class="adimg" alt="PA logo" style=" width:10% !important; height:auto !important;"/></a>
 	<a href="https://uclpartners.com/" title="UCL partners"> <img src="/mmhn/public/uploads/uclpartnerlogo.jpg" class="adimg" alt="UCL Partner Logo"/></a>
 	<a href="https://www.alderheyinnovation.com/" title="Aderly Hey Children's"> <img src="/mmhn/public/uploads/nhslogo.jpg" class="adimg" alt="NHS Foundation Trust Logo"/></a>
 	<a href="https://warwick.ac.uk/" title=" Warwick University home page"> <img src="/mmhn/public/uploads/Warwicklogo.jpg" class="adimg" alt="RQM Logo"/> </a>

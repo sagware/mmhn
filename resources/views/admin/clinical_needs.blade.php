@@ -11,33 +11,9 @@
 	<meta content="" name="author" />
 	
 	
-	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
-	<!-- ================== END BASE CSS STYLE ================== -->
-    
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	<!-- ================== END BASE CSS STYLE ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
-	<!-- ================== END PAGE LEVEL STYLE ================== -->
-	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
@@ -45,12 +21,46 @@
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
-	<!-- multiselect-->
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
 	
-	<link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
+	
+	
+	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="/assets_blog/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bootbox.min.js"></script>
+	<!-- ================== END BASE CSS STYLE ================== -->
+    <style>
+	.overlay{
+	
+	background: url('/assets/plain.png');
+	height:300px;
+	width: 300px;
+	opacity: 1;
+	}
+	.icon{
+	font-size:3em;
+	color: black;
+	}
+	
+	
+	</style>
+	<!-- overlay 2-->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	
+	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	
+	
+	
+	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	
 	
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -245,8 +255,8 @@
 									
 									<div class="dropdown" scroll  >
 										<button class="btn btn-primary" type="button" 
-										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false' onClick="ariaChange('sampleDropdownMenu')">
-										<label for="sampleDropdownMenu">Click to select keywords </label>
+										id="sampleDropdownMenu" data-toggle="dropdown" aria-haspopup='true' aria-expanded='true'>
+										Click to select keywords 
 										</button> or add  <input  type="checkbox"  name="other" id="ck" value="other" onClick="OtherField()" /> <label for="ck">Other keywords</label> 
 										<div class="dropdown-menu" style="overflow-y: scroll; height:250px; padding:0.5em 1em;">
 										@foreach($kw as $k)
@@ -336,19 +346,7 @@
 	</div>
 	@include("admin.footer")	
 	<!-- end page container -->
-	
-<script>
-	
-					
-	    $(document).ready(function() {
-	        App.init();
-	    });
-	</script>
-	
-	
-	
-	
-	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
 		<script src="/assets/crossbrowserjs/respond.min.js"></script>
@@ -365,6 +363,13 @@
 	<script src="/assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
+	
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+<style type="text/css">
+   	  #oth{display:none;}
+	  
+   </style>
 	
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	

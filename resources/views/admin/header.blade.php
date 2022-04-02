@@ -10,7 +10,7 @@
 </style>
 @include("admin.cookiebanner")
 <header>
-<div id="header" class="header navbar navbar-default navbar-fixed-top" style="height:75px;!important;">
+<div id="header" class="header navbar navbar-default navbar-fixed-top" >
         <!-- begin container -->
         <div class="container">
             <!-- begin navbar-header -->
@@ -22,7 +22,7 @@
                 </button>
 				 <div class="navbar-header" >
                 <a href="/" title="Home" class="navbar-brand">
-                      <img src="/assets/icon600.png" alt="Materials and Manufacturing in Healthcare Innovation Network" width="150px" height="52px">
+                      <img src="/assets/icon600.png" alt="Materials and Manufacturing in Healthcare Innovation Network" width="150px" height="43px">
                 </a>
 				</div>
             </div>

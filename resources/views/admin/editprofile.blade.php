@@ -10,36 +10,9 @@
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
-	<meta charset="utf-8" />
-	<title>Edit Profile|Materials and Manufacturing in Healthcare Innovation Network| Register Page</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
 	
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
-	<!-- ================== END BASE CSS STYLE ================== -->
-    
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	<!-- ================== END BASE CSS STYLE ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
-	<link href="/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
-	<!-- ================== END PAGE LEVEL STYLE ================== -->
-	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-	
-	<link href="http:/fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/animate.min.css" rel="stylesheet" />
@@ -47,46 +20,42 @@
 	<link href="/assets_blog/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
-	<!-- multiselect-->
+	
+	
+	
+	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="/assets_blog/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bootbox.min.js"></script>
+	<!-- ================== END BASE CSS STYLE ================== -->
+    <style>
+	.overlay{
+	
+	background: url('/assets/plain.png');
+	height:300px;
+	width: 300px;
+	opacity: 1;
+	}
+	.icon{
+	font-size:3em;
+	color: black;
+	}
+	
+	
+	</style>
+	<!-- overlay 2-->
+	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/pace/pace.min.js"></script>
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	
 	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
 	
-	<link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}" alt="Materials and Manufacturing in Healthcare Innovation Network">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
-    <!-- SummerNote Javascript Library -->
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-	
-    <script>
-        $(document).ready(function () {
-            /** Initialize SummerNote Javscript For Textarea */
-            $('#message').summernote({
-               placeholder: 'Enter the post body',
-                height: '300px',
-				styleTags: [
-    'p',
-        { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
-        'pre', 'h1', 'H2', 'H3', 'H4', 'Heading5', 'Heading6'
-	],
-  
-                toolbar: [
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough', 'superscript', 'subscript']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']],
-				  ['insert', ['link', 'picture']],
-				  ['view', ['codeview', 'help']],
-				  ['somegroup', ['style.H2', 'style.H3','style.Heading4','style.Heading5','style.Heading6' ]]
-                ]
-           
-            });
-        });
-    </script>
 	
 	
 	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
