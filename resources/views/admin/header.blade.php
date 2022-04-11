@@ -10,19 +10,17 @@
 </style>
 @include("admin.cookiebanner")
 <header>
-<div id="header" class="header navbar navbar-default navbar-fixed-top" >
+<div id="header" class="header navbar navbar-default navbar-fixed-top" style="margin-top:0px !important;">
         <!-- begin container -->
-        <div class="container">
+        <div class="container" style="margin-top:0px !important;">
             <!-- begin navbar-header -->
-            <div class="navbar-header">
+            <div class="navbar-header" style="margin-top:0px !important;">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    
                 </button>
-				 <div class="navbar-header" >
+				 <div class="navbar-header" style="margin-top:0px !important;" >
                 <a href="/" title="Home" class="navbar-brand">
-                      <img src="/assets/icon600.png" alt="Materials and Manufacturing in Healthcare Innovation Network" width="150px" height="43px">
+                      <img src="/assets/icon600.png" alt="Materials and Manufacturing in Healthcare Innovation Network" width="140px" height="38px" style="margin-top:0px">
                 </a>
 				</div>
             </div>

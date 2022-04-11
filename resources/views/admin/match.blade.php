@@ -104,6 +104,7 @@
 								
 								
 								
+								
 								<div class="form-group">
 									<label class="control-label col-md-4 col-sm-4" for="partners">Academic partners</label>
 									<div class="col-md-6 col-sm-6">
@@ -112,12 +113,12 @@
                                 <thead>
                                     <tr>
 										
-										<th width="250px">Partner name</th>
+										<th width="150px">Partner name</th>
 										<th width="200px">Institution</th>
 										<th width="200px">Designation</th>
-										<th width="450px">Biography</th>
-										<th width="150px">Current Interest</th>
-										<th width="150px">Similarity Weight</th>
+										<th width="200px">Biography</th>
+										<th width="200px">Current Interest</th>
+										<th width="200px">Similarity Weight</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -144,7 +145,7 @@
                                     <tr >
 									
 										
-										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s>20 ){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
+										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s>=30 ){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td> <?php 
@@ -176,12 +177,7 @@
 											}else{
 												$ki = array();
 											}
-									
-									
-									//$ki = is_array($ki) ? $kd : array($ki);
-									//pr($ki,true);
-									//$values = get_values();
-									foreach($kd as $k){		
+										foreach($kd as $k){		
 										foreach((array)$ki as $uk){
 											
 											
@@ -223,15 +219,16 @@
                                 <thead>
                                     <tr>
 										
-										<th width="250px">Partner name</th>
+										<th width="150px">Partner name</th>
 										<th width="200px">Institution</th>
 										<th width="200px">Designation</th>
-										<th width="450px">Biography</th>
-										<th width="150px">Current Interest</th>
-										<th width="150px">Similarity Weight</th>
+										<th width="200px">Biography</th>
+										<th width="200px">Current Interest</th>
+										<th width="200px">Similarity Weight</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+								
 								  <?php $ct = 0;
 								  
 								  $s1 =0; ?>
@@ -254,7 +251,7 @@
                                     <tr >
 									
 										
-										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s1>20){ echo "checked";} ?> /> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
+										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s1>=30){ echo "checked";} ?> /> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td><?php 
@@ -274,7 +271,6 @@
 							
 							?></td>
 										<td><?php 
-										
 										if(!empty($u->keywords) && is_array(unserialize($u->keywords)) && !empty($u->keywords)){
 											$ctk = count(unserialize($u->keywords));
 										}else{
@@ -340,12 +336,12 @@
                                 <thead>
                                     <tr>
 										
-										<th width="250px">Partner name</th>
+										<th width="150px">Partner name</th>
 										<th width="200px">Institution</th>
 										<th width="200px">Designation</th>
-										<th width="450px">Biography</th>
-										<th width="150px">Current Interest</th>
-										<th width="150px">Similarity Weight</th>
+										<th width="200px">Biography</th>
+										<th width="200px">Current Interest</th>
+										<th width="200px">Similarity Weight</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -373,7 +369,7 @@
                                     <tr >
 									
 										
-										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s2>20){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
+										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s2>=30){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td><?php 
@@ -436,12 +432,12 @@
                                 <thead>
                                     <tr>
 										
-										<th width="250px">Partner name</th>
+										<th width="150px">Partner name</th>
 										<th width="200px">Institution</th>
 										<th width="200px">Designation</th>
-										<th width="450px">Biography</th>
-										<th width="150px">Current Interest</th>
-										<th width="150px">Similarity Weight</th>
+										<th width="200px">Biography</th>
+										<th width="200px">Current Interest</th>
+										<th width="200px">Similarity Weight</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -466,7 +462,7 @@
                                     <tr >
 									
 										
-										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s3>20){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
+										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s3>=30){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td><?php 
@@ -517,6 +513,12 @@
 									</div>
 								</div>
 								
+								
+								
+								
+								
+								
+								
 							<div class="form-group">
 									<label class="control-label col-md-4 col-sm-4" >&nbsp;&nbsp&nbsp&nbsp</label>
 									<div class="col-md-6 col-sm-6">
@@ -559,26 +561,54 @@
 	 @include("admin.homefooter")
 	<!-- end page container -->
 	
-	</body>
-	</html>
+	
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	
+	<!--[if lt IE 9]>
+		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="/assets/crossbrowserjs/respond.min.js"></script>
+		<script src="/assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
+	<script src="/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
+	<script src="/assets/js/form-wizards-validation.demo.min.js"></script>
+	
+	<script src="/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+	<script src="/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/jszip.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
+	<script src="/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+	<script src="/assets/js/table-manage-buttons.demo.min.js"></script>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+	
+	<script src="/assets/datatableother.js"></script>
+	<script src="/assets/datatableother2.js"></script>
+	
+	
+	<script src="/assets/js/apps.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-	
-	
-		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
-		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
-		<script src="/assets_blog/crossbrowserjs/excanvas.min.js"></script>
-
-	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
-	<script src="/assets_blog/js/apps.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-		
-	
-
-	
-	
+	<script src="/assets_blog/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="/assets_blog/crossbrowserjs/html5shiv.js"></script>
 		<script src="/assets_blog/crossbrowserjs/respond.min.js"></script>
@@ -586,15 +616,21 @@
 	<![endif]-->
 	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<script src="/assets_blog/js/apps.min.js"></script>
+	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
+	<script src="/assets/js/apps.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
 	<script src="/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
 	<script src="/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
 	<script src="/assets/plugins/DataTables/extensions/KeyTable/js/dataTables.keyTable.min.js"></script>
 	<script src="/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 	<script src="/assets/js/table-manage-keytable.demo.min.js"></script>
-	
-	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-	<script src="/assets_blog/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/assets/js/bootbox.min.js"></script>
 	
 	

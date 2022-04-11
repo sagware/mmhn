@@ -662,7 +662,6 @@ class FormController extends Controller {
 					$detail = Input::get("message");
 					$pic = $request->file('pic');
 					$keywords = Input::get("keywords");
-					$keywords = array();
 					$others = Input::get("tags-3");
 					$others = explode (",", $others); 
 					//pr($others,true);
@@ -855,10 +854,11 @@ class FormController extends Controller {
 			$sk = Keywords::where("id",">",0)->get();
 			
 			$strk = "";
-			if(is_array(unserialize($u->keywords))){
+			
+			if(!empty($ki)){
 			$ki = unserialize($u->keywords);
 			}else{
-				$ki = array();
+			$ki= array();
 			}
 			//pr($ki,true);
 			foreach($ki as $ki){
@@ -876,6 +876,7 @@ class FormController extends Controller {
 			similar_text( str_replace($stpwds, " ",Input::get("name")),  str_replace($stpwds, " ",$strk,$percent7));
 			similar_text( str_replace($stpwds, " ",Input::get("statement")),  str_replace($stpwds, " ",$strk,$percent8));
 			$score =  ($percent1+$percent2+$percent3+$percent4+$percent5+$percent6+$percent7+$percent8)/8;
+			
 			
 				if($score >= 1 )
 				{
@@ -979,9 +980,11 @@ class FormController extends Controller {
 			}
 			
 			
+			
+			
+			
 			$id = array_unique($id);
 			$id2 = array_unique($id2);
-			
 			
 			
 			$aca = User::where('sector', 'Academic')->where("status",0)->where("iv_status",1)->where("id","!=",Auth::user()->id)->get();
@@ -1403,25 +1406,27 @@ class FormController extends Controller {
 					$s = PublicStories::where("title",Input::get("name"))->first();
 					//pr($s,true);
 					
+					//$partners = Input::get("partners");
 					$partners =  serialize($request->input('partners', []));
 					$s->partners = $partners;
 					$s->save();
-					
-					
+					//pr($s,true);
 					$admins = User::where("role", "admin")->get();
-					$si = PublicStories::where("title",Input::get("name"))->where("posted_by",Auth::user()->id)->first();
+					//$si = PublicStories::where("title",Input::get("name"))->where("posted_by",Auth::user()->id)->first();
+					
 			foreach ($admins as $adm){
 			// $mes ="";
-			 $pathToFile =$this->url_email."review".$si->id;
+			 $pathToFile =$this->url_email."review/".$s->id;
 			 $receiver =  $adm->email;
 			 $name = $adm->first_name;
 			 $sender = "admin@materialsinhealth.org";
-			 $mes = $this->url_email."review/".$si->id;
-			  $sub = "no-reply: New Challenge Submission for your Approval"." ".Input::get("name");
+			 $mes = $this->url_email."review/".$s->id;
+			 $sub = "no-reply: Edit Challenge Submission for your Approval"." ".Input::get("name");
 			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
 			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
+			 
 			  Mail::send('emails.admin_challenge_not', $data, function ($m) use ($sag) {
-					$m->from('admin@materialsinhealth.org',$sag['sub'] );
+					$m->from('admin@materialsinhealth.org', $sag['sub']);
 					$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
 				 });
 		}
@@ -1434,7 +1439,7 @@ class FormController extends Controller {
 			return redirect()->intended('/login');
 			}
 		
-		}
+		}	
 		
 		public function submitEditNeed(Request $request){ 
 		if(Auth::check()){
@@ -2883,6 +2888,7 @@ class FormController extends Controller {
 			
 			
 			public function showPost($id){
+			if(Auth::check()){
 			$p = PublicStories::where("id",$id)->first();
 			
 			if(empty($p)){
@@ -2892,6 +2898,9 @@ class FormController extends Controller {
 			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category",$cct)->orderBy("updated_at")->take(5)->get();
 			$cat = $p->category;
 			return view('admin.post')->with("p",$p)->with("r",$r)->with("cat",$cat);
+			}else{
+				return redirect()->intended('/login');
+			}
 			
 			}
 			
@@ -3107,6 +3116,24 @@ class FormController extends Controller {
 			
 			
 			
+			if($p->category != "need"){
+			 $mes = $p->title;
+			 $receiver =  $u->email;
+			 $name = $u->first_name;
+			 $sender = "admin@materialsinhealth.org";
+		$pathToFile =  $pathToFile = $this->url_email."public_review/".$id;
+		$sub = "no-reply: Innovation Story Approval"." ".$p->title;
+			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
+			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
+		
+		 Mail::send('emails.approveinnovationstory', $data, function ($m) use ($sag) {
+								$m->from('admin@materialsinhealth.org', $sag['sub']);
+								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
+							 });
+							 
+							 return redirect()->intended('/newssubmittedapproved');
+		
+		}		
 				
 				
 			if(!empty($p->partners) && $p->partners !="N" && !empty(unserialize($p->partners)) ){	
@@ -3126,9 +3153,7 @@ class FormController extends Controller {
 			  $partners = unserialize($p->partners);
 			 }
 			
-			
-			
-			
+	
 			foreach($partners as $pk){
 			$pt = User::where("matching_email","on")->where("id",$pk)->first();	
 			//pr($pt->email,true);
@@ -3166,22 +3191,8 @@ class FormController extends Controller {
 							 return redirect()->intended('/challengesubmittedapproved');
 							 
 		}
-		else{
-		$pathToFile =  $pathToFile = $this->url_email."public_review/".$id;
-		$sub = "no-reply: Innovation Story Approval"." ".$p->title;
-			 $sag = array('mail'=>$receiver,'user_id'=>'hhhhh','sub'=>$sub,'name'=>$name,'pathTo'=>$pathToFile);				
-			 $data = array('name'=>$name,'pathTo'=>$pathToFile, 'email'=>$receiver, 'm'=>$mes, 'user'=>'sagir','user_name'=>$sender);
 		
-		 Mail::send('emails.approveinnovationstory', $data, function ($m) use ($sag) {
-								$m->from('admin@materialsinhealth.org', $sag['sub']);
-								$m->to($sag['mail'], $sag['mail'])->subject($sag['sub']);
-							 });
-							 
-							 return redirect()->intended('/newssubmittedapproved');
-		
-		}
 			}
-			
 			
 			
 			}
@@ -3352,7 +3363,7 @@ class FormController extends Controller {
 			
 			})->paginate(10)->appends($request->all());
 			
-			$r = PublicStories::where("id",">",0)->where("category","event")->where("status","approved")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant")->orderBy("updated_at")->take(3)->get();
 			
 			
 			
@@ -3429,33 +3440,36 @@ class FormController extends Controller {
 			if(preg_match('/^\S.*\S$/', $keyword)){
 			
 			$keyword = Input::get('keyword');
-
-			$keyword = explode(" ", $keyword);
 			
+			$keyword = explode(" ", $keyword);
+			$keyword = implode(" ", $keyword);
+			$keyword = str_replace(' ', '_', $keyword);
 			
 			$c = User::where("status",0)->where(function($query){
 			$keyword = Input::get('keyword');
-
-			$keyword = explode(" ", $keyword);
-			$query->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword);
+			$kk = explode(" ", Input::get('keyword'));
+			$query->orWhereIn("first_name",$kk)->orWhereIn("middle_name",$kk)->orWhereIn("last_name",$kk)->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%');
 			
 			})->count();
 			
+			
+			
 			$s = User::where("status",0)->where(function($query){
 			$keyword = Input::get('keyword');
-
-			$keyword = explode(" ", $keyword);
-			$query->orWhereIn("first_name",$keyword)->orWhereIn("middle_name",$keyword)->orWhereIn("last_name",$keyword)->orWhereIn('bio', $keyword)->orWhereIn('sector', $keyword)->orWhereIn('designation',  $keyword)->orWhereIn('institution',  $keyword)->orWhereIn('keywords_text',  $keyword)->orWhereIn('other_keyword',  $keyword);
+			$kk = explode(" ", Input::get('keyword'));
+			$query->orWhereIn("first_name",$kk)->orWhereIn("middle_name",$kk)->orWhereIn("last_name",$kk)->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%');
 			
-			})->paginate(10)->appends($request->all());		
-			
-			
+			})->paginate(10)->appends($request->all());
 	
 		
 		}else{			
+		
 			
+		$s = User::where("status",0)->where(function($query){
+			$keyword = Input::get('keyword');
+			$query->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%');
 			
-		$s = User::where("status",0)->orWhere("first_name",'LIKE', '%'.$keyword.'%')->orWhere("middle_name",'LIKE', '%'.$keyword.'%')->orWhere("last_name",'LIKE', '%'.$keyword.'%')->orWhere('bio','LIKE', '%'.$keyword.'%')->orWhere('sector', 'LIKE', '%'.$keyword.'%')->orWhere('designation', 'LIKE', '%'.$keyword.'%')->orWhere('institution', 'LIKE', '%'.$keyword.'%')->orWhere('keywords_text', 'LIKE', '%'.$keyword.'%')->orWhere('other_keyword', 'LIKE', '%'.$keyword.'%')->paginate(10)->appends($request->all());
+			})->paginate(10)->appends($request->all());
 		
 		
 		

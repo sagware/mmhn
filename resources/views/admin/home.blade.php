@@ -233,17 +233,17 @@
 									
                                     <div >
 									
-									@if(!empty($cl->summary))
+									@if(!empty($cl->news_body))
                                     <b> Summary</b>
 									   <?php 
 									   $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 										$new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
 										
-										if(strlen($cl->summary)>80){
-										$txt = nl2br(substr($cl->summary,0,80));
-										echo $txt."..."."<a href='/public_post/".$p->id ."'"."title='Latest Innovation Story'>Read More <i class='fa fa-angle-double-right'></i></a>";
+										if(strlen($cl->news_body)>80){
+										$txt = nl2br(substr($cl->news_body,0,80));
+										echo $txt."..."."<a href='/clinical_detail/".$cl->id ."'"."title='Latest Innovation Story'>Read More <i class='fa fa-angle-double-right'></i></a>";
 										}else{
-										$txt =nl2br($cl->summary);
+										$txt =nl2br($cl->news_body);
 										echo $txt;
 										}
 										
@@ -307,15 +307,21 @@
 		
 		@else
 		
-		<p align="center" style="margin-top:30px !important; margin:10px;">  <h2>Advisory Group</h2> </p>	
+		<div id="content" class="content" style="margin-bottom:0 !important; margin-top:0;">
+        <!-- begin container -->
+        <div class="container">
+            <!-- begin row --> 
+			<br/>
+			<p >  <h2 align="left">Advisory Group</h2> </p>	</div></div>
+			<br/>
 		<div> 
 	<a href="https://www.ucl.ac.uk/" title="UCL home page"><img src="/mmhn/public/uploads/ucllogo.png" class="adimg" alt="UCL logo"/></a>
 	<a href="https://www.royalfree.nhs.uk/the-royal-free-hospital/" title="Royal free home page"> <img src="/mmhn/public/uploads/RFHlogo.png" class="adimg" alt="NHS Royar Foundation Logo"/> </a> 
-	<a href="https://www.3dlifeprints.com/" title="3D print home page"> <img src="/mmhn/public/uploads/3dlogo.png"  alt="3D print logo" style=" width:10% !important; height:auto !important;"/></a>
-	<a href="https://www.paconsulting.com/" title="PA logo"> <img src="/mmhn/public/uploads/palogo.png" class="adimg" alt="PA logo" style=" width:10% !important; height:auto !important;"/></a>
+	<a href="https://www.3dlifeprints.com/" title="3D print home page"> <img src="/mmhn/public/uploads/3dlogo.png"  alt="3D print logo" style=" width:6% !important; height:6% !important;"/></a>
+	<a href="https://www.paconsulting.com/" title="PA logo"> <img src="/mmhn/public/uploads/palogo.png" class="adimg" alt="PA logo" style=" width:6% !important; height:auto !important;"/></a>
 	<a href="https://uclpartners.com/" title="UCL partners"> <img src="/mmhn/public/uploads/uclpartnerlogo.jpg" class="adimg" alt="UCL Partner Logo"/></a>
 	<a href="https://www.alderheyinnovation.com/" title="Aderly Hey Children's"> <img src="/mmhn/public/uploads/nhslogo.jpg" class="adimg" alt="NHS Foundation Trust Logo"/></a>
-	<a href="https://warwick.ac.uk/" title=" Warwick University home page"> <img src="/mmhn/public/uploads/Warwicklogo.jpg" class="adimg" alt="RQM Logo"/> </a>
+	<a href="https://warwick.ac.uk/" title=" Warwick University home page"> <img src="/mmhn/public/uploads/Warwicklogo.jpg"style=" width:7% !important; height:7% !important;" alt="RQM Logo"/> </a>
 	<a href="https://www.uclh.nhs.uk/" title="NNHS UCL"> <img src="/mmhn/public/uploads/nhslondonlogo.png" style="height:50px !important; width:auto !important;"  alt="NHS UCL logo"/> </a>
 		 </div>
 		

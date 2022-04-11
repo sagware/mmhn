@@ -172,18 +172,22 @@ body {
                                 <!-- begin post-image -->
                                 <div class="post-image">
                                    @if(!empty($p->pic) && ($p->category=="news" || $p->category=="event" || $p->category=="grant"))
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}"  /></a>
 								@elseif( !empty($p->cover) && $p->category=="need")
-								 <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
+								 <a href="/clinical_detail/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->cover}}" alt="{{$p->title}}"  /></a>
 								@else
-								<a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" height="100%" width="100%" alt="{{$p->title}}" /></a>
+								<a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png"  alt="{{$p->title}}" /></a>
 								@endif
                                 </div>
                                 <!-- end post-image -->
                                 <!-- begin post-info -->
                                 <div class="post-info">
                                     <h4 class="post-title">
+									@if(!($p->category=="need"))
                                         <a href="/public_post/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
+										@else
+										<a href="/clinical_detail/{{$p->id}}" title="Click to view post">{{$p->title}}</a>
+										@endif
                                     </h4>
                                     <div class="post-by">
                                         Posted By {{$p->posted_by_name}}
@@ -193,8 +197,9 @@ body {
                                    
                                     <div class="read-btn-container">
 									@if(Auth::check())
-									@if(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
-									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
+									@if((Auth::user()->id == $p->posted_by || Auth::user()->role=="admin") && $p->category =="need")
+									<a href="/showeditneed/{{$p->id}}" title="Edit" class="read-btn">Edit </a> | @elseif(Auth::user()->id == $p->posted_by || Auth::user()->role=="admin")
+									<a href="/showeditpublic_stories/{{$p->id}}" title="Edit" class="read-btn">Edit </a> |
 									@endif
 									@endif
                                         <a href="/public_post/{{$p->id}}" title="Read more" class="read-btn">View Detail <i class="fa fa-angle-double-right"></i></a>

@@ -179,14 +179,14 @@
 									
 									
 									<br/>
-									<div><h2>Challenges submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</h2></div>
+									<div><b>Challenges submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</b></div>
 									
 									@if($ctc >0)
 									@if(Auth::check())
 									
 											@foreach($pk as $p)
 											@if($p->category=="need")
-											<h3> <a href="/clinical_detail/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> </h3>
+											<a href="/clinical_detail/{{$p->id}}" title="{{$p->title}}">{{$p->title}}</a> 
 											@endif
 											
 											@endforeach
@@ -200,7 +200,7 @@
 									
 									
 									
-									<div>News submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</div>
+									<div> <b>News submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</b></div>
 									
 									@if($ctn >0)
 									
@@ -218,7 +218,7 @@
 									@endif
 									
 									
-									<div>Events submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</div>
+									<div><b>Events submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name) }}</b></div>
 									
 									@if($cte >0)
 									
@@ -235,7 +235,7 @@
 									No events submission
 									@endif
 									
-									<div>Grants submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name)}} </div>
+									<div><b>Grants submitted by: {{ucfirst($s->first_name )}} {{ucfirst($s->middle_name )}} {{ucfirst($s->last_name)}}</b> </div>
 									
 									@if($ctg >0)
 									

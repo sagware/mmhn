@@ -146,7 +146,7 @@
                                     <tr >
 									
 										
-										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s>20 ){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
+										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s>=30 ){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td> <?php 
@@ -229,6 +229,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+								
 								  <?php $ct = 0;
 								  
 								  $s1 =0; ?>
@@ -251,7 +252,7 @@
                                     <tr >
 									
 										
-										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s1>20){ echo "checked";} ?> /> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
+										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s1>=30){ echo "checked";} ?> /> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td><?php 
@@ -369,7 +370,7 @@
                                     <tr >
 									
 										
-										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s2>20){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
+										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s2>=30){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td><?php 
@@ -462,7 +463,7 @@
                                     <tr >
 									
 										
-										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s3>20){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
+										<td><input type="checkbox" id="partners" name="partners[]" value="{{$u->id}}" <?php if($s3>=30){ echo "checked";} ?>/> <a href="javascript:;" onClick="detail('{{$u->first_name}}','{{$u->middle_name}}','{{$u->last_name}}', '{{$u->email}}','{{$u->institution}}', '{{$u->designation}}', '{{$u->bio}}','{{$u->current_interest}}', '{{$u->previous_interest}}','{{$u->picture}}')" title="{{$u->first_name}} {{$u->middle_name}} {{$u->last_name}} click for more details"> {{$u->first_name}} {{$u->middle_name}} {{$u->last_name}}</a></td>
 										<td>{{$u->institution}}</td>
 										<td>{{$u->designation}}</td>
 										<td><?php 
@@ -562,8 +563,7 @@
 	 @include("admin.homefooter")
 	<!-- end page container -->
 	
-	</body>
-	</html>
+	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>

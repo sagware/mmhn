@@ -90,7 +90,7 @@
                     <div class="section-container">
                         
                       
-              Innovation Stroy has been approved successfully. The partner will be notified about this action.  <button  ><a href="/public_stories_list" title="Innovation stories approval">Approve more Innovation Stories</a></button>| <button  ><a href="/news" title="News">Go to News</a></button>|<button  ><a href="/event" title="Event">Go to Events</a></button> |<button  ><a href="/grant" title="Grants">Go to Grants</a></button>
+              Innovation Stroy has been approved successfully. The partner will be notified about this action.  <button  ><a href="/public_stories_list" title="Innovation stories approval">Approve more Innovation Stories</a></button>| <button  ><a href="/news" title="News">Go to News</a></button>|<button  ><a href="/event" title="Event">Go to Events</a></button> | <button  ><a href="/grant" title="Grants">Go to Grants</a></button>
 						
 						
                     </div>

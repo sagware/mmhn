@@ -9,7 +9,8 @@
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="/assets_blog/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/assets_blog/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -19,6 +20,34 @@
 	<link href="/assets_blog/css/theme/default.css" id="theme" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/813c025c0f.js" crossorigin="anonymous"></script>
 	
+
+	<!-- ================== END BASE CSS STYLE ================== -->
+    <style>
+	.overlay{
+	
+	background: url('/assets/plain.png');
+	height:300px;
+	width: 300px;
+	opacity: 1;
+	}
+	.icon{
+	font-size:3em;
+	color: black;
+	}
+	
+	
+	</style>
+	<!-- overlay 2-->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="/assets_blog/plugins/pace/pace.min.js"></script>
+	
+	<!-- ================== END BASE JS ================== -->
+	@include("admin.analytics")
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -55,11 +84,13 @@
     </script>
 	
 	
-	 <script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script src="https://cdn.tiny.cloud/1/tja9n4a99gszjfhet7x3lm2p9drj9zzd9ucky3l3e61a8s81/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
       tinymce.init({
-      selector: 'textarea',  // change this value according to your HTML
+      selector: 'textarea', 
+	  
+	   // change this value according to your HTML
 	 plugins: [
       'advlist autolink link image lists charmap print preview hr anchor pagebreak',
       'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
@@ -74,7 +105,7 @@
     file: { title: 'File', items: 'newdocument restoredraft | preview | print ' },
     edit: { title: 'Edit', items: 'undo redo | cut copy paste | selectall | searchreplace' },
     view: { title: 'View', items: 'code | visualaid visualchars visualblocks | spellchecker | preview fullscreen' },
-    insert: { title: 'Insert', items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor toc | insertdatetime' },
+    insert: { title: 'Insert', items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor toc | file image media| insertdatetime' },
     format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript codeformat | formats blockformats fontformats fontsizes align lineheight | forecolor backcolor | removeformat' },
     tools: { title: 'Tools', items: 'spellchecker spellcheckerlanguage | code wordcount' },
     table: { title: 'Table', items: 'inserttable | cell row column | tableprops deletetable' },
@@ -116,9 +147,8 @@
 				padding: 20px 0 5px 0;
 			}
 		</style>
-@include("admin.analytics")		
-
-
+	
+</head>
 
 <body style="padding:0px !important; min-height: 100%;
     font-family: sans-serif;
@@ -205,9 +235,9 @@
 								
 								<div class="form-group" id="pp">
 								
-									<label class="control-label col-md-4 col-sm-4" for="email" for="pic">Cover picture</label> 
+									<label class="control-label col-md-4 col-sm-4" for="email" for="pici">Cover picture</label> 
 									<div class="col-md-6 col-sm-6">
-										<input type="file" class="form-control" value="{{$n->pic}}" id="pic" name="pic"/>
+										<input type="file" class="form-control" value="{{$n->pic}}" id="pici" name="pic"/>
 									</div>
 									
 								</div>
@@ -288,26 +318,27 @@
    </style>
    
    
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-	<script src="/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
-	<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<!--[if lt IE 9]>
-		<script src="/assets/crossbrowserjs/html5shiv.js"></script>
-		<script src="/assets/crossbrowserjs/respond.min.js"></script>
-		<script src="/assets/crossbrowserjs/excanvas.min.js"></script>
-	<![endif]-->
-	<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<!-- ================== END BASE JS ================== -->
 	
-	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="/assets/plugins/parsley/dist/parsley.js"></script>
-	<script src="/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
-	<script src="/assets/js/form-wizards-validation.demo.min.js"></script>
-	<script src="/assets/js/apps.min.js"></script>
-	<!-- ================== END PAGE LEVEL JS ================== -->
+
+	
+	<script>
+	    $(document).ready(function() {
+	        App.init();
+	    });
+	</script>
+	
+	<?php
+	$value = "Hello world!";
+	 // 86400 = 1 day
+		if(isset($_COOKIE['cookie'])) {
+		setcookie("mycookie", $value, time() + 60);
+		   
+		} 
+?>
+	</body>
+	</html>
+	
+	
 	<script src="/assets_blog/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="/assets_blog/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	
@@ -319,12 +350,17 @@
 	<script src="/assets_blog/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<script src="/assets_blog/plugins/masonry/masonry.min.js"></script>
 	<script src="/assets_blog/js/apps.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	
-	
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
+	
+	<style type="text/css">
+   	  #oth{display:none;}
+	  #pp{display:none;}
+	  
+   </style>
+   
     <script>
         $(document).ready(function() {
             $('textarea#body').summernote({
@@ -347,36 +383,77 @@
         });
     </script>
 	
-	<script>
-		$(document).ready(function() {
-			App.init();
-			FormWizardValidation.init();
-		});
+	 <script>
+   function OtherField(){
+			var checkBox = document.getElementById("ck");
+		  // Get the output text
+		  	
+		  // If the checkbox is checked, display the output text
+		  if (checkBox.checked == true){
+		   $('#oth').css('display','block');
+		  } else {
+			$('#oth').css('display','none');
+		  }   
+   			
 		
-		tinymce.init({
-  selector: 'textarea#image-tools',
-  height: 500,
-  plugins: [
-    'advlist autolink lists link image charmap print preview anchor',
-    'searchreplace visualblocks code fullscreen',
-    'insertdatetime media table paste imagetools wordcount'
-  ],
-  toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-});
-
-	</script>
+		
+		}
+</script>
 	
-	<script>
-  
-		
-		function Pro(){
+	
+	<script type="text/javascript">
+			$(function() {
+				$('#form-tags-1').tagsInput();
+				
+				$('#form-tags-2').tagsInput({
+					'onAddTag': function(input, value) {
+						console.log('tag added', input, value);
+					},
+					'onRemoveTag': function(input, value) {
+						console.log('tag removed', input, value);
+					},
+					'onChange': function(input, value) {
+						console.log('change triggered', input, value);
+					}
+				});
+				
+				$('#form-tags-3').tagsInput({
+					'unique': true,
+					'minChars': 2,
+					'maxChars': 10,
+					'limit': 5,
+					'validationPattern': new RegExp('^[a-zA-Z]+$')
+				});
+				
+				$('#form-tags-4').tagsInput({
+					'autocomplete': {
+						source: [
+							'apple',
+							'banana',
+							'orange',
+							'pizza'
+						]
+					} 
+				});
+				
+				$('#form-tags-5').tagsInput({
+					'delimiter': ';' 
+				});
+				
+				$('#form-tags-6').tagsInput({
+					'delimiter': [',', ';'] 
+				});
+			});
+			
+			
+			function Pro(){
 			var checkBox = document.getElementById("cpp");
 		  // Get the output text
 		  	
 		  // If the checkbox is checked, display the output text
 		  if (checkBox.checked == true){
 		   $('#pp').css('display','block');
+		    $('#pic').css('display','none');
 		  } else {
 			$('#pp').css('display','none');
 		  }   
@@ -384,16 +461,17 @@
 		
 		
 		}
+		</script>
 		
-	
-   </script>
-	
+		
 	<script>
-	function accepted(){
-			$('#cook').css('display','none');
-		}
-	
+		$(document).ready(function() {
+			App.init();
+			FormWizardValidation.init();
+		});
 	</script>
+	
+	
 	
 </body>
 </html>

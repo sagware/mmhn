@@ -126,9 +126,9 @@ body {
                                 <!-- begin post-image -->
                                 <div class="post-image">
                                    @if(!empty($p->pic))
-                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}" height="100%" width="100%" /></a>
+                                    <a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/{{$p->pic}}" alt="{{$p->title}}"  /></a>
 								@else
-								<a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png" height="100%" width="100%" alt="{{$p->title}}" /></a>
+								<a href="/public_post/{{$p->id}}"><img src="/mmhn/public/uploads/empty.png"  alt="{{$p->title}}" /></a>
 								@endif
                                 </div>
                                 <!-- end post-image -->

@@ -67,7 +67,32 @@ public function postme()
 				if(Auth::user()->role=="admin"){
 					return redirect()->intended('/dashboard');
 				}else{
-				return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ev",$ev)->with("op",$op);
+				$ctss= "sto";
+				$inv = PublicStories::where("id",">",0)->where("status","approved")->where("featured","!=","")->where(function($query){
+			$query->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
+			})->first();	
+			
+			$chl = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->first();
+			
+			$r = PublicStories::where("id",">",0)->where("posted_by",Auth::user()->id)->where(function($query){
+			$query->where("category","need")->orderBy("updated_at");
+			})->take(3)->get();	
+			
+			
+			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->get();
+			
+			$clsh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->take(3)->get();
+			
+			
+			$ckk = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->first();
+			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
+			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
+			
+			$myinv = PublicStories::where("id",">",0)->where("posted_by",Auth::user()->id)->where(function($query){
+			$query->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
+			})->get();
+			
+				return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ck",$ckk)->with("ev",$ev)->with("op",$op)->with("cat",$ctss)->with("p",$inv)->with("c",$chl)->with("pm",$myinv)->with("cat",$ctss)->with("cll",$clsh);
 				}
 
 			}
