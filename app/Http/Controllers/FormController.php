@@ -1598,10 +1598,10 @@ class FormController extends Controller {
 		 
 		
 		
-		$r = PublicStories::where("id",">",0)->where("status","approved")->where("category","news")->orderBy("updated_at")->take(3)->get();
-			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->take(3)->get();
-			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
-			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
+		$r = PublicStories::where("id",">",0)->where("status","approved")->where("category","news")->orderBy("updated_at","DESC")->take(3)->get();
+			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at","DESC")->take(3)->get();
+			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at","DESC")->take(3)->get();
+			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at","DESC")->take(3)->get();
 			return redirect()->intended('/');
 	
 	}
@@ -2423,11 +2423,11 @@ class FormController extends Controller {
 			if(!(Auth::check())){
 			
 			$r = PublicStories::where("id",">",0)->where("status","approved")->where(function($query){
-			$query->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
-			})->take(3)->get();	
+			$query->orWhere("category","news")->orWhere("category","grant");
+			})->orderBy("updated_at","DESC")->take(3)->get();	
 			
 			$inv = PublicStories::where("id",">",0)->where("status","approved")->where("featured","!=","")->where(function($query){
-			$query->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
+			$query->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at","DESC");
 			})->first();	
 			
 			
@@ -2436,27 +2436,27 @@ class FormController extends Controller {
 			}else{
 			
 			$inv = PublicStories::where("id",">",0)->where("status","approved")->where("featured","!=","")->where(function($query){
-			$query->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
+			$query->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at","DESC");
 			})->first();	
 			
-			$chl = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->first();
+			$chl = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at","DESC")->first();
 			
 			$r = PublicStories::where("id",">",0)->where("posted_by",Auth::user()->id)->where(function($query){
-			$query->where("category","need")->orderBy("updated_at");
-			})->take(3)->get();	
+			$query->where("category","need");
+			})->orderBy("updated_at","DESC")->take(3)->get();	
 			
 			
-			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->get();
+			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at","DESC")->get();
 			
-			$clsh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->take(3)->get();
+			$clsh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at","DESC")->take(3)->get();
 			
 			
-			$ckk = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->first();
-			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
-			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
+			$ckk = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at","DESC")->first();
+			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at","DESC")->take(3)->get();
+			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at","DESC")->take(3)->get();
 			
 			$myinv = PublicStories::where("id",">",0)->where("posted_by",Auth::user()->id)->where(function($query){
-			$query->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at");
+			$query->orWhere("category","event")->orWhere("category","news")->orWhere("category","grant")->orderBy("updated_at","DESC");
 			})->get();
 				
 			return view('admin.home')->with("r",$r)->with("ch",$chh)->with("ck",$ckk)->with("ev",$ev)->with("op",$op)->with("cat",$ctss)->with("p",$inv)->with("c",$chl)->with("pm",$myinv)->with("cat",$ctss)->with("cll",$clsh);
@@ -2659,7 +2659,7 @@ class FormController extends Controller {
 			//showing cookie page
 			//$cat = Category::where('role','general')->get();
 			//pr(Auth::user()->id,true);
-			$r = PublicStories::where("id",">",0)->orderBy("updated_at")->where("status","approved")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			return view('admin.cookie')->with('r',$r);
 			}
 			
@@ -2667,7 +2667,7 @@ class FormController extends Controller {
 			//showing data policy page
 			//$cat = Category::where('role','general')->get();
 			//pr(Auth::user()->id,true);
-			$r = PublicStories::where("id",">",0)->orderBy("updated_at")->where("status","approved")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->orderBy("updated_at","DESC")->where("status","approved")->take(5)->get();
 			return view('admin.datapolicy');//->with('cat',$cat);
 			}
 			
@@ -2675,7 +2675,7 @@ class FormController extends Controller {
 				//showing terms and condition page
 				//$cat = Category::where('role','general')->get();
 				//pr(Auth::user()->id,true);
-				$r = PublicStories::where("id",">",0)->orderBy("updated_at")->where("status","approved")->take(5)->get();
+				$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 				return view('admin.termsandcondition');//->with('cat',$cat);
 			}
 			
@@ -2811,16 +2811,16 @@ class FormController extends Controller {
 	
 	public function aboutus(){
 	//show about us
-			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category","news")->orderBy("updated_at")->take(3)->get();
-			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->take(3)->get();
-			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
-			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category","news")->orderBy("updated_at","DESC")->take(3)->get();
+			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at","DESC")->take(3)->get();
+			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at","DESC")->take(3)->get();
+			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at","DESC")->take(3)->get();
 			return view('admin.about')->with("r",$r)->with("ch",$chh)->with("ev",$ev)->with("op",$op);
 			
 			}
 			public function faq(){
 	//show about us
-			$r = PublicStories::where("id",">",0)->orderBy("updated_at")->where("status","approved")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			return view('admin.faq')->with("r",$r);
 			
 			}
@@ -2828,10 +2828,10 @@ class FormController extends Controller {
 			public function contactus(){
 			$cat = "news";
 			//ontact us
-			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category","news")->orderBy("updated_at")->take(3)->get();
-			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at")->take(3)->get();
-			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at")->take(3)->get();
-			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category","news")->orderBy("updated_at","DESC")->take(3)->get();
+			$chh = PublicStories::where("id",">",0)->where("status","approved")->where("category","need")->orderBy("updated_at","DESC")->take(3)->get();
+			$op = PublicStories::where("id",">",0)->where("status","approved")->where("category","grant")->orderBy("updated_at","DESC")->take(3)->get();
+			$ev = PublicStories::where("id",">",0)->where("status","approved")->where("category","event")->orderBy("updated_at","DESC")->take(3)->get();
 			return view('admin.contactus')->with("r",$r)->with("cat",$cat);
 			
 			}
@@ -2840,7 +2840,7 @@ class FormController extends Controller {
 			//ontact us
 			$c = User::where("status", "0")->count();
 			$ss = User::where('id','>',0)->orderBy("first_name")->where("status", "0")->simplePaginate(10);
-			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			$kkk = Keywords::where("id",">",0)->get();
 			return view('admin.partnerslist')->with("c",$c)->with("ss",$ss)->with("r",$r)->with("kk",$kkk);
 			
@@ -2850,7 +2850,7 @@ class FormController extends Controller {
 			//ontact us
 			$c = User::where("status", "0")->where("sector","academic")->count();
 			$ss = User::where('id','>',0)->where("status", "0")->where("sector","academic")->orderBy("first_name")->simplePaginate(15);
-			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			$kkk = Keywords::where("id",">",0)->get();
 			return view('admin.partnerslist')->with("c",$c)->with("ss",$ss)->with("r",$r)->with("kk",$kkk);
 			
@@ -2860,7 +2860,7 @@ class FormController extends Controller {
 			//ontact us
 			$c = User::where("status", "0")->where("sector","industry")->count();
 			$ss = User::where('id','>',0)->where("status", "0")->where("sector","industry")->orderBy("first_name")->simplePaginate(15);
-			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			$kkk = Keywords::where("id",">",0)->get();
 			return view('admin.partnerslist')->with("c",$c)->with("ss",$ss)->with("r",$r)->with("kk",$kkk);
 			
@@ -2870,7 +2870,7 @@ class FormController extends Controller {
 			//ontact us
 			$c = User::where("status", "0")->where("sector","clinical")->count();
 			$ss = User::where('id','>',0)->where("status", "0")->where("sector","clinical")->orderBy("first_name")->simplePaginate(15);
-			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			$kkk = Keywords::where("id",">",0)->get();
 			return view('admin.partnerslist')->with("c",$c)->with("ss",$ss)->with("r",$r)->with("kk",$kkk);
 			
@@ -2880,7 +2880,7 @@ class FormController extends Controller {
 			//ontact us
 			$c = User::where("status", "0")->where("sector","Other")->count();
 			$ss = User::where('id','>',0)->where("status", "0")->where("sector","Other")->orderBy("first_name")->simplePaginate(15);
-			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category","!=","need")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			$kkk = Keywords::where("id",">",0)->get();
 			return view('admin.partnerslist')->with("c",$c)->with("ss",$ss)->with("r",$r)->with("kk",$kkk);
 			
@@ -2888,19 +2888,19 @@ class FormController extends Controller {
 			
 			
 			public function showPost($id){
-			if(Auth::check()){
+			//if(Auth::check()){
 			$p = PublicStories::where("id",$id)->first();
 			
 			if(empty($p)){
 			echo "This record has been deleted"; exit;
 			}
 			$cct = $p->category;
-			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category",$cct)->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->where("category",$cct)->orderBy("updated_at","DESC")->take(5)->get();
 			$cat = $p->category;
 			return view('admin.post')->with("p",$p)->with("r",$r)->with("cat",$cat);
-			}else{
-				return redirect()->intended('/login');
-			}
+			//}else{
+			//	return redirect()->intended('/login');
+			//}
 			
 			}
 			
@@ -2919,7 +2919,7 @@ class FormController extends Controller {
 			$re = Replies::where("public_stories_id",$id)->get();
 			$rect = Replies::where("public_stories_id",$id)->count();
 			$us = User::where("id", ">",0)->get();
-			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			return view('admin.needdetail')->with("p",$p)->with("r",$r)->with("us",$us)->with("cm",$com)->with("re",$re)->with("comct",$comct)->with("rect",$rect);
 			
 			}else{
@@ -3090,7 +3090,7 @@ class FormController extends Controller {
 			
 			public function showNeedDetailApprove($id){
 			$p = PublicStories::where("id",$id)->first();
-			$r = PublicStories::where("id",">",0)->where("category","need")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category","need")->orderBy("updated_at","DESC")->take(5)->get();
 			$u = User::where("id",">",0)->get();
 			return view('admin.needdetailapprove')->with("p",$p)->with("r",$r)->with("us",$u);
 			
@@ -3098,7 +3098,7 @@ class FormController extends Controller {
 			
 			public function showPublicDetailApprove($id){
 			$p = PublicStories::where("id",$id)->first();
-			$r = PublicStories::where("id",">",0)->where("category",'!=',"need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category",'!=',"need")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			return view('admin.publicdetailapprove')->with("p",$p)->with("r",$r);
 			
 			}
@@ -3330,7 +3330,7 @@ class FormController extends Controller {
 			})->paginate(10)->appends($request->all());		
 			//pr($a,true);
 			
-			$r = PublicStories::where("id",">",0)->where("category","news")->where("status","approved")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("category","news")->where("status","approved")->orderBy("updated_at","DESC")->take(3)->get();
 			
 			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r)->with("cat",$cat);
 			
@@ -3343,7 +3343,7 @@ class FormController extends Controller {
 			
 			})->paginate(10)->appends($request->all());
 			
-			$r = PublicStories::where("id",">",0)->where("category","event")->where("status","approved")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("category","event")->where("status","approved")->orderBy("updated_at","DESC")->take(3)->get();
 			
 			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r)->with("cat",$cat);
 			
@@ -3363,7 +3363,7 @@ class FormController extends Controller {
 			
 			})->paginate(10)->appends($request->all());
 			
-			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant")->orderBy("updated_at","DESC")->take(3)->get();
 			
 			
 			
@@ -3428,7 +3428,7 @@ class FormController extends Controller {
 			})->paginate(10)->appends($request->all());		
 			
 			
-			$r = PublicStories::where("id",">",0)->where("category","grant")->where("status","approved")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("category","grant")->where("status","approved")->orderBy("updated_at","DESC")->take(3)->get();
 			
 			return view('admin.PublicStories_search')->with("pp",$a)->with("r",$r)->with("cat",$cat);
 			
@@ -3490,7 +3490,7 @@ class FormController extends Controller {
 			$c =0;
 			}
 			//pr($keyword,true);
-			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			return view('admin.partnerslist')->with("ss",$s)->with("r",$r)->with("c",$c)->with("kk",$kkk);
 			}
 			
@@ -3503,7 +3503,7 @@ class FormController extends Controller {
 			})->paginate(10)->appends($request->all());			
 			
 			
-			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at")->take(3)->get();
+			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at","DESC")->take(3)->get();
 			
 			return view('admin.needs_search')->with("pp",$a)->with("r",$r);
 			}
@@ -3517,7 +3517,7 @@ class FormController extends Controller {
 			public function showNeed(){
 			if(Auth::check()){
 			$p = PublicStories::where("id", ">","0")->where("category","need")->where("status","approved")->orderBy("updated_at","DESC")->simplePaginate(4);
-			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			return view('admin.needs')->with("pp",$p)->with("r",$r);
 			
 			}else{
@@ -3529,7 +3529,7 @@ class FormController extends Controller {
 			public function showNeedEditable($id){
 			//echo $id; exit;
 			$p = PublicStories::where("id", ">","0")->where("category","need")->where("posted_by",$id)->orderBy("updated_at","DESC")->simplePaginate(4);
-			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category","need")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			return view('admin.myneeds')->with("pp",$p)->with("r",$r);
 			
 			}
@@ -3541,8 +3541,8 @@ class FormController extends Controller {
 			})->simplePaginate(10);		
 			
 			$r = PublicStories::where("id",">",0)->where("status","approved")->where(function($query){
-			$query->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant")->orderBy("updated_at");
-			})->take(5)->get();
+			$query->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant");
+			})->orderBy("updated_at","DESC")->take(5)->get();
 			
 			$cat = "news";
 			return view('admin.allinnovationstories')->with("pp",$p)->with("r",$r)->with("cat",$cat);
@@ -3552,7 +3552,7 @@ class FormController extends Controller {
 	public function news(){
 			//ontact us
 			$p = PublicStories::where("category", "news")->where("status","approved")->orderBy("updated_at","DESC")->simplePaginate(4);
-			$r = PublicStories::where("id",">",0)->where("category", "news")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category", "news")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			$cat = "news";
 			return view('admin.PublicStories_news')->with("pp",$p)->with("r",$r)->with("cat",$cat);
 			
@@ -3567,8 +3567,8 @@ class FormController extends Controller {
 			$cat ="sto";
 			
 			$r = PublicStories::where("id",">",0)->where("status","approved")->where(function($query){
-			$query->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant")->orderBy("updated_at");
-			})->take(5)->get();
+			$query->orWhere("category","news")->orWhere("category","event")->orWhere("category","grant");
+			})->orderBy("updated_at","DESC")->take(5)->get();
 			
 			
 			return view('admin.MyPublicStories')->with("pp",$p)->with("r",$r)->with("cat",$cat);
@@ -3578,7 +3578,7 @@ class FormController extends Controller {
 			public function showEditPublicStories($id){
 			//ontact us
 			$p = PublicStories::where("posted_by", $id)->where("status","approved")->orWhere("category","news")->orWhere("category","grant")->orWhere("category","event")->orderBy("updated_at","DESC")->simplePaginate(4);
-			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			$cat ="news";
 			return view('admin.PublicStories')->with("pp",$p)->with("r",$r)->with("cat",$cat);
 			
@@ -3587,7 +3587,7 @@ class FormController extends Controller {
 	public function event(){
 			//ontact us
 			$p = PublicStories::where("category", "event")->where("status","approved")->orderBy("updated_at","DESC")->simplePaginate(4);
-			$r = PublicStories::where("id",">",0)->where("category", "event")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category", "event")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			$cat = "event";
 			return view('admin.PublicStories_event')->with("pp",$p)->with("r",$r)->with("cat",$cat);
 			
@@ -3596,7 +3596,7 @@ class FormController extends Controller {
 			public function grant(){
 			//ontact us
 			$p = PublicStories::where("category", "grant")->where("status","approved")->orderBy("updated_at","DESC")->simplePaginate(4);
-			$r = PublicStories::where("id",">",0)->where("category", "grant")->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("category", "grant")->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			$cat = "grant";
 			return view('admin.PublicStories_grant')->with("pp",$p)->with("r",$r)->with("cat",$cat);
 			
@@ -3605,7 +3605,7 @@ class FormController extends Controller {
 			public function opportunity(){
 			//ontact us
 			$p = PublicStories::where("category", "opportunity")->where("status","approved")->orderBy("updated_at","DESC")->simplePaginate(4);
-			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at")->take(5)->get();
+			$r = PublicStories::where("id",">",0)->where("status","approved")->orderBy("updated_at","DESC")->take(5)->get();
 			return view('admin.PublicStories')->with("pp",$p)->with("r",$r);
 			
 			}
